@@ -14,14 +14,15 @@
 
 namespace gtypes
 {
-
 	class gtypesExport Vector3
 	{
 	public:
+		float x,y,z;
+	
 		Vector3();
 		Vector3(float _x,float _y,float _z);
 		void set(float _x,float _y,float _z);
-		float x,y,z;
+		
 		
 		float length();
 		float squaredLength();
@@ -36,7 +37,6 @@ namespace gtypes
 		void operator *=(const float f);
 		
 		float dotProduct(Vector3 v);
-
 	};
 }
 

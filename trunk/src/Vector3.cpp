@@ -20,28 +20,28 @@ namespace gtypes
 
 	Vector3::Vector3(float _x,float _y,float _z)
 	{
-		x=_x; y=_y; z=_z;
+		this->x=_x; this->y=_y; this->z=_z;
 	}
 
 	void Vector3::set(float _x,float _y,float _z)
 	{
-		x=_x; y=_y; z=_z;	
+		this->x=_x; this->y=_y; this->z=_z;	
 	}
 
 	float Vector3::length()
 	{
-		return sqrt(x*x+y*y+z*z);
+		return sqrt(this->x*this->x + this->y*this->y + this->z*this->z);
 	}
 
 	float Vector3::squaredLength()
 	{
-		return	x*x+y*y+z*z;
+		return	this->x*this->x + this->y*this->y + this->z*this->z;
 	}
 
 	void Vector3::normalise()
 	{
 		float len=length();
-		x/=len; y/=len; z/=len;
+		this->x/=len; this->y/=len; this->z/=len;
 	}
 
 	Vector3 Vector3::normalised()
@@ -54,37 +54,37 @@ namespace gtypes
 
 	Vector3 Vector3::operator +(const Vector3& v)
 	{
-		return Vector3(x+v.x,y+v.y,z+v.z);
+		return Vector3(this->x+v.x,this->y+v.y,this->z+v.z);
 	}
 
 	Vector3 Vector3::operator -(const Vector3& v)
 	{
-		return Vector3(x-v.x,y-v.y,z-v.z);
+		return Vector3(this->x-v.x,this->y-v.y,this->z-v.z);
 	}
 
 	Vector3 Vector3::operator *(const float f)
 	{
-		return Vector3(x*f,y*f,z*f);
+		return Vector3(this->x*f,this->y*f,this->z*f);
 	}
 
 	void Vector3::operator +=(const Vector3& v)
 	{
-		x+=v.x; y+=v.y; z+=v.z;
+		this->x+=v.x; this->y+=v.y; this->z+=v.z;
 	}
 
 	void Vector3::operator -=(const Vector3& v)
 	{
-		x-=v.x; y-=v.y; z-=v.z;
+		this->x-=v.x; this->y-=v.y; this->z-=v.z;
 	}
 
 	void Vector3::operator *=(const float f)
 	{
-		x*=f; y*=f; z*=f;
+		this->x*=f; this->y*=f; this->z*=f;
 	}
 	
 	float Vector3::dotProduct(Vector3 v)
 	{
-		return x*v.x+y*v.y+z*v.z;
+		return this->x*v.x+this->y*v.y+this->z*v.z;
 	}
 
 }

@@ -10,17 +10,44 @@
 #ifndef GTYPES_VECTOR2_H
 #define GTYPES_VECTOR2_H
 
+#include "gtypesExport.h"
+
 namespace gtypes
 {
-
-	class Vector2
+	class gtypesExport Vector2
 	{
 	public:
+		float x,y;
+	
 		Vector2();
-		~Vector2();
+		Vector2(float _x,float _y);
+		void set(float _x,float _y);
+		
+		
+		float length();
+		float squaredLength();
+		void normalise();
+		Vector2 normalised();
+		
+		Vector2 operator +(const Vector2& v);
+		Vector2 operator -(const Vector2& v);
+		Vector2 operator *(const float f);
+		void operator +=(const Vector2& v);
+		void operator -=(const Vector2& v);
+		void operator *=(const float f);
+		
+		float dotProduct(Vector2 v);
 
 	};
-
 }
+
+#ifdef GTYPES_ABREV
+
+namespace gt
+{
+	typedef gtypes::Vector2 vec2;
+}
+
+#endif // GTYPES_ABREV
 
 #endif // GTYPES_VECTOR2_H
