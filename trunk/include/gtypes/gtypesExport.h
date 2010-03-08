@@ -7,46 +7,22 @@
 * This program is free software; you can redistribute it and/or modify it under      *
 * the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php   *
 \************************************************************************************/
-#ifndef GTYPES_VECTOR3_H
-#define GTYPES_VECTOR3_H
+#ifndef GTYPES_EXPORT_H
+#define GTYPES_EXPORT_H
 
-#include "gtypesExport.h"
+	#ifdef _STATICLIB
+		#define gtypesExport
+	#else
+		#ifdef _WIN32
+			#ifdef GTYPES_EXPORTS
+				#define gtypesExport __declspec(dllexport)
+			#else
+				#define gtypesExport __declspec(dllimport)
+			#endif
+		#else
+			#define gtypesExport __attribute__ ((visibility("default")))
+		#endif
+	#endif
 
-namespace gtypes
-{
+#endif
 
-	class gtypesExport Vector3
-	{
-	public:
-		Vector3();
-		Vector3(float _x,float _y,float _z);
-		void set(float _x,float _y,float _z);
-		float x,y,z;
-		
-		float length();
-		float squaredLength();
-		void normalise();
-		Vector3 normalised();
-		
-		Vector3 operator +(const Vector3& v);
-		Vector3 operator -(const Vector3& v);
-		Vector3 operator *(const float f);
-		void operator +=(const Vector3& v);
-		void operator -=(const Vector3& v);
-		void operator *=(const float f);
-		
-		float dotProduct(Vector3 v);
-
-	};
-}
-
-#ifdef GTYPES_ABREV
-
-namespace gt
-{
-	typedef gtypes::Vector3 vec3;
-}
-
-#endif // GTYPES_ABREV
-
-#endif // GTYPES_VECTOR3_H
