@@ -3,13 +3,17 @@
   <Project Name="libgtypes" Path="libgtypes.project" Active="No"/>
   <Project Name="gtypes_unittest" Path="unittest/gtypes_unittest.project" Active="Yes"/>
   <BuildMatrix>
-    <WorkspaceConfiguration Name="Debug" Selected="yes">
+    <WorkspaceConfiguration Name="Debug" Selected="no">
       <Project Name="libgtypes" ConfigName="Debug"/>
       <Project Name="gtypes_unittest" ConfigName="Debug"/>
     </WorkspaceConfiguration>
-    <WorkspaceConfiguration Name="Release" Selected="yes">
+    <WorkspaceConfiguration Name="Release" Selected="no">
       <Project Name="libgtypes" ConfigName="Release"/>
       <Project Name="gtypes_unittest" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Linux_Debug" Selected="yes">
+      <Project Name="libgtypes" ConfigName="Linux_Debug"/>
+      <Project Name="gtypes_unittest" ConfigName="Linux_Debug"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
