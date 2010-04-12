@@ -23,4 +23,13 @@ namespace gtypes
 
 }
 
+#ifdef GTYPES_ABREV
+
+namespace gt
+{
+	typedef gtypes::Matrix4 mat4;
+}
+
+#endif // GTYPES_ABREV
+
 #endif // GTYPES_MATRIX4
