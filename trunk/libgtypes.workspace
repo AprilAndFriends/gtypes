@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CodeLite_Workspace Name="libgtypes" Database="./libgtypes.tags">
-  <Project Name="libgtypes" Path="libgtypes.project" Active="No"/>
-  <Project Name="gtypes_unittest" Path="unittest/gtypes_unittest.project" Active="Yes"/>
+  <Project Name="libgtypes" Path="libgtypes.project" Active="Yes"/>
+  <Project Name="gtypes_unittest" Path="unittest/gtypes_unittest.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="no">
       <Project Name="libgtypes" ConfigName="Debug"/>

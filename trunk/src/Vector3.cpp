@@ -22,6 +22,12 @@ namespace gtypes
 	{
 		this->x=_x; this->y=_y; this->z=_z;
 	}
+	Vector3::Vector3(const float *v)
+	{
+		this->x = v[0];
+		this->y = v[1];
+		this->z = v[2];
+	}
 
 	void Vector3::set(float _x,float _y,float _z)
 	{
@@ -60,6 +66,11 @@ namespace gtypes
 	Vector3 Vector3::operator -(const Vector3& v)
 	{
 		return Vector3(this->x-v.x,this->y-v.y,this->z-v.z);
+	}
+	
+	const Vector3 Vector3::operator-() const
+	{
+		return Vector3(-this->x,-this->y,-this->z);
 	}
 
 	Vector3 Vector3::operator *(const float f)
