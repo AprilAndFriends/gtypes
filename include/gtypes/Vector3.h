@@ -21,6 +21,7 @@ namespace gtypes
 	
 		Vector3();
 		Vector3(float _x,float _y,float _z);
+		Vector3(const float *v);
 		void set(float _x,float _y,float _z);
 		
 		
@@ -31,6 +32,7 @@ namespace gtypes
 		
 		Vector3 operator +(const Vector3& v);
 		Vector3 operator -(const Vector3& v);
+		const Vector3 operator-() const;
 		Vector3 operator *(const float f);
 		void operator +=(const Vector3& v);
 		void operator -=(const Vector3& v);

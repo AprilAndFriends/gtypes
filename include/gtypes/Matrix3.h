@@ -12,8 +12,10 @@
 
 #include "Vector3.h"
 
+
 namespace gtypes
 {
+	class Matrix4;
 
 	class Matrix3
 	{
@@ -26,6 +28,7 @@ namespace gtypes
 		Matrix3(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8);
 		Matrix3(float *m);
 		Matrix3(const Matrix3 &m);
+		Matrix3(const gtypes::Matrix4 &m);
 		
 		Matrix3 operator +(const Matrix3 &m) const;
 		Matrix3 operator -(const Matrix3 &m) const;

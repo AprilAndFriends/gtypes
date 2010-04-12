@@ -16,11 +16,23 @@ namespace gtypes
 	class Vector4
 	{
 	public:
+	
+		float x,y,z,w;
+	
 		Vector4();
-		~Vector4();
+		Vector4(float _x, float _y, float _z, float _w);
 
 	};
 
 }
+
+#ifdef GTYPES_ABREV
+
+namespace gt
+{
+	typedef gtypes::Vector4 vec4;
+}
+
+#endif // GTYPES_ABREV
 
 #endif // GTYPES_VECTOR4_H

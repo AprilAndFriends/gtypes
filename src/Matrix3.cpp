@@ -15,30 +15,30 @@ namespace gtypes
 
 	Matrix3::Matrix3()
 	{
-		this->mat[0] = 1.0; this->mat[1] = 0.0; this->mat[2] = 0.0;
-		this->mat[3] = 0.0; this->mat[4] = 1.0; this->mat[5] = 0.0;
-		this->mat[6] = 0.0; this->mat[7] = 0.0; this->mat[8] = 1.0;
+		this->mat[0] = 1.0; this->mat[3] = 0.0; this->mat[6] = 0.0;
+		this->mat[1] = 0.0; this->mat[4] = 1.0; this->mat[7] = 0.0;
+		this->mat[2] = 0.0; this->mat[5] = 0.0; this->mat[8] = 1.0;
 	}
 	
 	Matrix3::Matrix3(const Matrix3& m)
 	{
-		this->mat[0] = m[0]; this->mat[1] = m[1]; this->mat[2] = m[2];
-		this->mat[3] = m[3]; this->mat[4] = m[4]; this->mat[5] = m[5];
-		this->mat[6] = m[6]; this->mat[7] = m[7]; this->mat[8] = m[8];
+		this->mat[0] = m[0]; this->mat[3] = m[3]; this->mat[6] = m[6];
+		this->mat[1] = m[1]; this->mat[4] = m[4]; this->mat[7] = m[7];
+		this->mat[2] = m[2]; this->mat[5] = m[5]; this->mat[8] = m[8];
 	}
 	
 	Matrix3::Matrix3(float* m)
 	{
-		this->mat[0] = m[0]; this->mat[1] = m[1]; this->mat[2] = m[2];
-		this->mat[3] = m[3]; this->mat[4] = m[4]; this->mat[5] = m[5];
-		this->mat[6] = m[6]; this->mat[7] = m[7]; this->mat[8] = m[8];
+		this->mat[0] = m[0]; this->mat[3] = m[3]; this->mat[6] = m[6];
+		this->mat[1] = m[1]; this->mat[4] = m[4]; this->mat[7] = m[7];
+		this->mat[2] = m[2]; this->mat[5] = m[5]; this->mat[8] = m[8];
 	}
 	
 	Matrix3::Matrix3(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8)
 	{
-		this->mat[0] = m0; this->mat[1] = m1; this->mat[2] = m2;
-		this->mat[3] = m3; this->mat[4] = m4; this->mat[5] = m5;
-		this->mat[6] = m6; this->mat[7] = m7; this->mat[8] = m8;
+		this->mat[0] = m0; this->mat[3] = m3; this->mat[6] = m6;
+		this->mat[1] = m1; this->mat[4] = m4; this->mat[7] = m7;
+		this->mat[2] = m2; this->mat[5] = m5; this->mat[8] = m8;
 	}
 	
 	float Matrix3::det() const
@@ -68,8 +68,8 @@ namespace gtypes
 	Matrix3 Matrix3::transpose() const
 	{
 		return Matrix3(mat[0], mat[3], mat[6],
-					   mat[1], mat[4], mat[2],
-					   mat[7], mat[5], mat[8]);
+					   mat[1], mat[4], mat[7],
+					   mat[2], mat[5], mat[8]);
 	}
 	
 	Matrix3 Matrix3::rotationInverse2D() const
@@ -101,16 +101,16 @@ namespace gtypes
 	
 	void Matrix3::setIdentity()
 	{
-		this->mat[0] = 1.0; this->mat[1] = 0.0; this->mat[2] = 0.0;
-		this->mat[3] = 0.0; this->mat[4] = 1.0; this->mat[5] = 0.0;
-		this->mat[6] = 0.0; this->mat[7] = 0.0; this->mat[8] = 1.0;
+		this->mat[0] = 1.0; this->mat[3] = 0.0; this->mat[6] = 0.0;
+		this->mat[1] = 0.0; this->mat[4] = 1.0; this->mat[7] = 0.0;
+		this->mat[2] = 0.0; this->mat[5] = 0.0; this->mat[8] = 1.0;
 	}
 
 	void Matrix3::setZero()
 	{
-		this->mat[0] = 0.0; this->mat[1] = 0.0; this->mat[2] = 0.0;
-		this->mat[3] = 0.0; this->mat[4] = 0.0; this->mat[5] = 0.0;
-		this->mat[6] = 0.0; this->mat[7] = 0.0; this->mat[8] = 0.0;
+		this->mat[0] = 0.0; this->mat[3] = 0.0; this->mat[6] = 0.0;
+		this->mat[1] = 0.0; this->mat[4] = 0.0; this->mat[7] = 0.0;
+		this->mat[2] = 0.0; this->mat[5] = 0.0; this->mat[8] = 0.0;
 	}
 	
 	Matrix3 Matrix3::operator *(const Matrix3& m) const
@@ -164,7 +164,7 @@ namespace gtypes
 	{
 		float rad = angle*57.295779513082320876798154814105f;
 		mat[0] = cosf(rad); mat[1] = -sinf(rad);
-		mat[0] = sinf(rad); mat[1] =  cosf(rad);
+		mat[3] = sinf(rad); mat[4] =  cosf(rad);
 	}
 	
 	void Matrix3::rotate3D(float x, float y, float z, float angle)
