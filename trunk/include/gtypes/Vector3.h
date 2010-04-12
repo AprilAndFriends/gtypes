@@ -37,6 +37,9 @@ namespace gtypes
 		void operator *=(const float f);
 		
 		float dotProduct(Vector3 v);
+		
+		void cross(const Vector3 &v1,const Vector3 &v2);
+		void cross(const Vector3 &v2);
 	};
 }
 
