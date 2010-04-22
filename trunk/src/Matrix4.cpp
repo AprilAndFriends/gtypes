@@ -9,6 +9,10 @@
 \************************************************************************************/
 #include "Matrix4.h"
 
+#ifndef M_PI // msvc++ doesn't have this defined
+#define M_PI           3.14159265358979323846
+#endif
+
 namespace gtypes
 {
 
