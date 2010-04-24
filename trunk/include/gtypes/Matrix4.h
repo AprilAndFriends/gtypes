@@ -85,15 +85,6 @@ namespace gtypes
 		void lookAt(const float *eye, const float *direction, const float *up);
 		
 	};
-	
-	Matrix3::Matrix3(const Matrix4 &m)
-	{
-		this->mat[0] = m[0]; this->mat[3] = m[4]; this->mat[6] = m[8];
-		this->mat[1] = m[1]; this->mat[4] = m[5]; this->mat[7] = m[9];
-		this->mat[2] = m[2]; this->mat[5] = m[6]; this->mat[8] = m[10];
-	}
-
-
 
 }
 
