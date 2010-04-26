@@ -11,13 +11,13 @@
 #define GTYPES_MATRIX3
 
 #include "Vector3.h"
-
+#include "gtypesExport.h"
 
 namespace gtypes
 {
 	class Matrix4;
 
-	class Matrix3
+	class gtypesExport Matrix3
 	{
 		
 	public:

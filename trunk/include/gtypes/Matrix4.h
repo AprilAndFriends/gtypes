@@ -14,11 +14,12 @@
 #include "Vector4.h"
 #include "Vector3.h"
 #include "Matrix3.h"
+#include "gtypesExport.h"
 
 namespace gtypes
 {
 
-	class Matrix4
+	class gtypesExport Matrix4
 	{
 	public:
 	
