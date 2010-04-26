@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-I ./include/gtypes -c -fPIC -Wall
+CFLAGS=-I ./include/gtypes -c -fPIC -Wall -DGTYPES_EXPORTS
 LDFLAGS=
 SOURCES=./src/Matrix3.cpp  ./src/Quaternion.cpp  ./src/Spline3.cpp  ./src/Vector2i.cpp  ./src/Vector3i.cpp  ./src/Vector4i.cpp ./src/Matrix4.cpp  ./src/Spline2.cpp     ./src/Vector2.cpp  ./src/Vector3.cpp   ./src/Vector4.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
