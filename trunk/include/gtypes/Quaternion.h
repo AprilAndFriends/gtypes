@@ -31,6 +31,7 @@ namespace gtypes
 		Matrix4 mat4() const;
 		Matrix4 mat4(const Vector3& position) const;
 		
+		static Quaternion fromAxisAngle(float ax,float ay,float az,float angle);
 		
 
 	};
