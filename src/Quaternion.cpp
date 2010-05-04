@@ -16,8 +16,8 @@ namespace gtypes
 {
 	Quaternion::Quaternion()
 	{
-		this->y=1;
-		this->x=this->z=this->w=0;
+		this->w=1;
+		this->x=this->z=this->w=1;
 	}
 
 	Quaternion::Quaternion(const Quaternion& quat)
@@ -77,6 +77,18 @@ namespace gtypes
 		return Matrix4( 1.0f - 2.0f * (y2 + z2), 2.0f * (xy - wz), 2.0f * (xz + wy), 0.0f,
 				        2.0f * (xy + wz), 1.0f - 2.0f * (x2 + z2), 2.0f * (yz - wx), 0.0f,
 				        2.0f * (xz - wy), 2.0f * (yz + wx), 1.0f - 2.0f * (x2 + y2), 0.0f,
-						position.x      , position.y      , position.y             , 1.0f);
+						position.x      , position.y      , position.z             , 1.0f);
+	}
+	
+	Quaternion Quaternion::fromAxisAngle(float ax,float ay,float az,float angle)
+	{
+		float x,y,z,w;
+		float theta=angle/(2*57.295779513082323f);
+		w =      cos(theta);
+		x = ax * sin(theta);
+		y = ay * sin(theta);
+		z = az * sin(theta);
+		
+		return Quaternion(x,y,z,w);
 	}
 }
