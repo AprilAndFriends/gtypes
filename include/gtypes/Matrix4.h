@@ -31,10 +31,18 @@ namespace gtypes
 				float  m8, float  m9, float m10, float m11,
 				float m12, float m13, float m14, float m15);
 		Matrix4(float *m);
-		Matrix4(Matrix3 &m);
-		Matrix4(Matrix4 &m);
+		Matrix4(const Matrix3 &m);
+		Matrix4(const Matrix4 &m);
 		Matrix4(const gtypes::Vector3 &axis, float angle);
 		Matrix4(float x, float y, float z, float angle);
+		
+		void set(float  m0, float  m1, float  m2, float  m3,
+			float  m4, float  m5, float  m6, float  m7,
+			float  m8, float  m9, float m10, float m11,
+			float m12, float m13, float m14, float m15);
+		void set(float *m);
+		void set(const Matrix3& m);
+		void set(const Matrix4& m);
 		
 		gtypes::Vector3 operator *(const gtypes::Vector3 &v) const;
 		gtypes::Vector4 operator *(const gtypes::Vector4 &v) const;
@@ -58,8 +66,11 @@ namespace gtypes
 		Matrix4 getRotation() const;
 		Matrix4 transpose() const;
 		float det() const;
-		Matrix4 inverse() const;
-		Matrix4 inverseRotation() const;
+		Matrix4 inversed() const;
+		Matrix4 inversedRotation() const;
+	
+		void inverse();
+		void inverseRotation();
 		
 		void setZero();
 		void setIdentity();

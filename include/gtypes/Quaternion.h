@@ -12,12 +12,26 @@
 
 namespace gtypes
 {
+	class Matrix3;
+	class Matrix4;
+	class Vector3;
 
 	class Quaternion
 	{
 	public:
+		float x,y,z,w;
+	
 		Quaternion();
-		~Quaternion();
+		Quaternion(float _x,float _y,float _z,float _w);
+		Quaternion(const float *v);
+		Quaternion(const Quaternion& quat);
+		void set(float _x,float _y,float _z,float _w);
+		
+		Matrix3 mat3() const;
+		Matrix4 mat4() const;
+		Matrix4 mat4(const Vector3& position) const;
+		
+		
 
 	};
 
