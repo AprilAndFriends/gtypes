@@ -10,13 +10,15 @@
 #ifndef GTYPES_QUATERNION_H
 #define GTYPES_QUATERNION_H
 
+#include "gtypesExport.h"
+
 namespace gtypes
 {
 	class Matrix3;
 	class Matrix4;
 	class Vector3;
 
-	class Quaternion
+	class gtypesExport Quaternion
 	{
 	public:
 		float x,y,z,w;
