@@ -14,11 +14,8 @@
     <File Name="src/Spline2.cpp"/>
     <File Name="src/Spline3.cpp"/>
     <File Name="src/Vector2.cpp"/>
-    <File Name="src/Vector2i.cpp"/>
     <File Name="src/Vector3.cpp"/>
-    <File Name="src/Vector3i.cpp"/>
     <File Name="src/Vector4.cpp"/>
-    <File Name="src/Vector4i.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
     <File Name="include/gtypes/Matrix3.h"/>
@@ -27,11 +24,8 @@
     <File Name="include/gtypes/Spline2.h"/>
     <File Name="include/gtypes/Spline3.h"/>
     <File Name="include/gtypes/Vector2.h"/>
-    <File Name="include/gtypes/Vector2i.h"/>
     <File Name="include/gtypes/Vector3.h"/>
-    <File Name="include/gtypes/Vector3i.h"/>
     <File Name="include/gtypes/Vector4.h"/>
-    <File Name="include/gtypes/Vector4i.h"/>
     <File Name="include/gtypes/gtypesExport.h"/>
   </VirtualDirectory>
   <Dependencies Name="Release"/>
