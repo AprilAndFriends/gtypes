@@ -154,7 +154,7 @@ namespace gtypes
 	Matrix4 Matrix4::inversedRotation() const
 	{
 		Matrix4 mat(*this);
-		mat.inversedRotation();
+		mat.inverseRotation();
 		return mat;
 	}
 	
