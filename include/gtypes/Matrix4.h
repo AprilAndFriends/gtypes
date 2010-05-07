@@ -47,10 +47,10 @@ namespace gtypes
 		gtypes::Vector3 operator *(const gtypes::Vector3 &v) const;
 		gtypes::Vector4 operator *(const gtypes::Vector4 &v) const;
 		
-		Matrix4 &operator*=(float f) { return *this = *this * f; }
-		Matrix4 &operator*=(const Matrix4 &m) { return *this = *this * m; }
-		Matrix4 &operator+=(const Matrix4 &m) { return *this = *this + m; }
-		Matrix4 &operator-=(const Matrix4 &m) { return *this = *this - m; }
+		void operator*=(float f);
+		void operator*=(const Matrix4 &m);
+		void operator+=(const Matrix4 &m);
+		void operator-=(const Matrix4 &m);
 
 		operator float*() { return this->mat; }
 		operator const float*() const { return this->mat; }
@@ -75,26 +75,39 @@ namespace gtypes
 		void setZero();
 		void setIdentity();
 		
+		void setRotation(const gtypes::Vector3 &axis, float angle);
+		void setRotation(float x, float y, float z, float angle);
+		void setRotationX(float angle);
+		void setRotationY(float angle);
+		void setRotationZ(float angle);
 		void rotate(const gtypes::Vector3 &axis, float angle);
 		void rotate(float x, float y, float z, float angle);
 		void rotateX(float angle);
 		void rotateY(float angle);
 		void rotateZ(float angle);
 		
+		void setScale(float factor);
+		void setScale(float x, float y, float z);
+		void setScale(const gtypes::Vector3 &v);
 		void scale(float factor);
 		void scale(float x, float y, float z);
 		void scale(const gtypes::Vector3 &v);
 		
+		void setTranslation(const gtypes::Vector3 &v);
+		void setTranslation(float x, float y, float z);
 		void translate(const gtypes::Vector3 &v);
 		void translate(float x, float y, float z);
 		
+		void setReflection(const gtypes::Vector4 &plane);
+		void setReflection(float x, float y, float z, float w);
 		void reflect(const gtypes::Vector4 &plane);
 		void reflect(float x, float y, float z, float w);
 		
 		void perspective(float fov, float aspect, float near, float far);
+		void ortho(float w,float h,float x_offset=0,float y_offset=0);
 		
-		void lookAt(const gtypes::Vector3 &eye, const gtypes::Vector3 &direction, const gtypes::Vector3 &up);
-		void lookAt(const float *eye, const float *direction, const float *up);
+		void lookAt(const gtypes::Vector3 &eye, const gtypes::Vector3 &target, const gtypes::Vector3 &up);
+		void lookAt(const float *eye, const float *target, const float *up);
 		
 	};
 

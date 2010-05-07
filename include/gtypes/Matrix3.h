@@ -40,10 +40,10 @@ namespace gtypes
 		float &operator[](int i) { return mat[i]; }
 		const float operator[](int i) const { return mat[i]; }
 		
-		Matrix3 &operator*=(float f) { return *this = *this *f; }
-		Matrix3 &operator*=(const Matrix3 &m) { return *this = *this * m; }
-		Matrix3 &operator+=(const Matrix3 &m) { return *this = *this + m; }
-		Matrix3 &operator-=(const Matrix3 &m) { return *this = *this - m; }
+		void operator*=(float f);
+		void operator*=(const Matrix3 &m);
+		void operator+=(const Matrix3 &m);
+		void operator-=(const Matrix3 &m);
 		
 		gtypes::Vector3 operator *(const gtypes::Vector3 &v) const;
 		Matrix3 operator *(float f) const;
@@ -59,17 +59,29 @@ namespace gtypes
 		Matrix3 rotationInverse2D() const;
 		Matrix3 rotationInverse3D() const;
 		
+		void setRotation2D(float angle);
 		void rotate2D(float angle);
+
+		void setRotation3D(float x, float y, float z, float angle);
+		void setRotation3D(gtypes::Vector3 &v, float angle);
 		void rotate3D(float x, float y, float z, float angle);
 		void rotate3D(gtypes::Vector3 &v, float angle);
+		
+		void setRotationX(float angle);
+		void setRotationY(float angle);
+		void setRotationZ(float angle);
 		void rotateX(float angle);
 		void rotateY(float angle);
 		void rotateZ(float angle);
 		
+		void setScale(float factor);
+		void setScale(float x, float y, float z);
+		void setScale(gtypes::Vector3 &v);
 		void scale(float factor);
 		void scale(float x, float y, float z);
 		void scale(gtypes::Vector3 &v);
 		
+		void setTranslation2D(float x, float y);
 		void translate2D(float x, float y);
 		
 		void orthoNormalize();
