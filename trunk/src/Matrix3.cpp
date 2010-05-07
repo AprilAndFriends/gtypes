@@ -154,22 +154,34 @@ namespace gtypes
 					   mat[6] - m[6], mat[7] - m[7], mat[8] - m[8]);
 	}
 	
-	void Matrix3::translate2D(float x, float y)
+	void Matrix3::setTranslation2D(float x, float y)
 	{
 		mat[2] = x;
 		mat[5] = y;
 	}
 	
-	void Matrix3::rotate2D(float angle)
+	void Matrix3::translate2D(float x, float y)
 	{
-		float rad = angle*57.295779513082320876798154814105f;
+		Matrix3 mat; mat.setTranslation2D(x,y);
+		this->operator*=(mat);
+	}
+	
+	void Matrix3::setRotation2D(float angle)
+	{
+		float rad = angle/57.295779513082320876798154814105f;
 		mat[0] = cosf(rad); mat[1] = -sinf(rad);
 		mat[3] = sinf(rad); mat[4] =  cosf(rad);
 	}
 	
-	void Matrix3::rotate3D(float x, float y, float z, float angle)
+	void Matrix3::rotate2D(float angle)
 	{
-		float rad = angle*57.295779513082320876798154814105f;
+		Matrix3 mat; mat.setRotation2D(angle);
+		this->operator*=(mat);
+	}
+	
+	void Matrix3::setRotation3D(float x, float y, float z, float angle)
+	{
+		float rad = angle/57.295779513082320876798154814105f;
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		float l = sqrtf(x * x + y * y + z * z);
@@ -190,9 +202,9 @@ namespace gtypes
 		mat[2] = c1 * zx - ys;		mat[5] = c1 * yz + xs;		mat[8] = c1 * z * z + c;
 	}
 	
-	void Matrix3::rotate3D(gtypes::Vector3& v, float angle)
+	void Matrix3::setRotation3D(gtypes::Vector3& v, float angle)
 	{
-		float rad = angle*57.295779513082320876798154814105f;
+		float rad = angle/57.295779513082320876798154814105f;
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		float l = sqrtf(v.x * v.x + v.y * v.y + v.z * v.z);
@@ -212,10 +224,22 @@ namespace gtypes
 		mat[1] = c1 * xy + zs;			mat[4] = c1 * v.y * v.y + c;	mat[7] = c1 * yz - xs;
 		mat[2] = c1 * zx - ys;			mat[5] = c1 * yz + xs;			mat[8] = c1 * v.z * v.z + c;
 	}
-
-	void Matrix3::rotateX(float angle)
+	
+	void Matrix3::rotate3D(float x, float y, float z, float angle)
 	{
-		float rad = angle*57.295779513082320876798154814105f;
+		Matrix3 mat; mat.setRotation3D(x,y,z,angle);
+		this->operator*=(mat);
+	}
+	
+	void Matrix3::rotate3D(gtypes::Vector3 &v, float angle)
+	{
+		Matrix3 mat; mat.setRotation3D(v,angle);
+		this->operator*=(mat);
+	}
+
+	void Matrix3::setRotationX(float angle)
+	{
+		float rad = angle/57.295779513082320876798154814105f;
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		mat[0] = 1.0; mat[3] = 0.0; mat[6] = 0.0;
@@ -223,9 +247,9 @@ namespace gtypes
 		mat[2] = 0.0; mat[5] = s; mat[8] = c;
 	}
 
-	void Matrix3::rotateY(float angle)
+	void Matrix3::setRotationY(float angle)
 	{
-		float rad = angle*57.295779513082320876798154814105f;
+		float rad = angle/57.295779513082320876798154814105f;
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		mat[0] = c; mat[3] = 0.0; mat[6] = s;
@@ -233,9 +257,9 @@ namespace gtypes
 		mat[2] = -s; mat[5] = 0.0; mat[8] = c;
 	}
 
-	void Matrix3::rotateZ(float angle)
+	void Matrix3::setRotationZ(float angle)
 	{
-		float rad = angle*57.295779513082320876798154814105f;
+		float rad = angle/57.295779513082320876798154814105f;
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		mat[0] = c; mat[3] = -s; mat[6] = 0.0;
@@ -243,22 +267,63 @@ namespace gtypes
 		mat[2] = 0.0; mat[5] = 0.0; mat[8] = 1.0;
 	}
 
-	void Matrix3::scale(float factor)
+	void Matrix3::rotateX(float angle)
+	{
+		Matrix3 mat; mat.setRotationX(angle);
+		this->operator*=(mat);
+	}
+	
+	void Matrix3::rotateY(float angle)
+	{
+		Matrix3 mat; mat.setRotationY(angle);
+		this->operator*=(mat);
+	}
+	
+	void Matrix3::rotateZ(float angle)
+	{
+		Matrix3 mat; mat.setRotationZ(angle);
+		this->operator*=(mat);
+	}
+
+	void Matrix3::setScale(float factor)
 	{
 		*this = *this * factor;
 	}
 
-	void Matrix3::scale(float x, float y, float z)
+	void Matrix3::setScale(float x, float y, float z)
 	{
 		mat[0] = x; mat[3] = 0; mat[6] = 0;
 		mat[1] = 0; mat[4] = y; mat[7] = 0;
 		mat[2] = 0; mat[5] = 0; mat[8] = z;
 	}
 
-	void Matrix3::scale(gtypes::Vector3& v)
+	void Matrix3::setScale(gtypes::Vector3& v)
 	{
-		scale(v.x,v.y,v.z);
+		setScale(v.x,v.y,v.z);
 	}
+	
+	void Matrix3::scale(float factor)
+	{
+		Matrix3 mat; mat.setScale(factor);
+		this->operator*=(mat);
+	}
+	
+	void Matrix3::scale(float x, float y, float z)
+	{
+		Matrix3 mat; mat.setScale(x,y,z);
+		this->operator*=(mat);
+	}
+	
+	void Matrix3::scale(gtypes::Vector3 &v)
+	{
+		Matrix3 mat; mat.setScale(v);
+		this->operator*=(mat);
+	}
+
+	void Matrix3::operator*=(float f)          { *this = *this *f; }
+	void Matrix3::operator*=(const Matrix3 &m) { *this = *this * m; }
+	void Matrix3::operator+=(const Matrix3 &m) { *this = *this + m; }
+	void Matrix3::operator-=(const Matrix3 &m) { *this = *this - m; }
 
 }
 

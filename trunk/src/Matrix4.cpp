@@ -81,16 +81,16 @@ namespace gtypes
 		*this=m;
 	}
 
-	Matrix4::Matrix4(const gtypes::Vector3& axis, float angle)
+	Matrix4::Matrix4(const Vector3& axis, float angle)
 	{
-		float rad = angle*57.295779513082320876798154814105f;
-		rotate(axis, rad);
+		float rad = angle/57.295779513082320876798154814105f;
+		setRotation(axis, rad);
 	}
 
 	Matrix4::Matrix4(float x, float y, float z, float angle)
 	{
-		float rad = angle*57.295779513082320876798154814105f;
-		rotate(gtypes::Vector3(x,y,z), rad);
+		float rad = angle/57.295779513082320876798154814105f;
+		setRotation(Vector3(x,y,z), rad);
 	}
 
 	float Matrix4::det() const
@@ -175,17 +175,17 @@ namespace gtypes
 	}
 
 	
-	void Matrix4::lookAt(const float* eye, const float* direction, const float* up)
+	void Matrix4::lookAt(const float* eye, const float* target, const float* up)
 	{
-		lookAt(gtypes::Vector3(eye), gtypes::Vector3(direction), gtypes::Vector3(up));
+		lookAt(Vector3(eye), Vector3(target), Vector3(up));
 	}
 	
-	void Matrix4::lookAt(const gtypes::Vector3 &eye, const gtypes::Vector3 &direction, const gtypes::Vector3 &up)
+	void Matrix4::lookAt(const Vector3 &eye, const Vector3 &target, const Vector3 &up)
 	{
-		gtypes::Vector3 bx,by,bz;
+		Vector3 bx,by,bz;
 		Matrix4 a,b;
 		bz += eye;
-		bz -= direction;
+		bz -= target;
 		bz.normalise();
 		bx.cross(up,bz);
 		bx.normalise();
@@ -195,7 +195,7 @@ namespace gtypes
 		a[1] = by.x; a[5] = by.y;  a[9] = by.z; a[13] = 0.0;
 		a[2] = bz.x; a[6] = bz.y; a[10] = bz.z; a[14] = 0.0;
 		a[3] =  0.0; a[7] =  0.0; a[11] =  0.0; a[15] = 1.0;
-		b.translate(-eye);
+		b.setTranslation(-eye);
 		*this = a * b;
 	}
 	
@@ -219,14 +219,14 @@ namespace gtypes
 					   this->mat[3] * m[12] + this->mat[7] * m[13] + this->mat[11] * m[14] + this->mat[15] * m[15]);
 	}
 	
-	gtypes::Vector3 Matrix4::operator *(const gtypes::Vector3& v) const
+	Vector3 Matrix4::operator *(const Vector3& v) const
 	{
 		return Vector3(this->mat[0] * v.x + this->mat[4] * v.y + this->mat[8]  * v.z + this->mat[12],
 					   this->mat[1] * v.x + this->mat[5] * v.y + this->mat[9]  * v.z + this->mat[13],
 					   this->mat[2] * v.x + this->mat[6] * v.y + this->mat[10] * v.z + this->mat[14]);
 	}
 
-	gtypes::Vector4 Matrix4::operator *(const gtypes::Vector4& v) const
+	Vector4 Matrix4::operator *(const Vector4& v) const
 	{
 		return Vector4(this->mat[0] * v.x + this->mat[4] * v.y + this->mat[8]  * v.z + this->mat[12] * v.w,
 					   this->mat[1] * v.x + this->mat[5] * v.y + this->mat[9]  * v.z + this->mat[13] * v.w,
@@ -258,7 +258,7 @@ namespace gtypes
 					   this->mat[12] - m[12], this->mat[13] - m[13], this->mat[14] - m[14], this->mat[15] - m[15]);
 	}
 
-	Matrix4 gtypes::Matrix4::transpose() const
+	Matrix4 Matrix4::transpose() const
 	{
 		return Matrix4(this->mat[0], this->mat[4], this->mat[8],  this->mat[12],
 					   this->mat[1], this->mat[5], this->mat[9],  this->mat[13],
@@ -266,7 +266,7 @@ namespace gtypes
 					   this->mat[3], this->mat[7], this->mat[11], this->mat[15]);
 	}
 	
-	void Matrix4::translate(const gtypes::Vector3& v)
+	void Matrix4::setTranslation(const Vector3& v)
 	{
 		this->mat[0] = 1.0; this->mat[4] = 0.0; this->mat[8]  = 0.0; this->mat[12] = v.x;
 		this->mat[1] = 0.0; this->mat[5] = 1.0; this->mat[9]  = 0.0; this->mat[13] = v.y;
@@ -274,22 +274,34 @@ namespace gtypes
 		this->mat[3] = 0.0; this->mat[7] = 0.0; this->mat[11] = 0.0; this->mat[15] = 1.0;
 	}
 
-	void Matrix4::translate(float x, float y, float z)
+	void Matrix4::setTranslation(float x, float y, float z)
 	{
-		translate(gtypes::Vector3(x,y,z));
+		setTranslation(Vector3(x,y,z));
 	}
 	
-	void Matrix4::scale(const gtypes::Vector3& v)
+	void Matrix4::translate(const Vector3& v)
 	{
-		scale(v.x, v.y, v.z);
+		Matrix4 mat; mat.setTranslation(v);
+		this->operator*=(mat);
 	}
 
-	void Matrix4::scale(float factor)
+	void Matrix4::translate(float x, float y, float z)
+	{
+		Matrix4 mat; mat.setTranslation(x,y,z);
+		this->operator*=(mat);
+	}
+	
+	void Matrix4::setScale(const Vector3& v)
+	{
+		setScale(v.x, v.y, v.z);
+	}
+
+	void Matrix4::setScale(float factor)
 	{
 		*this = *this * factor;
 	}
 
-	void Matrix4::scale(float x, float y, float z)
+	void Matrix4::setScale(float x, float y, float z)
 	{
 		this->mat[0] =   x; this->mat[4] = 0.0; this->mat[8]  = 0.0; this->mat[12] = 0.0;
 		this->mat[1] = 0.0; this->mat[5] =   y; this->mat[9]  = 0.0; this->mat[13] = 0.0;
@@ -297,6 +309,24 @@ namespace gtypes
 		this->mat[3] = 0.0; this->mat[7] = 0.0; this->mat[11] = 0.0; this->mat[15] = 1.0;
 	}
 	
+	void Matrix4::scale(float factor)
+	{
+		Matrix4 mat; mat.setScale(factor);
+		this->operator*=(mat);
+	}
+	
+	void Matrix4::scale(float x, float y, float z)
+	{
+		Matrix4 mat; mat.setScale(x,y,z);
+		this->operator*=(mat);
+	}
+	
+	void Matrix4::scale(const gtypes::Vector3 &v)
+	{
+		Matrix4 mat; mat.setScale(v);
+		this->operator*=(mat);
+	}
+
 	void Matrix4::perspective(float fov, float aspect, float near, float far)
 	{
 		float y = (float)tan(fov * M_PI / 360.0f);
@@ -306,8 +336,18 @@ namespace gtypes
 		this->mat[2] = 0.0;      this->mat[6] = 0.0;      this->mat[10] = -(far + near) / (far - near);   this->mat[14] = -(2.0f * far * near) / (far - near);
 		this->mat[3] = 0.0;      this->mat[7] = 0.0;      this->mat[11] = -1.0;                             this->mat[15] = 0.0;
 	}
+	
+	void Matrix4::ortho(float w,float h,float x_offset,float y_offset)
+	{
+		this->setIdentity();
+		this->mat[0]=2/w;
+		this->mat[5]=-2/h;
+		this->mat[10]=-2;
+		this->mat[12]=-1-x_offset*2/w;
+		this->mat[13]=1+y_offset*2/h;
+	}
 
-	void gtypes::Matrix4::reflect(const gtypes::Vector4& plane)
+	void Matrix4::setReflection(const Vector4& plane)
 	{
 		float x = plane.x;
 		float y = plane.y;
@@ -321,14 +361,26 @@ namespace gtypes
 		this->mat[3] = 0.0;           this->mat[7] = 0.0;           this->mat[11] = 0.0;           this->mat[15] = 1.0;
 	}
 
-	void gtypes::Matrix4::reflect(float x, float y, float z, float w)
+	void Matrix4::setReflection(float x, float y, float z, float w)
 	{
-		reflect(gtypes::Vector4(x,y,z,w));
+		setReflection(Vector4(x,y,z,w));
 	}
 	
-	void gtypes::Matrix4::rotate(const gtypes::Vector3& axis, float angle)
+	void Matrix4::reflect(const Vector4& plane)
 	{
-		float rad = angle*57.295779513082320876798154814105f;
+		Matrix4 mat; mat.setReflection(plane);
+		this->operator*=(mat);
+	}
+
+	void Matrix4::reflect(float x, float y, float z, float w)
+	{
+		Matrix4 mat; mat.setReflection(x,y,z,w);
+		this->operator*=(mat);
+	}
+	
+	void Matrix4::setRotation(const Vector3& axis, float angle)
+	{
+		float rad = angle/57.295779513082320876798154814105f;
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		Vector3 v = axis;
@@ -348,14 +400,14 @@ namespace gtypes
 		this->mat[3] = 0.0;                  this->mat[7] = 0.0;                  this->mat[11] = 0.0;                 this->mat[15] = 1.0;
 	}
 
-	void gtypes::Matrix4::rotate(float x, float y, float z, float angle)
+	void Matrix4::setRotation(float x, float y, float z, float angle)
 	{
-		rotate(gtypes::Vector3(x,y,z), angle);
+		setRotation(Vector3(x,y,z), angle);
 	}
 
-	void gtypes::Matrix4::rotateX(float angle)
+	void Matrix4::setRotationX(float angle)
 	{
-		float rad = angle*57.295779513082320876798154814105f;
+		float rad = angle/57.295779513082320876798154814105f;
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		this->mat[0] = 1.0; this->mat[4] = 0.0; this->mat[8]  = 0.0; this->mat[12] = 0.0;
@@ -364,9 +416,9 @@ namespace gtypes
 		this->mat[3] = 0.0; this->mat[7] = 0.0; this->mat[11] = 0.0; this->mat[15] = 1.0;
 	}
 
-	void gtypes::Matrix4::rotateY(float angle)
+	void Matrix4::setRotationY(float angle)
 	{
-		float rad = angle*57.295779513082320876798154814105f;
+		float rad = angle/57.295779513082320876798154814105f;
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		this->mat[0] =  c;  this->mat[4] = 0.0; this->mat[8]  =  s;  this->mat[12] = 0.0;
@@ -375,9 +427,9 @@ namespace gtypes
 		this->mat[3] = 0.0; this->mat[7] = 0.0; this->mat[11] = 0.0; this->mat[15] = 1.0;
 	}
 
-	void gtypes::Matrix4::rotateZ(float angle)
+	void Matrix4::setRotationZ(float angle)
 	{
-		float rad = angle*57.295779513082320876798154814105f;
+		float rad = angle/57.295779513082320876798154814105f;
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		this->mat[0] =  c;  this->mat[4] = -s;  this->mat[8]  = 0.0; this->mat[12] = 0.0;
@@ -385,5 +437,37 @@ namespace gtypes
 		this->mat[2] = 0.0; this->mat[6] = 0.0; this->mat[10] = 1.0; this->mat[14] = 0.0;
 		this->mat[3] = 0.0; this->mat[7] = 0.0; this->mat[11] = 0.0; this->mat[15] = 1.0;
 	}
+	
+	void Matrix4::rotate(const Vector3 &axis, float angle)
+	{
+		Matrix4 mat; mat.setRotation(axis,angle);
+		this->operator*=(mat);
+	}
 
+	void Matrix4::rotate(float x, float y, float z, float angle)
+	{
+		Matrix4 mat; mat.setRotation(x,y,z,angle);
+		this->operator*=(mat);
+	}
+
+	void Matrix4::rotateX(float angle)
+	{
+		Matrix4 mat; mat.setRotationX(angle);
+		this->operator*=(mat);
+	}
+	void Matrix4::rotateY(float angle)
+	{
+		Matrix4 mat; mat.setRotationY(angle);
+		this->operator*=(mat);		
+	}
+	void Matrix4::rotateZ(float angle)
+	{
+		Matrix4 mat; mat.setRotationZ(angle);
+		this->operator*=(mat);
+	}
+	
+	void Matrix4::operator*=(float f)          { *this = *this * f; }
+	void Matrix4::operator*=(const Matrix4 &m) { *this = *this * m; }
+	void Matrix4::operator+=(const Matrix4 &m) { *this = *this + m; }
+	void Matrix4::operator-=(const Matrix4 &m) { *this = *this - m; }
 }
