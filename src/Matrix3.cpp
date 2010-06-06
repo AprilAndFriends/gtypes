@@ -8,6 +8,7 @@
 * the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php   *
 \************************************************************************************/
 #include "Matrix3.h"
+#include "Matrix4.h"
 #include <math.h>
 
 namespace gtypes
@@ -22,10 +23,17 @@ namespace gtypes
 	
 	Matrix3::Matrix3(const Matrix3& m)
 	{
-		this->mat[0] = m[0]; this->mat[3] = m[3]; this->mat[6] = m[6];
-		this->mat[1] = m[1]; this->mat[4] = m[4]; this->mat[7] = m[7];
-		this->mat[2] = m[2]; this->mat[5] = m[5]; this->mat[8] = m[8];
+                this->mat[0] = m.mat[0]; this->mat[3] = m.mat[3]; this->mat[6] = m.mat[6];
+                this->mat[1] = m.mat[1]; this->mat[4] = m.mat[4]; this->mat[7] = m.mat[7];
+                this->mat[2] = m.mat[2]; this->mat[5] = m.mat[5]; this->mat[8] = m.mat[8];
 	}
+
+        Matrix3::Matrix3(const Matrix4 &m)
+        {
+            this->mat[0] = m.mat[0]; this->mat[3] = m.mat[4]; this->mat[6] = m.mat[8];
+            this->mat[1] = m.mat[1]; this->mat[4] = m.mat[5]; this->mat[7] = m.mat[9];
+            this->mat[2] = m.mat[2]; this->mat[5] = m.mat[6]; this->mat[8] = m.mat[10];
+        }
 	
 	Matrix3::Matrix3(float* m)
 	{
