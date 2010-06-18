@@ -10,6 +10,8 @@
 #ifndef GTYPES_SPLINE2_H
 #define GTYPES_SPLINE2_H
 
+#include "gtypesExport.h"
+
 namespace gtypes
 {
 
