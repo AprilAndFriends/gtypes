@@ -52,13 +52,13 @@ namespace gtypes
         }
         else
         {
-            ++_numSegments;
             Segment seg;
             seg.v0 = _segments[_numSegments-1].v2;
             seg.v2 = vertex;
-            seg.v1 = seg.v0 + seg.v0 - _segments[_numSegments - 1].v1;
+            seg.v1 = seg.v0 + (_segments[_numSegments-1].v2 - _segments[_numSegments-1].v1);
             
             _segments.push_back(seg);
+			++_numSegments;
             
             _lenght = _calculateLenght();
         }
@@ -116,7 +116,7 @@ namespace gtypes
         gtypes::Vector2 vec;
         
         vec.x = t2*(seg.v0.x - 2*seg.v1.x + seg.v2.x) + t*(2*seg.v1.x - 2*seg.v0.x) + seg.v0.x;
-        vec.y = t2*(seg.v0.x - 2*seg.v1.x + seg.v2.x) + t*(2*seg.v1.x - 2*seg.v0.x) + seg.v0.x;
+        vec.y = t2*(seg.v0.y - 2*seg.v1.y + seg.v2.y) + t*(2*seg.v1.y - 2*seg.v0.y) + seg.v0.y;
         
         return vec;
     }
@@ -133,7 +133,7 @@ namespace gtypes
         // this piece of code does not return precise coordinates 
         // because unlinear mapping of the interpolant is not implemented yet !
 
-        // frst, we find in witch segment our vertex lies
+        // first, we find in what segment our vertex lies
         int i;
         double seg, segprev;
         for(seg = 0, i = 0; seg <= t * _lenght; seg += _segments[i].lenght, i++);
