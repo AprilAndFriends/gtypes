@@ -1,0 +1,1 @@
+in order for the spline test to work, SDL is needed to be installed on your pc
