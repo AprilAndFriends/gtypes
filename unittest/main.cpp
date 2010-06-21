@@ -28,7 +28,7 @@ TEST(SimpleVectorTest)
 	CHECK(fabs(v.length() - sqrt(1*1+2*2+3*3)) < 0.001);
 }
 
-int main(int argc, char **argv)
+int main2(int argc, char **argv)
 {
     return UnitTest::RunAllTests();
 }

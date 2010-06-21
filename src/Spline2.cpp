@@ -15,7 +15,8 @@ namespace gtypes
     Spline2::Spline2() : _lenght(0.0), _numSegments(0)
     {
         _segments.clear();
-        
+        _curvature = 1.0;
+		
         Segment seg;
         seg.v0 = seg.v1 = seg.v2 = gtypes::Vector2(0.0, 0.0);
         seg.lenght = 0.0;
@@ -55,7 +56,8 @@ namespace gtypes
             Segment seg;
             seg.v0 = _segments[_numSegments-1].v2;
             seg.v2 = vertex;
-            seg.v1 = seg.v0 + (_segments[_numSegments-1].v2 - _segments[_numSegments-1].v1);
+			gtypes::Vector2 vec = (_segments[_numSegments-1].v2 - _segments[_numSegments-1].v1).normalised();
+            seg.v1 = seg.v0 + vec * _curvature;
             
             _segments.push_back(seg);
 			++_numSegments;
@@ -128,22 +130,34 @@ namespace gtypes
         {
             return _splineSegmentPosition(t, _segments[0]);
         }
-        
-        // NOTE! 
-        // this piece of code does not return precise coordinates 
-        // because unlinear mapping of the interpolant is not implemented yet !
-
-        // first, we find in what segment our vertex lies
-        int i;
-        double seg, segprev;
-        for(seg = 0, i = 0; seg <= t * _lenght; seg += _segments[i].lenght, i++);
-        // then, we must find the position of an interpolant
-        segprev = seg - _segments[i].lenght;
-        double newT = ((t * _lenght) - segprev) / (seg - segprev);
-        gtypes::Vector2 vec = _splineSegmentPosition(newT, _segments[i]);
-        // and thus return it
-        return vec;
-    }
+		
+		double newT = t * _numSegments;
+		double l = _segments[int(newT)].lenght;
+		gtypes::Vector2 vec = _splineSegmentPosition(newT - int(newT) , _segments[int(newT)]);
+		return vec;
+	}
+	
+	gtypes::Vector2 Spline2::getTangent(double t)
+	{
+		gtypes::Vector2 tangent;
+		
+		double newT = t * _numSegments;
+		int seg = int(newT);
+		double l = _segments[seg].lenght;
+		newT = newT - seg;
+	
+		tangent.x = 2 * ((_segments[seg].v1.x - _segments[seg].v0.x) * (1.0 - newT) + (_segments[seg].v2.x - _segments[seg].v1.x) * newT);
+		tangent.y = 2 * ((_segments[seg].v1.y - _segments[seg].v0.y) * (1.0 - newT) + (_segments[seg].v2.y - _segments[seg].v1.y) * newT);
+		
+		tangent.normalise();
+		
+		return tangent;
+	}
+	
+	void Spline2::setCurvature(double c)
+	{
+		_curvature = c;
+	}
 
 }
 
