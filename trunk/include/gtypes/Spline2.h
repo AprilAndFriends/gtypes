@@ -27,6 +27,7 @@ namespace gtypes
         int _numSegments;
         int _numSamples;
         double _lenght;
+		double _curvature;
         
         struct Segment {
             
@@ -50,6 +51,7 @@ namespace gtypes
         void setOrigin(gtypes::Vector2 origin); // sets the origin of a spline
         void setOrigin(double x, double y); // sets the origin of a spline
         void setSamplingRate(int i);
+		void setCurvature(double c);
         
         void addSegment(gtypes::Vector2 vertex); // ads a segment to a spline
         void addSegment(double x, double y); // ads a segment to a spline
