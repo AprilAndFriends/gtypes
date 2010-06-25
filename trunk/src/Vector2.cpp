@@ -60,6 +60,11 @@ namespace gtypes
 	{
 		return Vector2(this->x-v.x,this->y-v.y);
 	}
+    
+    Vector2 Vector2::operator -()
+	{
+		return Vector2(-this->x, -this->y);
+	}
 
 	Vector2 Vector2::operator *(const float f)
 	{
