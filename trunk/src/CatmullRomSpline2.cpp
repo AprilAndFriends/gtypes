@@ -34,6 +34,24 @@ namespace gtypes
         
     }
     
+    void CatmullRomSpline2::closeSpline()
+    {
+        Segment seg;
+        seg.v3 = _segments[0].v2;
+        seg.v2 = _segments[0].v1;
+        seg.v0 = _segments[_numSegments - 1].v1;
+        seg.v1 = _segments[_numSegments - 1].v3;
+        
+        _segments[0].v0 = _segments[_numSegments - 1].v3;
+        _segments[_numSegments - 1].v3 = _segments[0].v1;
+        
+        _segments.push_back(seg);
+        
+        ++_numSegments;
+        
+        _calculateLenght();
+    }
+    
     void CatmullRomSpline2::addPoint(float x, float y)
     {
         addPoint(gtypes::Vector2(x,y));
@@ -94,7 +112,7 @@ namespace gtypes
     gtypes::Vector2 CatmullRomSpline2::calcPosition(float t)
     {
         float prevLen = 0.0, len = _segments[0].lenght, l = t * _lenght;
-        int i = 0;
+        int i;
         
         for(i = 1; i < _numSegments; ++i)
         {
@@ -102,6 +120,12 @@ namespace gtypes
             len += _segments[i].lenght;
             if(len >= l)
                 break;
+        }
+        
+        if(l <= _segments[0].lenght)
+        {
+            i = 0;
+            prevLen = 0.0;
         }
         
         float newt = (l - prevLen) / _segments[i].lenght;
