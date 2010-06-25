@@ -143,7 +143,7 @@ int drawGLScene()
 	glBegin(GL_LINE_STRIP);
 		glColor3f(1.0, 1.0, 1.0);
 		//for(int segment = 0; segment < splajn._numSegments; ++segment) {
-			for(double i = 0.0; i <= 1.0; i += 0.1) {
+			for(double i = 0.0; i < 1.0; i += 0.01) {
 				gtypes::Vector2 vec = splajn.calcPosition(i);
 				//gtypes::Vector2 vec = splajn._splineSegmentPosition(i / 100.0, splajn._segments[segment]);
 				glVertex2f(vec.x, vec.y);
@@ -152,7 +152,7 @@ int drawGLScene()
 		//}
 	glEnd();
     
-	glLineWidth(1.0);
+	glLineWidth(3.0);
 	glBegin(GL_LINE_STRIP);
 		glColor3f(1.0, 0.0, 0.0);
 		for(int segment = 0; segment < splajn._numSegments; ++segment) {
@@ -172,20 +172,22 @@ int drawGLScene()
 		}
 	glEnd();
 	
-	vecpos += 0.0001;
+	vecpos += 0.001;
 	if(vecpos > 1.0)
 	{
 		vecpos = 0.0;
 	}
 
-	/*glBegin(GL_QUADS);
-		glColor3f(1.0, 1.0, 1.0);
-		glVertex3f(splajn.getPosition(vecpos).x + 0.05, splajn.getPosition(vecpos).y + 0.05, 0);
-		glVertex3f(splajn.getPosition(vecpos).x + 0.05, splajn.getPosition(vecpos).y - 0.05, 0);
-		glVertex3f(splajn.getPosition(vecpos).x - 0.05, splajn.getPosition(vecpos).y - 0.05, 0);
-		glVertex3f(splajn.getPosition(vecpos).x - 0.05, splajn.getPosition(vecpos).y + 0.05, 0);
+	glBegin(GL_QUADS);
+		glColor3f(1.0, 0.0, 0.0);
+        gtypes::Vector2 v = splajn.calcPosition(vecpos);
+		glVertex3f(v.x + 0.2, v.y + 0.2, 0);
+		glVertex3f(v.x + 0.2, v.y - 0.2, 0);
+		glVertex3f(v.x - 0.2, v.y - 0.2, 0);
+		glVertex3f(v.x - 0.2, v.y + 0.2, 0);
 	glEnd();
-	
+    
+    /*
 	glBegin(GL_LINE_STRIP);
 		glVertex2f(splajn.getPosition(vecpos).x, splajn.getPosition(vecpos).y);
 		glVertex2f(splajn.getPosition(vecpos).x + splajn.getTangent(vecpos).x, splajn.getPosition(vecpos).y + splajn.getTangent(vecpos).y);
@@ -225,12 +227,14 @@ int main( int argc, char **argv )
 {
 	/////////////////////////////
 	
-	splajn.setSamplingRate(1);
+	splajn.setSamplingRate(10);
 	splajn.setCurvature(0.2);
     splajn.setOrigin(-4.0, 0.0);
 	splajn.addPoint(-2.0, 0.0);
-    //splajn.addPoint(2.0, 2.0);
-    //splajn.addPoint(5.0, 1.0);
+    splajn.addPoint(2.0, 2.0);
+    splajn.addPoint(5.0, 1.0);
+    splajn.addPoint(-6.0, -4.0);
+    splajn.closeSpline();
 	
 	/////////////////////////////
 	

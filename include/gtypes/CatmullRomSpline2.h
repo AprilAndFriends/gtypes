@@ -23,12 +23,14 @@ namespace gtypes
 	class gtypesExport CatmullRomSpline2
 	{
         
+    // private:
     public:
-        
         int _numSegments;
         int _numSamples;
         float _lenght;
 		float _curvature;
+        
+        int _closed;
         
         struct Segment {
             
