@@ -7,18 +7,30 @@
 * This program is free software; you can redistribute it and/or modify it under      *
 * the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php   *
 \************************************************************************************/
-#include "Spline3.h"
+#ifndef GTYPES_SPLINE3_H
+#define GTYPES_SPLINE3_H
+
+#include "gtypesExport.h"
 
 namespace gtypes
 {
 
-Spline3::Spline3()
+	class gtypesExport CatmullRomSpline3
+	{
+	public:
+		CatmullRomSpline3();
+		~CatmullRomSpline3();
+
+	};
+
+}
+
+#ifdef GTYPES_ABREV
+
+namespace gt
 {
+	typedef gtypes::CatmullRomSpline3 crs3;
 }
+#endif
 
-Spline3::~Spline3()
-{
-}
-
-}
-
+#endif // GTYPES_SPLINE3_H

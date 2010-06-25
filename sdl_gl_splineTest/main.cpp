@@ -1,10 +1,11 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <SDL/SDL.h>
 
-#include <gtypes/Spline2.h>
+#include <gtypes/CatmullRomSpline2.h>
 #include <gtypes/Vector2.h>
 
 #include <iostream>
@@ -20,7 +21,8 @@
 
 	///////////////////
 	
-	gtypes::Spline2 splajn;
+	gtypes::CatmullRomSpline2 splajn;
+    float curv = 0.0;
 	
 	///////////////////
 	
@@ -85,6 +87,12 @@ void handleKeyPress( SDL_keysym *keysym )
 	     */
 	    SDL_WM_ToggleFullScreen( surface );
 	    break;
+    case SDLK_a:
+        curv += 0.05;
+        break;
+    case SDLK_s:
+        curv -= 0.05;
+        break;
 	default:
 	    break;
 	}
@@ -123,31 +131,43 @@ int drawGLScene()
     /* These are to calculate our fps */
     static GLint T0     = 0;
     static GLint Frames = 0;
+    
+    splajn.setCurvature(curv);
 
     /* Clear The Screen And The Depth Buffer */
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
     glLoadIdentity( );
-	glTranslatef(0.0, 0.0, -10.0);
-	glLineWidth(3.0);
+	glTranslatef(0.0, 0.0, -15.0);
+	glLineWidth(5.0);
 	glBegin(GL_LINE_STRIP);
-		glColor3f(0.0, 1.0, 0.0);
+		glColor3f(1.0, 1.0, 1.0);
 		//for(int segment = 0; segment < splajn._numSegments; ++segment) {
-			for(double i = 0.0; i <= 1.0; i += 0.01) {
-				gtypes::Vector2 vec = splajn.getPosition(i);
+			for(double i = 0.0; i <= 1.0; i += 0.1) {
+				gtypes::Vector2 vec = splajn.calcPosition(i);
 				//gtypes::Vector2 vec = splajn._splineSegmentPosition(i / 100.0, splajn._segments[segment]);
 				glVertex2f(vec.x, vec.y);
+                std::cerr << "Vector: " << vec.x << ", " << vec.y << std::endl;
 			}
 		//}
 	glEnd();
-	
+    
 	glLineWidth(1.0);
 	glBegin(GL_LINE_STRIP);
 		glColor3f(1.0, 0.0, 0.0);
 		for(int segment = 0; segment < splajn._numSegments; ++segment) {
-			for(int i = 0; i < 100; i++) {
-				gtypes::Vector2 vec = splajn._splineSegmentPosition(i / 100.0, splajn._segments[segment]);
+            switch(segment){
+                case 1:
+                    glColor3f(0.0, 1.0, 0.0);
+                    break;
+                case 2:
+                    glColor3f( 0.0, 0.0, 1.0);
+                    break;
+            }
+			for(int i = 0; i <= 100; i++) {
+				gtypes::Vector2 vec = splajn._calculateSegmentPosition(i / 100.0, splajn._segments[segment]);
 				glVertex2f(vec.x, vec.y);
+                //std::cerr << "Point: " << vec.x << ", " << vec.y << std::endl;
 			}
 		}
 	glEnd();
@@ -158,7 +178,7 @@ int drawGLScene()
 		vecpos = 0.0;
 	}
 
-	glBegin(GL_QUADS);
+	/*glBegin(GL_QUADS);
 		glColor3f(1.0, 1.0, 1.0);
 		glVertex3f(splajn.getPosition(vecpos).x + 0.05, splajn.getPosition(vecpos).y + 0.05, 0);
 		glVertex3f(splajn.getPosition(vecpos).x + 0.05, splajn.getPosition(vecpos).y - 0.05, 0);
@@ -180,6 +200,7 @@ int drawGLScene()
 	glEnd();
 	
 	std::cerr << "Tangenta: " << splajn.getTangent(vecpos).x << " , " << splajn.getTangent(vecpos).y << std::endl;
+    */
 
     /* Draw it to the screen */
     SDL_GL_SwapBuffers( );
@@ -200,17 +221,16 @@ int drawGLScene()
     return( TRUE );
 }
 
-int main_spline( int argc, char **argv )
+int main( int argc, char **argv )
 {
 	/////////////////////////////
 	
 	splajn.setSamplingRate(1);
-	splajn.setCurvature(1.0);
-	splajn.addSegment(-0.2, 0.9);
-	//splajn._segments[0].v1 = gtypes::Vector2(0.7, 0.1);
-	splajn.addSegment(-2.2, 0.12);
-	splajn.addSegment(2.6, 3.17);
-	splajn.addSegment(1.6, -0.12);
+	splajn.setCurvature(0.2);
+    splajn.setOrigin(-4.0, 0.0);
+	splajn.addPoint(-2.0, 0.0);
+    splajn.addPoint(2.0, 2.0);
+    splajn.addPoint(5.0, 1.0);
 	
 	/////////////////////////////
 	
