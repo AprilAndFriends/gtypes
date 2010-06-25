@@ -229,8 +229,8 @@ int main( int argc, char **argv )
 	splajn.setCurvature(0.2);
     splajn.setOrigin(-4.0, 0.0);
 	splajn.addPoint(-2.0, 0.0);
-    splajn.addPoint(2.0, 2.0);
-    splajn.addPoint(5.0, 1.0);
+    //splajn.addPoint(2.0, 2.0);
+    //splajn.addPoint(5.0, 1.0);
 	
 	/////////////////////////////
 	
