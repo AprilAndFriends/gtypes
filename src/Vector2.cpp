@@ -50,6 +50,16 @@ namespace gtypes
 		return v;
 	}
 
+	bool Vector2::isInCircle(float center_x,float center_y,float radius)
+	{
+		float a=x-center_x,b=y-center_y;
+		return (a*a+b*b <= radius*radius);
+	}
+	
+	bool Vector2::isInRectangle(float rect_x,float rect_y,float rect_w,float rect_h)
+	{
+		return (x >= rect_x && y >= rect_y && x <= rect_x+rect_w && y <= rect_y+rect_h);
+	}
 
 	Vector2 Vector2::operator +(const Vector2& v)
 	{

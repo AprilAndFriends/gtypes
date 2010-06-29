@@ -23,6 +23,8 @@ namespace gtypes
 		Vector2(float _x,float _y);
 		void set(float _x,float _y);
 		
+		bool isInCircle(float center_x,float center_y,float radius);
+		bool isInRectangle(float rect_x,float rect_y,float rect_w,float rect_h);
 		
 		float length();
 		float squaredLength();
