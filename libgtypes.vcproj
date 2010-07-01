@@ -172,6 +172,14 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\src\CatmullRomSpline2.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\CatmullRomSpline3.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\Matrix3.cpp"
 				>
 			</File>
@@ -181,14 +189,6 @@
 			</File>
 			<File
 				RelativePath=".\src\Quaternion.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\Spline2.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\Spline3.cpp"
 				>
 			</File>
 			<File
@@ -210,6 +210,14 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath=".\include\gtypes\CatmullRomSpline2.h"
+				>
+			</File>
+			<File
+				RelativePath=".\include\gtypes\CatmullRomSpline3.h"
+				>
+			</File>
+			<File
 				RelativePath=".\include\gtypes\gtypesExport.h"
 				>
 			</File>
@@ -223,14 +231,6 @@
 			</File>
 			<File
 				RelativePath=".\include\gtypes\Quaternion.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\gtypes\Spline2.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\gtypes\Spline3.h"
 				>
 			</File>
 			<File
