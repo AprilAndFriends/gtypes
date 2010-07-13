@@ -9,6 +9,8 @@
 \************************************************************************************/
 #include "CatmullRomSpline2.h"
 
+#include <iostream>
+
 namespace gtypes
 {
 
@@ -18,9 +20,9 @@ namespace gtypes
         seg.v0 = seg.v1 = seg.v2 = seg.v3 = gtypes::Vector2(0.0, 0.0);
         _segments.push_back(seg);
         _c = 1.0;
-        _lenght = 0.0;
+        _length = 0.0;
         _numSegments = 0;
-        _numSamples = 10;
+        
     }
     
     CatmullRomSpline2::CatmullRomSpline2(std::vector<gtypes::Vector2> &vectors, int closed)
@@ -53,7 +55,7 @@ namespace gtypes
         
         ++_numSegments;
         
-        _calculateLenght();
+        _calculateLength();
     }
     
     void CatmullRomSpline2::addPoint(float x, float y)
@@ -76,15 +78,14 @@ namespace gtypes
         if(_numSegments == 0)
         {
             _segments[0].v2 = point;
-            _segments[0].v0 = (_segments[0].v1 - (_segments[0].v2 - _segments[0].v1));
-            _segments[0].v3 = _segments[0].v2 + (_segments[0].v2 - _segments[0].v1);
-            
-            //_segments[0].v2 = _segments[0].v3 = point;
-            //_segments[0].v0 = _segments[0].v1;
+            //_segments[0].v0 = (_segments[0].v1 - (_segments[0].v2 - _segments[0].v1));
+            //_segments[0].v3 = _segments[0].v2 + (_segments[0].v2 - _segments[0].v1);
+            _segments[0].v0 = _segments[0].v1;
+            _segments[0].v3 = point;
             ++_numSegments;
 
 
-            _calculateLenght();
+            _calculateLength();
         }
         else
         {
@@ -96,11 +97,12 @@ namespace gtypes
            _segments[_numSegments - 1].v3 = point;
            
            seg.v2 = point;
-           seg.v3 = (seg.v2 + seg.v1);
+           //seg.v3 = seg.v2 + (seg.v2 - seg.v1);
+           seg.v3 = point;
            _segments.push_back(seg);
            ++_numSegments;
            
-           _calculateLenght();
+           _calculateLength();
         }
     }
     
@@ -122,47 +124,47 @@ namespace gtypes
     
     gtypes::Vector2 CatmullRomSpline2::calcPosition(double t)
     {
-        double prevLen = 0.0, len = _segments[0].lenght, l = t * _lenght;
+        double prevLen = 0.0, len = _segments[0].length, l = t * _length;
         int i;
         
         for(i = 1; i <= _numSegments; ++i)
         {
-            prevLen += _segments[i-1].lenght;
-            len += _segments[i].lenght;
+            prevLen += _segments[i-1].length;
+            len += _segments[i].length;
             if(len > l)
                 break;
         }
         
-        if(l <= _segments[0].lenght)
+        if(l <= _segments[0].length)
         {
             i = 0;
             prevLen = 0.0;
         }
         
-        double newt = (l - prevLen) / _segments[i].lenght;
+        double newt = (l - prevLen) / _segments[i].length;
         return _calculateSegmentPosition(newt, _segments[i]);
     }
     
-    double CatmullRomSpline2::_calculateSegmentLenght(Segment &seg)
+    double CatmullRomSpline2::_calculateSegmentLength(Segment &seg)
     {
-        seg.lenght = 0.0;
+        seg.length = 0.0;
         
-        for(int i = 1; i < _numSamples; ++i)
+        for(int i = 1; i <= _numSamples; ++i)
         {
-            seg.lenght += (_calculateSegmentPosition((double)i/_numSamples, seg) - _calculateSegmentPosition((double)(i-1)/_numSamples, seg)).length();
+            seg.length += (_calculateSegmentPosition((double)i/_numSamples, seg) - _calculateSegmentPosition((double)(i-1)/_numSamples, seg)).length();
         }
         
-        return seg.lenght;
+        return seg.length;
     }
     
-    double CatmullRomSpline2::_calculateLenght()
+    double CatmullRomSpline2::_calculateLength()
     {
         
-        _lenght = 0.0;
+        _length = 0.0;
         for(int i = 0; i < _numSegments; ++i)
-            _lenght += _calculateSegmentLenght(_segments[i]);
+            _length += _calculateSegmentLength(_segments[i]);
             
-        return _lenght;
+        return _length;
     }
     
     void CatmullRomSpline2::setCurvature(double c)
@@ -173,6 +175,25 @@ namespace gtypes
     void CatmullRomSpline2::setSamplingRate(int r)
     {
         _numSamples = r;
+    }
+    
+    void CatmullRomSpline2::rebuildSpline(int n) {
+        std::vector<gtypes::Vector2> points;
+        double step = (1.0 / n);
+        for(double t = 0; t < 1.0; t += step)
+        {
+            points.push_back(calcPosition(t));
+        }
+        _numSegments = 0;
+        _segments.clear();
+        Segment seg;
+        seg.v0 = seg.v1 = seg.v2 = seg.v3 = points[0];
+        _segments.push_back(seg);
+        for(int i = 1; i < points.size(); ++i)
+        {
+            addPoint(points[i]);
+        }
+        
     }
 
 

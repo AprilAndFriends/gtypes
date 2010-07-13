@@ -136,10 +136,16 @@ int drawGLScene()
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
     
     //splajn.setCurvature(curv);
+    
+    vecpos += 0.0008;
+	if(vecpos >= 1.0)
+	{
+		vecpos = 0.0;
+	}
 
     glLoadIdentity( );
 	glTranslatef(0.0, 0.0, -15.0);
-	glLineWidth(5.0);
+	/*glLineWidth(5.0);
 	glBegin(GL_LINE_STRIP);
 		glColor3f(1.0, 1.0, 1.0);
 		//for(int segment = 0; segment < splajn._numSegments; ++segment) {
@@ -150,7 +156,7 @@ int drawGLScene()
                 std::cerr << "Vector: " << vec.x << ", " << vec.y << std::endl;
 			}
 		//}
-	glEnd();
+	glEnd();*/
     
 	glLineWidth(3.0);
 	glBegin(GL_LINE_STRIP);
@@ -174,12 +180,6 @@ int drawGLScene()
 			}
 		}
 	glEnd();
-	
-	vecpos += 0.001;
-	if(vecpos >= 1.0)
-	{
-		vecpos = 0.0;
-	}
     
     for(int i = 0; i < splajn._segments.size(); ++i)
     {
@@ -266,7 +266,9 @@ int drawGLScene()
     SDL_GL_SwapBuffers( );
 
     /* Gather our frames per second */
-    Frames++;
+    while(SDL_GetTicks() - T0 < 16);
+    T0 = SDL_GetTicks();
+    /*Frames++;
     {
 	GLint t = SDL_GetTicks();
 	if (t - T0 >= 5000) {
@@ -276,7 +278,7 @@ int drawGLScene()
 	    T0 = t;
 	    Frames = 0;
 	}
-    }
+    }*/
 
     return( TRUE );
 }
@@ -286,13 +288,17 @@ int main( int argc, char **argv )
 	/////////////////////////////
 	
 	splajn.setSamplingRate(10);
-    splajn.setCurvature(0.8);
+    splajn.setCurvature(0.5);
     splajn.setOrigin(-2.0, 0.0);
     splajn.addPoint(0.0, 2.0);
 	splajn.addPoint(2.0, 0.0);
     splajn.addPoint(4.0, -1.0);
-    splajn.addPoint(-2.0, -3.0);
+    splajn.addPoint(-2.0, -5.0);
+    splajn.addPoint(-6.0, -2.0);
     splajn.closeSpline();
+    splajn.rebuildSpline(48);
+    splajn.closeSpline();
+    
 	
 	/////////////////////////////
 	

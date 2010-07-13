@@ -27,7 +27,7 @@ namespace gtypes
     public:
         int _numSegments;
         int _numSamples;
-        double _lenght;
+        double _length;
 		double _c;
         
         int _closed;
@@ -41,7 +41,7 @@ namespace gtypes
             gtypes::Vector2 v2;
             gtypes::Vector2 v3;
             
-            double lenght;
+            double length;
         };
         
         std::vector<Segment> _segments;
@@ -68,6 +68,8 @@ namespace gtypes
         void rebuild(std::vector<gtypes::Vector2> &vectors, int closed = 0);
         void rebuild(std::list<gtypes::Vector2> &vectors, int closed = 0);
         
+        void rebuildSpline(int n);
+        
         void setSamplingRate(int r);
         void setCurvature(double c);
         
@@ -76,8 +78,8 @@ namespace gtypes
     //private:
     public:
     
-        double _calculateSegmentLenght(Segment &segment);
-        double _calculateLenght();
+        double _calculateSegmentLength(Segment &segment);
+        double _calculateLength();
         gtypes::Vector2 _calculateSegmentPosition(float t, Segment &segment);
         
         
