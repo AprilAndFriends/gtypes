@@ -27,8 +27,8 @@ namespace gtypes
     public:
         int _numSegments;
         int _numSamples;
-        float _lenght;
-		float _curvature;
+        double _lenght;
+		double _c;
         
         int _closed;
         
@@ -53,9 +53,9 @@ namespace gtypes
         CatmullRomSpline2(std::list<gtypes::Vector2> &vectors, int closed = 0);
 		~CatmullRomSpline2();
         
-        gtypes::Vector2 calcPosition(float t);
-        gtypes::Vector2 calcTangent(float t);
-        gtypes::Vector2 calcNormal(float t);
+        gtypes::Vector2 calcPosition(double t);
+        gtypes::Vector2 calcTangent(double t);
+        gtypes::Vector2 calcNormal(double t);
         
         void closeSpline();
         
@@ -69,15 +69,15 @@ namespace gtypes
         void rebuild(std::list<gtypes::Vector2> &vectors, int closed = 0);
         
         void setSamplingRate(int r);
-        void setCurvature(float c);
+        void setCurvature(double c);
         
         
         
     //private:
     public:
     
-        float _calculateSegmentLenght(Segment &segment);
-        float _calculateLenght();
+        double _calculateSegmentLenght(Segment &segment);
+        double _calculateLenght();
         gtypes::Vector2 _calculateSegmentPosition(float t, Segment &segment);
         
         
