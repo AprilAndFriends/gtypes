@@ -78,11 +78,9 @@ namespace gtypes
     private:
     
         double _calculateSegmentLength(Segment &segment);
-        double _calculateLength();
-        
     public: // only here temporary
         gtypes::Vector2 _calculateSegmentPosition(float t, Segment &segment);
-
+		double _calculateLength();
 	};
 
 }
