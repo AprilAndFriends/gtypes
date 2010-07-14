@@ -7,6 +7,7 @@
 * This program is free software; you can redistribute it and/or modify it under      *
 * the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php   *
 \************************************************************************************/
+#include "Vector2.h"
 #include "Vector3.h"
 #include <math.h>
 

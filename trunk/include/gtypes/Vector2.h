@@ -38,6 +38,8 @@ namespace gtypes
 		void operator +=(const Vector2& v);
 		void operator -=(const Vector2& v);
 		void operator *=(const float f);
+        bool operator ==(const Vector2& v);
+        bool operator !=(const Vector2& v);
 		
 		float dotProduct(Vector2 v);
 

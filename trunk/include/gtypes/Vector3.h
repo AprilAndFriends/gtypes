@@ -14,6 +14,7 @@
 
 namespace gtypes
 {
+    
 	class gtypesExport Vector3
 	{
 	public:
