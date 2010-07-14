@@ -95,6 +95,20 @@ namespace gtypes
 	{
 		this->x*=f; this->y*=f;
 	}
+    
+    bool Vector2::operator ==(const Vector2& v)
+    {
+        if((x == v.x) and (y == v.y))
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    bool Vector2::operator !=(const Vector2& v)
+    {
+        return not (*this == v);
+    }
 	
 	float Vector2::dotProduct(Vector2 v)
 	{

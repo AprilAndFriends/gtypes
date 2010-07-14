@@ -23,6 +23,7 @@
 	
 	gtypes::CatmullRomSpline2 splajn;
     float curv = 0.0;
+    int subdivide = 20;
 	
 	///////////////////
 	
@@ -93,6 +94,14 @@ void handleKeyPress( SDL_keysym *keysym )
     case SDLK_s:
         curv -= 0.05;
         break;
+    case SDLK_j:
+        ++subdivide;
+        splajn.resample(subdivide);
+        break;
+    case SDLK_k:
+        --subdivide;
+        splajn.resample(subdivide);
+        break;
 	default:
 	    break;
 	}
@@ -161,7 +170,7 @@ int drawGLScene()
 	glLineWidth(3.0);
 	glBegin(GL_LINE_STRIP);
 		glColor3f(1.0, 0.0, 0.0);
-		for(int segment = 0; segment < splajn._numSegments; ++segment) {
+		for(int segment = 0; segment < splajn._segments.size(); ++segment) {
             switch(segment%3){
                 case 0:
                     glColor3f(0.0, 1.0, 0.0);
@@ -242,6 +251,13 @@ int drawGLScene()
 		glVertex3f(v.x - 0.2, v.y - 0.2, 0);
         glVertex3f(v.x, v.y, 0);
 		glVertex3f(v.x - 0.2, v.y + 0.2, 0);
+        glVertex3f(v.x, v.y, 0);
+        gtypes::Vector2 tan = splajn.calcTangent(vecpos);
+        glVertex3f(v.x + 2*tan.x, v.y + 2*tan.y, 0);
+        glVertex3f(v.x, v.y, 0);
+        gtypes::Vector2 nor = splajn.calcNormal(vecpos);
+        glVertex3f(v.x + 2*nor.x, v.y + 2*nor.y, 0);
+	glEnd();
 	glEnd();
     glLineWidth(1.0);
     
@@ -287,17 +303,20 @@ int main( int argc, char **argv )
 {
 	/////////////////////////////
 	
-	splajn.setSamplingRate(10);
+	splajn.setLengthSamplingRate(32);
     splajn.setCurvature(0.5);
-    splajn.setOrigin(-2.0, 0.0);
+    
+    splajn.addPoint(-2.0, 0.0);
     splajn.addPoint(0.0, 2.0);
 	splajn.addPoint(2.0, 0.0);
     splajn.addPoint(4.0, -1.0);
     splajn.addPoint(-2.0, -5.0);
     splajn.addPoint(-6.0, -2.0);
+    
+    //splajn.rebuild(vecVector);
+    
     splajn.closeSpline();
-    splajn.rebuildSpline(48);
-    splajn.closeSpline();
+    splajn.resample(100);
     
 	
 	/////////////////////////////
