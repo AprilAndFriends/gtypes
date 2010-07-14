@@ -98,7 +98,7 @@ namespace gtypes
     
     bool Vector2::operator ==(const Vector2& v)
     {
-        if((x == v.x) and (y == v.y))
+        if((x == v.x) && (y == v.y))
         {
             return true;
         }
@@ -107,7 +107,7 @@ namespace gtypes
     
     bool Vector2::operator !=(const Vector2& v)
     {
-        return not (*this == v);
+        return !(*this == v);
     }
 	
 	float Vector2::dotProduct(Vector2 v)
