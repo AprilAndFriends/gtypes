@@ -9,15 +9,18 @@
 \************************************************************************************/
 #include "CatmullRomSpline3.h"
 
+
+#include <iostream>
+
 namespace gtypes
 {
 
-    CatmullRomSpline3::CatmullRomSpline3() : _c(0.5), _length(0.0), _closed(0), _numSegments(0)
+    CatmullRomSpline3::CatmullRomSpline3() : _c(0.5), _length(0.0), _closed(0), _numSegments(0), _resampled(0)
     {
         
     }
     
-    CatmullRomSpline3::CatmullRomSpline3(std::vector<gtypes::Vector3> &vectors, int closed) : _closed(closed)
+    CatmullRomSpline3::CatmullRomSpline3(std::vector<gtypes::Vector3> &vectors, int closed) : _closed(closed), _resampled(0)
     {
         for(int i = 0; i < vectors.size(); ++i)
         {
@@ -25,7 +28,7 @@ namespace gtypes
         }
     }
     
-    CatmullRomSpline3::CatmullRomSpline3(std::list<gtypes::Vector3> &vectors, int closed) : _closed(closed)
+    CatmullRomSpline3::CatmullRomSpline3(std::list<gtypes::Vector3> &vectors, int closed) : _closed(closed), _resampled(0)
     {
         for(std::list<gtypes::Vector3>::iterator it = vectors.begin(); it != vectors.end(); it++)
         {
@@ -33,7 +36,7 @@ namespace gtypes
         }
     }
     
-    CatmullRomSpline3::CatmullRomSpline3(gtypes::Vector3 *vectors, int n, int closed) : _closed(closed)
+    CatmullRomSpline3::CatmullRomSpline3(gtypes::Vector3 *vectors, int n, int closed) : _closed(closed), _resampled(0)
     {
         for(int i = 0; i < n; ++i)
         {
@@ -122,17 +125,13 @@ namespace gtypes
     
     gtypes::Vector3 CatmullRomSpline3::calcPosition(double t)
     {
+        if(t >= 1.0)
+            t -= (int)t;
+        else if(t < 0.0)
+            t += (int)t;
+            
         double prevLen = 0.0, len = _segments[0].length, l = t * _length;
         int i;
-        
-        if(t > 1.0)
-        {
-            t -= 1.0;
-        }
-        if(t < 0.0)
-        {
-            t += 1.0;
-        }
         
         for(i = 1; i < _segments.size(); ++i)
         {
@@ -149,23 +148,41 @@ namespace gtypes
         }
         
         double newt = (l - prevLen) / _segments[i].length;
+        if(newt >= 1.0)
+        {
+            newt -= (int)newt;
+            ++i;
+            if(i >= _segments.size())
+            {
+                i = 0;
+            }
+        }
+        else if(newt < 0.0)
+        {
+            newt += (int)newt;
+            --i;
+            if(i < 0)
+                i = _segments.size();
+        }
         return _calculateSegmentPosition(newt, _segments[i]);
     }
     
     gtypes::Vector3 CatmullRomSpline3::calcTangent(double t)
     {
         gtypes::Vector3 tangent;
-        if(t + 0.01 > 1.0)
-        {
-            
-        }
-        tangent = (calcPosition(t) - calcPosition(t - 0.01));
+        tangent = (calcPosition(t + 0.01f) - calcPosition(t));
         tangent.normalise();
         return tangent;
     }
     
-    gtypes::Vector3 CatmullRomSpline3::calcNormal(double t) // todo
+    gtypes::Vector3 CatmullRomSpline3::calcNormal(double t, const gtypes::Vector3 &upVector)
     {
+        gtypes::Vector3 normal;
+        normal.cross(calcTangent(t), upVector);
+        normal.normalise();
+       // normal.cross(calcTangent(t));
+       // normal.normalise();
+        return normal;
     }
     
     double CatmullRomSpline3::_calculateSegmentLength(Segment &seg)

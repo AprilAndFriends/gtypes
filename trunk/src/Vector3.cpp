@@ -74,7 +74,7 @@ namespace gtypes
 		return Vector3(-this->x,-this->y,-this->z);
 	}
 
-	Vector3 Vector3::operator *(const float f)
+	Vector3 Vector3::operator *(const float f) const
 	{
 		return Vector3(this->x*f,this->y*f,this->z*f);
 	}

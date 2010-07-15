@@ -30,6 +30,7 @@ namespace gtypes
 		double _c;
         
         int _closed;
+        int _resampled;
         
         struct Segment {
             
@@ -56,7 +57,7 @@ namespace gtypes
         
         gtypes::Vector3 calcPosition(double t);
         gtypes::Vector3 calcTangent(double t);
-        gtypes::Vector3 calcNormal(double t);
+        gtypes::Vector3 calcNormal(double t, const gtypes::Vector3 &upVector);
         
         void closeSpline();
         
