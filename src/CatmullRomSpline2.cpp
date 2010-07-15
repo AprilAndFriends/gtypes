@@ -124,17 +124,13 @@ namespace gtypes
     
     gtypes::Vector2 CatmullRomSpline2::calcPosition(double t)
     {
+        if(t >= 1.0)
+            t -= (int)t;
+        else if(t < 0.0)
+            t += (int)t;
+            
         double prevLen = 0.0, len = _segments[0].length, l = t * _length;
         int i;
-        
-        if(t > 1.0)
-        {
-            t -= 1.0;
-        }
-        if(t < 0.0)
-        {
-            t += 1.0;
-        }
         
         for(i = 1; i < _segments.size(); ++i)
         {
@@ -151,17 +147,29 @@ namespace gtypes
         }
         
         double newt = (l - prevLen) / _segments[i].length;
+        if(newt >= 1.0)
+        {
+            newt -= (int)newt;
+            ++i;
+            if(i >= _segments.size())
+            {
+                i = 0;
+            }
+        }
+        else if(newt < 0.0)
+        {
+            newt += (int)newt;
+            --i;
+            if(i < 0)
+                i = _segments.size();
+        }
         return _calculateSegmentPosition(newt, _segments[i]);
     }
     
     gtypes::Vector2 CatmullRomSpline2::calcTangent(double t)
     {
         gtypes::Vector2 tangent;
-        if(t + 0.01 > 1.0)
-        {
-            
-        }
-        tangent = (calcPosition(t) - calcPosition(t - 0.01));
+        tangent = (calcPosition(t + 0.001) - calcPosition(t));
         tangent.normalise();
         return tangent;
     }
@@ -237,7 +245,7 @@ namespace gtypes
         
         if(_closed)
         {
-            closeSpline();
+            //closeSpline();
         }
         
         /* used for debug pourposes

@@ -34,7 +34,7 @@ namespace gtypes
 		Vector3 operator +(const Vector3& v);
 		Vector3 operator -(const Vector3& v);
 		const Vector3 operator-() const;
-		Vector3 operator *(const float f);
+		Vector3 operator *(const float f) const;
 		void operator +=(const Vector3& v);
 		void operator -=(const Vector3& v);
 		void operator *=(const float f);
