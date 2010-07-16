@@ -11,15 +11,16 @@
 
 #include <iostream>
 
+
 namespace gtypes
 {
 
-    CatmullRomSpline2::CatmullRomSpline2() : _c(0.5), _length(0.0), _closed(0), _numSegments(0)
+    CatmullRomSpline2::CatmullRomSpline2() : _c(0.5), _length(0.0), _closed(0), _numSegments(0), _numSamples(16)
     {
         
     }
     
-    CatmullRomSpline2::CatmullRomSpline2(std::vector<gtypes::Vector2> &vectors, int closed) : _closed(closed)
+    CatmullRomSpline2::CatmullRomSpline2(std::vector<gtypes::Vector2> &vectors, int closed) : _closed(closed), _numSamples(16)
     {
         for(int i = 0; i < vectors.size(); ++i)
         {
@@ -27,7 +28,7 @@ namespace gtypes
         }
     }
     
-    CatmullRomSpline2::CatmullRomSpline2(std::list<gtypes::Vector2> &vectors, int closed) : _closed(closed)
+    CatmullRomSpline2::CatmullRomSpline2(std::list<gtypes::Vector2> &vectors, int closed) : _closed(closed), _numSamples(16)
     {
         for(std::list<gtypes::Vector2>::iterator it = vectors.begin(); it != vectors.end(); it++)
         {
@@ -35,7 +36,7 @@ namespace gtypes
         }
     }
     
-    CatmullRomSpline2::CatmullRomSpline2(gtypes::Vector2 *vectors, int n, int closed) : _closed(closed)
+    CatmullRomSpline2::CatmullRomSpline2(gtypes::Vector2 *vectors, int n, int closed) : _closed(closed), _numSamples(16)
     {
         for(int i = 0; i < n; ++i)
         {
@@ -51,107 +52,61 @@ namespace gtypes
     
     void CatmullRomSpline2::closeSpline()
     {
-        Segment seg;
-        seg.v0 = _segments[_segments.size()-1].v1;
-        seg.v1 = _segments[_segments.size()-1].v2;
-        seg.v2 = _segments[0].v1;
-        seg.v3 = _segments[0].v2;
-        
-        _segments[0].v0 = seg.v1;
-        _segments[_segments.size() - 1].v3 = seg.v2;
-        _segments[_segments.size() - 1].v2 = seg.v1;
-        
-        _segments.push_back(seg);
-        _numSegments;
-        
-        _closed = 1;
-        
-        _calculateLength();
-    }
-    
-    void CatmullRomSpline2::addPoint(float x, float y, int remember)
-    {
-        addPoint(gtypes::Vector2(x,y), remember);
-    }
-    
-    void CatmullRomSpline2::addPoint(gtypes::Vector2 point, int remember)
-    {
-        if(remember)
-        {
-            _originalPoints.push_back(point);
-        }
-        if(_segments.size() == 0)
-        {
-            Segment seg;
-            seg.v0 = seg.v1 = seg.v2 = seg.v3 = point;
-            _segments.push_back(seg);
-            _numSegments = 1;
-        }
-        else if(_numSegments == 1)
-        {
-            _segments[0].v2 = _segments[0].v3 = point;
-            _numSegments++;
-        }
-        else
-        {
-            Segment seg;
-            _segments[_segments.size()-1].v3 = seg.v3 = point;
-            seg.v0 = _segments[_segments.size()-1].v1;
-            seg.v1 = _segments[_segments.size()-1].v2;
-            seg.v2 = _segments[_segments.size()-1].v3;
-            
-            _segments.push_back(seg);
-            _numSegments++;
-        }
-        _calculateLength();
-    }
-    
-    gtypes::Vector2 CatmullRomSpline2::_calculateSegmentPosition(float t, Segment &seg)
-    {
-        gtypes::Vector2 vec;
-        
-        double t2 = t*t;
-        double t3 = t2*t;
-        
-        vec = seg.v0 * (-t*_c + t2*2.0*_c - t3*_c) +
-              seg.v1 * (1.0 + t2*(_c-3.0) + t3*(2.0-_c)  ) +
-              seg.v2 * ( t*_c + t2*(3.0-2.0*_c) + t3*(_c-2.0) ) +
-              seg.v3 * ( t3*_c - t2*_c);
-
-        return vec;
         
     }
     
-    gtypes::Vector2 CatmullRomSpline2::calcPosition(double t)
+    void CatmullRomSpline2::addPoint(double x, double y)
     {
-        if(t >= 1.0)
+        addPoint(gtypes::Vector2(x,y));
+    }
+    
+    void CatmullRomSpline2::addPoint(gtypes::Vector2 point)
+    {
+        _points.push_back(point);
+        if(_points.size() > 2)
+            _calcLength();
+    }
+    
+    void CatmullRomSpline2::setStartingTangent(gtypes::Vector2 tangent)
+    {
+        
+    }
+    
+    void CatmullRomSpline2::setEndingTangent(gtypes::Vector2 tangent)
+    {
+        
+    }
+    
+    gtypes::Vector2 CatmullRomSpline2::_resampledPos(double t)
+    {
+        if(t > 1.0)
             t -= (int)t;
         else if(t < 0.0)
             t += (int)t;
             
-        double prevLen = 0.0, len = _segments[0].length, l = t * _length;
+        double prevLen = 0.0, len = _lengths[0], l = t * _length;
         int i;
         
-        for(i = 1; i < _segments.size(); ++i)
+        for(i = 1; i < _lengths.size(); ++i)
         {
-            prevLen += _segments[i-1].length;
-            len += _segments[i].length;
+            prevLen += _lengths[i-1];
+            len += _lengths[i];
             if(len > l)
                 break;
         }
         
-        if(l <= _segments[0].length)
+        if(l <= _lengths[0])
         {
             i = 0;
             prevLen = 0.0;
         }
         
-        double newt = (l - prevLen) / _segments[i].length;
-        if(newt >= 1.0)
+        double newt = (l - prevLen) / _lengths[i];
+        if(newt > 1.0)
         {
             newt -= (int)newt;
             ++i;
-            if(i >= _segments.size())
+            if(i >= _lengths.size())
             {
                 i = 0;
             }
@@ -161,17 +116,101 @@ namespace gtypes
             newt += (int)newt;
             --i;
             if(i < 0)
-                i = _segments.size();
+                i = _lengths.size();
         }
-        return _calculateSegmentPosition(newt, _segments[i]);
+        
+        return _calcSegmentPosition(newt, i);
+    }
+    
+    void CatmullRomSpline2::_resample(int quality)
+    {
+        std::vector<gtypes::Vector2> npoints;
+        npoints.push_back(_points[0]);
+        for(int i = 0; i <= quality; ++i)
+            npoints.push_back(_resampledPos((double)i / quality));
+        npoints.push_back(_points[_points.size()-1]);
+        _points.clear();
+        for(int i = 0; i < npoints.size(); ++i)
+            addPoint(npoints[i]);
+    }
+    
+    void CatmullRomSpline2::bake(int steps, int depth, int quality)
+    {
+        if(depth > 0)
+            for(int i = 0; i < depth; ++i)
+            {
+                _resample(quality);
+            }
+        std::vector<gtypes::Vector2> npoints;
+        npoints.push_back(calcPosition(0.0));
+        for(int i = 0; i <= steps; ++i)
+        {
+            npoints.push_back(calcPosition((double)i / (steps)));
+        }
+        npoints.push_back(calcPosition(1.0));
+        _points.clear();
+        for(int i = 0; i < npoints.size(); ++i)
+            addPoint(npoints[i]);
+    }
+    
+    gtypes::Vector2 CatmullRomSpline2::_calcSegmentPosition(double t, int index)
+    {
+        gtypes::Vector2 vec;
+        int i0 = index - 1, i1 = index, i2 = index + 1, i3 = index + 2;
+        if(i0 < 0)
+            i0 = 0;
+        if(i3 > (_points.size() - 1))
+            i3 = _points.size() - 1;
+        
+        
+        double t2 = t*t;
+        double t3 = t2*t;
+        
+        vec = _points[i0] * (-t*_c + t2*2.0*_c - t3*_c) +
+              _points[i1] * (1.0 + t2*(_c-3.0) + t3*(2.0-_c)  ) +
+              _points[i2] * ( t*_c + t2*(3.0-2.0*_c) + t3*(_c-2.0) ) +
+              _points[i3] * ( t3*_c - t2*_c);
+
+        return vec;
+    }
+    
+    gtypes::Vector2 CatmullRomSpline2::calcPosition(double t)
+    {
+        // ensure that t is in [0,1]
+        if(t > 1.0f)
+            t -= (int)t;
+        else if(t < 0)
+            t += (int)t;
+            
+        int index;
+        float delta_t = 1.0 / (double)(_points.size()-3);
+        
+        // find the index of a segment in which our t lies
+        index = (int)(t / delta_t);
+        
+        // find the localized time        
+        double lt = (t - delta_t * (double)index) / delta_t;
+        return _calcSegmentPosition(lt, index + 1);
     }
     
     gtypes::Vector2 CatmullRomSpline2::calcTangent(double t)
     {
-        gtypes::Vector2 tangent;
-        tangent = (calcPosition(t + 0.001) - calcPosition(t));
-        tangent.normalise();
-        return tangent;
+        // ensure that t is in [0,1]
+        if(t >= 1.0f)
+            t -= (int)t;
+        else if(t < 0)
+            t += (int)t;
+            
+        int index;
+        float delta_t = 1.0 / (double)(_points.size()-3);
+        
+        // find the index of a segment in which our t lies
+        index = (int)(t / delta_t);
+        
+        // find the localized time
+        double lt = (t - delta_t * (double)index) / delta_t;
+        
+        return _calcSegmentTangent(lt, index + 1);
     }
     
     gtypes::Vector2 CatmullRomSpline2::calcNormal(double t)
@@ -180,27 +219,86 @@ namespace gtypes
         return gtypes::Vector2(vec.y, -vec.x);
     }
     
-    double CatmullRomSpline2::_calculateSegmentLength(Segment &seg)
+    gtypes::Vector2 CatmullRomSpline2::calcCurvature(double t)
     {
-        seg.length = 0.0;
+        // ensure that t is in [0,1]
+        if(t >= 1.0f)
+            t -= (int)t;
+        else if(t < 0)
+            t += (int)t;
+            
+        int index;
+        float delta_t = 1.0 / (double)(_points.size()-3);
         
-        for(int i = 1; i < _segments.size(); ++i)
-        {
-            seg.length += (_calculateSegmentPosition((double)i/_segments.size(), seg) - 
-                           _calculateSegmentPosition((double)(i-1)/_segments.size(), seg)).length();
-        }
+        // find the index of a segment in which our t lies
+        index = (int)(t / delta_t);
         
-        return seg.length;
+        // find the localized time
+        double lt = (t - delta_t * (double)index) / delta_t;
+        
+        return _calcSegmentCurvature(lt, index + 1);
     }
     
-    double CatmullRomSpline2::_calculateLength()
+    double CatmullRomSpline2::_calcLength()
     {
+        _length = 0;
+        _lengths.clear();
+        for(int i = 0; i < _points.size() - 3; ++i)
+        {
+            _lengths.push_back(_calcSegmentLength(i));
+            _length += _lengths[i];
+        }
         
-        _length = 0.0;
-        for(int i = 0; i < _segments.size(); ++i)
-            _length += _calculateSegmentLength(_segments[i]);
-            
         return _length;
+    }
+    
+    double CatmullRomSpline2::_calcSegmentLength(int index)
+    {
+        double len;
+        int i;
+        
+        for(len = 0, i = 1; i <= _numSamples; ++i)
+        {
+            len += (_calcSegmentPosition(((double)(i-1))/_numSamples, index) -
+                    _calcSegmentPosition(((double)i)/_numSamples, index)).length();
+        }
+        return len;
+    }
+    
+    double CatmullRomSpline2::getLength()
+    {
+        return _length;
+    }
+    
+    gtypes::Vector2 CatmullRomSpline2::_calcSegmentTangent(double t, int index)
+    {
+        double t2 = t*t;
+        gtypes::Vector2 tan;
+        tan = _points[index - 1] * (-_c + 4.0 * _c * t - 3.0 * _c * t2) +
+              _points[index]     * (2.0 * (_c - 3.0) * t + 3.0 * (2.0 - _c) * t2) +
+              _points[index + 1] * (_c + 2.0 * (3.0 - 2.0 * _c) * t + 3.0 * (_c - 2.0) * t2) +
+              _points[index + 2] * (-2.0 * _c * t + 3.0 * _c * t2);
+        
+        return tan.normalised();
+    }
+    
+    gtypes::Vector2 CatmullRomSpline2::_calcSegmentNormal(double t, int index)
+    {
+        gtypes::Vector2 v;
+        v = _calcSegmentTangent(t, index);
+        
+        return gtypes::Vector2(v.y, -v.x).normalised();
+    }
+    
+    gtypes::Vector2 CatmullRomSpline2::_calcSegmentCurvature(double t, int index)
+    {
+        gtypes::Vector2 curv;
+        curv = _points[index - 1] * (4.0 * _c - 6.0 * _c * t) +
+               _points[index]     * (2.0 * (_c - 3.0) + 6.0 * (2.0 - _c) * t) +
+               _points[index + 1] * (_c + 2.0 * (3.0 - 2.0 * _c) + 6.0 * (_c - 2.0) * t) +
+               _points[index + 2] * (-2.0 * _c + 6.0 * _c * t);
+               
+        return curv;
     }
     
     void CatmullRomSpline2::setCurvature(double c)
@@ -213,112 +311,29 @@ namespace gtypes
         _numSamples = r;
     }
     
-    void CatmullRomSpline2::resample(int n, int fromOriginal) {
-        std::vector<gtypes::Vector2> points;
-        if(n < 1)
-        {
-            n = 1;
-        }
-        if(fromOriginal)
-        {
-            _segments.clear();
-            _numSegments = 0;
-            for(int i = 0; i < _originalPoints.size(); ++i)
-            {
-                addPoint(_originalPoints[i], 0);
-            }
-            if(_closed)
-            {
-                closeSpline();
-            }
-        }
-        for(int i = 0; i <n; ++i)
-        {
-            points.push_back(calcPosition((double)i/n));
-        }
-        _segments.clear();
-        _numSegments = 0;
-        for(int i = 0; i < points.size(); ++i)
-        {
-            addPoint(points[i], 0);
-        }
-        
-        if(_closed)
-        {
-            //closeSpline();
-        }
-        
-        /* used for debug pourposes
-        
-        for(int i = 0; i < _segments.size(); ++i)
-        {
-            std::cerr << "Segment :" << i << std::endl;
-            std::cerr << "v0 [" << _segments[i].v0.x << "," << _segments[i].v0.y << "]" << std::endl;
-            std::cerr << "v1 [" << _segments[i].v1.x << "," << _segments[i].v1.y << "]" << std::endl;
-            std::cerr << "v2 [" << _segments[i].v2.x << "," << _segments[i].v2.y << "]" << std::endl;
-            std::cerr << "v3 [" << _segments[i].v3.x << "," << _segments[i].v3.y << "]" << std::endl;
-            std::cerr << std::endl;
-        }*/
-        
-    }
-    
-    void CatmullRomSpline2::rebuild(gtypes::Vector2 *vectors, int n, int remember, int closed)
+    void CatmullRomSpline2::rebuild(gtypes::Vector2 *vectors, int n, int closed)
     {
-        int r = 0;
-        if(remember)
-        {
-            _originalPoints.clear();
-            r = 1;
-        }
-        _segments.clear();
+        _points.clear();
+        _lengths.clear();
         for(int i = 0; i < n; ++i)
-        {
-            addPoint(vectors[i], r);
-        }
-        if(closed)
-        {
-            closeSpline();
-        }
+            addPoint(vectors[i]);
     }
     
-    void CatmullRomSpline2::rebuild(std::vector<gtypes::Vector2> &vectors, int remember, int closed)
+    void CatmullRomSpline2::rebuild(std::vector<gtypes::Vector2> &vectors, int closed)
     {
-        int r = 0;
-        if(remember)
-        {
-            _originalPoints.clear();
-            r = 1;
-        }
-        _segments.clear();
+        _points.clear();
+        _lengths.clear();
         for(int i = 0; i < vectors.size(); ++i)
-        {
-            addPoint(vectors[i], r);
-        }
-        if(closed)
-        {
-            closeSpline();
-        }
+            addPoint(vectors[i]);
     }
     
-    void CatmullRomSpline2::rebuild(std::list<gtypes::Vector2> &vectors, int remember, int closed)
+    void CatmullRomSpline2::rebuild(std::list<gtypes::Vector2> &vectors, int closed)
     {
-        int r = 0;
-        if(remember)
-        {
-            _originalPoints.clear();
-            r = 1;
-        }
-        _segments.clear();
+        _points.clear();
+        _lengths.clear();
         for(std::list<gtypes::Vector2>::iterator it = vectors.begin(); it != vectors.end(); it++)
-        {
-            addPoint(*it, r);
-        }
-        if(closed)
-        {
-            closeSpline();
-        }
+            addPoint(*it);
     }
 
 
 }
-

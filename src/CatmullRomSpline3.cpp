@@ -253,18 +253,6 @@ namespace gtypes
             closeSpline();
         }
         
-        /* used for debug pourposes
-        
-        for(int i = 0; i < _segments.size(); ++i)
-        {
-            std::cerr << "Segment :" << i << std::endl;
-            std::cerr << "v0 [" << _segments[i].v0.x << "," << _segments[i].v0.y << "," << _segments[i].v0.z << "]" << std::endl;
-            std::cerr << "v1 [" << _segments[i].v1.x << "," << _segments[i].v1.y << "," << _segments[i].v0.z << "]" << std::endl;
-            std::cerr << "v2 [" << _segments[i].v2.x << "," << _segments[i].v2.y << "," << _segments[i].v0.z << "]" << std::endl;
-            std::cerr << "v3 [" << _segments[i].v3.x << "," << _segments[i].v3.y << "," << _segments[i].v0.z << "]" << std::endl;
-            std::cerr << std::endl;
-        }*/
-        
     }
     
     void CatmullRomSpline3::rebuild(gtypes::Vector3 *vectors, int n, int remember, int closed)
