@@ -1,0 +1,2 @@
+* Vector3 & Vector2 operators / and /=
+* Matrix4 setScale(...) must work the same for uniform and nonuniform scale
