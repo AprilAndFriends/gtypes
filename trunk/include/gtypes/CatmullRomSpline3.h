@@ -22,30 +22,17 @@ namespace gtypes
 
 	class gtypesExport CatmullRomSpline3
 	{
-	// private:
+        
+    // private:
     public:
         int _numSamples;
         int _numSegments;
+        int _closed;
         double _length;
 		double _c;
         
-        int _closed;
-        int _resampled;
-        
-        struct Segment {
-            
-            // segment of a Catmull-Rom spline
-
-            gtypes::Vector3 v0;
-            gtypes::Vector3 v1;
-            gtypes::Vector3 v2;
-            gtypes::Vector3 v3;
-            
-            double length;
-        };
-        
-        std::vector<Segment> _segments;
-        std::vector<gtypes::Vector3> _originalPoints;
+        std::vector<gtypes::Vector3> _points;
+        std::vector<double> _lengths;
     
 	public:
     
@@ -57,31 +44,40 @@ namespace gtypes
         
         gtypes::Vector3 calcPosition(double t);
         gtypes::Vector3 calcTangent(double t);
-        gtypes::Vector3 calcNormal(double t, const gtypes::Vector3 &upVector);
+        gtypes::Vector3 calcNormal(double t);
+        
+        gtypes::Vector3 getTangent();
+        gtypes::Vector3 getNormal();
         
         void closeSpline();
         
-        void addPoint(gtypes::Vector3 point, int remember = 1);
-        void addPoint(double x, double y, double z, int remember = 1);
+        void addPoint(gtypes::Vector3 point);
+        void addPoint(double x, double y, double z);
         
-        void rebuild(std::vector<gtypes::Vector3> &vectors, int remember = 1, int closed = 0);
-        void rebuild(std::list<gtypes::Vector3> &vectors, int remember = 1, int closed = 0);
-        void rebuild(gtypes::Vector3 *vectors, int n, int remember = 1, int closed = 0);
+        void subdivide(int numSubdivisions);
+        void resample(int numSamples);
         
-        void resample(int n, int fromOriginal = 1);
+        void rebuild(std::vector<gtypes::Vector3> &vectors, int closed = 0);
+        void rebuild(std::list<gtypes::Vector3> &vectors, int closed = 0);
+        void rebuild(gtypes::Vector3 *vectors, int n, int closed = 0);
         
         void setLengthSamplingRate(int r);
         void setCurvature(double c);
+        void setStartingTangent(gtypes::Vector3 tangent);
+        void setEndingTangent(gtypes::Vector3 tangent);
         
+        double getLength();
         
-        
-    private:
+    //private:
+    public:
     
-        double _calculateSegmentLength(Segment &segment);
-        double _calculateLength();
-        
-    public: // only here temporary
-        gtypes::Vector3 _calculateSegmentPosition(float t, Segment &segment);
+		double _calcLength();
+        double _calcSegmentLength(int index);
+        gtypes::Vector3 _calcSegmentPosition(double t, int index);
+        gtypes::Vector3 _calcSegmentTangent(double t, int index);
+        gtypes::Vector3 _calcSegmentNormal(double t, int index);
+        void _resample(int quality);
+        gtypes::Vector3 _resampledPos(double t);
 	};
 
 }

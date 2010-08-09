@@ -16,6 +16,7 @@
     <File Name="src/Vector4.cpp"/>
     <File Name="src/CatmullRomSpline3.cpp"/>
     <File Name="src/CatmullRomSpline2.cpp"/>
+    <File Name="src/todo.txt"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
     <File Name="include/gtypes/Matrix3.h"/>

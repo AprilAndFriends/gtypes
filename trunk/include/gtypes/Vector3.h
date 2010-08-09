@@ -35,11 +35,14 @@ namespace gtypes
 		Vector3 operator -(const Vector3& v);
 		const Vector3 operator-() const;
 		Vector3 operator *(const float f) const;
+        Vector3 operator /(const float f) const;
 		void operator +=(const Vector3& v);
 		void operator -=(const Vector3& v);
 		void operator *=(const float f);
+        void operator /=(const float f);
 		
 		float dotProduct(Vector3 v);
+        static float dotProduct(Vector3 v1, Vector3 v2);
 		
 		void cross(const Vector3 &v1,const Vector3 &v2);
 		void cross(const Vector3 &v2);

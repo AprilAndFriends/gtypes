@@ -45,14 +45,14 @@ namespace gtypes
         gtypes::Vector2 calcPosition(double t);
         gtypes::Vector2 calcTangent(double t);
         gtypes::Vector2 calcNormal(double t);
-        gtypes::Vector2 calcCurvature(double t);
         
         void closeSpline();
         
         void addPoint(gtypes::Vector2 point);
         void addPoint(double x, double y);
         
-        void bake(int steps, int depth = 0, int quality = 16);
+        void subdivide(int numSubdivisions);
+        void resample(int numSamples);
         
         void rebuild(std::vector<gtypes::Vector2> &vectors, int closed = 0);
         void rebuild(std::list<gtypes::Vector2> &vectors, int closed = 0);
@@ -73,7 +73,6 @@ namespace gtypes
         gtypes::Vector2 _calcSegmentPosition(double t, int index);
         gtypes::Vector2 _calcSegmentTangent(double t, int index);
         gtypes::Vector2 _calcSegmentNormal(double t, int index);
-        gtypes::Vector2 _calcSegmentCurvature(double t, int index);
         void _resample(int quality);
         gtypes::Vector2 _resampledPos(double t);
 	};

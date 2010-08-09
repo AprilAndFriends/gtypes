@@ -80,6 +80,11 @@ namespace gtypes
 	{
 		return Vector2(this->x*f,this->y*f);
 	}
+    
+    Vector2 Vector2::operator /(const float f)
+	{
+		return Vector2(this->x/f,this->y/f);
+	}
 
 	void Vector2::operator +=(const Vector2& v)
 	{
@@ -94,6 +99,11 @@ namespace gtypes
 	void Vector2::operator *=(const float f)
 	{
 		this->x*=f; this->y*=f;
+	}
+    
+    void Vector2::operator /=(const float f)
+	{
+		this->x/=f; this->y/=f;
 	}
     
     bool Vector2::operator ==(const Vector2& v)

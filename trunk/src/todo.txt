@@ -1,2 +1,15 @@
-* Vector3 & Vector2 operators / and /=
+# Vector3 & Vector2 operators / and /=
 * Matrix4 setScale(...) must work the same for uniform and nonuniform scale
+* Abreviations changed to gvec3, gvec2, gquat etc..
+# implement vectors: double dotProduct(gvec3 v1, gvec3 v2)
+* static methods in vectors and matrices that can be used as utility functions
+
+* Catmull-Rom:
+    - void subdivide(int numSubdivisions)
+    - void resample(int numSamples)
+    - void closeCurve()
+    - void openCurve()
+    
+    - Frenet Frame (defines unit coordinate system on a point on a curve):
+        # gvec3 calcTangent(double t)
+        # gvec3 calcNormal(double t)
