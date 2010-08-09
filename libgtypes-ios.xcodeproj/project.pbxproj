@@ -170,6 +170,7 @@
 				7F340F85120AED3D00F01926 /* Headers */,
 				7F340F86120AED3D00F01926 /* Sources */,
 				7F340F87120AED3D00F01926 /* Frameworks */,
+				7F33B5011210079F004B5E89 /* Add SDKSettings */,
 			);
 			buildRules = (
 			);
@@ -198,6 +199,25 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7F33B5011210079F004B5E89 /* Add SDKSettings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$SRCROOT/iOS/${PLATFORM_NAME}.sdk/SDKSettings.plist",
+			);
+			name = "Add SDKSettings";
+			outputPaths = (
+				$DSTROOT/SDKSettings.plist,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#echo IN:     $SRCROOT/iOS/${PLATFORM_NAME}.sdk/SDKSettings.plist\n#echo OUT:    $DSTROOT/SDKSettings.plist\n\nsed -e \"s/%PROJECT%/$PROJECT/g\" \\\n    -e \"s/%VERS%/$VERS/g\" \\\n    -e \"s/%IPHONE_SDK%/$IPHONE_SDK/g\" \\\n    $SRCROOT/iOS/${PLATFORM_NAME}.sdk/SDKSettings.plist > $DSTROOT/SDKSettings.plist || exit 1    \n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7F340F86120AED3D00F01926 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -225,11 +245,13 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_NAME = gtypes;
 				SDKROOT = iphoneos4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -240,10 +262,12 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_NAME = gtypes;
 				SDKROOT = iphoneos4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -251,14 +275,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
+				DSTROOT = "$(CONFIGURATION_BUILD_DIR)/$(PRODUCT_NAME)SDK/$(PLATFORM_NAME).sdk";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PREBINDING = NO;
 				PRODUCT_NAME = gtypes;
 				PUBLIC_HEADERS_FOLDER_PATH = "/usr/local/include/$(PRODUCT_NAME)";
-				SDKROOT = iphoneos4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -267,14 +292,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = YES;
 				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(CONFIGURATION_BUILD_DIR)/$(PRODUCT_NAME)SDK/$(PLATFORM_NAME).sdk";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PREBINDING = NO;
 				PRODUCT_NAME = gtypes;
 				PUBLIC_HEADERS_FOLDER_PATH = "/usr/local/include/$(PRODUCT_NAME)";
-				SDKROOT = iphoneos4.0;
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				ZERO_LINK = NO;
