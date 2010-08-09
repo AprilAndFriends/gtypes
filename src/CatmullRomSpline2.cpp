@@ -134,23 +134,14 @@ namespace gtypes
             addPoint(npoints[i]);
     }
     
-    void CatmullRomSpline2::bake(int steps, int depth, int quality)
+    void CatmullRomSpline2::subdivide(int numSubdivisions)
     {
-        if(depth > 0)
-            for(int i = 0; i < depth; ++i)
-            {
-                _resample(quality);
-            }
-        std::vector<gtypes::Vector2> npoints;
-        npoints.push_back(calcPosition(0.0));
-        for(int i = 0; i <= steps; ++i)
-        {
-            npoints.push_back(calcPosition((double)i / (steps)));
-        }
-        npoints.push_back(calcPosition(1.0));
-        _points.clear();
-        for(int i = 0; i < npoints.size(); ++i)
-            addPoint(npoints[i]);
+        
+    }
+    
+    void CatmullRomSpline2::resample(int numSamples)
+    {
+        
     }
     
     gtypes::Vector2 CatmullRomSpline2::_calcSegmentPosition(double t, int index)
@@ -219,26 +210,6 @@ namespace gtypes
         return gtypes::Vector2(vec.y, -vec.x);
     }
     
-    gtypes::Vector2 CatmullRomSpline2::calcCurvature(double t)
-    {
-        // ensure that t is in [0,1]
-        if(t >= 1.0f)
-            t -= (int)t;
-        else if(t < 0)
-            t += (int)t;
-            
-        int index;
-        float delta_t = 1.0 / (double)(_points.size()-3);
-        
-        // find the index of a segment in which our t lies
-        index = (int)(t / delta_t);
-        
-        // find the localized time
-        double lt = (t - delta_t * (double)index) / delta_t;
-        
-        return _calcSegmentCurvature(lt, index + 1);
-    }
-    
     double CatmullRomSpline2::_calcLength()
     {
         _length = 0;
@@ -290,16 +261,6 @@ namespace gtypes
         return gtypes::Vector2(v.y, -v.x).normalised();
     }
     
-    gtypes::Vector2 CatmullRomSpline2::_calcSegmentCurvature(double t, int index)
-    {
-        gtypes::Vector2 curv;
-        curv = _points[index - 1] * (4.0 * _c - 6.0 * _c * t) +
-               _points[index]     * (2.0 * (_c - 3.0) + 6.0 * (2.0 - _c) * t) +
-               _points[index + 1] * (_c + 2.0 * (3.0 - 2.0 * _c) + 6.0 * (_c - 2.0) * t) +
-               _points[index + 2] * (-2.0 * _c + 6.0 * _c * t);
-               
-        return curv;
-    }
     
     void CatmullRomSpline2::setCurvature(double c)
     {

@@ -61,22 +61,27 @@ namespace gtypes
 
 	Vector3 Vector3::operator +(const Vector3& v)
 	{
-		return Vector3(this->x+v.x,this->y+v.y,this->z+v.z);
+		return Vector3(this->x+v.x, this->y+v.y, this->z+v.z);
 	}
 
 	Vector3 Vector3::operator -(const Vector3& v)
 	{
-		return Vector3(this->x-v.x,this->y-v.y,this->z-v.z);
+		return Vector3(this->x-v.x, this->y-v.y, this->z-v.z);
 	}
 	
 	const Vector3 Vector3::operator-() const
 	{
-		return Vector3(-this->x,-this->y,-this->z);
+		return Vector3(-this->x, -this->y, -this->z);
 	}
 
 	Vector3 Vector3::operator *(const float f) const
 	{
-		return Vector3(this->x*f,this->y*f,this->z*f);
+		return Vector3(this->x*f, this->y*f, this->z*f);
+	}
+    
+    Vector3 Vector3::operator /(const float f) const
+	{
+		return Vector3(this->x/f, this->y/f, this->z/f);
 	}
 
 	void Vector3::operator +=(const Vector3& v)
@@ -93,10 +98,20 @@ namespace gtypes
 	{
 		this->x*=f; this->y*=f; this->z*=f;
 	}
+    
+    void Vector3::operator /=(const float f)
+	{
+		this->x/=f; this->y/=f; this->z/=f;
+	}
 	
 	float Vector3::dotProduct(Vector3 v)
 	{
-		return this->x*v.x+this->y*v.y+this->z*v.z;
+		return this->x*v.x + this->y*v.y + this->z*v.z;
+	}
+    
+    float Vector3::dotProduct(Vector3 v1, Vector3 v2)
+	{
+		return v1.x*v2.x + v1.y*v2.y + v1.z*v2.z;
 	}
 	
 	void Vector3::cross(const Vector3 &v1,const Vector3 &v2)
