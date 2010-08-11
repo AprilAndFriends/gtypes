@@ -28,10 +28,7 @@ namespace gtypes
 
 #ifdef GTYPES_ABREV
 
-namespace gt
-{
-	typedef gtypes::Vector4 vec4;
-}
+typedef gtypes::Vector4 gvec4;
 
 #endif // GTYPES_ABREV
 

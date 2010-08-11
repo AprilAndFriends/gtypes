@@ -15,12 +15,14 @@
 namespace gtypes
 {
 
-    CatmullRomSpline3::CatmullRomSpline3() : _c(0.5), _length(0.0), _closed(0), _numSegments(0), _numSamples(16)
+    CatmullRomSpline3::CatmullRomSpline3() : _c(0.5), _length(0.0), _closed(0),
+    _numSegments(0), _numSamples(16), _inflexed(false), _prevIndex(-1), _prevlen(0.0), _prevDot(0)
     {
         
     }
     
-    CatmullRomSpline3::CatmullRomSpline3(std::vector<gtypes::Vector3> &vectors, int closed) : _closed(closed), _numSamples(16)
+    CatmullRomSpline3::CatmullRomSpline3(std::vector<gtypes::Vector3> &vectors, int closed) : _closed(closed),
+    _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0)
     {
         for(int i = 0; i < vectors.size(); ++i)
         {
@@ -28,7 +30,8 @@ namespace gtypes
         }
     }
     
-    CatmullRomSpline3::CatmullRomSpline3(std::list<gtypes::Vector3> &vectors, int closed) : _closed(closed), _numSamples(16)
+    CatmullRomSpline3::CatmullRomSpline3(std::list<gtypes::Vector3> &vectors, int closed) : _closed(closed),
+    _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0)
     {
         for(std::list<gtypes::Vector3>::iterator it = vectors.begin(); it != vectors.end(); it++)
         {
@@ -36,7 +39,8 @@ namespace gtypes
         }
     }
     
-    CatmullRomSpline3::CatmullRomSpline3(gtypes::Vector3 *vectors, int n, int closed) : _closed(closed), _numSamples(16)
+    CatmullRomSpline3::CatmullRomSpline3(gtypes::Vector3 *vectors, int n, int closed) : _closed(closed),
+    _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0)
     {
         for(int i = 0; i < n; ++i)
         {
@@ -51,6 +55,7 @@ namespace gtypes
     }
     
     void CatmullRomSpline3::closeSpline()
+    
     {
         
     }
@@ -73,73 +78,6 @@ namespace gtypes
     }
     
     void CatmullRomSpline3::setEndingTangent(gtypes::Vector3 tangent)
-    {
-        
-    }
-    
-    gtypes::Vector3 CatmullRomSpline3::_resampledPos(double t)
-    {
-        if(t > 1.0)
-            t -= (int)t;
-        else if(t < 0.0)
-            t += (int)t;
-            
-        double prevLen = 0.0, len = _lengths[0], l = t * _length;
-        int i;
-        
-        for(i = 1; i < _lengths.size(); ++i)
-        {
-            prevLen += _lengths[i-1];
-            len += _lengths[i];
-            if(len > l)
-                break;
-        }
-        
-        if(l <= _lengths[0])
-        {
-            i = 0;
-            prevLen = 0.0;
-        }
-        
-        double newt = (l - prevLen) / _lengths[i];
-        if(newt > 1.0)
-        {
-            newt -= (int)newt;
-            ++i;
-            if(i >= _lengths.size())
-            {
-                i = 0;
-            }
-        }
-        else if(newt < 0.0)
-        {
-            newt += (int)newt;
-            --i;
-            if(i < 0)
-                i = _lengths.size();
-        }
-        
-        return _calcSegmentPosition(newt, i);
-    }
-    
-    void CatmullRomSpline3::_resample(int quality)
-    {
-        std::vector<gtypes::Vector3> npoints;
-        npoints.push_back(_points[0]);
-        for(int i = 0; i <= quality; ++i)
-            npoints.push_back(_resampledPos((double)i / quality));
-        npoints.push_back(_points[_points.size()-1]);
-        _points.clear();
-        for(int i = 0; i < npoints.size(); ++i)
-            addPoint(npoints[i]);
-    }
-    
-    void CatmullRomSpline3::subdivide(int numSubdivisions)
-    {
-        
-    }
-    
-    void CatmullRomSpline3::resample(int numSamples)
     {
         
     }
@@ -167,28 +105,68 @@ namespace gtypes
     
     gtypes::Vector3 CatmullRomSpline3::calcPosition(double t)
     {
+        //std::cerr << t << std::endl;
         // ensure that t is in [0,1]
-        double dummy;
-        t = modf(t, &dummy);
+        if(t > 1.0)
+        {
+            t -= (int)t;
+        }
+        
+        int index = 0;
+        double lt, lp;
+        
+        // Using Arc-Length aprametrization
+        _prevlen = 0.0;
+        lp = _arcLengthMap.begin()->first;
+        for(std::map<double, int>::iterator it = _arcLengthMap.begin(); it != _arcLengthMap.end(); it++)
+        {
+            if( (t >= _prevlen) && (t < (it->first)) )
+            {
+                //std::cerr << " t e[" << _prevlen << "," << it->first << "> , t = " << t << std::endl;
+                lt = (t - _prevlen) * (1.0/(it->first-_prevlen));
+                index = it->second;
+                //std::cerr << "                  lt = " << lt << " Index : " << index << " PrevLen = " 
+                //          << _prevlen << " [Prvi] = " << (it->first-_prevlen) <<std::endl;
+                          
+                //std::cerr << "(" << t << " - " << _prevlen << ") * ( 1.0 / (" << it->first << " - " << _prevlen << "))" << std::endl;
+                /*if(_prevIndex == it->second)
+                    index = it->second+1;
+                else
+                {
+                    index = it->second;
+                }*/
+                
+                break;
+            }
+            _prevIndex = it->second;
+            _prevlen = it->first;
             
-        int index;
-        float delta_t = 1.0 / (double)(_points.size()-3);
+            //std::cerr << " Prevlen " << _prevlen << " Index " << index << " t = " << t << std::endl;
+        }
+        //
+        
+        // If asumming that all data points are equaly spaced we can use this code instead
+        /*float delta_t = 1.0 / (double)(_points.size()-3);
         
         // find the index of a segment in which our t lies
         index = (int)(t / delta_t);
         
         // find the localized time        
-        double lt = (t - delta_t * (double)index) / delta_t;
+        lt = (t - delta_t * (double)index) / delta_t;*/
+        
         return _calcSegmentPosition(lt, index + 1);
     }
     
     gtypes::Vector3 CatmullRomSpline3::calcTangent(double t)
     {
-        // ensure that t and t - epsilon are in [0,1]
-        double dummy;
-        t = modf(t, &dummy);
+        // ensure that t is in [0,1]
+        if(t > 1.0)
+            t -= (int)t;
             
-        int index;
+        return gtypes::Vector3( calcPosition(t + 0.01) - calcPosition(t) ).normalised();
+            
+        // Analytical version
+        /*int index;
         float delta_t = 1.0 / (double)(_points.size()-3);
         
         // find the index of a segment in which our t lies
@@ -197,16 +175,45 @@ namespace gtypes
         // find the localized time
         double lt = (t - delta_t * (double)index) / delta_t;
         
-        return _calcSegmentTangent(lt, index + 1);
+        return _calcSegmentTangent(lt, index + 1);*/
     }
     
     gtypes::Vector3 CatmullRomSpline3::calcNormal(double t)
     {
         // ensure that t is in [0,1]
-        double dummy;
-        t = modf(t, &dummy);
+        if(t > 1.0)
+            t -= (int)t;
             
-        int index;
+        gtypes::Vector3 e1, e2, nor;
+        double dot;
+        e1 = calcTangent(t);
+        e2 = gtypes::Vector3( calcTangent(t) - calcTangent(t + 0.1)).normalised();
+        nor.cross(e2,e1);
+        nor.normalise();
+        
+        dot = gtypes::Vector3::dotProduct(nor, _prevNor);
+        dot < 0 ? dot = -1 : dot = 1;
+        
+        _prevDot == 0 ? _prevDot = dot : NULL;
+        
+        if( dot != _prevDot )
+        {
+            _inflexed = !_inflexed;
+            //std::cerr << " inflexija " << std::endl;
+        }
+        
+        if(_inflexed)
+        {
+            //nor = -nor;
+        }
+        
+        _prevNor = nor;
+        _prevDot = dot;
+        
+        return nor;
+          
+        // Analytical version
+        /*int index;
         float delta_t = 1.0 / (double)(_points.size()-3);
         
         // find the index of a segment in which our t lies
@@ -215,7 +222,7 @@ namespace gtypes
         // find the localized time
         double lt = (t - delta_t * (double)index) / delta_t;
         
-        return _calcSegmentNormal(lt, index + 1);
+        return _calcSegmentNormal(lt, index + 1);*/
         
     }
     
@@ -225,23 +232,27 @@ namespace gtypes
         _lengths.clear();
         for(int i = 0; i < _points.size() - 3; ++i)
         {
-            _lengths.push_back(_calcSegmentLength(i));
+            _lengths.push_back(_calcSegmentLength(i+1));
             _length += _lengths[i];
         }
+        
+        if(_length > 0)
+            _arcLengthReparametrization();
         
         return _length;
     }
     
     double CatmullRomSpline3::_calcSegmentLength(int index)
     {
-        double len;
+        double len = 0;
         int i;
         
-        for(len = 0, i = 1; i <= _numSamples; ++i)
+        for(i = 1; i <= _numSamples; ++i)
         {
             len += (_calcSegmentPosition(((double)(i-1))/_numSamples, index) -
                     _calcSegmentPosition(((double)i)/_numSamples, index)).length();
         }
+        //std::cerr << len << std::endl;
         return len;
     }
     
@@ -266,6 +277,7 @@ namespace gtypes
     {
         gtypes::Vector3 tmp1, tmp2, nor;
         double t2 = t*t;
+        double dot;
         
         tmp1 = _points[index - 1] * (-_c + 4.0 * _c * t - 3.0 * _c * t2) +
                _points[index]     * (2.0 * (_c - 3.0) * t + 3.0 * (2.0 - _c) * t2) +
@@ -277,14 +289,26 @@ namespace gtypes
                _points[index]     * (2.0 * (_c - 3.0) + 6.0 * (2.0 - _c) * t) +
                _points[index + 1] * (2.0 * (3.0 - 2.0 * _c) + 6.0 * (_c - 2.0) * t) +
                _points[index + 2] * (-2.0 * _c + 6.0 * _c * t);
-                  
+
         nor = (tmp2 - tmp1*gtypes::Vector3::dotProduct(tmp2, tmp1)) ;
         nor.normalise();
-
+        
+        dot = gtypes::Vector3::dotProduct(nor, _prevNor);
+        if( (dot <= -0.982) &&
+            (dot >= -1.018) )
+        {
+            _inflexed = !_inflexed;
+        }
+        
+        _prevNor = nor;
+        
+        if(_inflexed)
+        {
+            nor = -nor;
+        }
+        
         return nor;
     }
-    
-    
     
     void CatmullRomSpline3::setCurvature(double c)
     {
@@ -318,6 +342,19 @@ namespace gtypes
         _lengths.clear();
         for(std::list<gtypes::Vector3>::iterator it = vectors.begin(); it != vectors.end(); it++)
             addPoint(*it);
+    }
+    
+    void CatmullRomSpline3::_arcLengthReparametrization()
+    {
+        _arcLengthMap.clear();
+        double prevlen = 0;
+        for(int i = 0; i < _lengths.size(); ++i)
+        {
+            _arcLengthMap[prevlen + (_lengths[i]/_length)] = i;
+            //std::cerr << "Index : " << i << " Len : " << _lengths[i]/_length << " Prevlen : " << prevlen << std::endl;
+            prevlen += _lengths[i]/_length;
+        }
+        //std::cerr << "x" << std::endl;
     }
 
 

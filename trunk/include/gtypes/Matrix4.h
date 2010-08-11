@@ -115,10 +115,7 @@ namespace gtypes
 
 #ifdef GTYPES_ABREV
 
-namespace gt
-{
-	typedef gtypes::Matrix4 mat4;
-}
+typedef gtypes::Matrix4 gmat4;
 
 #endif // GTYPES_ABREV
 
