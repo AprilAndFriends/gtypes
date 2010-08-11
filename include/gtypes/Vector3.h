@@ -51,10 +51,7 @@ namespace gtypes
 
 #ifdef GTYPES_ABREV
 
-namespace gt
-{
-	typedef gtypes::Vector3 vec3;
-}
+typedef gtypes::Vector3 gvec3;
 
 #endif // GTYPES_ABREV
 

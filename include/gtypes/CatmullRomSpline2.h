@@ -81,10 +81,8 @@ namespace gtypes
 
 #ifdef GTYPES_ABREV
 
-namespace gt
-{
-	typedef gtypes::CatmullRomSpline2 crs2;
-}
+typedef gtypes::CatmullRomSpline2 gcrs2;
+
 #endif
 
 #endif // GTYPES_SPLINE2_H

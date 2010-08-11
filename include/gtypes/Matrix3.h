@@ -92,10 +92,7 @@ namespace gtypes
 
 #ifdef GTYPES_ABREV
 
-namespace gt
-{
-	typedef gtypes::Matrix3 mat3;
-}
+typedef gtypes::Matrix3 gmat3;
 
 #endif // GTYPES_ABREV
 

@@ -16,6 +16,7 @@
 #include <math.h>
 #include <vector>
 #include <list>
+#include <map>
 
 namespace gtypes
 {
@@ -31,8 +32,16 @@ namespace gtypes
         double _length;
 		double _c;
         
+        bool _inflexed;
+        gtypes::Vector3 _prevNor;
+        double _prevDot;
+        
         std::vector<gtypes::Vector3> _points;
         std::vector<double> _lengths;
+        
+        std::map<double, int> _arcLengthMap;
+        int _prevIndex;
+        double _prevlen;
     
 	public:
     
@@ -54,9 +63,6 @@ namespace gtypes
         void addPoint(gtypes::Vector3 point);
         void addPoint(double x, double y, double z);
         
-        void subdivide(int numSubdivisions);
-        void resample(int numSamples);
-        
         void rebuild(std::vector<gtypes::Vector3> &vectors, int closed = 0);
         void rebuild(std::list<gtypes::Vector3> &vectors, int closed = 0);
         void rebuild(gtypes::Vector3 *vectors, int n, int closed = 0);
@@ -76,18 +82,15 @@ namespace gtypes
         gtypes::Vector3 _calcSegmentPosition(double t, int index);
         gtypes::Vector3 _calcSegmentTangent(double t, int index);
         gtypes::Vector3 _calcSegmentNormal(double t, int index);
-        void _resample(int quality);
-        gtypes::Vector3 _resampledPos(double t);
+        void _arcLengthReparametrization();
 	};
 
 }
 
 #ifdef GTYPES_ABREV
 
-namespace gt
-{
-	typedef gtypes::CatmullRomSpline3 crs3;
-}
+typedef gtypes::CatmullRomSpline3 gcrs3;
+
 #endif
 
 #endif // GTYPES_SPLINE3_H

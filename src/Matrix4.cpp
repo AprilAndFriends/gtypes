@@ -298,7 +298,7 @@ namespace gtypes
 
 	void Matrix4::setScale(float factor)
 	{
-		*this = *this * factor;
+		setScale(factor, factor, factor);
 	}
 
 	void Matrix4::setScale(float x, float y, float z)

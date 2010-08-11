@@ -22,7 +22,8 @@
 
 TEST(SimpleVectorTest)
 {
-	gt::vec3 v(1,2,3);
+    
+	gvec3 v(1,2,3);
 	CHECK(fabs(v.length() - sqrt(1*1+2*2+3*3)) < 0.001);
 }
 

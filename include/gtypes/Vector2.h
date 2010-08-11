@@ -50,10 +50,7 @@ namespace gtypes
 
 #ifdef GTYPES_ABREV
 
-namespace gt
-{
-	typedef gtypes::Vector2 vec2;
-}
+typedef gtypes::Vector2 gvec2;
 
 #endif // GTYPES_ABREV
 
