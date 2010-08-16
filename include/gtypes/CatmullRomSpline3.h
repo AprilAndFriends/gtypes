@@ -58,19 +58,21 @@ namespace gtypes
         gtypes::Vector3 getTangent();
         gtypes::Vector3 getNormal();
         
-        void closeSpline();
-        
         void addPoint(gtypes::Vector3 point);
         void addPoint(double x, double y, double z);
         
-        void rebuild(std::vector<gtypes::Vector3> &vectors, int closed = 0);
-        void rebuild(std::list<gtypes::Vector3> &vectors, int closed = 0);
-        void rebuild(gtypes::Vector3 *vectors, int n, int closed = 0);
+        void compile(std::vector<gtypes::Vector3> &vectors, int closed = 0,
+                        gtypes::Vector3 startingTangent = gtypes::Vector3(0,0,0),
+                        gtypes::Vector3 endingTangent = gtypes::Vector3(0,0,0) );
+        void compile(std::list<gtypes::Vector3> &vectors, int closed = 0, 
+                        gtypes::Vector3 startingTangent = gtypes::Vector3(0,0,0),
+                        gtypes::Vector3 endingTangent = gtypes::Vector3(0,0,0) );
+        void compile(gtypes::Vector3 *vectors, int n, int closed = 0,
+                        gtypes::Vector3 startingTangent = gtypes::Vector3(0,0,0),
+                        gtypes::Vector3 endingTangent = gtypes::Vector3(0,0,0) );
         
         void setLengthSamplingRate(int r);
         void setCurvature(double c);
-        void setStartingTangent(gtypes::Vector3 tangent);
-        void setEndingTangent(gtypes::Vector3 tangent);
         
         double getLength();
         

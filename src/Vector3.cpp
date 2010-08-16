@@ -83,6 +83,24 @@ namespace gtypes
 	{
 		return Vector3(this->x/f, this->y/f, this->z/f);
 	}
+    
+    bool Vector3::operator ==(const Vector3& other)
+    {
+        if( (this->x == other.x) &&
+            (this->y == other.y) &&
+            (this->z == other.z))
+            return true;
+        return false;
+    }
+    
+    bool Vector3::operator !=(const Vector3& other)
+    {
+        if( (this->x == other.x) &&
+            (this->y == other.y) &&
+            (this->z == other.z))
+            return false;
+        return true;
+    }
 
 	void Vector3::operator +=(const Vector3& v)
 	{

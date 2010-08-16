@@ -16,6 +16,7 @@
 #include <math.h>
 #include <vector>
 #include <list>
+#include <map>
 
 namespace gtypes
 {
@@ -31,8 +32,16 @@ namespace gtypes
         double _length;
 		double _c;
         
+        bool _inflexed;
+        gtypes::Vector2 _prevNor;
+        double _prevDot;
+        
         std::vector<gtypes::Vector2> _points;
         std::vector<double> _lengths;
+        
+        std::map<double, int> _arcLengthMap;
+        int _prevIndex;
+        double _prevlen;
     
 	public:
     
@@ -46,22 +55,24 @@ namespace gtypes
         gtypes::Vector2 calcTangent(double t);
         gtypes::Vector2 calcNormal(double t);
         
-        void closeSpline();
+        gtypes::Vector2 getTangent();
+        gtypes::Vector2 getNormal();
         
         void addPoint(gtypes::Vector2 point);
         void addPoint(double x, double y);
         
-        void subdivide(int numSubdivisions);
-        void resample(int numSamples);
-        
-        void rebuild(std::vector<gtypes::Vector2> &vectors, int closed = 0);
-        void rebuild(std::list<gtypes::Vector2> &vectors, int closed = 0);
-        void rebuild(gtypes::Vector2 *vectors, int n, int closed = 0);
+        void compile(std::vector<gtypes::Vector2> &vectors, int closed = 0,
+                        gtypes::Vector2 startingTangent = gtypes::Vector2(0,0),
+                        gtypes::Vector2 endingTangent = gtypes::Vector2(0,0) );
+        void compile(std::list<gtypes::Vector2> &vectors, int closed = 0, 
+                        gtypes::Vector2 startingTangent = gtypes::Vector2(0,0),
+                        gtypes::Vector2 endingTangent = gtypes::Vector2(0,0) );
+        void compile(gtypes::Vector2 *vectors, int n, int closed = 0,
+                        gtypes::Vector2 startingTangent = gtypes::Vector2(0,0),
+                        gtypes::Vector2 endingTangent = gtypes::Vector2(0,0) );
         
         void setLengthSamplingRate(int r);
         void setCurvature(double c);
-        void setStartingTangent(gtypes::Vector2 tangent);
-        void setEndingTangent(gtypes::Vector2 tangent);
         
         double getLength();
         
@@ -73,8 +84,7 @@ namespace gtypes
         gtypes::Vector2 _calcSegmentPosition(double t, int index);
         gtypes::Vector2 _calcSegmentTangent(double t, int index);
         gtypes::Vector2 _calcSegmentNormal(double t, int index);
-        void _resample(int quality);
-        gtypes::Vector2 _resampledPos(double t);
+        void _arcLengthReparametrization();
 	};
 
 }

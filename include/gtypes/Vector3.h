@@ -40,6 +40,9 @@ namespace gtypes
 		void operator -=(const Vector3& v);
 		void operator *=(const float f);
         void operator /=(const float f);
+        
+        bool operator ==(const Vector3& other);
+        bool operator !=(const Vector3& other);
 		
 		float dotProduct(Vector3 v);
         static float dotProduct(Vector3 v1, Vector3 v2);
