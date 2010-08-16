@@ -4,11 +4,9 @@
 # implement vectors: double dotProduct(gvec3 v1, gvec3 v2)
 * static methods in vectors and matrices that can be used as utility functions
 
-* Catmull-Rom:
+* Catmull-Rom 2&3:
 
-    - void closeCurve()
-    - void openCurve()
-    - void addPoint(...) must handle first and last points as double points unles explicitly stated otherwise
+    # void rebuild(..., int closed) compiles the spline
     
     - Frenet Frame (defines unit coordinate system on a point on a curve):
         # gvec3 calcTangent(double t)
@@ -17,4 +15,7 @@
         - Intercept inflexions and keep current frame during inflexions and on straight lines
         # Intercept c2 incontinuity and make curve smooth
         # make arc-lenght reparametrization and lookup table
+        
+        - setStartingTangent(gvec3)
+        - setEndingTangent(gvec3)
         

@@ -54,12 +54,6 @@ namespace gtypes
         
     }
     
-    void CatmullRomSpline3::closeSpline()
-    
-    {
-        
-    }
-    
     void CatmullRomSpline3::addPoint(double x, double y, double z)
     {
         addPoint(gtypes::Vector3(x,y,z));
@@ -70,16 +64,6 @@ namespace gtypes
         _points.push_back(point);
         if(_points.size() > 2)
             _calcLength();
-    }
-    
-    void CatmullRomSpline3::setStartingTangent(gtypes::Vector3 tangent)
-    {
-        
-    }
-    
-    void CatmullRomSpline3::setEndingTangent(gtypes::Vector3 tangent)
-    {
-        
     }
     
     gtypes::Vector3 CatmullRomSpline3::_calcSegmentPosition(double t, int index)
@@ -187,7 +171,7 @@ namespace gtypes
         gtypes::Vector3 e1, e2, nor;
         double dot;
         e1 = calcTangent(t);
-        e2 = gtypes::Vector3( calcTangent(t) - calcTangent(t + 0.1)).normalised();
+        e2 = gtypes::Vector3( calcTangent(t) - calcTangent(t + 0.03)).normalised();
         nor.cross(e2,e1);
         nor.normalise();
         
@@ -320,28 +304,104 @@ namespace gtypes
         _numSamples = r;
     }
     
-    void CatmullRomSpline3::rebuild(gtypes::Vector3 *vectors, int n, int closed)
+    void CatmullRomSpline3::compile(gtypes::Vector3 *vectors, int n, int closed, gtypes::Vector3 startingTangent, gtypes::Vector3 endingTangent)
     {
         _points.clear();
         _lengths.clear();
+        if(closed)
+        {
+            _closed = 1;
+            addPoint(vectors[n-1]);
+        }
+        else 
+        {
+            _closed = 0;
+            if(startingTangent != gtypes::Vector3(0,0,0))
+                addPoint(vectors[1] - startingTangent*2);
+            else
+                addPoint(vectors[0]);
+        }
         for(int i = 0; i < n; ++i)
             addPoint(vectors[i]);
+        if(closed)
+        {   
+            addPoint(_points[1]);
+            addPoint(_points[2]);
+        }
+        else
+        {
+            if(endingTangent != gtypes::Vector3(0,0,0))
+                addPoint(_points[_points.size() - 2] + endingTangent*2);
+            else
+                addPoint(_points[_points.size() - 1]);
+        }
     }
     
-    void CatmullRomSpline3::rebuild(std::vector<gtypes::Vector3> &vectors, int closed)
+    void CatmullRomSpline3::compile(std::vector<gtypes::Vector3> &vectors, int closed, gtypes::Vector3 startingTangent, gtypes::Vector3 endingTangent)
     {
         _points.clear();
         _lengths.clear();
+        if(closed)
+        {
+            _closed = 1;
+            addPoint(*vectors.end());
+        }
+        else 
+        {
+            _closed = 0;
+            if(startingTangent != gtypes::Vector3(0,0,0))
+                addPoint(vectors[1] - startingTangent*2);
+            else
+                addPoint(vectors[0]);
+        }
         for(int i = 0; i < vectors.size(); ++i)
             addPoint(vectors[i]);
+        if(closed)
+        {
+            addPoint(_points[1]);
+            addPoint(_points[2]);
+        }
+        else
+        {
+            if(endingTangent != gtypes::Vector3(0,0,0))
+                addPoint(_points[_points.size() - 2] + endingTangent*2);
+            else
+                addPoint(_points[_points.size() - 1]);
+        }
     }
     
-    void CatmullRomSpline3::rebuild(std::list<gtypes::Vector3> &vectors, int closed)
+    void CatmullRomSpline3::compile(std::list<gtypes::Vector3> &vectors, int closed, gtypes::Vector3 startingTangent, gtypes::Vector3 endingTangent)
     {
         _points.clear();
         _lengths.clear();
+        if(closed)
+        {
+            _closed = 1;
+            addPoint(*(vectors.rbegin()));
+        }
+        else 
+        {
+            _closed = 0;
+            if(startingTangent != gtypes::Vector3(0,0,0))
+                addPoint(*(vectors.begin()++) - startingTangent*2);
+            else
+                addPoint(*vectors.begin());
+        }
         for(std::list<gtypes::Vector3>::iterator it = vectors.begin(); it != vectors.end(); it++)
             addPoint(*it);
+        if(closed)
+        {
+            addPoint(_points[1]);
+            addPoint(_points[2]);
+        }
+        else
+        {
+            if(endingTangent != gtypes::Vector3(0,0,0))
+                addPoint(_points[_points.size() - 2] + endingTangent*2);
+            else
+                addPoint(_points[_points.size() - 1]);
+        }
+        
     }
     
     void CatmullRomSpline3::_arcLengthReparametrization()
@@ -356,6 +416,5 @@ namespace gtypes
         }
         //std::cerr << "x" << std::endl;
     }
-
 
 }
