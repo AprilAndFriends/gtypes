@@ -191,10 +191,10 @@ namespace gtypes
 		bx.normalise();
 		by.cross(bz,bx);
 		by.normalise();
-		a[0] = bx.x; a[4] = bx.y;  a[8] = bx.z; a[12] = 0.0;
-		a[1] = by.x; a[5] = by.y;  a[9] = by.z; a[13] = 0.0;
-		a[2] = bz.x; a[6] = bz.y; a[10] = bz.z; a[14] = 0.0;
-		a[3] =  0.0; a[7] =  0.0; a[11] =  0.0; a[15] = 1.0;
+		a[0] = bx.x; a[4] = bx.y;  a[8] =  bx.z; a[12] = 0.0;
+		a[1] = by.x; a[5] = by.y;  a[9] =  by.z; a[13] = 0.0;
+		a[2] = bz.x; a[6] = bz.y; a[10] =  bz.z; a[14] = 0.0;
+		a[3] =  0.0; a[7] =  0.0; a[11] =   0.0; a[15] = 1.0;
 		b.setTranslation(-eye);
 		*this = a * b;
 	}
@@ -331,10 +331,10 @@ namespace gtypes
 	{
 		float y = (float)tan(fov * M_PI / 360.0f);
 		float x = y * aspect;
-		this->mat[0] = 1.0f / x; this->mat[4] = 0.0;      this->mat[8] = 0.0;                               this->mat[12] = 0.0;
-		this->mat[1] = 0.0;      this->mat[5] = 1.0f / y; this->mat[9] = 0.0;                               this->mat[13] = 0.0;
-		this->mat[2] = 0.0;      this->mat[6] = 0.0;      this->mat[10] = -(far + near) / (far - near);   this->mat[14] = -(2.0f * far * near) / (far - near);
-		this->mat[3] = 0.0;      this->mat[7] = 0.0;      this->mat[11] = -1.0;                             this->mat[15] = 0.0;
+		this->mat[0] = 1.0f / x; this->mat[4] = 0.0;      this->mat[8] = 0.0;                            this->mat[12] = 0.0;
+		this->mat[1] = 0.0;      this->mat[5] = 1.0f / y; this->mat[9] = 0.0;                            this->mat[13] = 0.0;
+		this->mat[2] = 0.0;      this->mat[6] = 0.0;      this->mat[10] = -(far + near) / (far - near);  this->mat[14] = -(2.0f * far * near) / (far - near);
+		this->mat[3] = 0.0;      this->mat[7] = 0.0;      this->mat[11] = -1.0;                          this->mat[15] = 0.0;
 	}
 	
 	void Matrix4::ortho(float w,float h,float x_offset,float y_offset)
