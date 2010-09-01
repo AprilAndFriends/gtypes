@@ -52,10 +52,6 @@ namespace gtypes
 	};
 }
 
-#ifdef GTYPES_ABREV
-
 typedef gtypes::Vector3 gvec3;
-
-#endif // GTYPES_ABREV
 
 #endif // GTYPES_VECTOR3_H

@@ -48,10 +48,6 @@ namespace gtypes
 	};
 }
 
-#ifdef GTYPES_ABREV
-
 typedef gtypes::Vector2 gvec2;
-
-#endif // GTYPES_ABREV
 
 #endif // GTYPES_VECTOR2_H
