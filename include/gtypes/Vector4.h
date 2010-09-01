@@ -26,10 +26,6 @@ namespace gtypes
 
 }
 
-#ifdef GTYPES_ABREV
-
 typedef gtypes::Vector4 gvec4;
-
-#endif // GTYPES_ABREV
 
 #endif // GTYPES_VECTOR4_H

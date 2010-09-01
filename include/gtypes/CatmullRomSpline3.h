@@ -89,10 +89,6 @@ namespace gtypes
 
 }
 
-#ifdef GTYPES_ABREV
-
 typedef gtypes::CatmullRomSpline3 gcrs3;
-
-#endif
 
 #endif // GTYPES_SPLINE3_H

@@ -40,10 +40,6 @@ namespace gtypes
 
 }
 
-#ifdef GTYPES_ABREV
-
 typedef gtypes::Quaternion gquat;
-
-#endif // GTYPES_ABREV
 
 #endif // GTYPES_QUATERNION_H

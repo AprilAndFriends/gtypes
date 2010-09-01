@@ -90,10 +90,6 @@ namespace gtypes
 
 }
 
-#ifdef GTYPES_ABREV
-
 typedef gtypes::Matrix3 gmat3;
-
-#endif // GTYPES_ABREV
 
 #endif // GTYPES_MATRIX3
