@@ -218,6 +218,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\include\gtypes\Constants.h"
+				>
+			</File>
+			<File
 				RelativePath=".\include\gtypes\gtypesExport.h"
 				>
 			</File>
