@@ -22,7 +22,7 @@ namespace gtypes
     }
     
     CatmullRomSpline3::CatmullRomSpline3(std::vector<gtypes::Vector3> &vectors, int closed, gtypes::Vector3 t1, gtypes::Vector3 t2) : _closed(closed),
-    _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0)
+    _c(0.5), _length(0.0), _numSegments(0), _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0), _prevIndex(-1)
     {
         for(int i = 0; i < vectors.size(); ++i)
         {
@@ -32,7 +32,7 @@ namespace gtypes
     }
     
     CatmullRomSpline3::CatmullRomSpline3(std::list<gtypes::Vector3> &vectors, int closed, gtypes::Vector3 t1, gtypes::Vector3 t2) : _closed(closed),
-    _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0)
+    _c(0.5), _length(0.0), _numSegments(0), _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0), _prevIndex(-1)
     {
         for(std::list<gtypes::Vector3>::iterator it = vectors.begin(); it != vectors.end(); it++)
         {
@@ -42,7 +42,7 @@ namespace gtypes
     }
     
     CatmullRomSpline3::CatmullRomSpline3(gtypes::Vector3 *vectors, int n, int closed, gtypes::Vector3 t1, gtypes::Vector3 t2) : _closed(closed),
-    _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0)
+    _c(0.5), _length(0.0), _numSegments(0), _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0), _prevIndex(-1)
     {
         for(int i = 0; i < n; ++i)
         {
