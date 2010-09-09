@@ -46,9 +46,9 @@ namespace gtypes
 	public:
     
 		CatmullRomSpline2();
-        CatmullRomSpline2(std::vector<gtypes::Vector2> &vectors, int closed = 0);
-        CatmullRomSpline2(std::list<gtypes::Vector2> &vectors, int closed = 0);
-        CatmullRomSpline2(gtypes::Vector2 *vectors, int n, int closed = 0);
+        CatmullRomSpline2(std::vector<gtypes::Vector2> &vectors, int closed = 0, gtypes::Vector2 t1 = gtypes::Vector2(0,0), gtypes::Vector2 t2 = gtypes::Vector2(0,0));
+        CatmullRomSpline2(std::list<gtypes::Vector2> &vectors, int closed = 0, gtypes::Vector2 t1 = gtypes::Vector2(0,0), gtypes::Vector2 t2 = gtypes::Vector2(0,0));
+        CatmullRomSpline2(gtypes::Vector2 *vectors, int n, int closed = 0, gtypes::Vector2 t1 = gtypes::Vector2(0,0), gtypes::Vector2 t2 = gtypes::Vector2(0,0));
 		~CatmullRomSpline2();
         
         gtypes::Vector2 calcPosition(double t);
