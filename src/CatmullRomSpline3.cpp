@@ -21,31 +21,34 @@ namespace gtypes
         
     }
     
-    CatmullRomSpline3::CatmullRomSpline3(std::vector<gtypes::Vector3> &vectors, int closed) : _closed(closed),
+    CatmullRomSpline3::CatmullRomSpline3(std::vector<gtypes::Vector3> &vectors, int closed, gtypes::Vector3 t1, gtypes::Vector3 t2) : _closed(closed),
     _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0)
     {
         for(int i = 0; i < vectors.size(); ++i)
         {
             addPoint(vectors[i]);
         }
+        compile(this->_points, closed, t1, t2);
     }
     
-    CatmullRomSpline3::CatmullRomSpline3(std::list<gtypes::Vector3> &vectors, int closed) : _closed(closed),
+    CatmullRomSpline3::CatmullRomSpline3(std::list<gtypes::Vector3> &vectors, int closed, gtypes::Vector3 t1, gtypes::Vector3 t2) : _closed(closed),
     _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0)
     {
         for(std::list<gtypes::Vector3>::iterator it = vectors.begin(); it != vectors.end(); it++)
         {
             addPoint(*it);
         }
+        compile(this->_points, closed, t1, t2);
     }
     
-    CatmullRomSpline3::CatmullRomSpline3(gtypes::Vector3 *vectors, int n, int closed) : _closed(closed),
+    CatmullRomSpline3::CatmullRomSpline3(gtypes::Vector3 *vectors, int n, int closed, gtypes::Vector3 t1, gtypes::Vector3 t2) : _closed(closed),
     _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0)
     {
         for(int i = 0; i < n; ++i)
         {
             addPoint(vectors[i]);
         }
+        compile(this->_points, closed, t1, t2);
     
     }
         
@@ -89,6 +92,10 @@ namespace gtypes
     
     gtypes::Vector3 CatmullRomSpline3::calcPosition(double t)
     {
+        if(_points.size() < 1)
+        {
+            return gtypes::Vector3(0.0, 0.0, 0.0);
+        }
         //std::cerr << t << std::endl;
         // ensure that t is in [0,1]
         if(t > 1.0)
@@ -143,6 +150,10 @@ namespace gtypes
     
     gtypes::Vector3 CatmullRomSpline3::calcTangent(double t)
     {
+        if(_points.size() < 1)
+        {
+            return gtypes::Vector3(0.0, 0.0, 0.0);
+        }
         // ensure that t is in [0,1]
         if(t > 1.0)
             t -= (int)t;
@@ -164,6 +175,10 @@ namespace gtypes
     
     gtypes::Vector3 CatmullRomSpline3::calcNormal(double t)
     {
+        if(_points.size() < 1)
+        {
+            return gtypes::Vector3(0.0, 0.0, 0.0);
+        }
         // ensure that t is in [0,1]
         if(t > 1.0)
             t -= (int)t;

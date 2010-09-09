@@ -21,31 +21,34 @@ namespace gtypes
         
     }
     
-    CatmullRomSpline2::CatmullRomSpline2(std::vector<gtypes::Vector2> &vectors, int closed) : _closed(closed),
+    CatmullRomSpline2::CatmullRomSpline2(std::vector<gtypes::Vector2> &vectors, int closed, gtypes::Vector2 t1, gtypes::Vector2 t2) : _closed(closed),
     _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0)
     {
         for(int i = 0; i < vectors.size(); ++i)
         {
             addPoint(vectors[i]);
         }
+        this->compile(_points, closed, t1, t2);
     }
     
-    CatmullRomSpline2::CatmullRomSpline2(std::list<gtypes::Vector2> &vectors, int closed) : _closed(closed),
+    CatmullRomSpline2::CatmullRomSpline2(std::list<gtypes::Vector2> &vectors, int closed, gtypes::Vector2 t1, gtypes::Vector2 t2) : _closed(closed),
     _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0)
     {
         for(std::list<gtypes::Vector2>::iterator it = vectors.begin(); it != vectors.end(); it++)
         {
             addPoint(*it);
         }
+        this->compile(_points, closed, t1, t2);
     }
     
-    CatmullRomSpline2::CatmullRomSpline2(gtypes::Vector2 *vectors, int n, int closed) : _closed(closed),
+    CatmullRomSpline2::CatmullRomSpline2(gtypes::Vector2 *vectors, int n, int closed, gtypes::Vector2 t1,  gtypes::Vector2 t2) : _closed(closed),
     _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0)
     {
         for(int i = 0; i < n; ++i)
         {
             addPoint(vectors[i]);
         }
+        this->compile(_points, closed, t1, t2);
     
     }
         
@@ -89,6 +92,10 @@ namespace gtypes
     
     gtypes::Vector2 CatmullRomSpline2::calcPosition(double t)
     {
+        if(_points.size() < 1)
+        {
+            return gtypes::Vector2(0.0, 0.0);
+        }
         if(t > 1.0)
             t -= (int)t;
             
@@ -115,6 +122,10 @@ namespace gtypes
     
     gtypes::Vector2 CatmullRomSpline2::calcTangent(double t)
     {
+        if(_points.size() < 1)
+        {
+            return gtypes::Vector2(0.0, 0.0);
+        }
         if(t > 1.0)
             t -= (int)t;
         return gtypes::Vector2( calcPosition(t + 0.01) - calcPosition(t) ).normalised();
