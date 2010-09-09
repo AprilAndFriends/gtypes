@@ -24,19 +24,29 @@ namespace gtypes
     CatmullRomSpline2::CatmullRomSpline2(std::vector<gtypes::Vector2> &vectors, int closed) : _closed(closed),
     _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0)
     {
-        compile(vectors, closed);
+        for(int i = 0; i < vectors.size(); ++i)
+        {
+            addPoint(vectors[i]);
+        }
     }
     
     CatmullRomSpline2::CatmullRomSpline2(std::list<gtypes::Vector2> &vectors, int closed) : _closed(closed),
     _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0)
     {
-        compile(vectors, closed);
+        for(std::list<gtypes::Vector2>::iterator it = vectors.begin(); it != vectors.end(); it++)
+        {
+            addPoint(*it);
+        }
     }
     
     CatmullRomSpline2::CatmullRomSpline2(gtypes::Vector2 *vectors, int n, int closed) : _closed(closed),
     _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0)
     {
-        compile(vectors, n, closed);
+        for(int i = 0; i < n; ++i)
+        {
+            addPoint(vectors[i]);
+        }
+    
     }
         
     CatmullRomSpline2::~CatmullRomSpline2()
@@ -79,13 +89,9 @@ namespace gtypes
     
     gtypes::Vector2 CatmullRomSpline2::calcPosition(double t)
     {
-        //std::cerr << t << std::endl;
-        // ensure that t is in [0,1]
         if(t > 1.0)
-        {
             t -= (int)t;
-        }
-        
+            
         int index = 0;
         double lt, lp;
         
@@ -102,7 +108,6 @@ namespace gtypes
             }
             _prevIndex = it->second;
             _prevlen = it->first;
-
         }
         
         return _calcSegmentPosition(lt, index + 1);
@@ -110,10 +115,8 @@ namespace gtypes
     
     gtypes::Vector2 CatmullRomSpline2::calcTangent(double t)
     {
-        // ensure that t is in [0,1]
         if(t > 1.0)
             t -= (int)t;
-            
         return gtypes::Vector2( calcPosition(t + 0.01) - calcPosition(t) ).normalised();
     }
     
@@ -123,11 +126,9 @@ namespace gtypes
         if(t > 1.0)
             t -= (int)t;
             
-        gtypes::Vector2 tan;
-        
-        tan = calcTangent(t);
-        
-        return gtypes::Vector2(-tan.y, tan.x);
+        gtypes::Vector2 nor = calcTangent(t);
+        nor = gtypes::Vector2(-nor.y, nor.x);
+        return nor;
     }
     
     double CatmullRomSpline2::_calcLength()
@@ -179,11 +180,8 @@ namespace gtypes
     
     gtypes::Vector2 CatmullRomSpline2::_calcSegmentNormal(double t, int index)
     {
-        gtypes::Vector2 nor, tan;
-        tan = _calcSegmentTangent(t, index);
-        
-        nor = gtypes::Vector2(-tan.y, tan.x);
-
+        gtypes::Vector2 nor = _calcSegmentTangent(t, index);
+        nor = gtypes::Vector2(-nor.y, nor.x);
         return nor;
     }
     
@@ -304,8 +302,10 @@ namespace gtypes
         for(int i = 0; i < _lengths.size(); ++i)
         {
             _arcLengthMap[prevlen + (_lengths[i]/_length)] = i;
+            //std::cerr << "Index : " << i << " Len : " << _lengths[i]/_length << " Prevlen : " << prevlen << std::endl;
             prevlen += _lengths[i]/_length;
         }
+        //std::cerr << "x" << std::endl;
     }
 
 }

@@ -16,8 +16,8 @@
 #include <iostream>
 
 /* screen width, height, and bit depth */
-#define SCREEN_WIDTH  1680
-#define SCREEN_HEIGHT 1050
+#define SCREEN_WIDTH  640
+#define SCREEN_HEIGHT 480
 #define SCREEN_BPP      32
 
 /* Setup our booleans */
@@ -27,6 +27,8 @@
 	///////////////////
 	
 	gtypes::CatmullRomSpline3 splajn, path;
+    
+    gtypes::CatmullRomSpline2 splajn2d;
 	
 	///////////////////
 	
@@ -389,6 +391,13 @@ int drawGLScene()
     
     glLineWidth(1.0);
     
+    glBegin(GL_LINE_STRIP);
+    for(int i = 0; i < 100; ++i)
+    {
+        glVertex2f(splajn2d.calcPosition(i/100.0f).x-80, splajn2d.calcPosition(i/100.0f).y);
+    }
+    glEnd();
+    
     for(int i = 0; i < splajn._points.size(); ++i)
     {
         glBegin(GL_LINE_LOOP);
@@ -467,6 +476,8 @@ int main( int argc, char **argv )
     //splajn.setLengthSamplingRate(128);
     
     std::list<gtypes::Vector3> vecs, vecs2;
+    std::list<gtypes::Vector2> vecs3;
+    
     vecs.push_back(gtypes::Vector3(-20,  0,  12));
     vecs.push_back(gtypes::Vector3(  0, 40,  0));
     vecs.push_back(gtypes::Vector3( 20,  0,  -24));
@@ -478,8 +489,14 @@ int main( int argc, char **argv )
     vecs2.push_back(gtypes::Vector3(-32,-40,  -6));
     vecs2.push_back(gtypes::Vector3(  0, -4,  0));
     
+    vecs3.push_back(gtypes::Vector2(-20,  0));
+    vecs3.push_back(gtypes::Vector2(  0, 20));
+    vecs3.push_back(gtypes::Vector2( 20,  0));
+    vecs3.push_back(gtypes::Vector2(  0,-20));
+    
     splajn.compile(vecs, 1, gtypes::Vector3(0, 12, 0), gtypes::Vector3(-12, 0, 0));
     path.compile(vecs2, 1);
+    splajn2d.compile(vecs3);
 	
 	/////////////////////////////
 	
@@ -531,7 +548,7 @@ int main( int argc, char **argv )
     /* Sets up OpenGL double buffering */
     SDL_GL_SetAttribute( SDL_GL_DOUBLEBUFFER, 1 );
     
-    videoFlags |= SDL_FULLSCREEN;
+    //videoFlags |= SDL_FULLSCREEN;
 
     /* get a SDL surface */
     surface = SDL_SetVideoMode( SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP,
