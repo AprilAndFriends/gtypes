@@ -10,13 +10,13 @@
 #ifndef GTYPES_VECTOR4_H
 #define GTYPES_VECTOR4_H
 
+#include "gtypesExport.h"
+
 namespace gtypes
 {
-
-	class Vector4
+	class gtypesExport Vector4
 	{
 	public:
-	
 		float x,y,z,w;
 	
 		Vector4();

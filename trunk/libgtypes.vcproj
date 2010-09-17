@@ -192,6 +192,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\Rectangle.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\Vector2.cpp"
 				>
 			</File>
@@ -235,6 +239,10 @@
 			</File>
 			<File
 				RelativePath=".\include\gtypes\Quaternion.h"
+				>
+			</File>
+			<File
+				RelativePath=".\include\gtypes\Rectangle.h"
 				>
 			</File>
 			<File
