@@ -8,10 +8,6 @@
 	<dict/>
 	<key>DefaultProperties</key>
 	<dict>
-		<key>GCC_PRODUCT_TYPE_PREPROCESSOR_DEFINITIONS</key>
-		<string> __IPHONE_OS_VERSION_MIN_REQUIRED=20000</string>
-		<key>GCC_VERSION</key>
-		<string>4.0</string>
 		<key>MACOSX_DEPLOYMENT_TARGET</key>
 		<string>10.5</string>
 		<key>PLATFORM_NAME</key>

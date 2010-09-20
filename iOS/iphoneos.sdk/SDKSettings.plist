@@ -22,8 +22,6 @@
 		<string>YES</string>
 		<key>GCC_THUMB_SUPPORT</key>
 		<string>YES</string>
-		<key>GCC_VERSION</key>
-		<string>4.0</string>
 		<key>IPHONEOS_DEPLOYMENT_TARGET</key>
 		<string>%IPHONE_SDK%</string>
 		<key>MACOSX_DEPLOYMENT_TARGET</key>
