@@ -21,6 +21,8 @@ namespace gtypes
 	
 		Rectangle();
 		Rectangle(float _x, float _y, float _w, float _h);
+		
+		bool intersects(Rectangle& other);
 
 	};
 }
