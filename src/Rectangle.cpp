@@ -22,6 +22,12 @@ namespace gtypes
 		this->w = _w;
 		this->h = _h;
 	}
+	
+	bool Rectangle::intersects(Rectangle &other)
+	{
+		return (this->x + this->w > other.x && this->x < other.x + other.w &&
+				this->y + this->h > other.y && this->y < other.y + other.h);
+	}
 
 }
 
