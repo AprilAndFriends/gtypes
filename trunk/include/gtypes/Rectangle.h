@@ -10,6 +10,7 @@
 #ifndef GTYPES_RECTANGLE_H
 #define GTYPES_RECTANGLE_H
 
+#include "Vector2.h"
 #include "gtypesExport.h"
 
 namespace gtypes
@@ -23,6 +24,10 @@ namespace gtypes
 		Rectangle(float _x, float _y, float _w, float _h);
 		
 		bool intersects(Rectangle& other);
+		void operator+=(Vector2& vector);
+		void operator-=(Vector2& vector);
+		Rectangle operator+(Vector2 vector);
+		Rectangle operator-(Vector2 vector);
 
 	};
 }
