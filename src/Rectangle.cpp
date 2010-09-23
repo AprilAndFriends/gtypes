@@ -8,6 +8,7 @@
 * the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php   *
 \************************************************************************************/
 #include "Rectangle.h"
+#include "Vector2.h"
 
 namespace gtypes
 {
@@ -28,6 +29,32 @@ namespace gtypes
 		return (this->x + this->w > other.x && this->x < other.x + other.w &&
 				this->y + this->h > other.y && this->y < other.y + other.h);
 	}
-
+	
+	void Rectangle::operator+=(Vector2& vector)
+	{
+		this->x += vector.x;
+		this->y += vector.y;
+	}
+	
+	void Rectangle::operator-=(Vector2& vector)
+	{
+		this->x -= vector.x;
+		this->y -= vector.y;
+	}
+	
+	Rectangle Rectangle::operator+(Vector2 vector)
+	{
+		Rectangle result(*this);
+		result += vector;
+		return result;
+	}
+	
+	Rectangle Rectangle::operator-(Vector2 vector)
+	{
+		Rectangle result(*this);
+		result -= vector;
+		return result;
+	}
+	
 }
 
