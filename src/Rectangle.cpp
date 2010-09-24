@@ -42,6 +42,12 @@ namespace gtypes
 		this->y -= vector.y;
 	}
 	
+	void Rectangle::operator*=(float scale)
+	{
+		this->w *= scale;
+		this->h *= scale;
+	}
+	
 	Rectangle Rectangle::operator+(Vector2 vector)
 	{
 		Rectangle result(*this);
@@ -53,6 +59,13 @@ namespace gtypes
 	{
 		Rectangle result(*this);
 		result -= vector;
+		return result;
+	}
+	
+	Rectangle Rectangle::operator*(float scale)
+	{
+		Rectangle result(*this);
+		result *= scale;
 		return result;
 	}
 	

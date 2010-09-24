@@ -26,8 +26,10 @@ namespace gtypes
 		bool intersects(Rectangle& other);
 		void operator+=(Vector2& vector);
 		void operator-=(Vector2& vector);
+		void operator*=(float scale);
 		Rectangle operator+(Vector2 vector);
 		Rectangle operator-(Vector2 vector);
+		Rectangle operator*(float scale);
 
 	};
 }
