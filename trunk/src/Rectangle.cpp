@@ -69,5 +69,15 @@ namespace gtypes
 		return result;
 	}
 	
+    bool Rectangle::operator==(const Rectangle& other)
+    {
+		return (this->x == other.x && this->y == other.y && this->w == other.w && this->h == other.h);
+    }
+    
+    bool Rectangle::operator!=(const Rectangle& other)
+    {
+        return !(*this == other);
+    }
+	
 }
 

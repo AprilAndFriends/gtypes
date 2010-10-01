@@ -30,6 +30,8 @@ namespace gtypes
 		Rectangle operator+(Vector2 vector);
 		Rectangle operator-(Vector2 vector);
 		Rectangle operator*(float scale);
+        bool operator==(const Rectangle& other);
+        bool operator!=(const Rectangle& other);
 
 	};
 }
