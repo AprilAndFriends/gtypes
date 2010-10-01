@@ -24,6 +24,9 @@
 		7F340FAF120AEEDD00F01926 /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74A11EB136E00B1C1DF /* Vector2.cpp */; };
 		7F340FB0120AEEDD00F01926 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74B11EB136E00B1C1DF /* Vector3.cpp */; };
 		7F340FB1120AEEDD00F01926 /* Vector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74C11EB136E00B1C1DF /* Vector4.cpp */; };
+		7F4C09611255EF610004EBF6 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F4C095F1255EF610004EBF6 /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F4C09621255EF610004EBF6 /* Rectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F4C09601255EF610004EBF6 /* Rectangle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F4C09641255EF780004EBF6 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C09631255EF780004EBF6 /* Rectangle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,9 @@
 		7F42F74A11EB136E00B1C1DF /* Vector2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector2.cpp; path = src/Vector2.cpp; sourceTree = "<group>"; };
 		7F42F74B11EB136E00B1C1DF /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector3.cpp; path = src/Vector3.cpp; sourceTree = "<group>"; };
 		7F42F74C11EB136E00B1C1DF /* Vector4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector4.cpp; path = src/Vector4.cpp; sourceTree = "<group>"; };
+		7F4C095F1255EF610004EBF6 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = include/gtypes/Constants.h; sourceTree = "<group>"; };
+		7F4C09601255EF610004EBF6 /* Rectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Rectangle.h; path = include/gtypes/Rectangle.h; sourceTree = "<group>"; };
+		7F4C09631255EF780004EBF6 /* Rectangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Rectangle.cpp; path = src/Rectangle.cpp; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +119,7 @@
 		7F42F6E711EB0E0200B1C1DF /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				7F4C09631255EF780004EBF6 /* Rectangle.cpp */,
 				7F42F74511EB136E00B1C1DF /* CatmullRomSpline2.cpp */,
 				7F42F74611EB136E00B1C1DF /* CatmullRomSpline3.cpp */,
 				7F42F74711EB136E00B1C1DF /* Matrix3.cpp */,
@@ -128,6 +135,8 @@
 		7F42F6E811EB0E0600B1C1DF /* Includes */ = {
 			isa = PBXGroup;
 			children = (
+				7F4C095F1255EF610004EBF6 /* Constants.h */,
+				7F4C09601255EF610004EBF6 /* Rectangle.h */,
 				7F42F73311EB135D00B1C1DF /* CatmullRomSpline2.h */,
 				7F42F73411EB135D00B1C1DF /* CatmullRomSpline3.h */,
 				7F42F73511EB135D00B1C1DF /* gtypesExport.h */,
@@ -157,6 +166,8 @@
 				7F340FA7120AEED500F01926 /* Vector2.h in Headers */,
 				7F340FA8120AEED500F01926 /* Vector3.h in Headers */,
 				7F340FA9120AEED500F01926 /* Vector4.h in Headers */,
+				7F4C09611255EF610004EBF6 /* Constants.h in Headers */,
+				7F4C09621255EF610004EBF6 /* Rectangle.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +264,7 @@
 				7F340FAF120AEEDD00F01926 /* Vector2.cpp in Sources */,
 				7F340FB0120AEEDD00F01926 /* Vector3.cpp in Sources */,
 				7F340FB1120AEEDD00F01926 /* Vector4.cpp in Sources */,
+				7F4C09641255EF780004EBF6 /* Rectangle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
