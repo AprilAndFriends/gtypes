@@ -7,37 +7,54 @@
 * This program is free software; you can redistribute it and/or modify it under      *
 * the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php   *
 \************************************************************************************/
-#include "Quaternion.h"
-#include "Vector3.h"
+#include <math.h>
+
 #include "Matrix3.h"
 #include "Matrix4.h"
+#include "Quaternion.h"
+#include "Vector3.h"
+#include "util.h"
 
 namespace gtypes
 {
 	Quaternion::Quaternion()
 	{
-		this->w=1;
-		this->x=this->z=this->w=1;
+		this->x = 1.0f;
+		this->y = 1.0f;
+		this->z = 1.0f;
+		this->w = 1.0f;
 	}
 
 	Quaternion::Quaternion(const Quaternion& quat)
 	{
-		this->x=quat.x; this->y=quat.y; this->z=quat.z; this->w=quat.w;
+		this->x = quat.x;
+		this->y = quat.y;
+		this->z = quat.z;
+		this->w = quat.w;
 	}
 
 	Quaternion::Quaternion(const float* v)
 	{
-		this->x=v[0]; this->y=v[1]; this->z=v[2]; this->w=v[3];
+		this->x = v[0];
+		this->y = v[1];
+		this->z = v[2];
+		this->w = v[3];
 	}
 
 	Quaternion::Quaternion(float _x, float _y, float _z, float _w)
 	{
-		this->x=_x; this->y=_y; this->z=_z; this->w=_w;
+		this->x = _x;
+		this->y = _y;
+		this->z = _z;
+		this->w = _w;
 	}
 	
 	void Quaternion::set(float _x, float _y, float _z, float _w)
 	{
-		this->x=_x; this->y=_y; this->z=_z; this->w=_w;
+		this->x = _x;
+		this->y = _y;
+		this->z = _z;
+		this->w = _w;
 	}
 
 	Matrix3 Quaternion::mat3() const
@@ -59,7 +76,7 @@ namespace gtypes
 
 	Matrix4 Quaternion::mat4() const
 	{
-		return mat4(Vector3(0,0,0));
+		return mat4(Vector3(0, 0, 0));
 	}
 
 	Matrix4 Quaternion::mat4(const Vector3& position) const
@@ -80,15 +97,15 @@ namespace gtypes
 						position.x      , position.y      , position.z             , 1.0f);
 	}
 	
-	Quaternion Quaternion::fromAxisAngle(float ax,float ay,float az,float angle)
+	Quaternion Quaternion::fromAxisAngle(float ax, float ay, float az, float angle)
 	{
-		float x,y,z,w;
-		float theta=angle/(2*57.295779513082323f);
+		float x, y, z, w;
+		float theta = deg_to_rad(angle) * 0.5f;
 		w =      cos(theta);
 		x = ax * sin(theta);
 		y = ay * sin(theta);
 		z = az * sin(theta);
 		
-		return Quaternion(x,y,z,w);
+		return Quaternion(x, y, z, w);
 	}
 }

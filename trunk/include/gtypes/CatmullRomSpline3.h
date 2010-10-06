@@ -20,7 +20,6 @@
 
 namespace gtypes
 {
-
 	class gtypesExport CatmullRomSpline3
 	{
         

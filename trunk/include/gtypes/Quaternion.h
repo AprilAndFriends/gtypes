@@ -21,7 +21,10 @@ namespace gtypes
 	class gtypesExport Quaternion
 	{
 	public:
-		float x,y,z,w;
+		float x;
+		float y;
+		float z;
+		float w;
 	
 		Quaternion();
 		Quaternion(float _x,float _y,float _z,float _w);
@@ -35,9 +38,7 @@ namespace gtypes
 		
 		static Quaternion fromAxisAngle(float ax,float ay,float az,float angle);
 		
-
 	};
-
 }
 
 typedef gtypes::Quaternion gquat;

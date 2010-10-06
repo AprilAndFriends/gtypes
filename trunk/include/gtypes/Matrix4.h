@@ -10,14 +10,13 @@
 #ifndef GTYPES_MATRIX4
 #define GTYPES_MATRIX4
 
-#include <math.h>
-#include "Vector4.h"
-#include "Vector3.h"
-#include "Matrix3.h"
 #include "gtypesExport.h"
 
 namespace gtypes
 {
+	class Vector3;
+	class Vector4;
+	class Matrix3;
 
 	class gtypesExport Matrix4
 	{
@@ -110,7 +109,6 @@ namespace gtypes
 		void lookAt(const float *eye, const float *target, const float *up);
 		
 	};
-
 }
 
 typedef gtypes::Matrix4 gmat4;
