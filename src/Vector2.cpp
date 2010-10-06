@@ -85,7 +85,7 @@ namespace gtypes
 		return Vector2(this->x / f, this->y / f);
 	}
 
-    Vector2 Vector2::operator -()
+    Vector2 Vector2::operator -() const
 	{
 		return Vector2(-this->x, -this->y);
 	}

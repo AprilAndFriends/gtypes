@@ -36,7 +36,7 @@ namespace gtypes
 		Vector2 operator -(const Vector2& v);
 		Vector2 operator *(const float f);
         Vector2 operator /(const float f);
-        Vector2 operator -();
+        Vector2 operator -() const;
 		void operator +=(const Vector2& v);
 		void operator -=(const Vector2& v);
 		void operator *=(const float f);
