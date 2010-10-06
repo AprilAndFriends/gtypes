@@ -83,7 +83,7 @@ namespace gtypes
 		return Vector3(this->x / f, this->y / f, this->z / f);
 	}
     
-	Vector3 Vector3::operator -()
+	Vector3 Vector3::operator -() const
 	{
 		return Vector3(-this->x, -this->y, -this->z);
 	}
