@@ -31,11 +31,11 @@ namespace gtypes
 		void normalise();
 		Vector3 normalised();
 		
-		Vector3 operator +(const Vector3& v) const;
-		Vector3 operator -(const Vector3& v) const;
-		Vector3 operator *(const float f) const;
-        Vector3 operator /(const float f) const;
-		Vector3 operator -() const;
+		Vector3 operator +(const Vector3& v);
+		Vector3 operator -(const Vector3& v);
+		Vector3 operator *(const float f);
+        Vector3 operator /(const float f);
+		Vector3 operator -();
 		void operator +=(const Vector3& v);
 		void operator -=(const Vector3& v);
 		void operator *=(const float f);

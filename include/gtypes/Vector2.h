@@ -32,11 +32,11 @@ namespace gtypes
 		void normalise();
 		Vector2 normalised();
 		
-		Vector2 operator +(const Vector2& v) const;
-		Vector2 operator -(const Vector2& v) const;
-		Vector2 operator *(const float f) const;
-        Vector2 operator /(const float f) const;
-        Vector2 operator -() const;
+		Vector2 operator +(const Vector2& v);
+		Vector2 operator -(const Vector2& v);
+		Vector2 operator *(const float f);
+        Vector2 operator /(const float f);
+        Vector2 operator -();
 		void operator +=(const Vector2& v);
 		void operator -=(const Vector2& v);
 		void operator *=(const float f);
