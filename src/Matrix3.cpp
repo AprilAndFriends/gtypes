@@ -7,9 +7,12 @@
 * This program is free software; you can redistribute it and/or modify it under      *
 * the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php   *
 \************************************************************************************/
+#include <math.h>
+
 #include "Matrix3.h"
 #include "Matrix4.h"
-#include <math.h>
+#include "Vector3.h"
+#include "util.h"
 
 namespace gtypes
 {
@@ -98,9 +101,9 @@ namespace gtypes
 		gtypes::Vector3 y(mat[3],mat[4],mat[5]);
 		gtypes::Vector3 z;
 		x.normalise();
-		z.cross(x,y);
+		z=x.cross(y);
 		z.normalise();
-		y.cross(z,x);
+		y=z.cross(x);
 		y.normalise();
 		mat[0] = x.x; mat[3] = y.x; mat[6] = z.x;
 		mat[1] = x.y; mat[4] = y.y; mat[7] = z.y;
@@ -176,7 +179,7 @@ namespace gtypes
 	
 	void Matrix3::setRotation2D(float angle)
 	{
-		float rad = angle/57.295779513082320876798154814105f;
+		float rad = deg_to_rad(angle);
 		mat[0] = cosf(rad); mat[1] = -sinf(rad);
 		mat[3] = sinf(rad); mat[4] =  cosf(rad);
 	}
@@ -189,7 +192,7 @@ namespace gtypes
 	
 	void Matrix3::setRotation3D(float x, float y, float z, float angle)
 	{
-		float rad = angle/57.295779513082320876798154814105f;
+		float rad = deg_to_rad(angle);
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		float l = sqrtf(x * x + y * y + z * z);
@@ -212,7 +215,7 @@ namespace gtypes
 	
 	void Matrix3::setRotation3D(gtypes::Vector3& v, float angle)
 	{
-		float rad = angle/57.295779513082320876798154814105f;
+		float rad = deg_to_rad(angle);
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		float l = sqrtf(v.x * v.x + v.y * v.y + v.z * v.z);
@@ -247,7 +250,7 @@ namespace gtypes
 
 	void Matrix3::setRotationX(float angle)
 	{
-		float rad = angle/57.295779513082320876798154814105f;
+		float rad = deg_to_rad(angle);
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		mat[0] = 1.0; mat[3] = 0.0; mat[6] = 0.0;
@@ -257,7 +260,7 @@ namespace gtypes
 
 	void Matrix3::setRotationY(float angle)
 	{
-		float rad = angle/57.295779513082320876798154814105f;
+		float rad = deg_to_rad(angle);
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		mat[0] = c; mat[3] = 0.0; mat[6] = s;
@@ -267,7 +270,7 @@ namespace gtypes
 
 	void Matrix3::setRotationZ(float angle)
 	{
-		float rad = angle/57.295779513082320876798154814105f;
+		float rad = deg_to_rad(angle);
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		mat[0] = c; mat[3] = -s; mat[6] = 0.0;

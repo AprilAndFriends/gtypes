@@ -17,37 +17,36 @@ namespace gtypes
 	class gtypesExport Vector3
 	{
 	public:
-		float x,y,z;
+		float x;
+		float y;
+		float z;
 	
 		Vector3();
-		Vector3(float _x,float _y,float _z);
+		Vector3(float _x, float _y, float _z);
 		Vector3(const float *v);
-		void set(float _x,float _y,float _z);
-		
+		void set(float _x, float _y, float _z);
 		
 		float length();
 		float squaredLength();
 		void normalise();
 		Vector3 normalised();
 		
-		Vector3 operator +(const Vector3& v);
-		Vector3 operator -(const Vector3& v);
-		const Vector3 operator-() const;
+		Vector3 operator +(const Vector3& v) const;
+		Vector3 operator -(const Vector3& v) const;
 		Vector3 operator *(const float f) const;
         Vector3 operator /(const float f) const;
+		Vector3 operator -() const;
 		void operator +=(const Vector3& v);
 		void operator -=(const Vector3& v);
 		void operator *=(const float f);
         void operator /=(const float f);
-        
-        bool operator ==(const Vector3& other);
-        bool operator !=(const Vector3& other);
+        bool operator ==(const Vector3& v);
+        bool operator !=(const Vector3& v);
 		
-		float dotProduct(Vector3 v);
-        static float dotProduct(Vector3 v1, Vector3 v2);
+		float dot(const Vector3& v) const;
 		
-		void cross(const Vector3 &v1,const Vector3 &v2);
-		void cross(const Vector3 &v2);
+		Vector3 cross(const Vector3& v2) const;
+		
 	};
 }
 

@@ -10,11 +10,11 @@
 #ifndef GTYPES_MATRIX3
 #define GTYPES_MATRIX3
 
-#include "Vector3.h"
 #include "gtypesExport.h"
 
 namespace gtypes
 {
+	class Vector3;
 	class Matrix4;
 
 	class gtypesExport Matrix3
@@ -87,7 +87,6 @@ namespace gtypes
 		void orthoNormalize();
 
 	};
-
 }
 
 typedef gtypes::Matrix3 gmat3;

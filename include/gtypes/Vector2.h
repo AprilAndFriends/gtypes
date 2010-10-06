@@ -17,25 +17,26 @@ namespace gtypes
 	class gtypesExport Vector2
 	{
 	public:
-		float x,y;
+		float x;
+		float y;
 	
 		Vector2();
-		Vector2(float _x,float _y);
-		void set(float _x,float _y);
+		Vector2(float _x, float _y);
+		void set(float _x, float _y);
 		
-		bool isInCircle(float center_x,float center_y,float radius);
-		bool isInRectangle(float rect_x,float rect_y,float rect_w,float rect_h);
+		bool isInCircle(float center_x, float center_y, float radius);
+		bool isInRectangle(float rect_x, float rect_y, float rect_w, float rect_h);
 		
 		float length();
 		float squaredLength();
 		void normalise();
 		Vector2 normalised();
 		
-		Vector2 operator +(const Vector2& v);
-		Vector2 operator -(const Vector2& v);
-        Vector2 operator -();
-		Vector2 operator *(const float f);
-        Vector2 operator /(const float f);
+		Vector2 operator +(const Vector2& v) const;
+		Vector2 operator -(const Vector2& v) const;
+		Vector2 operator *(const float f) const;
+        Vector2 operator /(const float f) const;
+        Vector2 operator -() const;
 		void operator +=(const Vector2& v);
 		void operator -=(const Vector2& v);
 		void operator *=(const float f);
@@ -43,7 +44,7 @@ namespace gtypes
         bool operator ==(const Vector2& v);
         bool operator !=(const Vector2& v);
 		
-		float dotProduct(Vector2 v);
+		float dot(Vector2 v) const;
 
 	};
 }

@@ -246,6 +246,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\include\gtypes\util.h"
+				>
+			</File>
+			<File
 				RelativePath=".\include\gtypes\Vector2.h"
 				>
 			</File>

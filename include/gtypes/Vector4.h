@@ -17,13 +17,17 @@ namespace gtypes
 	class gtypesExport Vector4
 	{
 	public:
-		float x,y,z,w;
+		float x;
+		float y;
+		float z;
+		float w;
 	
 		Vector4();
 		Vector4(float _x, float _y, float _z, float _w);
+		Vector4(const float *v);
+		void set(float _x, float _y, float _z, float _w);
 
 	};
-
 }
 
 typedef gtypes::Vector4 gvec4;

@@ -7,10 +7,9 @@
 * This program is free software; you can redistribute it and/or modify it under      *
 * the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php   *
 \************************************************************************************/
-#include "CatmullRomSpline3.h"
-
 #include <iostream>
 
+#include "CatmullRomSpline3.h"
 
 namespace gtypes
 {
@@ -187,10 +186,10 @@ namespace gtypes
         double dot;
         e1 = calcTangent(t);
         e2 = gtypes::Vector3( calcTangent(t) - calcTangent(t + 0.03)).normalised();
-        nor.cross(e2,e1);
+        nor = e1.cross(e1);
         nor.normalise();
         
-        dot = gtypes::Vector3::dotProduct(nor, _prevNor);
+        dot = nor.dot(_prevNor);
         dot < 0 ? dot = -1 : dot = 1;
         
         _prevDot == 0 ? _prevDot = dot : NULL;
@@ -289,10 +288,10 @@ namespace gtypes
                _points[index + 1] * (2.0 * (3.0 - 2.0 * _c) + 6.0 * (_c - 2.0) * t) +
                _points[index + 2] * (-2.0 * _c + 6.0 * _c * t);
 
-        nor = (tmp2 - tmp1*gtypes::Vector3::dotProduct(tmp2, tmp1)) ;
+        nor = (tmp2 - tmp1*tmp2.dot(tmp1)) ;
         nor.normalise();
         
-        dot = gtypes::Vector3::dotProduct(nor, _prevNor);
+        dot = nor.dot(_prevNor);
         if( (dot <= -0.982) &&
             (dot >= -1.018) )
         {

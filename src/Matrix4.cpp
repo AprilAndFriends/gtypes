@@ -7,11 +7,13 @@
 * This program is free software; you can redistribute it and/or modify it under      *
 * the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php   *
 \************************************************************************************/
-#include "Matrix4.h"
+#include <math.h>
 
-#ifndef M_PI // msvc++ doesn't have this defined
-#define M_PI           3.14159265358979323846
-#endif
+#include "Matrix3.h"
+#include "Matrix4.h"
+#include "Vector3.h"
+#include "Vector4.h"
+#include "util.h"
 
 namespace gtypes
 {
@@ -83,14 +85,12 @@ namespace gtypes
 
 	Matrix4::Matrix4(const Vector3& axis, float angle)
 	{
-		float rad = angle/57.295779513082320876798154814105f;
-		setRotation(axis, rad);
+		setRotation(axis, deg_to_rad(angle));
 	}
 
 	Matrix4::Matrix4(float x, float y, float z, float angle)
 	{
-		float rad = angle/57.295779513082320876798154814105f;
-		setRotation(Vector3(x,y,z), rad);
+		setRotation(Vector3(x,y,z), deg_to_rad(angle));
 	}
 
 	float Matrix4::det() const
@@ -187,9 +187,9 @@ namespace gtypes
 		bz += eye;
 		bz -= target;
 		bz.normalise();
-		bx.cross(up,bz);
+		bx=up.cross(bz);
 		bx.normalise();
-		by.cross(bz,bx);
+		by=bz.cross(bx);
 		by.normalise();
 		a[0] = bx.x; a[4] = bx.y;  a[8] =  bx.z; a[12] = 0.0;
 		a[1] = by.x; a[5] = by.y;  a[9] =  by.z; a[13] = 0.0;
@@ -329,7 +329,7 @@ namespace gtypes
 
 	void Matrix4::perspective(float fov, float aspect, float near, float far)
 	{
-		float y = (float)tan(fov * M_PI / 360.0f);
+		float y = (float)tan(deg_to_rad(fov * 0.5f));
 		float x = y * aspect;
 		this->mat[0] = 1.0f / x; this->mat[4] = 0.0;      this->mat[8] = 0.0;                            this->mat[12] = 0.0;
 		this->mat[1] = 0.0;      this->mat[5] = 1.0f / y; this->mat[9] = 0.0;                            this->mat[13] = 0.0;
@@ -380,7 +380,7 @@ namespace gtypes
 	
 	void Matrix4::setRotation(const Vector3& axis, float angle)
 	{
-		float rad = angle/57.295779513082320876798154814105f;
+		float rad = deg_to_rad(angle);
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		Vector3 v = axis;
@@ -407,7 +407,7 @@ namespace gtypes
 
 	void Matrix4::setRotationX(float angle)
 	{
-		float rad = angle/57.295779513082320876798154814105f;
+		float rad = deg_to_rad(angle);
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		this->mat[0] = 1.0; this->mat[4] = 0.0; this->mat[8]  = 0.0; this->mat[12] = 0.0;
@@ -418,7 +418,7 @@ namespace gtypes
 
 	void Matrix4::setRotationY(float angle)
 	{
-		float rad = angle/57.295779513082320876798154814105f;
+		float rad = deg_to_rad(angle);
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		this->mat[0] =  c;  this->mat[4] = 0.0; this->mat[8]  =  s;  this->mat[12] = 0.0;
@@ -429,7 +429,7 @@ namespace gtypes
 
 	void Matrix4::setRotationZ(float angle)
 	{
-		float rad = angle/57.295779513082320876798154814105f;
+		float rad = deg_to_rad(angle);
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		this->mat[0] =  c;  this->mat[4] = -s;  this->mat[8]  = 0.0; this->mat[12] = 0.0;
