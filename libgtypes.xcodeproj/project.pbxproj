@@ -10,6 +10,7 @@
 		7F3518711251E4740005B659 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F35186F1251E4740005B659 /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F3518721251E4740005B659 /* Rectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F3518701251E4740005B659 /* Rectangle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F3518741251E4810005B659 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F3518731251E4810005B659 /* Rectangle.cpp */; };
+		7F3D73DF125C8D1F00058195 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F3D73DE125C8D1F00058195 /* util.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F42F73C11EB135D00B1C1DF /* CatmullRomSpline2.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F42F73311EB135D00B1C1DF /* CatmullRomSpline2.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F42F73D11EB135D00B1C1DF /* CatmullRomSpline3.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F42F73411EB135D00B1C1DF /* CatmullRomSpline3.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F42F73E11EB135D00B1C1DF /* gtypesExport.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F42F73511EB135D00B1C1DF /* gtypesExport.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,6 +34,7 @@
 		7F35186F1251E4740005B659 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = include/gtypes/Constants.h; sourceTree = "<group>"; };
 		7F3518701251E4740005B659 /* Rectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Rectangle.h; path = include/gtypes/Rectangle.h; sourceTree = "<group>"; };
 		7F3518731251E4810005B659 /* Rectangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Rectangle.cpp; path = src/Rectangle.cpp; sourceTree = "<group>"; };
+		7F3D73DE125C8D1F00058195 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = util.h; path = include/gtypes/util.h; sourceTree = "<group>"; };
 		7F42F73311EB135D00B1C1DF /* CatmullRomSpline2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatmullRomSpline2.h; path = include/gtypes/CatmullRomSpline2.h; sourceTree = "<group>"; };
 		7F42F73411EB135D00B1C1DF /* CatmullRomSpline3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatmullRomSpline3.h; path = include/gtypes/CatmullRomSpline3.h; sourceTree = "<group>"; };
 		7F42F73511EB135D00B1C1DF /* gtypesExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gtypesExport.h; path = include/gtypes/gtypesExport.h; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		7F42F6E811EB0E0600B1C1DF /* Includes */ = {
 			isa = PBXGroup;
 			children = (
+				7F3D73DE125C8D1F00058195 /* util.h */,
 				7F35186F1251E4740005B659 /* Constants.h */,
 				7F3518701251E4740005B659 /* Rectangle.h */,
 				7F42F73311EB135D00B1C1DF /* CatmullRomSpline2.h */,
@@ -168,6 +171,7 @@
 				7F42F74411EB135D00B1C1DF /* Vector4.h in Headers */,
 				7F3518711251E4740005B659 /* Constants.h in Headers */,
 				7F3518721251E4740005B659 /* Rectangle.h in Headers */,
+				7F3D73DF125C8D1F00058195 /* util.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

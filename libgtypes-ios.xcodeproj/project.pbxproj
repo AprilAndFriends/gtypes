@@ -24,6 +24,7 @@
 		7F340FAF120AEEDD00F01926 /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74A11EB136E00B1C1DF /* Vector2.cpp */; };
 		7F340FB0120AEEDD00F01926 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74B11EB136E00B1C1DF /* Vector3.cpp */; };
 		7F340FB1120AEEDD00F01926 /* Vector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74C11EB136E00B1C1DF /* Vector4.cpp */; };
+		7F3D73D2125C8D0300058195 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F3D73D1125C8D0300058195 /* util.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F4C09611255EF610004EBF6 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F4C095F1255EF610004EBF6 /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F4C09621255EF610004EBF6 /* Rectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F4C09601255EF610004EBF6 /* Rectangle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F4C09641255EF780004EBF6 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C09631255EF780004EBF6 /* Rectangle.cpp */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		7F340F89120AED3D00F01926 /* libgtypes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtypes.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F3D73D1125C8D0300058195 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = util.h; path = include/gtypes/util.h; sourceTree = "<group>"; };
 		7F42F73311EB135D00B1C1DF /* CatmullRomSpline2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatmullRomSpline2.h; path = include/gtypes/CatmullRomSpline2.h; sourceTree = "<group>"; };
 		7F42F73411EB135D00B1C1DF /* CatmullRomSpline3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatmullRomSpline3.h; path = include/gtypes/CatmullRomSpline3.h; sourceTree = "<group>"; };
 		7F42F73511EB135D00B1C1DF /* gtypesExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gtypesExport.h; path = include/gtypes/gtypesExport.h; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		7F42F6E811EB0E0600B1C1DF /* Includes */ = {
 			isa = PBXGroup;
 			children = (
+				7F3D73D1125C8D0300058195 /* util.h */,
 				7F4C095F1255EF610004EBF6 /* Constants.h */,
 				7F4C09601255EF610004EBF6 /* Rectangle.h */,
 				7F42F73311EB135D00B1C1DF /* CatmullRomSpline2.h */,
@@ -168,6 +171,7 @@
 				7F340FA9120AEED500F01926 /* Vector4.h in Headers */,
 				7F4C09611255EF610004EBF6 /* Constants.h in Headers */,
 				7F4C09621255EF610004EBF6 /* Rectangle.h in Headers */,
+				7F3D73D2125C8D0300058195 /* util.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
