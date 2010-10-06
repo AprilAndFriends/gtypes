@@ -65,27 +65,27 @@ namespace gtypes
 		return (x >= rect_x && y >= rect_y && x <= rect_x + rect_w && y <= rect_y + rect_h);
 	}
 
-	Vector2 Vector2::operator +(const Vector2& v) const
+	Vector2 Vector2::operator +(const Vector2& v)
 	{
 		return Vector2(this->x + v.x, this->y + v.y);
 	}
 
-	Vector2 Vector2::operator -(const Vector2& v) const
+	Vector2 Vector2::operator -(const Vector2& v)
 	{
 		return Vector2(this->x - v.x, this->y - v.y);
 	}
     
-	Vector2 Vector2::operator *(const float f) const
+	Vector2 Vector2::operator *(const float f)
 	{
 		return Vector2(this->x * f, this->y * f);
 	}
     
-    Vector2 Vector2::operator /(const float f) const
+    Vector2 Vector2::operator /(const float f)
 	{
 		return Vector2(this->x / f, this->y / f);
 	}
 
-    Vector2 Vector2::operator -() const
+    Vector2 Vector2::operator -()
 	{
 		return Vector2(-this->x, -this->y);
 	}
