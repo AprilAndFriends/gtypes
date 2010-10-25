@@ -146,6 +146,28 @@ namespace gtypes
         
         return _calcSegmentPosition(lt, index + 1);
     }
+	
+	gtypes::Vector3 CatmullRomSpline3::calcStaticTangent(double t)
+	{
+		// first we find the segment we are in
+		int index = 0, lt = _arcLengthMap.begin()->first;
+		
+        for(std::map<double, int>::iterator it = _arcLengthMap.begin(); it != _arcLengthMap.end(); it++)
+        {
+            if( (t >= _prevlen) && (t < (it->first)) )
+            {
+                lt = (t - _prevlen) * (1.0/(it->first-_prevlen));
+                index = it->second;
+                break;
+            }
+            _prevIndex = it->second;
+            _prevlen = it->first;
+        }
+		
+		gtypes::Vector3 staticTangent = (this->_points[index+2] - this->_points[index+1]).normalised();
+		return staticTangent;
+		
+	}
     
     gtypes::Vector3 CatmullRomSpline3::calcTangent(double t)
     {
@@ -154,10 +176,16 @@ namespace gtypes
             return gtypes::Vector3(0.0, 0.0, 0.0);
         }
         // ensure that t is in [0,1]
-        if(t > 1.0)
-            t -= (int)t;
-            
-        return gtypes::Vector3( calcPosition(t + 0.01) - calcPosition(t) ).normalised();
+        //if(t > 1.0)
+        //    t -= (int)t;
+			
+		if((t > 0.989))
+			return prevTangent;
+			
+		gtypes::Vector3 tan;
+		tan = gtypes::Vector3( calcPosition(t + 0.01) - calcPosition(t) ).normalised();
+		prevTangent = tan;
+		return tan;
             
         // Analytical version
         /*int index;
@@ -349,6 +377,8 @@ namespace gtypes
             else
                 addPoint(_points[_points.size() - 1]);
         }
+		
+		prevTangent = gtypes::Vector3( calcPosition(0.01) - calcPosition(0.0) ).normalised();
     }
     
     void CatmullRomSpline3::compile(std::vector<gtypes::Vector3> &vectors, int closed, gtypes::Vector3 startingTangent, gtypes::Vector3 endingTangent)
@@ -382,6 +412,8 @@ namespace gtypes
             else
                 addPoint(_points[_points.size() - 1]);
         }
+		
+		prevTangent = gtypes::Vector3( calcPosition(0.01) - calcPosition(0.0) ).normalised();
     }
     
     void CatmullRomSpline3::compile(std::list<gtypes::Vector3> &vectors, int closed, gtypes::Vector3 startingTangent, gtypes::Vector3 endingTangent)
@@ -416,6 +448,7 @@ namespace gtypes
                 addPoint(_points[_points.size() - 1]);
         }
         
+		prevTangent = gtypes::Vector3( calcPosition(0.01) - calcPosition(0.0) ).normalised();
     }
     
     void CatmullRomSpline3::_arcLengthReparametrization()
