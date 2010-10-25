@@ -34,6 +34,8 @@ namespace gtypes
         bool _inflexed;
         gtypes::Vector3 _prevNor;
         double _prevDot;
+		
+		gvec3 prevTangent;
         
         std::vector<gtypes::Vector3> _points;
         std::vector<double> _lengths;
@@ -52,6 +54,7 @@ namespace gtypes
         
         gtypes::Vector3 calcPosition(double t);
         gtypes::Vector3 calcTangent(double t);
+		gtypes::Vector3 calcStaticTangent(double t);
         gtypes::Vector3 calcNormal(double t);
         
         gtypes::Vector3 getTangent();

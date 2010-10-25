@@ -186,7 +186,7 @@ int drawGLScene()
     /* Clear The Screen And The Depth Buffer */
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
     
-    vecpos += 0.0006;
+    vecpos += 0.00006;
 	if(vecpos > 1.0)
 	{
 		vecpos = 0.0;
@@ -198,9 +198,9 @@ int drawGLScene()
     gtypes::Vector3 pos = splajn.calcPosition(vecpos);
     gtypes::Vector3 pos2 = path.calcPosition(vecpos);
     gtypes::Vector3 tan = splajn.calcTangent(vecpos);
+	gtypes::Vector3 stan = splajn.calcStaticTangent(vecpos);
     gtypes::Vector3 nor = splajn.calcNormal(vecpos);
-    gtypes::Vector3 binor;
-    binor.cross(tan, nor);
+    gtypes::Vector3 binor = nor.cross(tan);
     
     cam[0] = binor.x; cam[4] = nor.x; cam[8]  =   -tan.x; cam[12] = pos.x;
     cam[1] = binor.y; cam[5] = nor.y; cam[9]  =   -tan.y; cam[13] = pos.y;
@@ -311,6 +311,9 @@ int drawGLScene()
         glColor3f(1.0, 0.0, 0.0);
         glVertex3f(v.x, v.y, v.z);
         glVertex3f(v.x + 6*tan.x, v.y + 6*tan.y, v.z + 6*tan.z);
+		glColor3f(0.5, 0.0, 0.5);
+        glVertex3f(v.x, v.y, v.z);
+        glVertex3f(v.x + 6*stan.x, v.y + 6*stan.y, v.z + 6*stan.z);
         glColor3f(0.0, 1.0, 0.0);
         glVertex3f(v.x, v.y, v.z);
         glVertex3f(v.x + 5*nor.x, v.y + 6*nor.y, v.z + 6*nor.z);
@@ -495,7 +498,7 @@ int main( int argc, char **argv )
     vecs3.push_back(gtypes::Vector2(  0,-20));
     vecs3.push_back(gtypes::Vector2(  -20,-40));
     
-    splajn.compile(vecs, 1, gtypes::Vector3(0, 12, 0), gtypes::Vector3(-12, 0, 0));
+    splajn.compile(vecs, 0, gtypes::Vector3(0, 12, 0), gtypes::Vector3(-12, 0, 0));
     path.compile(vecs2, 1);
     splajn2d.compile(vecs3, 1);
 	
