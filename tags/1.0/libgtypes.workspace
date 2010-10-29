@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Workspace Name="libgtypes" Database="./libgtypes.tags">
+  <Project Name="libgtypes" Path="libgtypes.project" Active="No"/>
+  <Project Name="gtypes_unittest" Path="unittest/gtypes_unittest.project" Active="No"/>
+  <Project Name="sdl_gl_splineTest" Path="sdl_gl_splineTest/sdl_gl_splineTest.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="yes">
+      <Project Name="libgtypes" ConfigName="Debug"/>
+      <Project Name="gtypes_unittest" ConfigName="Debug"/>
+      <Project Name="sdl_gl_splineTest" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="libgtypes" ConfigName="Release"/>
+      <Project Name="gtypes_unittest" ConfigName="Release"/>
+      <Project Name="sdl_gl_splineTest" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Linux_Debug" Selected="yes">
+      <Project Name="libgtypes" ConfigName="Linux_Debug"/>
+      <Project Name="gtypes_unittest" ConfigName="Linux_Debug"/>
+      <Project Name="sdl_gl_splineTest" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Linux Debug x64" Selected="yes">
+      <Project Name="libgtypes" ConfigName="Linux Debug x64"/>
+      <Project Name="gtypes_unittest" ConfigName="Linux Debug x64"/>
+      <Project Name="sdl_gl_splineTest" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>
