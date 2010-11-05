@@ -30,9 +30,14 @@ namespace gtypes
 				this->y + this->h > other.y && this->y < other.y + other.h);
 	}
 	
-	bool Rectangle::isVector2In(Vector2& vector)
+	bool Rectangle::isPointInside(Vector2& vector)
 	{
 		return (vector.x >= this->x && vector.y >= this->y && vector.x <= this->x + this->w && vector.y <= this->y + this->h);
+	}
+
+	bool Rectangle::isPointInside(float x, float y)
+	{
+		return (x >= this->x && y >= this->y && x <= this->x + this->w && y <= this->y + this->h);
 	}
 
 	Rectangle Rectangle::operator+(Vector2 vector)
@@ -56,6 +61,13 @@ namespace gtypes
 		return result;
 	}
 	
+	Rectangle Rectangle::operator/(float scale)
+	{
+		Rectangle result(*this);
+		result /= scale;
+		return result;
+	}
+	
 	void Rectangle::operator+=(Vector2& vector)
 	{
 		this->x += vector.x;
@@ -72,6 +84,12 @@ namespace gtypes
 	{
 		this->w *= scale;
 		this->h *= scale;
+	}
+	
+	void Rectangle::operator/=(float scale)
+	{
+		this->w /= scale;
+		this->h /= scale;
 	}
 	
     bool Rectangle::operator==(const Rectangle& other)

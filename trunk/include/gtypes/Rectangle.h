@@ -25,14 +25,18 @@ namespace gtypes
 		Rectangle(float _x, float _y, float _w, float _h);
 		
 		bool intersects(Rectangle& other);
-		bool isVector2In(Vector2& vector);
+		bool isPointInside(Vector2& vector);
+		bool isPointInside(float x, float y);
+		bool isVector2In(Vector2& vector) DEPRECATED_ATTRIBUTE { return isPointInside(vector); }
 		
 		Rectangle operator+(Vector2 vector);
 		Rectangle operator-(Vector2 vector);
 		Rectangle operator*(float scale);
+		Rectangle operator/(float scale);
 		void operator+=(Vector2& vector);
 		void operator-=(Vector2& vector);
 		void operator*=(float scale);
+		void operator/=(float scale);
         bool operator==(const Rectangle& other);
         bool operator!=(const Rectangle& other);
 
