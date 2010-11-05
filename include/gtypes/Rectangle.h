@@ -27,7 +27,6 @@ namespace gtypes
 		bool intersects(Rectangle& other);
 		bool isPointInside(Vector2& vector);
 		bool isPointInside(float x, float y);
-		bool isVector2In(Vector2& vector) DEPRECATED_ATTRIBUTE { return isPointInside(vector); }
 		
 		Rectangle operator+(Vector2 vector);
 		Rectangle operator-(Vector2 vector);
