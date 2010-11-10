@@ -179,7 +179,7 @@ namespace gtypes
         //if(t > 1.0)
         //    t -= (int)t;
 			
-		if((t > 0.989))
+		if((t > 0.989) && !_closed)
 			return prevTangent;
 			
 		gtypes::Vector3 tan;
@@ -214,7 +214,8 @@ namespace gtypes
         double dot;
         e1 = calcTangent(t);
         e2 = gtypes::Vector3( calcTangent(t) - calcTangent(t + 0.03)).normalised();
-        nor = e1.cross(e1);
+		
+        nor = e1.cross(e2);
         nor.normalise();
         
         dot = nor.dot(_prevNor);

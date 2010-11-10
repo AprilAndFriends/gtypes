@@ -498,7 +498,7 @@ int main( int argc, char **argv )
     vecs3.push_back(gtypes::Vector2(  0,-20));
     vecs3.push_back(gtypes::Vector2(  -20,-40));
     
-    splajn.compile(vecs, 0, gtypes::Vector3(0, 12, 0), gtypes::Vector3(-12, 0, 0));
+    splajn.compile(vecs, 1, gtypes::Vector3(0, 12, 0), gtypes::Vector3(-12, 0, 0));
     path.compile(vecs2, 1);
     splajn2d.compile(vecs3, 1);
 	
