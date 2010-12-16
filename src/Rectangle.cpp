@@ -70,6 +70,11 @@ namespace gtypes
 		this->h = size.y;
 	}
 	
+	float Rectangle::getAspect()
+	{
+		return (this->w / this->h);
+	}
+	
 	bool Rectangle::intersects(Rectangle &other)
 	{
 		return (this->x + this->w > other.x && this->x < other.x + other.w &&
