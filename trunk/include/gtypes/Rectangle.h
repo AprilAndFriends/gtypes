@@ -23,7 +23,15 @@ namespace gtypes
 	
 		Rectangle();
 		Rectangle(float _x, float _y, float _w, float _h);
+		Rectangle(Vector2 position, Vector2 size);
+		Rectangle(Vector2 position, float _w, float _h);
+		Rectangle(float _x, float _y, Vector2 size);
 		
+		Vector2 getPosition();
+		void setPosition(Vector2 position);
+		Vector2 getSize();
+		void setSize(Vector2 size);
+
 		bool intersects(Rectangle& other);
 		bool isPointInside(Vector2& vector);
 		bool isPointInside(float x, float y);
@@ -38,7 +46,7 @@ namespace gtypes
 		void operator/=(float scale);
         bool operator==(const Rectangle& other);
         bool operator!=(const Rectangle& other);
-
+		
 	};
 }
 
