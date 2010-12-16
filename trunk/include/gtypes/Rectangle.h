@@ -31,6 +31,7 @@ namespace gtypes
 		void setPosition(Vector2 position);
 		Vector2 getSize();
 		void setSize(Vector2 size);
+		float getAspect();
 
 		bool intersects(Rectangle& other);
 		bool isPointInside(Vector2& vector);
