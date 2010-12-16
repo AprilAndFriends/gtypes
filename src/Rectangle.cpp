@@ -24,6 +24,52 @@ namespace gtypes
 		this->h = _h;
 	}
 	
+	Rectangle::Rectangle(Vector2 position, Vector2 size)
+	{
+		this->x = position.x;
+		this->y = position.y;
+		this->w = size.x;
+		this->h = size.y;
+	}
+	
+	Rectangle::Rectangle(Vector2 position, float _w, float _h)
+	{
+		this->x = position.x;
+		this->y = position.y;
+		this->w = _w;
+		this->h = _h;
+	}
+	
+	Rectangle::Rectangle(float _x, float _y, Vector2 size)
+	{
+		this->x = _x;
+		this->y = _y;
+		this->w = size.x;
+		this->h = size.y;
+	}
+	
+	Vector2 Rectangle::getPosition()
+	{
+		return Vector2(this->x, this->y);
+	}
+	
+	void Rectangle::setPosition(Vector2 position)
+	{
+		this->x = position.x;
+		this->y = position.y;
+	}
+	
+	Vector2 Rectangle::getSize()
+	{
+		return Vector2(this->w, this->h);
+	}
+	
+	void Rectangle::setSize(Vector2 size)
+	{
+		this->w = size.x;
+		this->h = size.y;
+	}
+	
 	bool Rectangle::intersects(Rectangle &other)
 	{
 		return (this->x + this->w > other.x && this->x < other.x + other.w &&
