@@ -1,4 +1,4 @@
-#include "linkedlerp3.h"
+#include "LinkedLERP3.h"
 
 namespace gtypes
 {
