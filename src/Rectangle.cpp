@@ -48,6 +48,38 @@ namespace gtypes
 		this->h = size.y;
 	}
 	
+	void Rectangle::set(float _x, float _y, float _w, float _h)
+	{
+		this->x = _x;
+		this->y = _y;
+		this->w = _w;
+		this->h = _h;
+	}
+	
+	void Rectangle::set(Vector2 position, Vector2 size)
+	{
+		this->x = position.x;
+		this->y = position.y;
+		this->w = size.x;
+		this->h = size.y;
+	}
+	
+	void Rectangle::set(Vector2 position, float _w, float _h)
+	{
+		this->x = position.x;
+		this->y = position.y;
+		this->w = _w;
+		this->h = _h;
+	}
+	
+	void Rectangle::set(float _x, float _y, Vector2 size)
+	{
+		this->x = _x;
+		this->y = _y;
+		this->w = size.x;
+		this->h = size.y;
+	}
+	
 	Vector2 Rectangle::getPosition()
 	{
 		return Vector2(this->x, this->y);

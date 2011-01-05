@@ -27,6 +27,11 @@ namespace gtypes
 		Rectangle(Vector2 position, float _w, float _h);
 		Rectangle(float _x, float _y, Vector2 size);
 		
+		void set(float _x, float _y, float _w, float _h);
+		void set(Vector2 position, Vector2 size);
+		void set(Vector2 position, float _w, float _h);
+		void set(float _x, float _y, Vector2 size);
+		
 		Vector2 getPosition();
 		void setPosition(Vector2 position);
 		Vector2 getSize();
