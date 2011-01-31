@@ -101,10 +101,11 @@ namespace gtypes
 	{
 		float x, y, z, w;
 		float theta = deg_to_rad(angle) * 0.5f;
-		w =      cos(theta);
-		x = ax * sin(theta);
-		y = ay * sin(theta);
-		z = az * sin(theta);
+		float s = sqrt(ax*ax + ay*ay + az*az);
+		w = cos(theta);
+		x = (ax / s) * sin(theta);
+		y = (ay / s) * sin(theta);
+		z = (az / s) * sin(theta);
 		
 		return Quaternion(x, y, z, w);
 	}
@@ -127,10 +128,10 @@ namespace gtypes
 	
 	Quaternion Quaternion::operator *(const Quaternion& q)
 	{
-		return Quaternion( w * q.x + x * q.w + y * q.z - z * q.y, 
-					   w * q.y - x * q.z + y * q.w + z * q.x, 
-					   w * q.z + x * q.y - y * q.x + z * q.w,
-					   w * q.w - x * q.x - y * q.y - z * q.z );
+		return Quaternion( w*q.x + x*q.w + y*q.z - z*q.y, 
+					   w*q.y - x*q.z + y*q.w + z*q.x, 
+					   w*q.z + x*q.y - y*q.x + z*q.w,
+					   w*q.w - x*q.x - y*q.y - z*q.z );
 	}
 	
 	Quaternion Quaternion::operator *(float f)
@@ -162,10 +163,10 @@ namespace gtypes
 		*this = a * w1 + b * w2;
 	}
 	
-	Quaternion Quaternion::getSpatialInverse()
+	Quaternion Quaternion::getInverse()
 	{
-		normalize();
-		return Quaternion(-x, -y, -z, w);
+		float sqNorm = x*x + y*y + z*z + w*w;
+		return Quaternion(-x / sqNorm, -y / sqNorm, -z / sqNorm, w / sqNorm);
 	}
 	
 	void Quaternion::normalize()

@@ -44,7 +44,7 @@ namespace gtypes
 		Quaternion operator *(const Quaternion& q);
 		Quaternion operator *(const float f);
 		
-		Quaternion getSpatialInverse();
+		Quaternion getInverse();
 		
 		float dot(const Quaternion& q);
 		void normalize();

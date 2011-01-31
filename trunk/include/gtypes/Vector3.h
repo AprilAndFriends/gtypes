@@ -14,6 +14,8 @@
 
 namespace gtypes
 {
+	class Quaternion;
+	
 	class gtypesExport Vector3
 	{
 	public:
@@ -24,7 +26,9 @@ namespace gtypes
 		Vector3();
 		Vector3(float _x, float _y, float _z);
 		Vector3(const float *v);
+		Vector3(Quaternion q);
 		void set(float _x, float _y, float _z);
+		
 		
 		float length();
 		float squaredLength();
