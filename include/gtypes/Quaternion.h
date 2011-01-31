@@ -10,6 +10,7 @@
 #ifndef GTYPES_QUATERNION_H
 #define GTYPES_QUATERNION_H
 
+#include <math.h>
 #include "gtypesExport.h"
 
 namespace gtypes
@@ -38,6 +39,16 @@ namespace gtypes
 		
 		static Quaternion fromAxisAngle(float ax,float ay,float az,float angle);
 		
+		Quaternion operator +(const Quaternion& q);
+		Quaternion operator -(const Quaternion& q);
+		Quaternion operator *(const Quaternion& q);
+		Quaternion operator *(const float f);
+		
+		Quaternion getSpatialInverse();
+		
+		float dot(const Quaternion& q);
+		void normalize();
+		void slerp(Quaternion& a, Quaternion& b, float t);
 	};
 }
 
