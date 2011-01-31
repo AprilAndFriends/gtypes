@@ -16,7 +16,6 @@
     <File Name="src/Vector4.cpp"/>
     <File Name="src/CatmullRomSpline3.cpp"/>
     <File Name="src/CatmullRomSpline2.cpp"/>
-    <File Name="src/todo.txt"/>
     <File Name="src/Rectangle.cpp"/>
     <File Name="src/LinkedLERP3.cpp"/>
   </VirtualDirectory>

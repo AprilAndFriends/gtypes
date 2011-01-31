@@ -108,4 +108,78 @@ namespace gtypes
 		
 		return Quaternion(x, y, z, w);
 	}
+	
+	Quaternion Quaternion::operator +(const Quaternion& q)
+	{
+		return Quaternion( x + q.x,
+				       y + q.y,
+				       z + q.z,
+				       w + q.w );
+	}
+
+	Quaternion Quaternion::operator -(const Quaternion& q)
+	{
+		return Quaternion( x - q.x,
+				       y - q.y,
+				       z - q.z,
+				       w - q.w );
+	}
+	
+	Quaternion Quaternion::operator *(const Quaternion& q)
+	{
+		return Quaternion( w * q.x + x * q.w + y * q.z - z * q.y, 
+					   w * q.y - x * q.z + y * q.w + z * q.x, 
+					   w * q.z + x * q.y - y * q.x + z * q.w,
+					   w * q.w - x * q.x - y * q.y - z * q.z );
+	}
+	
+	Quaternion Quaternion::operator *(float f)
+	{
+		return Quaternion(x*f, y*f, z*f, w*f);
+	}
+	
+	float Quaternion::dot(const Quaternion& q)
+	{
+		return w*q.w + x*q.x + y*q.y + z*q.z;
+	}
+	
+	void Quaternion::slerp(Quaternion& a, Quaternion& b, float t)
+	{
+		float w1, w2;
+		
+		float theta = acos(a.dot(b));
+		float sinTheta = sin(theta);
+		
+		if(sinTheta > 0.001)
+		{
+			w1 = (sin(1.0 - t) * theta) / sinTheta;
+			w2 = (sin(t * theta)) / sinTheta;
+		} else {
+			w1 = 1.0 - t;
+			w2 = t;
+		}
+		
+		*this = a * w1 + b * w2;
+	}
+	
+	Quaternion Quaternion::getSpatialInverse()
+	{
+		normalize();
+		return Quaternion(-x, -y, -z, w);
+	}
+	
+	void Quaternion::normalize()
+	{
+		float sqnorm = x*x + y*y + z*z + w*w;
+		/*if(sqnorm == 0.0)  throw exception*/
+		if(sqnorm != 1.0)
+		{
+			float s = (1.0 / sqrt(sqnorm));
+			x *= s;
+			y *= s;
+			z *= s;
+			w *= s;
+		}
+	}
+
 }
