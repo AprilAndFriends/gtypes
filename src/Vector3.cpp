@@ -10,6 +10,7 @@
 #include <math.h>
 
 #include "Vector3.h"
+#include "Quaternion.h"
 
 namespace gtypes
 {
@@ -29,6 +30,13 @@ namespace gtypes
 		this->x = v[0];
 		this->y = v[1];
 		this->z = v[2];
+	}
+	
+	Vector3::Vector3(Quaternion q)
+	{
+		x = q.x;
+		y = q.y;
+		z = q.z;
 	}
 
 	void Vector3::set(float _x, float _y, float _z)
