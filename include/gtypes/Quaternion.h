@@ -31,6 +31,7 @@ namespace gtypes
 		Quaternion(float _x,float _y,float _z,float _w);
 		Quaternion(const float *v);
 		Quaternion(const Quaternion& quat);
+		Quaternion(const Vector3& v, float w);
 		void set(float _x,float _y,float _z,float _w);
 		
 		Matrix3 mat3() const;
@@ -38,6 +39,7 @@ namespace gtypes
 		Matrix4 mat4(const Vector3& position) const;
 		
 		static Quaternion fromAxisAngle(float ax,float ay,float az,float angle);
+		static Quaternion fromEulerAngles(float yaw, float pitch, float roll);
 		
 		Quaternion operator +(const Quaternion& q);
 		Quaternion operator -(const Quaternion& q);
@@ -45,10 +47,11 @@ namespace gtypes
 		Quaternion operator *(const float f);
 		
 		Quaternion getInverse();
+		Quaternion getConjugate();
 		
 		float dot(const Quaternion& q);
 		void normalize();
-		void slerp(Quaternion& a, Quaternion& b, float t);
+		static Quaternion slerp(Quaternion& a, Quaternion& b, float t);
 	};
 }
 
