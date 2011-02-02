@@ -49,6 +49,14 @@ namespace gtypes
 		this->w = _w;
 	}
 	
+	Quaternion::Quaternion(const Vector3& v, float w)
+	{
+		this->x = v.x;
+		this->y = v.y;
+		this->z = v.z;
+		this->w = w;
+	}
+	
 	void Quaternion::set(float _x, float _y, float _z, float _w)
 	{
 		this->x = _x;
@@ -110,6 +118,16 @@ namespace gtypes
 		return Quaternion(x, y, z, w);
 	}
 	
+	Quaternion Quaternion::fromEulerAngles(float yaw, float pitch, float roll)
+	{
+		Quaternion y,p,r;
+		y.set(0.0, -sin(yaw * 0.5), 0.0, cos(yaw * 0.5));
+		p.set(-sin(pitch * 0.5), 0.0, 0.0, cos(pitch * 0.5));
+		r.set(0.0, 0.0, -sin(roll * 0.5), cos(roll * 0.5));
+		
+		return (y*p*r);
+	}
+	
 	Quaternion Quaternion::operator +(const Quaternion& q)
 	{
 		return Quaternion( x + q.x,
@@ -144,7 +162,7 @@ namespace gtypes
 		return w*q.w + x*q.x + y*q.y + z*q.z;
 	}
 	
-	void Quaternion::slerp(Quaternion& a, Quaternion& b, float t)
+	Quaternion Quaternion::slerp(Quaternion& a, Quaternion& b, float t)
 	{
 		float w1, w2;
 		
@@ -154,19 +172,24 @@ namespace gtypes
 		if(sinTheta > 0.001)
 		{
 			w1 = (sin(1.0 - t) * theta) / sinTheta;
-			w2 = (sin(t * theta)) / sinTheta;
+			w2 = (sin(t) * theta) / sinTheta;
 		} else {
 			w1 = 1.0 - t;
 			w2 = t;
 		}
 		
-		*this = a * w1 + b * w2;
+		return Quaternion(a * w1 + b * w2);
 	}
 	
 	Quaternion Quaternion::getInverse()
 	{
 		float sqNorm = x*x + y*y + z*z + w*w;
 		return Quaternion(-x / sqNorm, -y / sqNorm, -z / sqNorm, w / sqNorm);
+	}
+	
+	Quaternion Quaternion::getConjugate()
+	{
+		return Quaternion(-x, -y, -z, w);
 	}
 	
 	void Quaternion::normalize()
