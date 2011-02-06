@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="include/gtypes"
+				AdditionalIncludeDirectories=".;./include/gtypes"
 				PreprocessorDefinitions="WIN32;_DEBUG;GTYPES_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -114,7 +114,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="include\gtypes"
+				AdditionalIncludeDirectories=".;./include/gtypes"
 				PreprocessorDefinitions="WIN32;GTYPES_EXPORTS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
