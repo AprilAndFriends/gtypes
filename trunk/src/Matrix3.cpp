@@ -21,9 +21,21 @@ namespace gtypes
 
 	Matrix3::Matrix3()
 	{
-		this->data[0] = 1.0f; this->data[1] = 0.0f; this->data[2] = 0.0f;
-		this->data[3] = 0.0f; this->data[4] = 1.0f; this->data[5] = 0.0f;
-		this->data[6] = 0.0f; this->data[7] = 0.0f; this->data[8] = 1.0f;
+		this->setIdentity();
+	}
+	
+	Matrix3::Matrix3(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8)
+	{
+		this->data[0] = m0; this->data[1] = m1; this->data[2] = m2;
+		this->data[3] = m3; this->data[4] = m4; this->data[5] = m5;
+		this->data[6] = m6; this->data[7] = m7; this->data[8] = m8;
+	}
+	
+	Matrix3::Matrix3(float m[])
+	{
+		this->data[0] = m[0]; this->data[1] = m[1]; this->data[2] = m[2];
+		this->data[3] = m[3]; this->data[4] = m[4]; this->data[5] = m[5];
+		this->data[6] = m[6]; this->data[7] = m[7]; this->data[8] = m[8];
 	}
 	
 	Matrix3::Matrix3(const Matrix3& m)
@@ -40,18 +52,32 @@ namespace gtypes
 		this->data[6] = m.data[8]; this->data[7] = m.data[9]; this->data[8] = m.data[10];
 	}
 	
-	Matrix3::Matrix3(float m[])
+	void Matrix3::set(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8)
+	{
+		this->data[0] = m0; this->data[1] = m1; this->data[2] = m2;
+		this->data[3] = m3; this->data[4] = m4; this->data[5] = m5;
+		this->data[6] = m6; this->data[7] = m7; this->data[8] = m8;
+	}
+	
+	void Matrix3::set(float m[])
 	{
 		this->data[0] = m[0]; this->data[1] = m[1]; this->data[2] = m[2];
 		this->data[3] = m[3]; this->data[4] = m[4]; this->data[5] = m[5];
 		this->data[6] = m[6]; this->data[7] = m[7]; this->data[8] = m[8];
 	}
 	
-	Matrix3::Matrix3(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8)
+	void Matrix3::set(const Matrix3& m)
 	{
-		this->data[0] = m0; this->data[1] = m1; this->data[2] = m2;
-		this->data[3] = m3; this->data[4] = m4; this->data[5] = m5;
-		this->data[6] = m6; this->data[7] = m7; this->data[8] = m8;
+		this->data[0] = m.data[0]; this->data[1] = m.data[1]; this->data[2] = m.data[2];
+		this->data[3] = m.data[3]; this->data[4] = m.data[4]; this->data[5] = m.data[5];
+		this->data[6] = m.data[6]; this->data[7] = m.data[7]; this->data[8] = m.data[8];
+	}
+
+	void Matrix3::set(const Matrix4& m)
+	{
+		this->data[0] = m.data[0]; this->data[1] = m.data[1]; this->data[2] = m.data[2];
+		this->data[3] = m.data[4]; this->data[4] = m.data[5]; this->data[5] = m.data[6];
+		this->data[6] = m.data[8]; this->data[7] = m.data[9]; this->data[8] = m.data[10];
 	}
 	
 	float Matrix3::det() const
@@ -64,25 +90,39 @@ namespace gtypes
 				this->data[0] * this->data[7] * this->data[5]);
 	}
 	
-	Matrix3 Matrix3::inverse() const
+	void Matrix3::inverse()
 	{
 		float idet = 1.0f / this->det();
-		return Matrix3((this->data[4] * this->data[8] - this->data[7] * this->data[5]) * idet,
-					  -(this->data[1] * this->data[8] - this->data[7] * this->data[2]) * idet,
-					   (this->data[1] * this->data[5] - this->data[4] * this->data[2]) * idet,
-					  -(this->data[3] * this->data[8] - this->data[6] * this->data[5]) * idet,
-					   (this->data[0] * this->data[8] - this->data[6] * this->data[2]) * idet,
-					  -(this->data[0] * this->data[5] - this->data[3] * this->data[2]) * idet,
-					   (this->data[3] * this->data[7] - this->data[6] * this->data[4]) * idet,
-					  -(this->data[0] * this->data[7] - this->data[6] * this->data[1]) * idet,
-					   (this->data[0] * this->data[4] - this->data[3] * this->data[1]) * idet);
+		this->set((this->data[4] * this->data[8] - this->data[7] * this->data[5]) * idet,
+				 -(this->data[1] * this->data[8] - this->data[7] * this->data[2]) * idet,
+				  (this->data[1] * this->data[5] - this->data[4] * this->data[2]) * idet,
+				 -(this->data[3] * this->data[8] - this->data[6] * this->data[5]) * idet,
+				  (this->data[0] * this->data[8] - this->data[6] * this->data[2]) * idet,
+				 -(this->data[0] * this->data[5] - this->data[3] * this->data[2]) * idet,
+				  (this->data[3] * this->data[7] - this->data[6] * this->data[4]) * idet,
+				 -(this->data[0] * this->data[7] - this->data[6] * this->data[1]) * idet,
+				  (this->data[0] * this->data[4] - this->data[3] * this->data[1]) * idet);
 	}
 	
-	Matrix3 Matrix3::transpose() const
+	Matrix3 Matrix3::inversed() const
 	{
-		return Matrix3(this->data[0], this->data[3], this->data[6],
-					   this->data[1], this->data[4], this->data[7],
-					   this->data[2], this->data[5], this->data[8]);
+		Matrix3 mat(*this);
+		mat.inverse();
+		return mat;
+	}
+	
+	void Matrix3::transpose()
+	{
+		this->set(this->data[0], this->data[3], this->data[6],
+				  this->data[1], this->data[4], this->data[7],
+				  this->data[2], this->data[5], this->data[8]);
+	}
+	
+	Matrix3 Matrix3::transposed() const
+	{
+		Matrix3 mat(*this);
+		mat.transpose();
+		return mat;
 	}
 	
 	Matrix3 Matrix3::rotationInverse2D() const
@@ -94,7 +134,7 @@ namespace gtypes
 	
 	Matrix3 Matrix3::rotationInverse3D() const
 	{
-		return this->transpose();
+		return this->transposed();
 	}
 	
 	void Matrix3::orthoNormalize()

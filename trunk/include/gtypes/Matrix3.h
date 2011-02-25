@@ -34,6 +34,11 @@ namespace gtypes
 		Matrix3(const Matrix3& m);
 		Matrix3(const Matrix4& m);
 		
+		void set(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8);
+		void set(float m[]);
+		void set(const Matrix3& m);
+		void set(const Matrix4& m);
+
 		Matrix3 operator+(const Matrix3 &m) const;
 		Matrix3 operator-(const Matrix3 &m) const;
 		Matrix3 operator*(const Matrix3 &m) const;
@@ -52,8 +57,10 @@ namespace gtypes
 		Vector3 operator*(const Vector3 &v) const;
 		Matrix3 operator*(float f) const;
 		
-		Matrix3 transpose() const;
-		Matrix3 inverse() const;
+		void inverse();
+		Matrix3 inversed() const;
+		void transpose();
+		Matrix3 transposed() const;
 		
 		float det() const;
 		
