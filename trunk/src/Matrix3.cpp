@@ -142,11 +142,11 @@ namespace gtypes
 		Vector3 x(data[0], data[1], data[2]);
 		Vector3 y(data[3], data[4], data[5]);
 		Vector3 z;
-		x.normalise();
+		x.normalize();
 		z = x.cross(y);
-		z.normalise();
+		z.normalize();
 		y = z.cross(x);
-		y.normalise();
+		y.normalize();
 		this->data[0] = x.x; this->data[1] = x.y; this->data[2] = x.z;
 		this->data[3] = y.x; this->data[4] = y.y; this->data[5] = y.z;
 		this->data[6] = z.x; this->data[7] = z.y; this->data[8] = z.z;

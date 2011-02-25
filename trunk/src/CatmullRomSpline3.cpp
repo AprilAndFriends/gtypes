@@ -170,7 +170,7 @@ namespace gtypes
 			_prevlen = it->first;
 		}
 		
-		Vector3 staticTangent = (this->_points[index+2] - this->_points[index+1]).normalised();
+		Vector3 staticTangent = (this->_points[index+2] - this->_points[index+1]).normalized();
 		return staticTangent;
 		
 	}
@@ -189,7 +189,7 @@ namespace gtypes
 			return prevTangent;
 			
 		Vector3 tan;
-		tan = Vector3( calcPosition(t + 0.01) - calcPosition(t) ).normalised();
+		tan = Vector3( calcPosition(t + 0.01) - calcPosition(t) ).normalized();
 		prevTangent = tan;
 		return tan;
 			
@@ -219,10 +219,10 @@ namespace gtypes
 		Vector3 e1, e2, nor;
 		double dot;
 		e1 = calcTangent(t);
-		e2 = Vector3( calcTangent(t) - calcTangent(t + 0.03)).normalised();
+		e2 = Vector3( calcTangent(t) - calcTangent(t + 0.03)).normalized();
 		
 		nor = e1.cross(e2);
-		nor.normalise();
+		nor.normalize();
 		
 		dot = nor.dot(_prevNor);
 		dot < 0 ? dot = -1 : dot = 1;
@@ -303,7 +303,7 @@ namespace gtypes
 			  _points[index + 1] * (float)(_c + 2.0 * (3.0 - 2.0 * _c) * t + 3.0 * (_c - 2.0) * t2) +
 			  _points[index + 2] * (float)(-2.0 * _c * t + 3.0 * _c * t2);
 		
-		return tan.normalised();
+		return tan.normalized();
 	}
 	
 	Vector3 CatmullRomSpline3::_calcSegmentNormal(double t, int index)
@@ -316,7 +316,7 @@ namespace gtypes
 			   _points[index]	 * (float)(2.0 * (_c - 3.0) * t + 3.0 * (2.0 - _c) * t2) +
 			   _points[index + 1] * (float)(_c + 2.0 * (3.0 - 2.0 * _c) * t + 3.0 * (_c - 2.0) * t2) +
 			   _points[index + 2] * (float)(-2.0 * _c * t + 3.0 * _c * t2);
-		tmp1.normalise();
+		tmp1.normalize();
 		
 		tmp2 = _points[index - 1] * (float)(4.0 * _c - 6.0 * _c * t) +
 			   _points[index]	 * (float)(2.0 * (_c - 3.0) + 6.0 * (2.0 - _c) * t) +
@@ -324,7 +324,7 @@ namespace gtypes
 			   _points[index + 2] * (float)(-2.0 * _c + 6.0 * _c * t);
 
 		nor = (tmp2 - tmp1*tmp2.dot(tmp1)) ;
-		nor.normalise();
+		nor.normalize();
 		
 		dot = nor.dot(_prevNor);
 		if ( (dot <= -0.982) &&
@@ -385,7 +385,7 @@ namespace gtypes
 				addPoint(_points[_points.size() - 1]);
 		}
 		
-		prevTangent = Vector3( calcPosition(0.01) - calcPosition(0.0) ).normalised();
+		prevTangent = Vector3( calcPosition(0.01) - calcPosition(0.0) ).normalized();
 	}
 	
 	void CatmullRomSpline3::compile(std::vector<Vector3> &vectors, int closed, Vector3 t1, Vector3 t2)
@@ -420,7 +420,7 @@ namespace gtypes
 				addPoint(_points[_points.size() - 1]);
 		}
 		
-		prevTangent = Vector3( calcPosition(0.01) - calcPosition(0.0) ).normalised();
+		prevTangent = Vector3( calcPosition(0.01) - calcPosition(0.0) ).normalized();
 	}
 	
 	void CatmullRomSpline3::compile(std::list<Vector3> &vectors, int closed, Vector3 t1, Vector3 t2)
@@ -455,7 +455,7 @@ namespace gtypes
 				addPoint(_points[_points.size() - 1]);
 		}
 		
-		prevTangent = Vector3( calcPosition(0.01) - calcPosition(0.0) ).normalised();
+		prevTangent = Vector3( calcPosition(0.01) - calcPosition(0.0) ).normalized();
 	}
 	
 	void CatmullRomSpline3::_arcLengthReparametrization()

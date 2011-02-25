@@ -48,28 +48,32 @@ namespace gtypes
 		this->z = z;	
 	}
 
-	float Vector3::length()
+	float Vector3::length() const
 	{
 		return sqrt(this->x * this->x + this->y * this->y + this->z * this->z);
 	}
 
-	float Vector3::squaredLength()
+	float Vector3::squaredLength() const
 	{
 		return (this->x * this->x + this->y * this->y + this->z * this->z);
 	}
 
-	void Vector3::normalise()
+	void Vector3::normalize()
 	{
-		float len = this->length();
-		this->x /= len;
-		this->y /= len;
-		this->z /= len;
+		float length = this->length();
+		if (length != 0.0f)
+		{
+			length = 1.0f / length;
+			this->x *= length;
+			this->y *= length;
+			this->z *= length;
+		}
 	}
 
-	Vector3 Vector3::normalised()
+	Vector3 Vector3::normalized() const
 	{
 		Vector3 v(this->x, this->y, this->z);
-		v.normalise();
+		v.normalize();
 		return v;
 	}
 	
@@ -98,6 +102,38 @@ namespace gtypes
 		return Vector3(-this->x, -this->y, -this->z);
 	}
 
+	Vector3 Vector3::operator+=(const Vector3& v)
+	{
+		this->x += v.x;
+		this->y += v.y;
+		this->z += v.z;
+		return (*this);
+	}
+
+	Vector3 Vector3::operator-=(const Vector3& v)
+	{
+		this->x -= v.x;
+		this->y -= v.y;
+		this->z -= v.z;
+		return (*this);
+	}
+
+	Vector3 Vector3::operator*=(const float f)
+	{
+		this->x *= f;
+		this->y *= f;
+		this->z *= f;
+		return (*this);
+	}
+	
+	Vector3 Vector3::operator/=(const float f)
+	{
+		this->x /= f;
+		this->y /= f;
+		this->z /= f;
+		return (*this);
+	}
+	
 	bool Vector3::operator==(const Vector3& v)
 	{
 		return (this->x == v.x && this->y == v.y && this->z == v.z);
@@ -108,42 +144,14 @@ namespace gtypes
 		return !(*this == v);
 	}
 
-	void Vector3::operator+=(const Vector3& v)
-	{
-		this->x += v.x;
-		this->y += v.y;
-		this->z += v.z;
-	}
-
-	void Vector3::operator-=(const Vector3& v)
-	{
-		this->x -= v.x;
-		this->y -= v.y;
-		this->z -= v.z;
-	}
-
-	void Vector3::operator*=(const float f)
-	{
-		this->x *= f;
-		this->y *= f;
-		this->z *= f;
-	}
-	
-	void Vector3::operator/=(const float f)
-	{
-		this->x /= f;
-		this->y /= f;
-		this->z /= f;
-	}
-	
 	float Vector3::dot(const Vector3& v) const
 	{
 		return (this->x * v.x + this->y * v.y + this->z * v.z);
 	}
 	
-	Vector3 Vector3::cross(const Vector3& v2) const
+	Vector3 Vector3::cross(const Vector3& v) const
 	{
-		return Vector3(this->y * v2.z - this->z * v2.y, this->z * v2.x - this->x * v2.z, this->x * v2.y - this->y * v2.x);
+		return Vector3(this->y * v.z - this->z * v.y, this->z * v.x - this->x * v.z, this->x * v.y - this->y * v.x);
 	}
 
 }

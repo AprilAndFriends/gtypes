@@ -27,15 +27,15 @@ namespace gtypes
 		this->w = 1.0f;
 	}
 
-	Quaternion::Quaternion(const Quaternion& quat)
+	Quaternion::Quaternion(float x, float y, float z, float w)
 	{
-		this->x = quat.x;
-		this->y = quat.y;
-		this->z = quat.z;
-		this->w = quat.w;
+		this->x = x;
+		this->y = y;
+		this->z = z;
+		this->w = w;
 	}
-
-	Quaternion::Quaternion(const float* v)
+	
+	Quaternion::Quaternion(const float v[])
 	{
 		this->x = v[0];
 		this->y = v[1];
@@ -43,14 +43,6 @@ namespace gtypes
 		this->w = v[3];
 	}
 
-	Quaternion::Quaternion(float _x, float _y, float _z, float _w)
-	{
-		this->x = _x;
-		this->y = _y;
-		this->z = _z;
-		this->w = _w;
-	}
-	
 	Quaternion::Quaternion(const Vector3& v, float w)
 	{
 		this->x = v.x;
@@ -59,19 +51,120 @@ namespace gtypes
 		this->w = w;
 	}
 	
-	void Quaternion::set(float _x, float _y, float _z, float _w)
+	void Quaternion::set(float x, float y, float z, float w)
 	{
-		this->x = _x;
-		this->y = _y;
-		this->z = _z;
-		this->w = _w;
+		this->x = x;
+		this->y = y;
+		this->z = z;
+		this->w = w;
+	}
+
+	void Quaternion::set(const float v[])
+	{
+		this->x = v[0];
+		this->y = v[1];
+		this->z = v[2];
+		this->w = v[3];
+	}
+
+	void Quaternion::set(const Vector3& v, float w)
+	{
+		this->x = v.x;
+		this->y = v.y;
+		this->z = v.z;
+		this->w = w;
+	}
+	
+	Quaternion Quaternion::operator+(const Quaternion& q)
+	{
+		return Quaternion(x + q.x, y + q.y, z + q.z, w + q.w );
+	}
+
+	Quaternion Quaternion::operator-(const Quaternion& q)
+	{
+		return Quaternion(x - q.x, y - q.y, z - q.z, w - q.w);
+	}
+	
+	Quaternion Quaternion::operator*(const Quaternion& q)
+	{
+		return Quaternion(this->w * q.x + this->x * q.w + this->y * q.z - this->z * q.y, 
+						  this->w * q.y - this->x * q.z + this->y * q.w + this->z * q.x, 
+						  this->w * q.z + this->x * q.y - this->y * q.x + this->z * q.w,
+						  this->w * q.w - this->x * q.x - this->y * q.y - this->z * q.z);
+	}
+	
+	Quaternion Quaternion::operator*(float f)
+	{
+		return Quaternion(this->x * f, this->y * f, this->z * f, this->w * f);
+	}
+	
+	float Quaternion::length() const
+	{
+		return sqrt(this->x * this->x + this->y * this->y + this->z * this->z + this->w * this->w);
+	}
+	
+	float Quaternion::squaredLength() const
+	{
+		return (this->x * this->x + this->y * this->y + this->z * this->z + this->w * this->w);
+	}
+
+	float Quaternion::dot(const Quaternion& q) const
+	{
+		return (this->w * q.w + this->x * q.x + this->y * q.y + this->z * q.z);
+	}
+	
+	void Quaternion::inverse()
+	{
+		float sqNorm = this->squaredLength();
+		this->set(-this->x / sqNorm, -this->y / sqNorm, -this->z / sqNorm, this->w / sqNorm);
+	}
+	
+	Quaternion Quaternion::inversed() const
+	{
+		Quaternion q(*this);
+		q.inverse();
+		return q;
+	}
+	
+	void Quaternion::conjugate()
+	{
+		this->x = -this->x;
+		this->y = -this->y;
+		this->z = -this->z;
+	}
+	
+	Quaternion Quaternion::conjugated() const
+	{
+		Quaternion q(*this);
+		q.conjugate();
+		return q;
+	}
+	
+	void Quaternion::normalize()
+	{
+		float length = this->length();
+		if (length != 0.0f)
+		{
+			length = 1.0f / length;
+			this->x *= length;
+			this->y *= length;
+			this->z *= length;
+			this->w *= length;
+		}
+	}
+
+	Quaternion Quaternion::normalized() const
+	{
+		Quaternion q(*this);
+		q.normalize();
+		return q;
 	}
 
 	Matrix3 Quaternion::mat3() const
 	{
-		float x2 = this->x * this->x;
-		float y2 = this->y * this->y;
-		float z2 = this->z * this->z;
+		float xx = this->x * this->x;
+		float yy = this->y * this->y;
+		float zz = this->z * this->z;
 		float xy = this->x * this->y;
 		float xz = this->x * this->z;
 		float yz = this->y * this->z;
@@ -79,21 +172,21 @@ namespace gtypes
 		float wy = this->w * this->y;
 		float wz = this->w * this->z;
 	 
-		return Matrix3( 1.0f - 2.0f * (y2 + z2), 2.0f * (xy - wz)	   , 2.0f * (xz + wy),
-						2.0f * (xy + wz)	   , 1.0f - 2.0f * (x2 + z2), 2.0f * (yz - wx),
-						2.0f * (xz - wy)	   , 2.0f * (yz + wx)	   , 1.0f - 2.0f * (x2 + y2));
+		return Matrix3(1.0f - 2.0f * (yy + zz),	2.0f * (xy - wz),			2.0f * (xz + wy),
+					   2.0f * (xy + wz),		1.0f - 2.0f * (xx + zz),		2.0f * (yz - wx),
+					   2.0f * (xz - wy),			2.0f * (yz + wx),			1.0f - 2.0f * (xx + yy));
 	}
 
 	Matrix4 Quaternion::mat4() const
 	{
-		return mat4(Vector3(0, 0, 0));
+		return mat4(Vector3());
 	}
 
 	Matrix4 Quaternion::mat4(const Vector3& position) const
 	{
-		float x2 = this->x * this->x;
-		float y2 = this->y * this->y;
-		float z2 = this->z * this->z;
+		float xx = this->x * this->x;
+		float yy = this->y * this->y;
+		float zz = this->z * this->z;
 		float xy = this->x * this->y;
 		float xz = this->x * this->z;
 		float yz = this->y * this->z;
@@ -101,79 +194,21 @@ namespace gtypes
 		float wy = this->w * this->y;
 		float wz = this->w * this->z;
 	 
-		return Matrix4( 1.0f - 2.0f * (y2 + z2), 2.0f * (xy - wz), 2.0f * (xz + wy), 0.0f,
-						2.0f * (xy + wz), 1.0f - 2.0f * (x2 + z2), 2.0f * (yz - wx), 0.0f,
-						2.0f * (xz - wy), 2.0f * (yz + wx), 1.0f - 2.0f * (x2 + y2), 0.0f,
-						position.x	  , position.y	  , position.z			 , 1.0f);
-	}
-	
-	Quaternion Quaternion::fromAxisAngle(float ax, float ay, float az, float angle)
-	{
-		float x, y, z, w;
-		float theta = (float)DEG_TO_RAD(angle) * 0.5f;
-		float s = sqrt(ax*ax + ay*ay + az*az);
-		w = cos(theta);
-		x = (ax / s) * sin(theta);
-		y = (ay / s) * sin(theta);
-		z = (az / s) * sin(theta);
-		
-		return Quaternion(x, y, z, w);
-	}
-	
-	Quaternion Quaternion::fromEulerAngles(float yaw, float pitch, float roll)
-	{
-		Quaternion y,p,r;
-		y.set(0.0f, -(float)sin(yaw * 0.5), 0.0f, (float)cos(yaw * 0.5));
-		p.set(-(float)sin(pitch * 0.5), 0.0f, 0.0f, (float)cos(pitch * 0.5));
-		r.set(0.0f, 0.0f, -(float)sin(roll * 0.5), (float)cos(roll * 0.5));
-		
-		return (y*p*r);
-	}
-	
-	Quaternion Quaternion::operator +(const Quaternion& q)
-	{
-		return Quaternion( x + q.x,
-					   y + q.y,
-					   z + q.z,
-					   w + q.w );
-	}
-
-	Quaternion Quaternion::operator -(const Quaternion& q)
-	{
-		return Quaternion( x - q.x,
-					   y - q.y,
-					   z - q.z,
-					   w - q.w );
-	}
-	
-	Quaternion Quaternion::operator *(const Quaternion& q)
-	{
-		return Quaternion( w*q.x + x*q.w + y*q.z - z*q.y, 
-					   w*q.y - x*q.z + y*q.w + z*q.x, 
-					   w*q.z + x*q.y - y*q.x + z*q.w,
-					   w*q.w - x*q.x - y*q.y - z*q.z );
-	}
-	
-	Quaternion Quaternion::operator *(float f)
-	{
-		return Quaternion(x*f, y*f, z*f, w*f);
-	}
-	
-	float Quaternion::dot(const Quaternion& q)
-	{
-		return w*q.w + x*q.x + y*q.y + z*q.z;
+		return Matrix4(1.0f - 2.0f * (yy + zz),	2.0f * (xy - wz),			2.0f * (xz + wy),			0.0f,
+					   2.0f * (xy + wz),		1.0f - 2.0f * (xx + zz),		2.0f * (yz - wx),			0.0f,
+					   2.0f * (xz - wy),			2.0f * (yz + wx),			1.0f - 2.0f * (xx + yy),		0.0f,
+					   position.x,				position.y,					position.z,					1.0f);
 	}
 	
 	Quaternion Quaternion::slerp(Quaternion& a, Quaternion& b, float t)
 	{
-		float w1, w2;
-		
+		float w1;
+		float w2;
 		float theta = acos(a.dot(b));
 		float sinTheta = sin(theta);
-		
-		if (sinTheta > 0.001)
+		if (sinTheta > G_E_TOLERANCE)
 		{
-			w1 = (float)(sin(1.0 - t) * theta) / sinTheta;
+			w1 = (float)(sin(1.0f - t) * theta) / sinTheta;
 			w2 = (float)(sin(t) * theta) / sinTheta;
 		}
 		else
@@ -181,33 +216,29 @@ namespace gtypes
 			w1 = 1.0f - t;
 			w2 = t;
 		}
-		
 		return Quaternion(a * w1 + b * w2);
 	}
 	
-	Quaternion Quaternion::getInverse()
+	Quaternion Quaternion::fromAxisAngle(Vector3 a, float angle)
 	{
-		float sqNorm = x*x + y*y + z*z + w*w;
-		return Quaternion(-x / sqNorm, -y / sqNorm, -z / sqNorm, w / sqNorm);
+		a.normalize();
+		float theta = (float)DEG_TO_RAD(angle) * 0.5f;
+		float s = sin(theta);
+		float c = cos(theta);
+		return Quaternion(a.x * s, a.y * s, a.z * s, c);
 	}
 	
-	Quaternion Quaternion::getConjugate()
+	Quaternion Quaternion::fromAxisAngle(float ax, float ay, float az, float angle)
 	{
-		return Quaternion(-x, -y, -z, w);
+		return fromAxisAngle(Vector3(ax, ay, az), angle);
 	}
 	
-	void Quaternion::normalize()
+	Quaternion Quaternion::fromEulerAngles(float yaw, float pitch, float roll)
 	{
-		float sqnorm = x*x + y*y + z*z + w*w;
-		/*if(sqnorm == 0.0)  throw exception*/
-		if (sqnorm != 1.0f)
-		{
-			float s = (float)(1.0 / sqrt(sqnorm));
-			x *= s;
-			y *= s;
-			z *= s;
-			w *= s;
-		}
+		Quaternion y(0.0f, -(float)sin(yaw * 0.5f), 0.0f, (float)cos(yaw * 0.5f));
+		Quaternion p(-(float)sin(pitch * 0.5f), 0.0f, 0.0f, (float)cos(pitch * 0.5f));
+		Quaternion r(0.0f, 0.0f, -(float)sin(roll * 0.5), (float)cos(roll * 0.5f));
+		return (y * p * r);
 	}
-
+	
 }

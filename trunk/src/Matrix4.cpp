@@ -211,11 +211,11 @@ namespace gtypes
 		Matrix4 a, b;
 		bz += eye;
 		bz -= target;
-		bz.normalise();
+		bz.normalize();
 		bx = up.cross(bz);
-		bx.normalise();
+		bx.normalize();
 		by = bz.cross(bx);
-		by.normalise();
+		by.normalize();
 		a[0]  = bx.x; a[1]  = by.x; a[2]  = bz.x; a[3]  = 0.0f;
 		a[4]  = bx.y; a[5]  = by.y; a[6]  = bz.y; a[7]  = 0.0f;
 		a[8]  = bx.z; a[9]  = by.z; a[10] = bz.z; a[11] = 0.0f;
@@ -413,7 +413,7 @@ namespace gtypes
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		Vector3 v = axis;
-		v.normalise();
+		v.normalize();
 		float xx = v.x * v.x;
 		float yy = v.y * v.y;
 		float zz = v.z * v.z;
