@@ -116,7 +116,7 @@ namespace gtypes
 		}
 		if (t > 1.0)
 			t -= (int)t;
-		return Vector2( calcPosition(t + 0.01) - calcPosition(t) ).normalised();
+		return Vector2( calcPosition(t + 0.01) - calcPosition(t) ).normalized();
 	}
 	
 	Vector2 CatmullRomSpline2::calcNormal(double t)
@@ -174,7 +174,7 @@ namespace gtypes
 			  _points[index + 1] * (float)(_c + 2.0 * (3.0 - 2.0 * _c) * t + 3.0 * (_c - 2.0) * t2) +
 			  _points[index + 2] * (float)(-2.0 * _c * t + 3.0 * _c * t2);
 		
-		return tan.normalised();
+		return tan.normalized();
 	}
 	
 	Vector2 CatmullRomSpline2::_calcSegmentNormal(double t, int index)

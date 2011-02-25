@@ -31,24 +31,25 @@ namespace gtypes
 		void set(float x, float y);
 		
 		bool isInCircle(float center_x, float center_y, float radius);
-		bool isInRectangle(float rect_x, float recty, float rect_w, float rect_h);
 		
-		float length();
-		float squaredLength();
-		void normalise();
-		Vector2 normalised();
+		float length() const;
+		float squaredLength() const;
+		void normalize();
+		Vector2 normalized() const;
+		void normalise() DEPRECATED_ATTRIBUTE { this->normalize(); }
+		Vector2 normalised() const DEPRECATED_ATTRIBUTE { return this->normalized(); }
 		
-		Vector2 operator +(const Vector2& v);
-		Vector2 operator -(const Vector2& v);
-		Vector2 operator *(const float f);
-		Vector2 operator /(const float f);
-		Vector2 operator -() const;
-		void operator +=(const Vector2& v);
-		void operator -=(const Vector2& v);
-		void operator *=(const float f);
-		void operator /=(const float f);
-		bool operator ==(const Vector2& v);
-		bool operator !=(const Vector2& v);
+		Vector2 operator+(const Vector2& v);
+		Vector2 operator-(const Vector2& v);
+		Vector2 operator*(const float f);
+		Vector2 operator/(const float f);
+		Vector2 operator-() const;
+		Vector2 operator+=(const Vector2& v);
+		Vector2 operator-=(const Vector2& v);
+		Vector2 operator*=(const float f);
+		Vector2 operator/=(const float f);
+		bool operator==(const Vector2& v);
+		bool operator!=(const Vector2& v);
 		
 		float dot(Vector2 v) const;
 

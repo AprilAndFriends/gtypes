@@ -31,31 +31,32 @@ namespace gtypes
 	
 		Vector3();
 		Vector3(float x, float y, float z);
-		Vector3(const float *v);
+		Vector3(const float v[]);
 		Vector3(Quaternion q);
 		void set(float x, float y, float z);
 		
+		float length() const;
+		float squaredLength() const;
+		void normalize();
+		Vector3 normalized() const;
+		void normalise() DEPRECATED_ATTRIBUTE { this->normalize(); }
+		Vector3 normalised() const DEPRECATED_ATTRIBUTE { return this->normalized(); }
 		
-		float length();
-		float squaredLength();
-		void normalise();
-		Vector3 normalised();
-		
-		Vector3 operator +(const Vector3& v);
-		Vector3 operator -(const Vector3& v);
-		Vector3 operator *(const float f);
-		Vector3 operator /(const float f);
-		Vector3 operator -() const;
-		void operator +=(const Vector3& v);
-		void operator -=(const Vector3& v);
-		void operator *=(const float f);
-		void operator /=(const float f);
-		bool operator ==(const Vector3& v);
-		bool operator !=(const Vector3& v);
+		Vector3 operator+(const Vector3& v);
+		Vector3 operator-(const Vector3& v);
+		Vector3 operator*(const float f);
+		Vector3 operator/(const float f);
+		Vector3 operator-() const;
+		Vector3 operator+=(const Vector3& v);
+		Vector3 operator-=(const Vector3& v);
+		Vector3 operator*=(const float f);
+		Vector3 operator/=(const float f);
+		bool operator==(const Vector3& v);
+		bool operator!=(const Vector3& v);
 		
 		float dot(const Vector3& v) const;
 		
-		Vector3 cross(const Vector3& v2) const;
+		Vector3 cross(const Vector3& v) const;
 		
 	};
 }

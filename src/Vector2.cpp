@@ -31,27 +31,31 @@ namespace gtypes
 		this->y = y;
 	}
 
-	float Vector2::length()
+	float Vector2::length() const
 	{
 		return sqrt(this->x * this->x + this->y * this->y);
 	}
 
-	float Vector2::squaredLength()
+	float Vector2::squaredLength() const
 	{
 		return (this->x * this->x + this->y * this->y);
 	}
 
-	void Vector2::normalise()
+	void Vector2::normalize()
 	{
-		float len = length();
-		this->x /= len;
-		this->y /= len;
+		float length = this->length();
+		if (length != 0.0f)
+		{
+			length = 1.0f / length;
+			this->x *= length;
+			this->y *= length;
+		}
 	}
 
-	Vector2 Vector2::normalised()
+	Vector2 Vector2::normalized() const
 	{
 		Vector2 v(this->x, this->y);
-		v.normalise();
+		v.normalize();
 		return v;
 	}
 
@@ -62,66 +66,65 @@ namespace gtypes
 		return (dx * dx + dy * dy <= radius * radius);
 	}
 	
-	bool Vector2::isInRectangle(float rect_x, float rect_y, float rect_w, float rect_h)
-	{
-		return (this->x >= rect_x && this->y >= rect_y && this->x <= rect_x + rect_w && this->y <= rect_y + rect_h);
-	}
-
-	Vector2 Vector2::operator +(const Vector2& v)
+	Vector2 Vector2::operator+(const Vector2& v)
 	{
 		return Vector2(this->x + v.x, this->y + v.y);
 	}
 
-	Vector2 Vector2::operator -(const Vector2& v)
+	Vector2 Vector2::operator-(const Vector2& v)
 	{
 		return Vector2(this->x - v.x, this->y - v.y);
 	}
 	
-	Vector2 Vector2::operator *(const float f)
+	Vector2 Vector2::operator*(const float f)
 	{
 		return Vector2(this->x * f, this->y * f);
 	}
 	
-	Vector2 Vector2::operator /(const float f)
+	Vector2 Vector2::operator/(const float f)
 	{
 		return Vector2(this->x / f, this->y / f);
 	}
 
-	Vector2 Vector2::operator -() const
+	Vector2 Vector2::operator-() const
 	{
 		return Vector2(-this->x, -this->y);
 	}
 
-	void Vector2::operator +=(const Vector2& v)
+	Vector2 Vector2::operator+=(const Vector2& v)
 	{
 		this->x += v.x;
 		this->y += v.y;
+		return (*this);
 	}
 
-	void Vector2::operator -=(const Vector2& v)
+	Vector2 Vector2::operator-=(const Vector2& v)
 	{
 		this->x -= v.x;
 		this->y -= v.y;
+		return (*this);
 	}
 
-	void Vector2::operator *=(const float f)
+	Vector2 Vector2::operator*=(const float f)
 	{
 		this->x *= f;
 		this->y *= f;
+		return (*this);
 	}
 	
-	void Vector2::operator /=(const float f)
+	Vector2 Vector2::operator/=(const float f)
 	{
 		this->x /= f;
 		this->y /= f;
+		return (*this);
 	}
 	
-	bool Vector2::operator ==(const Vector2& v)
+	bool Vector2::operator==(const Vector2& v)
 	{
 		return (x == v.x && y == v.y);
 	}
 	
-	bool Vector2::operator !=(const Vector2& v)
+	bool Vector2::operator!=(const Vector2& v)
 	{
 		return !(*this == v);
 	}
