@@ -1,12 +1,12 @@
-/************************************************************************************\
-* This source file is part of the C++ Geometry Types Library (libgtypes)             *
-* For latest info, see http://libgtypes.sourceforge.net/                             *
-**************************************************************************************
-* Copyright (c) 2010 Kresimir Spes, Boris Mikic, Domagoj Cerjan                      *
-*                                                                                    *
-* This program is free software; you can redistribute it and/or modify it under      *
-* the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php   *
-\************************************************************************************/
+/// @file
+/// @author  Boris Mikic
+/// @version 1.0
+/// 
+/// @section LICENSE
+/// 
+/// This program is free software; you can redistribute it and/or modify it under
+/// the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php
+
 #include "Rectangle.h"
 #include "Vector2.h"
 
@@ -16,12 +16,12 @@ namespace gtypes
 	{
 	}
 
-	Rectangle::Rectangle(float _x, float _y, float _w, float _h)
+	Rectangle::Rectangle(float x, float y, float w, float h)
 	{
-		this->x = _x;
-		this->y = _y;
-		this->w = _w;
-		this->h = _h;
+		this->x = x;
+		this->y = y;
+		this->w = w;
+		this->h = h;
 	}
 	
 	Rectangle::Rectangle(Vector2 position, Vector2 size)
@@ -32,28 +32,28 @@ namespace gtypes
 		this->h = size.y;
 	}
 	
-	Rectangle::Rectangle(Vector2 position, float _w, float _h)
+	Rectangle::Rectangle(Vector2 position, float w, float h)
 	{
 		this->x = position.x;
 		this->y = position.y;
-		this->w = _w;
-		this->h = _h;
+		this->w = w;
+		this->h = h;
 	}
 	
-	Rectangle::Rectangle(float _x, float _y, Vector2 size)
+	Rectangle::Rectangle(float x, float y, Vector2 size)
 	{
-		this->x = _x;
-		this->y = _y;
+		this->x = x;
+		this->y = y;
 		this->w = size.x;
 		this->h = size.y;
 	}
 	
-	void Rectangle::set(float _x, float _y, float _w, float _h)
+	void Rectangle::set(float x, float y, float w, float h)
 	{
-		this->x = _x;
-		this->y = _y;
-		this->w = _w;
-		this->h = _h;
+		this->x = x;
+		this->y = y;
+		this->w = w;
+		this->h = h;
 	}
 	
 	void Rectangle::set(Vector2 position, Vector2 size)
@@ -64,18 +64,18 @@ namespace gtypes
 		this->h = size.y;
 	}
 	
-	void Rectangle::set(Vector2 position, float _w, float _h)
+	void Rectangle::set(Vector2 position, float w, float h)
 	{
 		this->x = position.x;
 		this->y = position.y;
-		this->w = _w;
-		this->h = _h;
+		this->w = w;
+		this->h = h;
 	}
 	
-	void Rectangle::set(float _x, float _y, Vector2 size)
+	void Rectangle::set(float x, float y, Vector2 size)
 	{
-		this->x = _x;
-		this->y = _y;
+		this->x = x;
+		this->y = y;
 		this->w = size.x;
 		this->h = size.y;
 	}
@@ -151,39 +151,43 @@ namespace gtypes
 		return result;
 	}
 	
-	void Rectangle::operator+=(Vector2& vector)
+	Rectangle Rectangle::operator+=(Vector2& vector)
 	{
 		this->x += vector.x;
 		this->y += vector.y;
+		return (*this);
 	}
 	
-	void Rectangle::operator-=(Vector2& vector)
+	Rectangle Rectangle::operator-=(Vector2& vector)
 	{
 		this->x -= vector.x;
 		this->y -= vector.y;
+		return (*this);
 	}
 	
-	void Rectangle::operator*=(float scale)
+	Rectangle Rectangle::operator*=(float scale)
 	{
 		this->w *= scale;
 		this->h *= scale;
+		return (*this);
 	}
 	
-	void Rectangle::operator/=(float scale)
+	Rectangle Rectangle::operator/=(float scale)
 	{
 		this->w /= scale;
 		this->h /= scale;
+		return (*this);
 	}
 	
-    bool Rectangle::operator==(const Rectangle& other)
-    {
+	bool Rectangle::operator==(const Rectangle& other)
+	{
 		return (this->x == other.x && this->y == other.y && this->w == other.w && this->h == other.h);
-    }
-    
-    bool Rectangle::operator!=(const Rectangle& other)
-    {
-        return !(*this == other);
-    }
+	}
+	
+	bool Rectangle::operator!=(const Rectangle& other)
+	{
+		return !(*this == other);
+	}
 	
 }
 

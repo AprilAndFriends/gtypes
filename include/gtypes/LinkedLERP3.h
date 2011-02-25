@@ -1,5 +1,18 @@
-#ifndef _GTYPES_LINKEDLERP3_H_
-#define _GTYPES_LINKEDLERP3_H_
+/// @file
+/// @author  Domagoj Cerjan
+/// @version 1.0
+/// 
+/// @section LICENSE
+/// 
+/// This program is free software; you can redistribute it and/or modify it under
+/// the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php
+/// 
+/// @section DESCRIPTION
+/// 
+/// DOCUMENT ME
+
+#ifndef GTYPES_LINKED_LERP3_H
+#define GTYPES_LINKED_LERP3_H
 
 #include "gtypesExport.h"
 #include "Vector3.h"

@@ -1,12 +1,14 @@
-/************************************************************************************\
-* This source file is part of the C++ Geometry Types Library (libgtypes)             *
-* For latest info, see http://libgtypes.sourceforge.net/                             *
-**************************************************************************************
-* Copyright (c) 2010 Kresimir Spes, Boris Mikic, Domagoj Cerjan                      *
-*                                                                                    *
-* This program is free software; you can redistribute it and/or modify it under      *
-* the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php   *
-\************************************************************************************/
+/// @file
+/// @author  Domagoj Cerjan
+/// @author  Kresimir Spes
+/// @author  Boris Mikic
+/// @version 1.0
+/// 
+/// @section LICENSE
+/// 
+/// This program is free software; you can redistribute it and/or modify it under
+/// the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php
+
 #include "Vector4.h"
 
 namespace gtypes
@@ -15,15 +17,15 @@ namespace gtypes
 	{
 	}
 
-	Vector4::Vector4(float _x, float _y, float _z, float _w)
+	Vector4::Vector4(float x, float y, float z, float w)
 	{
-		this->x = _x;
-		this->y = _y;
-		this->z = _z;
-		this->w = _w;
+		this->x = x;
+		this->y = y;
+		this->z = z;
+		this->w = w;
 	}
 
-	Vector4::Vector4(const float *v)
+	Vector4::Vector4(const float v[])
 	{
 		this->x = v[0];
 		this->y = v[1];
@@ -31,12 +33,12 @@ namespace gtypes
 		this->w = v[3];
 	}
 
-	void Vector4::set(float _x, float _y, float _z, float _w)
+	void Vector4::set(float x, float y, float z, float w)
 	{
-		this->x = _x;
-		this->y = _y;
-		this->z = _z;
-		this->w = _w;
+		this->x = x;
+		this->y = y;
+		this->z = z;
+		this->w = w;
 	}
 
 }
