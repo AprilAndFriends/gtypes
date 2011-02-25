@@ -1,12 +1,14 @@
-/************************************************************************************\
-* This source file is part of the C++ Geometry Types Library (libgtypes)             *
-* For latest info, see http://libgtypes.sourceforge.net/                             *
-**************************************************************************************
-* Copyright (c) 2010 Kresimir Spes, Boris Mikic, Domagoj Cerjan                      *
-*                                                                                    *
-* This program is free software; you can redistribute it and/or modify it under      *
-* the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php   *
-\************************************************************************************/
+/// @file
+/// @author  Domagoj Cerjan
+/// @author  Kresimir Spes
+/// @author  Boris Mikic
+/// @version 1.0
+/// 
+/// @section LICENSE
+/// 
+/// This program is free software; you can redistribute it and/or modify it under
+/// the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php
+
 #include <math.h>
 
 #include "Matrix3.h"
@@ -77,9 +79,9 @@ namespace gtypes
 		float wy = this->w * this->y;
 		float wz = this->w * this->z;
 	 
-		return Matrix3( 1.0f - 2.0f * (y2 + z2), 2.0f * (xy - wz)       , 2.0f * (xz + wy),
-				        2.0f * (xy + wz)       , 1.0f - 2.0f * (x2 + z2), 2.0f * (yz - wx),
-				        2.0f * (xz - wy)       , 2.0f * (yz + wx)       , 1.0f - 2.0f * (x2 + y2));
+		return Matrix3( 1.0f - 2.0f * (y2 + z2), 2.0f * (xy - wz)	   , 2.0f * (xz + wy),
+						2.0f * (xy + wz)	   , 1.0f - 2.0f * (x2 + z2), 2.0f * (yz - wx),
+						2.0f * (xz - wy)	   , 2.0f * (yz + wx)	   , 1.0f - 2.0f * (x2 + y2));
 	}
 
 	Matrix4 Quaternion::mat4() const
@@ -100,15 +102,15 @@ namespace gtypes
 		float wz = this->w * this->z;
 	 
 		return Matrix4( 1.0f - 2.0f * (y2 + z2), 2.0f * (xy - wz), 2.0f * (xz + wy), 0.0f,
-				        2.0f * (xy + wz), 1.0f - 2.0f * (x2 + z2), 2.0f * (yz - wx), 0.0f,
-				        2.0f * (xz - wy), 2.0f * (yz + wx), 1.0f - 2.0f * (x2 + y2), 0.0f,
-						position.x      , position.y      , position.z             , 1.0f);
+						2.0f * (xy + wz), 1.0f - 2.0f * (x2 + z2), 2.0f * (yz - wx), 0.0f,
+						2.0f * (xz - wy), 2.0f * (yz + wx), 1.0f - 2.0f * (x2 + y2), 0.0f,
+						position.x	  , position.y	  , position.z			 , 1.0f);
 	}
 	
 	Quaternion Quaternion::fromAxisAngle(float ax, float ay, float az, float angle)
 	{
 		float x, y, z, w;
-		float theta = deg_to_rad(angle) * 0.5f;
+		float theta = (float)DEG_TO_RAD(angle) * 0.5f;
 		float s = sqrt(ax*ax + ay*ay + az*az);
 		w = cos(theta);
 		x = (ax / s) * sin(theta);
@@ -121,9 +123,9 @@ namespace gtypes
 	Quaternion Quaternion::fromEulerAngles(float yaw, float pitch, float roll)
 	{
 		Quaternion y,p,r;
-		y.set(0.0, -sin(yaw * 0.5), 0.0, cos(yaw * 0.5));
-		p.set(-sin(pitch * 0.5), 0.0, 0.0, cos(pitch * 0.5));
-		r.set(0.0, 0.0, -sin(roll * 0.5), cos(roll * 0.5));
+		y.set(0.0f, -(float)sin(yaw * 0.5), 0.0f, (float)cos(yaw * 0.5));
+		p.set(-(float)sin(pitch * 0.5), 0.0f, 0.0f, (float)cos(pitch * 0.5));
+		r.set(0.0f, 0.0f, -(float)sin(roll * 0.5), (float)cos(roll * 0.5));
 		
 		return (y*p*r);
 	}
@@ -131,17 +133,17 @@ namespace gtypes
 	Quaternion Quaternion::operator +(const Quaternion& q)
 	{
 		return Quaternion( x + q.x,
-				       y + q.y,
-				       z + q.z,
-				       w + q.w );
+					   y + q.y,
+					   z + q.z,
+					   w + q.w );
 	}
 
 	Quaternion Quaternion::operator -(const Quaternion& q)
 	{
 		return Quaternion( x - q.x,
-				       y - q.y,
-				       z - q.z,
-				       w - q.w );
+					   y - q.y,
+					   z - q.z,
+					   w - q.w );
 	}
 	
 	Quaternion Quaternion::operator *(const Quaternion& q)
@@ -169,12 +171,14 @@ namespace gtypes
 		float theta = acos(a.dot(b));
 		float sinTheta = sin(theta);
 		
-		if(sinTheta > 0.001)
+		if (sinTheta > 0.001)
 		{
-			w1 = (sin(1.0 - t) * theta) / sinTheta;
-			w2 = (sin(t) * theta) / sinTheta;
-		} else {
-			w1 = 1.0 - t;
+			w1 = (float)(sin(1.0 - t) * theta) / sinTheta;
+			w2 = (float)(sin(t) * theta) / sinTheta;
+		}
+		else
+		{
+			w1 = 1.0f - t;
 			w2 = t;
 		}
 		
@@ -196,9 +200,9 @@ namespace gtypes
 	{
 		float sqnorm = x*x + y*y + z*z + w*w;
 		/*if(sqnorm == 0.0)  throw exception*/
-		if(sqnorm != 1.0)
+		if (sqnorm != 1.0f)
 		{
-			float s = (1.0 / sqrt(sqnorm));
+			float s = (float)(1.0 / sqrt(sqnorm));
 			x *= s;
 			y *= s;
 			z *= s;

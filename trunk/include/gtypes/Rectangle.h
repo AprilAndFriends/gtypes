@@ -1,12 +1,16 @@
-/************************************************************************************\
-* This source file is part of the C++ Geometry Types Library (libgtypes)             *
-* For latest info, see http://libgtypes.sourceforge.net/                             *
-**************************************************************************************
-* Copyright (c) 2010 Kresimir Spes, Boris Mikic, Domagoj Cerjan                      *
-*                                                                                    *
-* This program is free software; you can redistribute it and/or modify it under      *
-* the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php   *
-\************************************************************************************/
+/// @file
+/// @author  Boris Mikic
+/// @version 1.0
+/// 
+/// @section LICENSE
+/// 
+/// This program is free software; you can redistribute it and/or modify it under
+/// the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php
+/// 
+/// @section DESCRIPTION
+/// 
+/// DOCUMENT ME
+
 #ifndef GTYPES_RECTANGLE_H
 #define GTYPES_RECTANGLE_H
 
@@ -22,15 +26,15 @@ namespace gtypes
 		float x, y, w, h;
 	
 		Rectangle();
-		Rectangle(float _x, float _y, float _w, float _h);
+		Rectangle(float x, float y, float w, float h);
 		Rectangle(Vector2 position, Vector2 size);
-		Rectangle(Vector2 position, float _w, float _h);
-		Rectangle(float _x, float _y, Vector2 size);
+		Rectangle(Vector2 position, float w, float h);
+		Rectangle(float x, float y, Vector2 size);
 		
-		void set(float _x, float _y, float _w, float _h);
+		void set(float x, float y, float w, float h);
 		void set(Vector2 position, Vector2 size);
-		void set(Vector2 position, float _w, float _h);
-		void set(float _x, float _y, Vector2 size);
+		void set(Vector2 position, float w, float h);
+		void set(float x, float y, Vector2 size);
 		
 		Vector2 getPosition();
 		void setPosition(Vector2 position);
@@ -46,12 +50,12 @@ namespace gtypes
 		Rectangle operator-(Vector2 vector);
 		Rectangle operator*(float scale);
 		Rectangle operator/(float scale);
-		void operator+=(Vector2& vector);
-		void operator-=(Vector2& vector);
-		void operator*=(float scale);
-		void operator/=(float scale);
-        bool operator==(const Rectangle& other);
-        bool operator!=(const Rectangle& other);
+		Rectangle operator+=(Vector2& vector);
+		Rectangle operator-=(Vector2& vector);
+		Rectangle operator*=(float scale);
+		Rectangle operator/=(float scale);
+		bool operator==(const Rectangle& other);
+		bool operator!=(const Rectangle& other);
 		
 	};
 }

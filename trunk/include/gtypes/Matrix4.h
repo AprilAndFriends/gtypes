@@ -1,14 +1,20 @@
-/************************************************************************************\
-* This source file is part of the C++ Geometry Types Library (libgtypes)             *
-* For latest info, see http://libgtypes.sourceforge.net/                             *
-**************************************************************************************
-* Copyright (c) 2010 Kresimir Spes, Boris Mikic, Domagoj Cerjan                      *
-*                                                                                    *
-* This program is free software; you can redistribute it and/or modify it under      *
-* the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php   *
-\************************************************************************************/
-#ifndef GTYPES_MATRIX4
-#define GTYPES_MATRIX4
+/// @file
+/// @author  Domagoj Cerjan
+/// @author  Kresimir Spes
+/// @author  Boris Mikic
+/// @version 1.0
+/// 
+/// @section LICENSE
+/// 
+/// This program is free software; you can redistribute it and/or modify it under
+/// the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php
+/// 
+/// @section DESCRIPTION
+/// 
+/// DOCUMENT ME
+
+#ifndef GTYPES_MATRIX4_H
+#define GTYPES_MATRIX4_H
 
 #include "gtypesExport.h"
 
@@ -21,8 +27,7 @@ namespace gtypes
 	class gtypesExport Matrix4
 	{
 	public:
-	
-		float mat[16];
+		float data[16];
 
 		Matrix4();
 		Matrix4(float  m0, float  m1, float  m2, float  m3,
@@ -32,7 +37,7 @@ namespace gtypes
 		Matrix4(float *m);
 		Matrix4(const Matrix3 &m);
 		Matrix4(const Matrix4 &m);
-		Matrix4(const gtypes::Vector3 &axis, float angle);
+		Matrix4(const Vector3 &axis, float angle);
 		Matrix4(float x, float y, float z, float angle);
 		
 		void set(float  m0, float  m1, float  m2, float  m3,
@@ -43,19 +48,19 @@ namespace gtypes
 		void set(const Matrix3& m);
 		void set(const Matrix4& m);
 		
-		gtypes::Vector3 operator *(const gtypes::Vector3 &v) const;
-		gtypes::Vector4 operator *(const gtypes::Vector4 &v) const;
+		Vector3 operator *(const Vector3 &v) const;
+		Vector4 operator *(const Vector4 &v) const;
 		
 		void operator*=(float f);
 		void operator*=(const Matrix4 &m);
 		void operator+=(const Matrix4 &m);
 		void operator-=(const Matrix4 &m);
 
-		operator float*() { return this->mat; }
-		operator const float*() const { return this->mat; }
+		operator float*() { return this->data; }
+		operator const float*() const { return this->data; }
 
-		float &operator[](int i) { return this->mat[i]; }
-		const float operator[](int i) const { return this->mat[i]; }
+		float &operator[](int i) { return this->data[i]; }
+		const float operator[](int i) const { return this->data[i]; }
 		
 		Matrix4 operator*(const Matrix4 &m) const;
 		Matrix4 operator*(float f) const;
@@ -74,12 +79,12 @@ namespace gtypes
 		void setZero();
 		void setIdentity();
 		
-		void setRotation(const gtypes::Vector3 &axis, float angle);
+		void setRotation(const Vector3 &axis, float angle);
 		void setRotation(float x, float y, float z, float angle);
 		void setRotationX(float angle);
 		void setRotationY(float angle);
 		void setRotationZ(float angle);
-		void rotate(const gtypes::Vector3 &axis, float angle);
+		void rotate(const Vector3 &axis, float angle);
 		void rotate(float x, float y, float z, float angle);
 		void rotateX(float angle);
 		void rotateY(float angle);
@@ -87,25 +92,25 @@ namespace gtypes
 		
 		void setScale(float factor);
 		void setScale(float x, float y, float z);
-		void setScale(const gtypes::Vector3 &v);
+		void setScale(const Vector3 &v);
 		void scale(float factor);
 		void scale(float x, float y, float z);
-		void scale(const gtypes::Vector3 &v);
+		void scale(const Vector3 &v);
 		
-		void setTranslation(const gtypes::Vector3 &v);
+		void setTranslation(const Vector3 &v);
 		void setTranslation(float x, float y, float z);
-		void translate(const gtypes::Vector3 &v);
+		void translate(const Vector3 &v);
 		void translate(float x, float y, float z);
 		
-		void setReflection(const gtypes::Vector4 &plane);
+		void setReflection(const Vector4 &plane);
 		void setReflection(float x, float y, float z, float w);
-		void reflect(const gtypes::Vector4 &plane);
+		void reflect(const Vector4 &plane);
 		void reflect(float x, float y, float z, float w);
 		
 		void perspective(float fov, float aspect, float near, float far);
 		void ortho(float w,float h,float x_offset=0,float y_offset=0);
 		
-		void lookAt(const gtypes::Vector3 &eye, const gtypes::Vector3 &target, const gtypes::Vector3 &up);
+		void lookAt(const Vector3 &eye, const Vector3 &target, const Vector3 &up);
 		void lookAt(const float *eye, const float *target, const float *up);
 		
 	};

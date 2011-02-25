@@ -1,12 +1,14 @@
-/************************************************************************************\
-* This source file is part of the C++ Geometry Types Library (libgtypes)             *
-* For latest info, see http://libgtypes.sourceforge.net/                             *
-**************************************************************************************
-* Copyright (c) 2010 Kresimir Spes, Boris Mikic, Domagoj Cerjan                      *
-*                                                                                    *
-* This program is free software; you can redistribute it and/or modify it under      *
-* the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php   *
-\************************************************************************************/
+/// @file
+/// @author  Domagoj Cerjan
+/// @author  Kresimir Spes
+/// @author  Boris Mikic
+/// @version 1.0
+/// 
+/// @section LICENSE
+/// 
+/// This program is free software; you can redistribute it and/or modify it under
+/// the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php
+
 #include <math.h>
 
 #include "Matrix3.h"
@@ -19,185 +21,193 @@ namespace gtypes
 
 	Matrix3::Matrix3()
 	{
-		this->mat[0] = 1.0; this->mat[3] = 0.0; this->mat[6] = 0.0;
-		this->mat[1] = 0.0; this->mat[4] = 1.0; this->mat[7] = 0.0;
-		this->mat[2] = 0.0; this->mat[5] = 0.0; this->mat[8] = 1.0;
+		this->data[0] = 1.0f; this->data[1] = 0.0f; this->data[2] = 0.0f;
+		this->data[3] = 0.0f; this->data[4] = 1.0f; this->data[5] = 0.0f;
+		this->data[6] = 0.0f; this->data[7] = 0.0f; this->data[8] = 1.0f;
 	}
 	
 	Matrix3::Matrix3(const Matrix3& m)
 	{
-                this->mat[0] = m.mat[0]; this->mat[3] = m.mat[3]; this->mat[6] = m.mat[6];
-                this->mat[1] = m.mat[1]; this->mat[4] = m.mat[4]; this->mat[7] = m.mat[7];
-                this->mat[2] = m.mat[2]; this->mat[5] = m.mat[5]; this->mat[8] = m.mat[8];
+		this->data[0] = m.data[0]; this->data[1] = m.data[1]; this->data[2] = m.data[2];
+		this->data[3] = m.data[3]; this->data[4] = m.data[4]; this->data[5] = m.data[5];
+		this->data[6] = m.data[6]; this->data[7] = m.data[7]; this->data[8] = m.data[8];
 	}
 
-        Matrix3::Matrix3(const Matrix4 &m)
-        {
-            this->mat[0] = m.mat[0]; this->mat[3] = m.mat[4]; this->mat[6] = m.mat[8];
-            this->mat[1] = m.mat[1]; this->mat[4] = m.mat[5]; this->mat[7] = m.mat[9];
-            this->mat[2] = m.mat[2]; this->mat[5] = m.mat[6]; this->mat[8] = m.mat[10];
-        }
-	
-	Matrix3::Matrix3(float* m)
+	Matrix3::Matrix3(const Matrix4& m)
 	{
-		this->mat[0] = m[0]; this->mat[3] = m[3]; this->mat[6] = m[6];
-		this->mat[1] = m[1]; this->mat[4] = m[4]; this->mat[7] = m[7];
-		this->mat[2] = m[2]; this->mat[5] = m[5]; this->mat[8] = m[8];
+		this->data[0] = m.data[0]; this->data[1] = m.data[1]; this->data[2] = m.data[2];
+		this->data[3] = m.data[4]; this->data[4] = m.data[5]; this->data[5] = m.data[6];
+		this->data[6] = m.data[8]; this->data[7] = m.data[9]; this->data[8] = m.data[10];
+	}
+	
+	Matrix3::Matrix3(float m[])
+	{
+		this->data[0] = m[0]; this->data[1] = m[1]; this->data[2] = m[2];
+		this->data[3] = m[3]; this->data[4] = m[4]; this->data[5] = m[5];
+		this->data[6] = m[6]; this->data[7] = m[7]; this->data[8] = m[8];
 	}
 	
 	Matrix3::Matrix3(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8)
 	{
-		this->mat[0] = m0; this->mat[3] = m3; this->mat[6] = m6;
-		this->mat[1] = m1; this->mat[4] = m4; this->mat[7] = m7;
-		this->mat[2] = m2; this->mat[5] = m5; this->mat[8] = m8;
+		this->data[0] = m0; this->data[1] = m1; this->data[2] = m2;
+		this->data[3] = m3; this->data[4] = m4; this->data[5] = m5;
+		this->data[6] = m6; this->data[7] = m7; this->data[8] = m8;
 	}
 	
 	float Matrix3::det() const
 	{
-		return ((mat[0] * mat[4] * mat[8]) +
-				(mat[3] * mat[7] * mat[2]) +
-				(mat[6] * mat[1] * mat[5]) -
-				(mat[6] * mat[4] * mat[2]) -
-				(mat[3] * mat[1] * mat[8]) -
-				(mat[0] * mat[7] * mat[5]));
+		return (this->data[0] * this->data[4] * this->data[8] +
+				this->data[3] * this->data[7] * this->data[2] +
+				this->data[6] * this->data[1] * this->data[5] -
+				this->data[6] * this->data[4] * this->data[2] -
+				this->data[3] * this->data[1] * this->data[8] -
+				this->data[0] * this->data[7] * this->data[5]);
 	}
 	
 	Matrix3 Matrix3::inverse() const
 	{
-		float idet = 1.0f / det();
-		return Matrix3((this->mat[4] * this->mat[8] - this->mat[7] * this->mat[5]) * idet,
-					  -(this->mat[1] * this->mat[8] - this->mat[7] * this->mat[2]) * idet,
-					   (this->mat[1] * this->mat[5] - this->mat[4] * this->mat[2]) * idet,
-					  -(this->mat[3] * this->mat[8] - this->mat[6] * this->mat[5]) * idet,
-					   (this->mat[0] * this->mat[8] - this->mat[6] * this->mat[2]) * idet,
-					  -(this->mat[0] * this->mat[5] - this->mat[3] * this->mat[2]) * idet,
-					   (this->mat[3] * this->mat[7] - this->mat[6] * this->mat[4]) * idet,
-					  -(this->mat[0] * this->mat[7] - this->mat[6] * this->mat[1]) * idet,
-					   (this->mat[0] * this->mat[4] - this->mat[3] * this->mat[1]) * idet);
+		float idet = 1.0f / this->det();
+		return Matrix3((this->data[4] * this->data[8] - this->data[7] * this->data[5]) * idet,
+					  -(this->data[1] * this->data[8] - this->data[7] * this->data[2]) * idet,
+					   (this->data[1] * this->data[5] - this->data[4] * this->data[2]) * idet,
+					  -(this->data[3] * this->data[8] - this->data[6] * this->data[5]) * idet,
+					   (this->data[0] * this->data[8] - this->data[6] * this->data[2]) * idet,
+					  -(this->data[0] * this->data[5] - this->data[3] * this->data[2]) * idet,
+					   (this->data[3] * this->data[7] - this->data[6] * this->data[4]) * idet,
+					  -(this->data[0] * this->data[7] - this->data[6] * this->data[1]) * idet,
+					   (this->data[0] * this->data[4] - this->data[3] * this->data[1]) * idet);
 	}
 	
 	Matrix3 Matrix3::transpose() const
 	{
-		return Matrix3(mat[0], mat[3], mat[6],
-					   mat[1], mat[4], mat[7],
-					   mat[2], mat[5], mat[8]);
+		return Matrix3(this->data[0], this->data[3], this->data[6],
+					   this->data[1], this->data[4], this->data[7],
+					   this->data[2], this->data[5], this->data[8]);
 	}
 	
 	Matrix3 Matrix3::rotationInverse2D() const
 	{
-		return Matrix3(this->mat[0], this->mat[3], 		0.0,
-					   this->mat[1], this->mat[4], 		0.0,
-								0.0, 		  0.0, 		1.0);
+		return Matrix3(this->data[0], this->data[3], 		0.0f,
+					   this->data[1], this->data[4], 		0.0f,
+								0.0f, 		   0.0f,		1.0f);
 	}
 	
 	Matrix3 Matrix3::rotationInverse3D() const
 	{
-		return transpose();
+		return this->transpose();
 	}
 	
 	void Matrix3::orthoNormalize()
 	{
-		gtypes::Vector3 x(mat[0],mat[1],mat[2]);
-		gtypes::Vector3 y(mat[3],mat[4],mat[5]);
-		gtypes::Vector3 z;
+		Vector3 x(data[0], data[1], data[2]);
+		Vector3 y(data[3], data[4], data[5]);
+		Vector3 z;
 		x.normalise();
-		z=x.cross(y);
+		z = x.cross(y);
 		z.normalise();
-		y=z.cross(x);
+		y = z.cross(x);
 		y.normalise();
-		mat[0] = x.x; mat[3] = y.x; mat[6] = z.x;
-		mat[1] = x.y; mat[4] = y.y; mat[7] = z.y;
-		mat[2] = x.z; mat[5] = y.z; mat[8] = z.z;
+		this->data[0] = x.x; this->data[1] = x.y; this->data[2] = x.z;
+		this->data[3] = y.x; this->data[4] = y.y; this->data[5] = y.z;
+		this->data[6] = z.x; this->data[7] = z.y; this->data[8] = z.z;
 	}
 	
 	void Matrix3::setIdentity()
 	{
-		this->mat[0] = 1.0; this->mat[3] = 0.0; this->mat[6] = 0.0;
-		this->mat[1] = 0.0; this->mat[4] = 1.0; this->mat[7] = 0.0;
-		this->mat[2] = 0.0; this->mat[5] = 0.0; this->mat[8] = 1.0;
+		this->data[0] = 1.0f; this->data[1] = 0.0f; this->data[2] = 0.0f;
+		this->data[3] = 0.0f; this->data[4] = 1.0f; this->data[5] = 0.0f;
+		this->data[6] = 0.0f; this->data[7] = 0.0f; this->data[8] = 1.0f;
 	}
 
 	void Matrix3::setZero()
 	{
-		this->mat[0] = 0.0; this->mat[3] = 0.0; this->mat[6] = 0.0;
-		this->mat[1] = 0.0; this->mat[4] = 0.0; this->mat[7] = 0.0;
-		this->mat[2] = 0.0; this->mat[5] = 0.0; this->mat[8] = 0.0;
+		this->data[0] = 0.0f; this->data[1] = 0.0f; this->data[2] = 0.0f;
+		this->data[3] = 0.0f; this->data[4] = 0.0f; this->data[5] = 0.0f;
+		this->data[6] = 0.0f; this->data[7] = 0.0f; this->data[8] = 0.0f;
 	}
 	
-	Matrix3 Matrix3::operator *(const Matrix3& m) const
+	Matrix3 Matrix3::operator*(const Matrix3& m) const
 	{
-		return Matrix3(mat[0] * m[0] + mat[3] * m[1] + mat[6] * m[2],
-					   mat[1] * m[0] + mat[4] * m[1] + mat[7] * m[2],
-					   mat[2] * m[0] + mat[5] * m[1] + mat[8] * m[2],
-					   mat[0] * m[3] + mat[3] * m[4] + mat[6] * m[5],
-					   mat[1] * m[3] + mat[4] * m[4] + mat[7] * m[5],
-					   mat[2] * m[3] + mat[5] * m[4] + mat[8] * m[5],
-					   mat[0] * m[6] + mat[3] * m[7] + mat[6] * m[8],
-					   mat[1] * m[6] + mat[4] * m[7] + mat[7] * m[8],
-					   mat[2] * m[6] + mat[5] * m[7] + mat[8] * m[8]);
+		return Matrix3(this->data[0] * m[0] + this->data[3] * m[1] + this->data[6] * m[2],
+					   this->data[1] * m[0] + this->data[4] * m[1] + this->data[7] * m[2],
+					   this->data[2] * m[0] + this->data[5] * m[1] + this->data[8] * m[2],
+					   this->data[0] * m[3] + this->data[3] * m[4] + this->data[6] * m[5],
+					   this->data[1] * m[3] + this->data[4] * m[4] + this->data[7] * m[5],
+					   this->data[2] * m[3] + this->data[5] * m[4] + this->data[8] * m[5],
+					   this->data[0] * m[6] + this->data[3] * m[7] + this->data[6] * m[8],
+					   this->data[1] * m[6] + this->data[4] * m[7] + this->data[7] * m[8],
+					   this->data[2] * m[6] + this->data[5] * m[7] + this->data[8] * m[8]);
 	}
 	
-	Matrix3 Matrix3::operator +(const Matrix3& m) const
+	Matrix3 Matrix3::operator+(const Matrix3& m) const
 	{
-		return Matrix3(mat[0] + m[0], mat[1] + m[1], mat[2] + m[2],
-					   mat[3] + m[3], mat[4] + m[4], mat[5] + m[5],
-					   mat[6] + m[6], mat[7] + m[7], mat[8] + m[8]);
+		return Matrix3(this->data[0] + m[0], this->data[1] + m[1], this->data[2] + m[2],
+					   this->data[3] + m[3], this->data[4] + m[4], this->data[5] + m[5],
+					   this->data[6] + m[6], this->data[7] + m[7], this->data[8] + m[8]);
 	}
 	
-	gtypes::Vector3 Matrix3::operator *(const gtypes::Vector3& v) const
+	Vector3 Matrix3::operator*(const Vector3& v) const
 	{
-		return gtypes::Vector3(mat[0] * v.x + mat[3] * v.y + mat[6] * v.z,
-							   mat[1] * v.x + mat[4] * v.y + mat[7] * v.z,
-							   mat[2] * v.x + mat[5] * v.y + mat[8] * v.z);
+		return Vector3(this->data[0] * v.x + this->data[3] * v.y + this->data[6] * v.z,
+					   this->data[1] * v.x + this->data[4] * v.y + this->data[7] * v.z,
+					   this->data[2] * v.x + this->data[5] * v.y + this->data[8] * v.z);
 	}
 	
 	Matrix3 Matrix3::operator*(float f) const
 	{
-		return Matrix3(mat[0] * f, mat[1] * f, mat[2] * f,
-					   mat[3] * f, mat[4] * f, mat[5] * f,
-					   mat[6] * f, mat[7] * f, mat[8] * f);
+		return Matrix3(this->data[0] * f, this->data[1] * f, this->data[2] * f,
+					   this->data[3] * f, this->data[4] * f, this->data[5] * f,
+					   this->data[6] * f, this->data[7] * f, this->data[8] * f);
 	}
 	
-	Matrix3 Matrix3::operator -(const Matrix3& m) const
+	Matrix3 Matrix3::operator-(const Matrix3& m) const
 	{
-		return Matrix3(mat[0] - m[0], mat[1] - m[1], mat[2] - m[2],
-					   mat[3] - m[3], mat[4] - m[4], mat[5] - m[5],
-					   mat[6] - m[6], mat[7] - m[7], mat[8] - m[8]);
+		return Matrix3(this->data[0] - m[0], this->data[1] - m[1], this->data[2] - m[2],
+					   this->data[3] - m[3], this->data[4] - m[4], this->data[5] - m[5],
+					   this->data[6] - m[6], this->data[7] - m[7], this->data[8] - m[8]);
 	}
 	
 	void Matrix3::setTranslation2D(float x, float y)
 	{
-		mat[2] = x;
-		mat[5] = y;
+		this->data[2] = x;
+		this->data[5] = y;
 	}
 	
 	void Matrix3::translate2D(float x, float y)
 	{
-		Matrix3 mat; mat.setTranslation2D(x,y);
+		Matrix3 mat;
+		mat.setTranslation2D(x, y);
 		this->operator*=(mat);
 	}
 	
 	void Matrix3::setRotation2D(float angle)
 	{
-		float rad = deg_to_rad(angle);
-		mat[0] = cosf(rad); mat[1] = -sinf(rad);
-		mat[3] = sinf(rad); mat[4] =  cosf(rad);
+		float rad = (float)DEG_TO_RAD(angle);
+		this->data[0] = cos(rad); this->data[1] = -sin(rad);
+		this->data[3] = sin(rad); this->data[4] =  cos(rad);
 	}
 	
 	void Matrix3::rotate2D(float angle)
 	{
-		Matrix3 mat; mat.setRotation2D(angle);
+		Matrix3 mat;
+		mat.setRotation2D(angle);
 		this->operator*=(mat);
 	}
 	
 	void Matrix3::setRotation3D(float x, float y, float z, float angle)
 	{
-		float rad = deg_to_rad(angle);
+		float rad = (float)DEG_TO_RAD(angle);
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
-		float l = sqrtf(x * x + y * y + z * z);
-		if(l < 0.000001f) l = 1.0f;
-		else l = 1.0f / l;
+		float l = sqrt(x * x + y * y + z * z);
+		if (l < G_E_TOLERANCE)
+		{
+			l = 1.0f;
+		}
+		else
+		{
+			l = 1.0f / l;
+		}
 		x *= l;
 		y *= l;
 		z *= l;
@@ -208,133 +218,142 @@ namespace gtypes
 		float ys = y * s;
 		float zs = z * s;
 		float c1 = 1.0f - c;
-		mat[0] = c1 * x * x + c;	mat[3] = c1 * xy - zs;		mat[6] = c1 * zx + ys;
-		mat[1] = c1 * xy + zs;		mat[4] = c1 * y * y + c;	mat[7] = c1 * yz - xs;
-		mat[2] = c1 * zx - ys;		mat[5] = c1 * yz + xs;		mat[8] = c1 * z * z + c;
+		this->data[0] = c1 * x * x + c;	this->data[1] = c1 * xy + zs;	this->data[2] = c1 * zx - ys;
+		this->data[3] = c1 * xy - zs;	this->data[4] = c1 * y * y + c;	this->data[5] = c1 * yz + xs;
+		this->data[6] = c1 * zx + ys;	this->data[7] = c1 * yz - xs;	this->data[8] = c1 * z * z + c;
 	}
 	
-	void Matrix3::setRotation3D(gtypes::Vector3& v, float angle)
+	void Matrix3::setRotation3D(Vector3& v, float angle)
 	{
-		float rad = deg_to_rad(angle);
-		float c = (float)cos(rad);
-		float s = (float)sin(rad);
-		float l = sqrtf(v.x * v.x + v.y * v.y + v.z * v.z);
-		if(l < 0.000001f) l = 1.0f;
-		else l = 1.0f / l;
-		v.x *= l;
-		v.y *= l;
-		v.z *= l;
-		float xy = v.x * v.y;
-		float yz = v.y * v.z;
-		float zx = v.z * v.x;
-		float xs = v.x * s;
-		float ys = v.y * s;
-		float zs = v.z * s;
-		float c1 = 1.0f - c;
-		mat[0] = c1 * v.x * v.x + c;	mat[3] = c1 * xy - zs;			mat[6] = c1 * zx + ys;
-		mat[1] = c1 * xy + zs;			mat[4] = c1 * v.y * v.y + c;	mat[7] = c1 * yz - xs;
-		mat[2] = c1 * zx - ys;			mat[5] = c1 * yz + xs;			mat[8] = c1 * v.z * v.z + c;
+		return this->setRotation3D(v.x, v.y, v.z, angle);
 	}
 	
 	void Matrix3::rotate3D(float x, float y, float z, float angle)
 	{
-		Matrix3 mat; mat.setRotation3D(x,y,z,angle);
+		Matrix3 mat;
+		mat.setRotation3D(x, y, z, angle);
 		this->operator*=(mat);
 	}
 	
-	void Matrix3::rotate3D(gtypes::Vector3 &v, float angle)
+	void Matrix3::rotate3D(Vector3& v, float angle)
 	{
-		Matrix3 mat; mat.setRotation3D(v,angle);
+		Matrix3 mat;
+		mat.setRotation3D(v, angle);
 		this->operator*=(mat);
 	}
 
 	void Matrix3::setRotationX(float angle)
 	{
-		float rad = deg_to_rad(angle);
+		float rad = (float)DEG_TO_RAD(angle);
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
-		mat[0] = 1.0; mat[3] = 0.0; mat[6] = 0.0;
-		mat[1] = 0.0; mat[4] = c; mat[7] = -s;
-		mat[2] = 0.0; mat[5] = s; mat[8] = c;
+		this->data[0] = 1.0f;	this->data[1] = 0.0f;	this->data[2] = 0.0f;
+		this->data[3] = 0.0f;	this->data[4] = c;		this->data[5] = s;
+		this->data[6] = 0.0f;	this->data[7] = -s;		this->data[8] = c;
 	}
 
 	void Matrix3::setRotationY(float angle)
 	{
-		float rad = deg_to_rad(angle);
+		float rad = (float)DEG_TO_RAD(angle);
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
-		mat[0] = c; mat[3] = 0.0; mat[6] = s;
-		mat[1] = 0.0; mat[4] = 1.0; mat[7] = 0.0;
-		mat[2] = -s; mat[5] = 0.0; mat[8] = c;
+		this->data[0] = c;		this->data[1] = 0.0f;	this->data[2] = -s;
+		this->data[3] = 0.0f;	this->data[4] = 1.0f;	this->data[5] = 0.0f;
+		this->data[6] = s;		this->data[7] = 0.0f;	this->data[8] = c;
 	}
 
 	void Matrix3::setRotationZ(float angle)
 	{
-		float rad = deg_to_rad(angle);
+		float rad = (float)DEG_TO_RAD(angle);
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
-		mat[0] = c; mat[3] = -s; mat[6] = 0.0;
-		mat[1] = s; mat[4] = c; mat[7] = 0.0;
-		mat[2] = 0.0; mat[5] = 0.0; mat[8] = 1.0;
+		this->data[0] = c;		this->data[1] = s;		this->data[2] = 0.0f;
+		this->data[3] = -s;		this->data[4] = c;		this->data[5] = 0.0f;
+		this->data[6] = 0.0f;	this->data[7] = 0.0f;	this->data[8] = 1.0f;
 	}
 
 	void Matrix3::rotateX(float angle)
 	{
-		Matrix3 mat; mat.setRotationX(angle);
+		Matrix3 mat;
+		mat.setRotationX(angle);
 		this->operator*=(mat);
 	}
 	
 	void Matrix3::rotateY(float angle)
 	{
-		Matrix3 mat; mat.setRotationY(angle);
+		Matrix3 mat;
+		mat.setRotationY(angle);
 		this->operator*=(mat);
 	}
 	
 	void Matrix3::rotateZ(float angle)
 	{
-		Matrix3 mat; mat.setRotationZ(angle);
+		Matrix3 mat;
+		mat.setRotationZ(angle);
 		this->operator*=(mat);
 	}
 
 	void Matrix3::setScale(float factor)
 	{
-		setScale(factor, factor, factor);
+		this->setScale(factor, factor, factor);
 	}
 
 	void Matrix3::setScale(float x, float y, float z)
 	{
-		mat[0] = x; mat[3] = 0; mat[6] = 0;
-		mat[1] = 0; mat[4] = y; mat[7] = 0;
-		mat[2] = 0; mat[5] = 0; mat[8] = z;
+		this->data[0] = x;		this->data[1] = 0.0f;	this->data[2] = 0.0f;
+		this->data[3] = 0.0f;	this->data[4] = y;		this->data[5] = 0.0f;
+		this->data[6] = 0.0f;	this->data[7] = 0.0f;	this->data[8] = z;
 	}
 
-	void Matrix3::setScale(gtypes::Vector3& v)
+	void Matrix3::setScale(Vector3& v)
 	{
-		setScale(v.x,v.y,v.z);
+		this->setScale(v.x, v.y, v.z);
 	}
 	
 	void Matrix3::scale(float factor)
 	{
-		Matrix3 mat; mat.setScale(factor);
+		Matrix3 mat;
+		mat.setScale(factor);
 		this->operator*=(mat);
 	}
 	
 	void Matrix3::scale(float x, float y, float z)
 	{
-		Matrix3 mat; mat.setScale(x,y,z);
+		Matrix3 mat;
+		mat.setScale(x, y, z);
 		this->operator*=(mat);
 	}
 	
-	void Matrix3::scale(gtypes::Vector3 &v)
+	void Matrix3::scale(Vector3& v)
 	{
-		Matrix3 mat; mat.setScale(v);
+		Matrix3 mat;
+		mat.setScale(v);
 		this->operator*=(mat);
 	}
 
-	void Matrix3::operator*=(float f)          { *this = *this *f; }
-	void Matrix3::operator*=(const Matrix3 &m) { *this = *this * m; }
-	void Matrix3::operator+=(const Matrix3 &m) { *this = *this + m; }
-	void Matrix3::operator-=(const Matrix3 &m) { *this = *this - m; }
+	Matrix3 Matrix3::operator*=(float f)
+	{
+		*this = *this * f;
+		return (*this);
+	}
+
+	Matrix3 Matrix3::operator*=(const Matrix3& m)
+	{
+		*this = *this * m;
+		return (*this);
+	}
+
+	Matrix3 Matrix3::operator+=(const Matrix3& m)
+	{
+		*this = *this + m;
+		return (*this);
+	}
+
+	Matrix3 Matrix3::operator-=(const Matrix3& m)
+	{
+		*this = *this - m;
+		return (*this);
+	}
 
 }
 

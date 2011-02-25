@@ -1,12 +1,14 @@
-/************************************************************************************\
-* This source file is part of the C++ Geometry Types Library (libgtypes)             *
-* For latest info, see http://libgtypes.sourceforge.net/                             *
-**************************************************************************************
-* Copyright (c) 2010 Kresimir Spes, Boris Mikic, Domagoj Cerjan                      *
-*                                                                                    *
-* This program is free software; you can redistribute it and/or modify it under      *
-* the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php   *
-\************************************************************************************/
+/// @file
+/// @author  Domagoj Cerjan
+/// @author  Kresimir Spes
+/// @author  Boris Mikic
+/// @version 1.0
+/// 
+/// @section LICENSE
+/// 
+/// This program is free software; you can redistribute it and/or modify it under
+/// the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php
+
 #include <math.h>
 
 #include "Vector2.h"
@@ -17,16 +19,16 @@ namespace gtypes
 	{
 	}
 
-	Vector2::Vector2(float _x, float _y)
+	Vector2::Vector2(float x, float y)
 	{
-		this->x = _x;
-		this->y = _y;
+		this->x = x;
+		this->y = y;
 	}
 
-	void Vector2::set(float _x, float _y)
+	void Vector2::set(float x, float y)
 	{
-		this->x = _x;
-		this->y = _y;
+		this->x = x;
+		this->y = y;
 	}
 
 	float Vector2::length()
@@ -55,14 +57,14 @@ namespace gtypes
 
 	bool Vector2::isInCircle(float center_x, float center_y, float radius)
 	{
-		float a = x - center_x;
-		float b = y - center_y;
-		return (a * a + b * b <= radius * radius);
+		float dx = this->x - center_x;
+		float dy = this->y - center_y;
+		return (dx * dx + dy * dy <= radius * radius);
 	}
 	
 	bool Vector2::isInRectangle(float rect_x, float rect_y, float rect_w, float rect_h)
 	{
-		return (x >= rect_x && y >= rect_y && x <= rect_x + rect_w && y <= rect_y + rect_h);
+		return (this->x >= rect_x && this->y >= rect_y && this->x <= rect_x + rect_w && this->y <= rect_y + rect_h);
 	}
 
 	Vector2 Vector2::operator +(const Vector2& v)
@@ -74,18 +76,18 @@ namespace gtypes
 	{
 		return Vector2(this->x - v.x, this->y - v.y);
 	}
-    
+	
 	Vector2 Vector2::operator *(const float f)
 	{
 		return Vector2(this->x * f, this->y * f);
 	}
-    
-    Vector2 Vector2::operator /(const float f)
+	
+	Vector2 Vector2::operator /(const float f)
 	{
 		return Vector2(this->x / f, this->y / f);
 	}
 
-    Vector2 Vector2::operator -() const
+	Vector2 Vector2::operator -() const
 	{
 		return Vector2(-this->x, -this->y);
 	}
@@ -107,22 +109,22 @@ namespace gtypes
 		this->x *= f;
 		this->y *= f;
 	}
-    
-    void Vector2::operator /=(const float f)
+	
+	void Vector2::operator /=(const float f)
 	{
 		this->x /= f;
 		this->y /= f;
 	}
-    
-    bool Vector2::operator ==(const Vector2& v)
-    {
-        return (x == v.x && y == v.y);
-    }
-    
-    bool Vector2::operator !=(const Vector2& v)
-    {
-        return !(*this == v);
-    }
+	
+	bool Vector2::operator ==(const Vector2& v)
+	{
+		return (x == v.x && y == v.y);
+	}
+	
+	bool Vector2::operator !=(const Vector2& v)
+	{
+		return !(*this == v);
+	}
 	
 	float Vector2::dot(Vector2 v) const
 	{
