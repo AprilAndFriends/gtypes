@@ -76,6 +76,16 @@ namespace gtypes
 		return Vector2(this->x - v.x, this->y - v.y);
 	}
 	
+	Vector2 Vector2::operator*(const Vector2& v)
+	{
+		return Vector2(this->x * v.x, this->y * v.y);
+	}
+
+	Vector2 Vector2::operator/(const Vector2& v)
+	{
+		return Vector2(this->x / v.x, this->y / v.y);
+	}
+	
 	Vector2 Vector2::operator*(const float f)
 	{
 		return Vector2(this->x * f, this->y * f);
@@ -102,6 +112,20 @@ namespace gtypes
 	{
 		this->x -= v.x;
 		this->y -= v.y;
+		return (*this);
+	}
+
+	Vector2 Vector2::operator*=(const Vector2& v)
+	{
+		this->x *= v.x;
+		this->y *= v.y;
+		return (*this);
+	}
+
+	Vector2 Vector2::operator/=(const Vector2& v)
+	{
+		this->x /= v.x;
+		this->y /= v.y;
 		return (*this);
 	}
 
