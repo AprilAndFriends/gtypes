@@ -41,11 +41,15 @@ namespace gtypes
 		
 		Vector2 operator+(const Vector2& v);
 		Vector2 operator-(const Vector2& v);
+		Vector2 operator*(const Vector2& v);
+		Vector2 operator/(const Vector2& v);
 		Vector2 operator*(const float f);
 		Vector2 operator/(const float f);
 		Vector2 operator-() const;
 		Vector2 operator+=(const Vector2& v);
 		Vector2 operator-=(const Vector2& v);
+		Vector2 operator*=(const Vector2& v);
+		Vector2 operator/=(const Vector2& v);
 		Vector2 operator*=(const float f);
 		Vector2 operator/=(const float f);
 		bool operator==(const Vector2& v);

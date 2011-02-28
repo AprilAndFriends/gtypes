@@ -44,11 +44,15 @@ namespace gtypes
 		
 		Vector3 operator+(const Vector3& v);
 		Vector3 operator-(const Vector3& v);
+		Vector3 operator*(const Vector3& v);
+		Vector3 operator/(const Vector3& v);
 		Vector3 operator*(const float f);
 		Vector3 operator/(const float f);
 		Vector3 operator-() const;
 		Vector3 operator+=(const Vector3& v);
 		Vector3 operator-=(const Vector3& v);
+		Vector3 operator*=(const Vector3& v);
+		Vector3 operator/=(const Vector3& v);
 		Vector3 operator*=(const float f);
 		Vector3 operator/=(const float f);
 		bool operator==(const Vector3& v);

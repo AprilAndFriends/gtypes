@@ -87,6 +87,16 @@ namespace gtypes
 		return Vector3(this->x - v.x, this->y - v.y, this->z - v.z);
 	}
 	
+	Vector3 Vector3::operator*(const Vector3& v)
+	{
+		return Vector3(this->x * v.x, this->y * v.y, this->z * v.z);
+	}
+	
+	Vector3 Vector3::operator/(const Vector3& v)
+	{
+		return Vector3(this->x / v.x, this->y / v.y, this->z / v.z);
+	}
+	
 	Vector3 Vector3::operator*(const float f)
 	{
 		return Vector3(this->x * f, this->y * f, this->z * f);
@@ -115,6 +125,22 @@ namespace gtypes
 		this->x -= v.x;
 		this->y -= v.y;
 		this->z -= v.z;
+		return (*this);
+	}
+
+	Vector3 Vector3::operator*=(const Vector3& v)
+	{
+		this->x *= v.x;
+		this->y *= v.y;
+		this->z *= v.z;
+		return (*this);
+	}
+
+	Vector3 Vector3::operator/=(const Vector3& v)
+	{
+		this->x /= v.x;
+		this->y /= v.y;
+		this->z /= v.z;
 		return (*this);
 	}
 
