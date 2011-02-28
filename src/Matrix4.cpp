@@ -363,7 +363,7 @@ namespace gtypes
 		this->data[12] = 0.0f;		this->data[13] = 0.0f;		this->data[14] = -(2.0f * far * near) / (far - near);	this->data[15] = 0.0f;
 	}
 	
-	void Matrix4::ortho(float w, float h, float x, float y)
+	void Matrix4::ortho(float x, float y, float w, float h)
 	{
 		Rectangle rect(x, y, w, h);
 		this->ortho(rect);
@@ -375,8 +375,8 @@ namespace gtypes
 		this->data[0] = 2 / rect.w;
 		this->data[5] = -2 / rect.h;
 		this->data[10] = -2;
-		this->data[12] = -1 - rect.x * 2 / rect.w;
-		this->data[13] = 1 + rect.y * 2 / rect.h;
+		this->data[12] = -1 + rect.x * 2 / rect.w;
+		this->data[13] = 1 - rect.y * 2 / rect.h;
 	}
 
 	void Matrix4::setReflection(float x, float y, float z, float w)
