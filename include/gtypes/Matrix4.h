@@ -20,9 +20,10 @@
 
 namespace gtypes
 {
+	class Matrix3;
+	class Rectangle;
 	class Vector3;
 	class Vector4;
-	class Matrix3;
 
 	class gtypesExport Matrix4
 	{
@@ -109,7 +110,8 @@ namespace gtypes
 		
 		void perspective(float fov, float aspect, float near, float far);
 		/// @todo Needs to be changed to x, y, w, h
-		void ortho(float w, float h, float x_offset = 0.0f, float y_offset = 0.0f) DEPRECATED_ATTRIBUTE;
+		void ortho(float w, float h, float x = 0.0f, float y = 0.0f) DEPRECATED_ATTRIBUTE;
+		void ortho(Rectangle& rect);
 		
 		void lookAt(const float *eye, const float *target, const float *up);
 		void lookAt(const Vector3& eye, const Vector3& target, const Vector3& up);
