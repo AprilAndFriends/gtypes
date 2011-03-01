@@ -56,7 +56,6 @@ namespace gtypes
 		
 	CatmullRomSpline3::~CatmullRomSpline3()
 	{
-		
 	}
 	
 	void CatmullRomSpline3::addPoint(float x, float y, float z)
@@ -78,18 +77,21 @@ namespace gtypes
 		Vector3 vec;
 		int i0 = index - 1, i1 = index, i2 = index + 1, i3 = index + 2;
 		if (i0 < 0)
+		{
 			i0 = 0;
+		}
 		if (i3 > ((int)_points.size() - 1))
+		{
 			i3 = _points.size() - 1;
-		
+		}
 		
 		double t2 = t*t;
 		double t3 = t2*t;
 		
-		vec = _points[i0] * (float)(-t*_c + t2*2.0*_c - t3*_c) +
-			  _points[i1] * (float)(1.0 + t2*(_c-3.0) + t3*(2.0-_c)  ) +
-			  _points[i2] * (float)( t*_c + t2*(3.0-2.0*_c) + t3*(_c-2.0) ) +
-			  _points[i3] * (float)( t3*_c - t2*_c);
+		vec = _points[i0] * (float)(-t * _c + t2 * 2.0 * _c - t3 * _c) +
+			  _points[i1] * (float)(1.0 + t2 * (_c - 3.0) + t3 * (2.0 - _c)) +
+			  _points[i2] * (float)(t * _c + t2 * (3.0 - 2.0 * _c) + t3 * (_c - 2.0)) +
+			  _points[i3] * (float)(t3 * _c - t2 * _c);
 
 		return vec;
 	}
@@ -98,7 +100,7 @@ namespace gtypes
 	{
 		if (_points.size() < 1)
 		{
-			return Vector3(0.0, 0.0, 0.0);
+			return Vector3();
 		}
 		//std::cerr << t << std::endl;
 		// ensure that t is in [0,1]
@@ -113,12 +115,12 @@ namespace gtypes
 		// Using Arc-Length aprametrization
 		_prevlen = 0.0;
 		lp = _arcLengthMap.begin()->first;
-		foreach_stdmap(double, int, it, _arcLengthMap)
+		foreach_stdmap (double, int, it, _arcLengthMap)
 		{
-			if ( (t >= _prevlen) && (t < (it->first)) )
+			if (t >= _prevlen && t < (it->first))
 			{
 				//std::cerr << " t e[" << _prevlen << "," << it->first << "> , t = " << t << std::endl;
-				lt = (t - _prevlen) * (1.0/(it->first-_prevlen));
+				lt = (t - _prevlen) * (1.0 / (it->first-_prevlen));
 				index = it->second;
 				//std::cerr << "				  lt = " << lt << " Index : " << index << " PrevLen = " 
 				//		  << _prevlen << " [Prvi] = " << (it->first-_prevlen) <<std::endl;
@@ -158,11 +160,11 @@ namespace gtypes
 		int index = 0;
 		int lt = (int)_arcLengthMap.begin()->first;
 		
-		foreach_stdmap(double, int, it, _arcLengthMap)
+		foreach_stdmap (double, int, it, _arcLengthMap)
 		{
 			if ( (t >= _prevlen) && (t < (it->first)) )
 			{
-				lt = (int)((t - _prevlen) * (1.0/(it->first-_prevlen)));
+				lt = (int)((t - _prevlen) * (1.0 / (it->first-_prevlen)));
 				index = it->second;
 				break;
 			}
@@ -170,7 +172,7 @@ namespace gtypes
 			_prevlen = it->first;
 		}
 		
-		Vector3 staticTangent = (this->_points[index+2] - this->_points[index+1]).normalized();
+		Vector3 staticTangent = (this->_points[index + 2] - this->_points[index + 1]).normalized();
 		return staticTangent;
 		
 	}
@@ -179,17 +181,19 @@ namespace gtypes
 	{
 		if (_points.size() < 1)
 		{
-			return Vector3(0.0, 0.0, 0.0);
+			return Vector3();
 		}
 		// ensure that t is in [0,1]
 		//if (t > 1.0)
 		//	t -= (int)t;
 			
 		if ((t > 0.989) && !_closed)
+		{
 			return prevTangent;
+		}
 			
 		Vector3 tan;
-		tan = Vector3( calcPosition(t + 0.01) - calcPosition(t) ).normalized();
+		tan = Vector3(calcPosition(t + 0.01) - calcPosition(t)).normalized();
 		prevTangent = tan;
 		return tan;
 			
@@ -210,11 +214,13 @@ namespace gtypes
 	{
 		if (_points.size() < 1)
 		{
-			return Vector3(0.0, 0.0, 0.0);
+			return Vector3();
 		}
 		// ensure that t is in [0,1]
 		if (t > 1.0)
+		{
 			t -= (int)t;
+		}
 			
 		Vector3 e1, e2, nor;
 		double dot;
@@ -229,7 +235,7 @@ namespace gtypes
 		
 		_prevDot == 0 ? _prevDot = dot : NULL;
 		
-		if ( dot != _prevDot )
+		if (dot != _prevDot)
 		{
 			_inflexed = !_inflexed;
 			//std::cerr << " inflexija " << std::endl;
@@ -265,12 +271,14 @@ namespace gtypes
 		_lengths.clear();
 		for (unsigned int i = 0; i < _points.size() - 3; i++)
 		{
-			_lengths.push_back(_calcSegmentLength(i+1));
+			_lengths.push_back(_calcSegmentLength(i + 1));
 			_length += _lengths[i];
 		}
 		
 		if (_length > 0)
+		{
 			_arcLengthReparametrization();
+		}
 		
 		return _length;
 	}
@@ -278,12 +286,10 @@ namespace gtypes
 	double CatmullRomSpline3::_calcSegmentLength(int index)
 	{
 		double len = 0;
-		int i;
-		
-		for (i = 1; i <= _numSamples; i++)
+		for (int i = 1; i <= _numSamples; i++)
 		{
-			len += (_calcSegmentPosition(((double)(i-1))/_numSamples, index) -
-					_calcSegmentPosition(((double)i)/_numSamples, index)).length();
+			len += (_calcSegmentPosition(((double)(i - 1)) / _numSamples, index) -
+					_calcSegmentPosition(((double)i) / _numSamples, index)).length();
 		}
 		//std::cerr << len << std::endl;
 		return len;
@@ -323,12 +329,11 @@ namespace gtypes
 			   _points[index + 1] * (float)(2.0 * (3.0 - 2.0 * _c) + 6.0 * (_c - 2.0) * t) +
 			   _points[index + 2] * (float)(-2.0 * _c + 6.0 * _c * t);
 
-		nor = (tmp2 - tmp1*tmp2.dot(tmp1)) ;
+		nor = (tmp2 - tmp1 * tmp2.dot(tmp1));
 		nor.normalize();
 		
 		dot = nor.dot(_prevNor);
-		if ( (dot <= -0.982) &&
-			(dot >= -1.018) )
+		if (dot <= -0.982 && dot >= -1.018)
 		{
 			_inflexed = !_inflexed;
 		}
@@ -360,32 +365,39 @@ namespace gtypes
 		if (closed)
 		{
 			_closed = 1;
-			addPoint(vectors[n-1]);
+			addPoint(vectors[n - 1]);
 		}
 		else 
 		{
 			_closed = 0;
-			if (t1 != Vector3(0,0,0))
-				addPoint(vectors[1] - t1*2);
+			if (t1 != Vector3())
+			{
+				addPoint(vectors[1] - t1 * 2);
+			}
 			else
+			{
 				addPoint(vectors[0]);
+			}
 		}
 		for (int i = 0; i < n; i++)
+		{
 			addPoint(vectors[i]);
+		}
 		if (closed)
 		{   
 			addPoint(_points[1]);
 			addPoint(_points[2]);
 		}
+		else if (t2 != Vector3())
+		{
+			addPoint(_points[_points.size() - 2] + t2 * 2);
+		}
 		else
 		{
-			if (t2 != Vector3(0,0,0))
-				addPoint(_points[_points.size() - 2] + t2*2);
-			else
-				addPoint(_points[_points.size() - 1]);
+			addPoint(_points[_points.size() - 1]);
 		}
 		
-		prevTangent = Vector3( calcPosition(0.01) - calcPosition(0.0) ).normalized();
+		prevTangent = Vector3(calcPosition(0.01) - calcPosition(0.0)).normalized();
 	}
 	
 	void CatmullRomSpline3::compile(std::vector<Vector3> &vectors, int closed, Vector3 t1, Vector3 t2)
@@ -400,27 +412,34 @@ namespace gtypes
 		else 
 		{
 			_closed = 0;
-			if (t1 != Vector3(0,0,0))
-				addPoint(vectors[1] - t1*2);
+			if (t1 != Vector3())
+			{
+				addPoint(vectors[1] - t1 * 2);
+			}
 			else
+			{
 				addPoint(vectors[0]);
+			}
 		}
 		foreach_stdvector (Vector3, it, vectors)
+		{
 			addPoint(*it);
+		}
 		if (closed)
 		{
 			addPoint(_points[1]);
 			addPoint(_points[2]);
 		}
+		else if (t2 != Vector3())
+		{
+			addPoint(_points[_points.size() - 2] + t2 * 2);
+		}
 		else
 		{
-			if (t2 != Vector3(0,0,0))
-				addPoint(_points[_points.size() - 2] + t2*2);
-			else
-				addPoint(_points[_points.size() - 1]);
+			addPoint(_points[_points.size() - 1]);
 		}
 		
-		prevTangent = Vector3( calcPosition(0.01) - calcPosition(0.0) ).normalized();
+		prevTangent = Vector3(calcPosition(0.01) - calcPosition(0.0)).normalized();
 	}
 	
 	void CatmullRomSpline3::compile(std::list<Vector3> &vectors, int closed, Vector3 t1, Vector3 t2)
@@ -435,24 +454,31 @@ namespace gtypes
 		else 
 		{
 			_closed = 0;
-			if (t1 != Vector3(0,0,0))
-				addPoint(*(vectors.begin()++) - t1*2);
+			if (t1 != Vector3())
+			{
+				addPoint(*(vectors.begin()++) - t1 * 2);
+			}
 			else
+			{
 				addPoint(*vectors.begin());
+			}
 		}
 		foreach_stdlist (Vector3, it, vectors)
+		{
 			addPoint(*it);
+		}
 		if (closed)
 		{
 			addPoint(_points[1]);
 			addPoint(_points[2]);
 		}
+		else if (t2 != Vector3())
+		{
+			addPoint(_points[_points.size() - 2] + t2 * 2);
+		}
 		else
 		{
-			if (t2 != Vector3())
-				addPoint(_points[_points.size() - 2] + t2*2);
-			else
-				addPoint(_points[_points.size() - 1]);
+			addPoint(_points[_points.size() - 1]);
 		}
 		
 		prevTangent = Vector3( calcPosition(0.01) - calcPosition(0.0) ).normalized();
@@ -464,9 +490,9 @@ namespace gtypes
 		double prevlen = 0.0;
 		for (unsigned int i = 0; i < _lengths.size(); i++)
 		{
-			_arcLengthMap[prevlen + (_lengths[i]/_length)] = i;
+			_arcLengthMap[prevlen + (_lengths[i] / _length)] = i;
 			//std::cerr << "Index : " << i << " Len : " << _lengths[i]/_length << " Prevlen : " << prevlen << std::endl;
-			prevlen += _lengths[i]/_length;
+			prevlen += _lengths[i] / _length;
 		}
 		//std::cerr << "x" << std::endl;
 	}

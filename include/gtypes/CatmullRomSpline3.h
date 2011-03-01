@@ -27,27 +27,6 @@ namespace gtypes
 {
 	class gtypesExport CatmullRomSpline3
 	{
-	// private:
-	public:
-		int _numSamples;
-		int _numSegments;
-		int _closed;
-		double _length;
-		double _c;
-		
-		bool _inflexed;
-		Vector3 _prevNor;
-		double _prevDot;
-		
-		gvec3 prevTangent;
-		
-		std::vector<Vector3> _points;
-		std::vector<double> _lengths;
-		
-		std::map<double, int> _arcLengthMap;
-		int _prevIndex;
-		double _prevlen;
-	
 	public:
 		CatmullRomSpline3();
 		CatmullRomSpline3(std::vector<Vector3>& vectors, int closed = 0, Vector3 t1 = Vector3(), Vector3 t2 = Vector3() );
@@ -75,8 +54,26 @@ namespace gtypes
 		
 		double getLength();
 		
-	//private:
-	public:
+	protected:
+		int _numSamples;
+		int _numSegments;
+		int _closed;
+		double _length;
+		double _c;
+		
+		bool _inflexed;
+		Vector3 _prevNor;
+		double _prevDot;
+		
+		gvec3 prevTangent;
+		
+		std::vector<Vector3> _points;
+		std::vector<double> _lengths;
+		
+		std::map<double, int> _arcLengthMap;
+		int _prevIndex;
+		double _prevlen;
+	
 		double _calcLength();
 		double _calcSegmentLength(int index);
 		Vector3 _calcSegmentPosition(double t, int index);
