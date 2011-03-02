@@ -1,0 +1,21 @@
+# Vector{2,3} operators / and /=
+# Matrix{3,4} setScale(...) must work the same for uniform and nonuniform scale
+# Abreviations changed to gvec3, gvec2, gquat etc..
+# implement vectors: double dotProduct(gvec3 v1, gvec3 v2)
+* static methods in vectors and matrices that can be used as utility functions
+
+* Catmull-Rom 2&3:
+
+    # void rebuild(..., int closed) compiles the spline
+    
+    - Frenet Frame (defines unit coordinate system on a point on a curve):
+        # gvec3 calcTangent(double t)
+        # gvec3 calcNormal(double t)
+        
+        - Intercept inflexions and keep current frame during inflexions and on straight lines
+        # Intercept c2 incontinuity and make curve smooth
+        # make arc-lenght reparametrization and lookup table
+        
+        - setStartingTangent(gvec3)
+        - setEndingTangent(gvec3)
+        

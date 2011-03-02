@@ -1,0 +1,374 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7F340FA1120AEED500F01926 /* CatmullRomSpline2.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F42F73311EB135D00B1C1DF /* CatmullRomSpline2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F340FA2120AEED500F01926 /* CatmullRomSpline3.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F42F73411EB135D00B1C1DF /* CatmullRomSpline3.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F340FA3120AEED500F01926 /* gtypesExport.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F42F73511EB135D00B1C1DF /* gtypesExport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F340FA4120AEED500F01926 /* Matrix3.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F42F73611EB135D00B1C1DF /* Matrix3.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F340FA5120AEED500F01926 /* Matrix4.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F42F73711EB135D00B1C1DF /* Matrix4.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F340FA6120AEED500F01926 /* Quaternion.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F42F73811EB135D00B1C1DF /* Quaternion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F340FA7120AEED500F01926 /* Vector2.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F42F73911EB135D00B1C1DF /* Vector2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F340FA8120AEED500F01926 /* Vector3.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F42F73A11EB135D00B1C1DF /* Vector3.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F340FA9120AEED500F01926 /* Vector4.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F42F73B11EB135D00B1C1DF /* Vector4.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F340FAA120AEEDD00F01926 /* CatmullRomSpline2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74511EB136E00B1C1DF /* CatmullRomSpline2.cpp */; };
+		7F340FAB120AEEDD00F01926 /* CatmullRomSpline3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74611EB136E00B1C1DF /* CatmullRomSpline3.cpp */; };
+		7F340FAC120AEEDD00F01926 /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74711EB136E00B1C1DF /* Matrix3.cpp */; };
+		7F340FAD120AEEDD00F01926 /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74811EB136E00B1C1DF /* Matrix4.cpp */; };
+		7F340FAE120AEEDD00F01926 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74911EB136E00B1C1DF /* Quaternion.cpp */; };
+		7F340FAF120AEEDD00F01926 /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74A11EB136E00B1C1DF /* Vector2.cpp */; };
+		7F340FB0120AEEDD00F01926 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74B11EB136E00B1C1DF /* Vector3.cpp */; };
+		7F340FB1120AEEDD00F01926 /* Vector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74C11EB136E00B1C1DF /* Vector4.cpp */; };
+		7F3D73D2125C8D0300058195 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F3D73D1125C8D0300058195 /* util.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F4C09611255EF610004EBF6 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F4C095F1255EF610004EBF6 /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F4C09621255EF610004EBF6 /* Rectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F4C09601255EF610004EBF6 /* Rectangle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F4C09641255EF780004EBF6 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C09631255EF780004EBF6 /* Rectangle.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7F340F89120AED3D00F01926 /* libgtypes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtypes.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F3D73D1125C8D0300058195 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = util.h; path = include/gtypes/util.h; sourceTree = "<group>"; };
+		7F42F73311EB135D00B1C1DF /* CatmullRomSpline2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatmullRomSpline2.h; path = include/gtypes/CatmullRomSpline2.h; sourceTree = "<group>"; };
+		7F42F73411EB135D00B1C1DF /* CatmullRomSpline3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatmullRomSpline3.h; path = include/gtypes/CatmullRomSpline3.h; sourceTree = "<group>"; };
+		7F42F73511EB135D00B1C1DF /* gtypesExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gtypesExport.h; path = include/gtypes/gtypesExport.h; sourceTree = "<group>"; };
+		7F42F73611EB135D00B1C1DF /* Matrix3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Matrix3.h; path = include/gtypes/Matrix3.h; sourceTree = "<group>"; };
+		7F42F73711EB135D00B1C1DF /* Matrix4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Matrix4.h; path = include/gtypes/Matrix4.h; sourceTree = "<group>"; };
+		7F42F73811EB135D00B1C1DF /* Quaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Quaternion.h; path = include/gtypes/Quaternion.h; sourceTree = "<group>"; };
+		7F42F73911EB135D00B1C1DF /* Vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector2.h; path = include/gtypes/Vector2.h; sourceTree = "<group>"; };
+		7F42F73A11EB135D00B1C1DF /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector3.h; path = include/gtypes/Vector3.h; sourceTree = "<group>"; };
+		7F42F73B11EB135D00B1C1DF /* Vector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector4.h; path = include/gtypes/Vector4.h; sourceTree = "<group>"; };
+		7F42F74511EB136E00B1C1DF /* CatmullRomSpline2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CatmullRomSpline2.cpp; path = src/CatmullRomSpline2.cpp; sourceTree = "<group>"; };
+		7F42F74611EB136E00B1C1DF /* CatmullRomSpline3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CatmullRomSpline3.cpp; path = src/CatmullRomSpline3.cpp; sourceTree = "<group>"; };
+		7F42F74711EB136E00B1C1DF /* Matrix3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Matrix3.cpp; path = src/Matrix3.cpp; sourceTree = "<group>"; };
+		7F42F74811EB136E00B1C1DF /* Matrix4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Matrix4.cpp; path = src/Matrix4.cpp; sourceTree = "<group>"; };
+		7F42F74911EB136E00B1C1DF /* Quaternion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Quaternion.cpp; path = src/Quaternion.cpp; sourceTree = "<group>"; };
+		7F42F74A11EB136E00B1C1DF /* Vector2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector2.cpp; path = src/Vector2.cpp; sourceTree = "<group>"; };
+		7F42F74B11EB136E00B1C1DF /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector3.cpp; path = src/Vector3.cpp; sourceTree = "<group>"; };
+		7F42F74C11EB136E00B1C1DF /* Vector4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector4.cpp; path = src/Vector4.cpp; sourceTree = "<group>"; };
+		7F4C095F1255EF610004EBF6 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = include/gtypes/Constants.h; sourceTree = "<group>"; };
+		7F4C09601255EF610004EBF6 /* Rectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Rectangle.h; path = include/gtypes/Rectangle.h; sourceTree = "<group>"; };
+		7F4C09631255EF780004EBF6 /* Rectangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Rectangle.cpp; path = src/Rectangle.cpp; sourceTree = "<group>"; };
+		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7F340F87120AED3D00F01926 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7F340F89120AED3D00F01926 /* libgtypes.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* libgtypes */ = {
+			isa = PBXGroup;
+			children = (
+				7F42F6E811EB0E0600B1C1DF /* Includes */,
+				7F42F6E711EB0E0200B1C1DF /* Sources */,
+				089C1665FE841158C02AAC07 /* Resources */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = libgtypes;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
+				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C1665FE841158C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5A0486A6940098B216 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7B2FEA5585E11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		7F42F6E711EB0E0200B1C1DF /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7F4C09631255EF780004EBF6 /* Rectangle.cpp */,
+				7F42F74511EB136E00B1C1DF /* CatmullRomSpline2.cpp */,
+				7F42F74611EB136E00B1C1DF /* CatmullRomSpline3.cpp */,
+				7F42F74711EB136E00B1C1DF /* Matrix3.cpp */,
+				7F42F74811EB136E00B1C1DF /* Matrix4.cpp */,
+				7F42F74911EB136E00B1C1DF /* Quaternion.cpp */,
+				7F42F74A11EB136E00B1C1DF /* Vector2.cpp */,
+				7F42F74B11EB136E00B1C1DF /* Vector3.cpp */,
+				7F42F74C11EB136E00B1C1DF /* Vector4.cpp */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		7F42F6E811EB0E0600B1C1DF /* Includes */ = {
+			isa = PBXGroup;
+			children = (
+				7F3D73D1125C8D0300058195 /* util.h */,
+				7F4C095F1255EF610004EBF6 /* Constants.h */,
+				7F4C09601255EF610004EBF6 /* Rectangle.h */,
+				7F42F73311EB135D00B1C1DF /* CatmullRomSpline2.h */,
+				7F42F73411EB135D00B1C1DF /* CatmullRomSpline3.h */,
+				7F42F73511EB135D00B1C1DF /* gtypesExport.h */,
+				7F42F73611EB135D00B1C1DF /* Matrix3.h */,
+				7F42F73711EB135D00B1C1DF /* Matrix4.h */,
+				7F42F73811EB135D00B1C1DF /* Quaternion.h */,
+				7F42F73911EB135D00B1C1DF /* Vector2.h */,
+				7F42F73A11EB135D00B1C1DF /* Vector3.h */,
+				7F42F73B11EB135D00B1C1DF /* Vector4.h */,
+			);
+			name = Includes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7F340F85120AED3D00F01926 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F340FA1120AEED500F01926 /* CatmullRomSpline2.h in Headers */,
+				7F340FA2120AEED500F01926 /* CatmullRomSpline3.h in Headers */,
+				7F340FA3120AEED500F01926 /* gtypesExport.h in Headers */,
+				7F340FA4120AEED500F01926 /* Matrix3.h in Headers */,
+				7F340FA5120AEED500F01926 /* Matrix4.h in Headers */,
+				7F340FA6120AEED500F01926 /* Quaternion.h in Headers */,
+				7F340FA7120AEED500F01926 /* Vector2.h in Headers */,
+				7F340FA8120AEED500F01926 /* Vector3.h in Headers */,
+				7F340FA9120AEED500F01926 /* Vector4.h in Headers */,
+				7F4C09611255EF610004EBF6 /* Constants.h in Headers */,
+				7F4C09621255EF610004EBF6 /* Rectangle.h in Headers */,
+				7F3D73D2125C8D0300058195 /* util.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7F340F88120AED3D00F01926 /* gtypes-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F340F94120AED6F00F01926 /* Build configuration list for PBXNativeTarget "gtypes-iOS" */;
+			buildPhases = (
+				7F340F85120AED3D00F01926 /* Headers */,
+				7F340F86120AED3D00F01926 /* Sources */,
+				7F340F87120AED3D00F01926 /* Frameworks */,
+				7F33B5011210079F004B5E89 /* Add SDKSettings */,
+				7FA1AA0A124224B2004689AE /* Deploy to HOME-Library-SDKs */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "gtypes-iOS";
+			productName = gtypes;
+			productReference = 7F340F89120AED3D00F01926 /* libgtypes.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "libgtypes-ios" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* libgtypes */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7F340F88120AED3D00F01926 /* gtypes-iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7F33B5011210079F004B5E89 /* Add SDKSettings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/iOS/$(PLATFORM_NAME).sdk/SDKSettings.plist",
+			);
+			name = "Add SDKSettings";
+			outputPaths = (
+				"$(DSTROOT)/SDKSettings.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#echo IN:     $SRCROOT/iOS/${PLATFORM_NAME}.sdk/SDKSettings.plist\n#echo OUT:    $DSTROOT/SDKSettings.plist\n\nsed -e \"s/%PROJECT%/$PROJECT/g\" \\\n    -e \"s/%VERS%/$VERS/g\" \\\n    -e \"s/%IPHONE_SDK%/$IPHONE_SDK/g\" \\\n    $SRCROOT/iOS/${PLATFORM_NAME}.sdk/SDKSettings.plist > $DSTROOT/SDKSettings.plist || exit 1    \n";
+		};
+		7FA1AA0A124224B2004689AE /* Deploy to HOME-Library-SDKs */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Deploy to HOME-Library-SDKs";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ORIGINALEXE=${CONFIGURATION_BUILD_DIR}/${PRODUCT_NAME}SDK/${PLATFORM_NAME}.sdk/usr/local/lib/$EXECUTABLE_NAME\nDEPLOYEDEXE=${USER_LIBRARY_DIR}/SDKs/${PRODUCT_NAME}SDK/${PLATFORM_NAME}.sdk/usr/local/lib/$EXECUTABLE_NAME\nif [ -e \"$DEPLOYEDEXE\" ] ; then\n  if [ `md5 < \"$ORIGINALEXE\"` == `md5 < \"$DEPLOYEDEXE\"` ] 2> /dev/null ; then\n    echo Skipping deploy, binaries are identical\n    exit 0\n  fi \nfi\n\nrm -rf \"${USER_LIBRARY_DIR}/SDKs/${PRODUCT_NAME}SDK/${PLATFORM_NAME}.sdk\"\nmkdir -p \"${USER_LIBRARY_DIR}/SDKs/${PRODUCT_NAME}SDK/${PLATFORM_NAME}.sdk\"\n\n\necho \"Deploying to ${USER_LIBRARY_DIR}/SDKs/${PRODUCT_NAME}SDK/${PLATFORM_NAME}.sdk\"\n\nif [ $OSTYPE == \"darwin9.0\" ] ; then\n  echo \"Not using archive flag on darwin!\"\n  CPFLAGS=-R\nelse\n  CPFLAGS=-Ra\nfi\n\ncp $CPFLAGS \"${CONFIGURATION_BUILD_DIR}/${PRODUCT_NAME}SDK/${PLATFORM_NAME}.sdk\" \"${USER_LIBRARY_DIR}/SDKs/${PRODUCT_NAME}SDK/\"\n\necho ${EXECUTABLE_PATH}\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7F340F86120AED3D00F01926 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F340FAA120AEEDD00F01926 /* CatmullRomSpline2.cpp in Sources */,
+				7F340FAB120AEEDD00F01926 /* CatmullRomSpline3.cpp in Sources */,
+				7F340FAC120AEEDD00F01926 /* Matrix3.cpp in Sources */,
+				7F340FAD120AEEDD00F01926 /* Matrix4.cpp in Sources */,
+				7F340FAE120AEEDD00F01926 /* Quaternion.cpp in Sources */,
+				7F340FAF120AEEDD00F01926 /* Vector2.cpp in Sources */,
+				7F340FB0120AEEDD00F01926 /* Vector3.cpp in Sources */,
+				7F340FB1120AEEDD00F01926 /* Vector4.cpp in Sources */,
+				7F4C09641255EF780004EBF6 /* Rectangle.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB91B208733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRODUCT_NAME = gtypes;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1DEB91B308733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRODUCT_NAME = gtypes;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7F340F8A120AED3D00F01926 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)";
+				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(CONFIGURATION_BUILD_DIR)/$(PRODUCT_NAME)SDK/$(PLATFORM_NAME).sdk";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PREBINDING = NO;
+				PRODUCT_NAME = gtypes;
+				PUBLIC_HEADERS_FOLDER_PATH = "/usr/local/include/$(PRODUCT_NAME)";
+				SKIP_INSTALL = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7F340F8B120AED3D00F01926 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)";
+				COPY_PHASE_STRIP = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(CONFIGURATION_BUILD_DIR)/$(PRODUCT_NAME)SDK/$(PLATFORM_NAME).sdk";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PREBINDING = NO;
+				PRODUCT_NAME = gtypes;
+				PUBLIC_HEADERS_FOLDER_PATH = "/usr/local/include/$(PRODUCT_NAME)";
+				SKIP_INSTALL = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "libgtypes-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91B208733DA50010E9CD /* Debug */,
+				1DEB91B308733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F340F94120AED6F00F01926 /* Build configuration list for PBXNativeTarget "gtypes-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F340F8A120AED3D00F01926 /* Debug */,
+				7F340F8B120AED3D00F01926 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
