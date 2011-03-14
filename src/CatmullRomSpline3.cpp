@@ -233,7 +233,8 @@ namespace gtypes
 		dot = nor.dot(_prevNor);
 		dot < 0 ? dot = -1 : dot = 1;
 		
-		_prevDot == 0 ? _prevDot = dot : NULL;
+		//_prevDot == 0 ? _prevDot = dot : NULL; commenting, seems to do nothing useful
+        _prevDot = NULL;
 		
 		if (dot != _prevDot)
 		{
