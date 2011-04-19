@@ -44,9 +44,11 @@ namespace gtypes
     
     void Vector2::rotate(float angle)
     {
-        float oldx=this->x, a=DEG_TO_RAD(angle);
-		this->x = (float) (cos(a) * this->x - sin(a) * this->y);
-        this->y = (float) (sin(a) * oldx + cos(a) * this->y);
+        float old_x = this->x;
+		float old_y = this->y;
+		double a = DEG_TO_RAD(angle);
+		this->x = (float)(cos(a) * old_x - sin(a) * old_y);
+        this->y = (float)(sin(a) * old_x + cos(a) * old_y);
     }
     
     Vector2 Vector2::rotated(float angle)
