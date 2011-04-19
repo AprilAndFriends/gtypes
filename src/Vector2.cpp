@@ -12,6 +12,7 @@
 #include <math.h>
 
 #include "Vector2.h"
+#include "util.h"
 
 namespace gtypes
 {
@@ -40,6 +41,20 @@ namespace gtypes
 	{
 		return (this->x * this->x + this->y * this->y);
 	}
+    
+    void Vector2::rotate(float angle)
+    {
+        float oldx=this->x, a=DEG_TO_RAD(angle);
+        this->x = cos(a) * this->x - sin(a) * this->y;
+        this->y = sin(a) * oldx + cos(a) * this->y;
+    }
+    
+    Vector2 Vector2::rotated(float angle)
+    {
+        gvec2 v(this->x, this->y);
+        v.rotate(angle);
+        return v;
+    }
 
 	void Vector2::normalize()
 	{
