@@ -91,6 +91,12 @@ namespace gtypes
 		this->y = position.y;
 	}
 	
+	void Rectangle::setPosition(float x, float y)
+	{
+		this->x = x;
+		this->y = y;
+	}
+	
 	Vector2 Rectangle::getSize()
 	{
 		return Vector2(this->w, this->h);
@@ -100,6 +106,12 @@ namespace gtypes
 	{
 		this->w = size.x;
 		this->h = size.y;
+	}
+	
+	void Rectangle::setSize(float w, float h)
+	{
+		this->w = w;
+		this->h = h;
 	}
 	
 	float Rectangle::getAspect()
