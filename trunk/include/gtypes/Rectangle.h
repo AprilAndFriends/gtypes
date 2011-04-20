@@ -38,8 +38,10 @@ namespace gtypes
 		
 		Vector2 getPosition();
 		void setPosition(Vector2 position);
+		void setPosition(float x, float y);
 		Vector2 getSize();
 		void setSize(Vector2 size);
+		void setSize(float w, float h);
 		float getAspect();
 
 		bool intersects(Rectangle& other) const;
