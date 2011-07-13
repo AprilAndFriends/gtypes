@@ -18,6 +18,7 @@
     <File Name="src/CatmullRomSpline2.cpp"/>
     <File Name="src/Rectangle.cpp"/>
     <File Name="src/LinkedLERP3.cpp"/>
+    <File Name="fileproperties.rc"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
     <File Name="include/gtypes/Matrix3.h"/>
