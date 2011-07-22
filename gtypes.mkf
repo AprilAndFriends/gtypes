@@ -1,0 +1,19 @@
+includepath include/gtypes
+
+library
+{
+	".,gtypes"
+}
+
+files
+{
+	(include/gtypes)
+	gtypesExport.h
+	Vector2.h
+	Vector3.h
+	Vector4.h
+	Matrix3.h
+	Matrix4.h
+	Quaternion.h
+	Rectangle.h
+}

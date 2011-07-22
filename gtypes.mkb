@@ -1,0 +1,25 @@
+option lib
+
+subproject gtypes
+
+define _STATICLIB
+
+options
+{
+	enable-exceptions
+}
+
+files
+{
+	(src)
+	Vector2.cpp
+	Vector3.cpp
+	Vector4.cpp
+	Matrix3.cpp
+	Matrix4.cpp
+	Quaternion.cpp
+	Rectangle.cpp
+	CatmullRomSpline3.cpp
+	
+}
+
