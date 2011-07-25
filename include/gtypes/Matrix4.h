@@ -109,7 +109,7 @@ namespace gtypes
 		void reflect(const Vector4& plane);
 		
 		void perspective(float fov, float aspect, float near, float far);
-		void ortho(float x, float y, float w, float h) DEPRECATED_ATTRIBUTE;
+		DEPRECATED_ATTRIBUTE void ortho(float x, float y, float w, float h);
 		void ortho(Rectangle& rect);
 		
 		void lookAt(const float *eye, const float *target, const float *up);
