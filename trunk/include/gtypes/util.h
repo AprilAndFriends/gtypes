@@ -24,7 +24,7 @@
 #define RAD_TO_DEG(radians) ((radians) * 57.295779513082320876798154814105)
 
 /// @brief gtypes e-tolerance.
-#define G_E_TOLERANCE (0.000001f)
+#define G_E_TOLERANCE 0.000001f
 
 /// @brief Provides a simpler syntax to iterate through an std::list.
 #define foreach_stdlist(type, name, container) for (std::list<type>::iterator name = (container).begin(); name != (container).end(); name++)
