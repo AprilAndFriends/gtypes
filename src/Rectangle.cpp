@@ -127,12 +127,12 @@ namespace gtypes
 	
 	bool Rectangle::isPointInside(Vector2& vector) const
 	{
-		return (vector.x >= this->x && vector.y >= this->y && vector.x <= this->x + this->w && vector.y <= this->y + this->h);
+		return (vector.x >= this->x && vector.y >= this->y && vector.x <= this->x + this->w - 1 && vector.y <= this->y + this->h - 1);
 	}
 
 	bool Rectangle::isPointInside(float x, float y) const
 	{
-		return (x >= this->x && y >= this->y && x <= this->x + this->w && y <= this->y + this->h);
+		return (x >= this->x && y >= this->y && x <= this->x + this->w - 1 && y <= this->y + this->h - 1);
 	}
 
 	Rectangle Rectangle::operator+(Vector2 vector)
