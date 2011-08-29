@@ -2,9 +2,6 @@ option lib
 
 subproject gtypes
 
-define HAVE_MARMELADE
-define _STATICLIB
-
 options
 {
 	enable-exceptions
