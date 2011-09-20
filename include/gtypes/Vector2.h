@@ -33,7 +33,8 @@ namespace gtypes
 		bool isInCircle(float center_x, float center_y, float radius);
 		
         void rotate(float angle);
-        Vector2 rotated(float angle);
+        Vector2 rotated(float angle) const;
+		float angle() const;
 		float length() const;
 		float squaredLength() const;
 		void normalize();
