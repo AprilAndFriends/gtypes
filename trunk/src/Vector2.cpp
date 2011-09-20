@@ -51,13 +51,18 @@ namespace gtypes
         this->y = (float)(sin(a) * old_x + cos(a) * old_y);
     }
     
-    Vector2 Vector2::rotated(float angle)
+    Vector2 Vector2::rotated(float angle) const
     {
         gvec2 v(this->x, this->y);
         v.rotate(angle);
         return v;
     }
 
+    float Vector2::angle() const
+    {
+		return RAD_TO_DEG(atan2(-this->y, this->x));
+    }
+    
 	void Vector2::normalize()
 	{
 		float length = this->length();
