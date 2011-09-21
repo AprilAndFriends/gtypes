@@ -60,7 +60,7 @@ namespace gtypes
 
     float Vector2::angle() const
     {
-		return RAD_TO_DEG(atan2(-this->y, this->x));
+		return (float)RAD_TO_DEG(atan2(-this->y, this->x));
     }
     
 	void Vector2::normalize()
