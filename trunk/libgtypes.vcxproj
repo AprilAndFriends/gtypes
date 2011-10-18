@@ -37,10 +37,10 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='win32_Debug|Win32'">bin\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='win32_Debug|Win32'">bin\$(Configuration)\</IntDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='win32_Release|Win32'">bin\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='win32_Release|Win32'">bin\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='win32_Debug|Win32'">$(SolutionDir)bin\lib\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='win32_Debug|Win32'">$(SolutionDir)bin\lib\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='win32_Release|Win32'">$(SolutionDir)bin\lib\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='win32_Release|Win32'">$(SolutionDir)bin\lib\$(ProjectName)\$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='win32_Release|Win32'" />
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='win32_Debug|Win32'">
@@ -58,14 +58,13 @@
       <DisableSpecificWarnings>4251</DisableSpecificWarnings>
     </ClCompile>
     <Link>
-      <OutputFile>$(OutDir)$(ProjectName)$(TargetExt)</OutputFile>
+      <OutputFile>$(SolutionDir)bin\$(TargetName)$(TargetExt)</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ImportLibrary>$(TargetDir)\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)bin\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>mkdir $(SolutionDir)bin\lib\msvc100
-copy bin\$(Configuration)\*.dll $(SolutionDir)bin\lib\msvc100
-copy bin\$(Configuration)\*.lib $(SolutionDir)bin\lib\msvc100</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='win32_Release|Win32'">
@@ -88,11 +87,12 @@ copy bin\$(Configuration)\*.lib $(SolutionDir)bin\lib\msvc100</Command>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX86</TargetMachine>
+      <OutputFile>$(SolutionDir)bin\$(TargetName)$(TargetExt)</OutputFile>
+      <ImportLibrary>$(SolutionDir)bin\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>mkdir $(SolutionDir)bin\lib\msvc100
-copy bin\$(Configuration)\*.dll $(SolutionDir)bin\lib\msvc100
-copy bin\$(Configuration)\*.lib $(SolutionDir)bin\lib\msvc100</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
