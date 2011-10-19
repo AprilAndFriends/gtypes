@@ -39,8 +39,8 @@ namespace gtypes
 		Vector3 calcStaticTangent(double t);
 		Vector3 calcNormal(double t);
 		
-		Vector3 getTangent();
-		Vector3 getNormal();
+		Vector3 getTangent() const;
+		Vector3 getNormal() const;
 		
 		void addPoint(Vector3 point);
 		void addPoint(float x, float y, float z);
@@ -52,7 +52,7 @@ namespace gtypes
 		void setLengthSamplingRate(int r);
 		void setCurvature(double c);
 		
-		double getLength();
+		double getLength() const;
 		
 	protected:
 		int _numSamples;

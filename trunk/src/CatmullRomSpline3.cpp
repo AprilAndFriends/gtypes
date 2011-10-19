@@ -296,7 +296,7 @@ namespace gtypes
 		return len;
 	}
 	
-	double CatmullRomSpline3::getLength()
+	double CatmullRomSpline3::getLength() const
 	{
 		return _length;
 	}

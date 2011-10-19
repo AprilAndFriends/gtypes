@@ -88,32 +88,32 @@ namespace gtypes
 		return (dx * dx + dy * dy <= radius * radius);
 	}
 	
-	Vector2 Vector2::operator+(const Vector2& v)
+	Vector2 Vector2::operator+(const Vector2& v) const
 	{
 		return Vector2(this->x + v.x, this->y + v.y);
 	}
 
-	Vector2 Vector2::operator-(const Vector2& v)
+	Vector2 Vector2::operator-(const Vector2& v) const
 	{
 		return Vector2(this->x - v.x, this->y - v.y);
 	}
 	
-	Vector2 Vector2::operator*(const Vector2& v)
+	Vector2 Vector2::operator*(const Vector2& v) const
 	{
 		return Vector2(this->x * v.x, this->y * v.y);
 	}
 
-	Vector2 Vector2::operator/(const Vector2& v)
+	Vector2 Vector2::operator/(const Vector2& v) const
 	{
 		return Vector2(this->x / v.x, this->y / v.y);
 	}
 	
-	Vector2 Vector2::operator*(const float f)
+	Vector2 Vector2::operator*(const float f) const
 	{
 		return Vector2(this->x * f, this->y * f);
 	}
 	
-	Vector2 Vector2::operator/(const float f)
+	Vector2 Vector2::operator/(const float f) const
 	{
 		return Vector2(this->x / f, this->y / f);
 	}
@@ -165,12 +165,12 @@ namespace gtypes
 		return (*this);
 	}
 	
-	bool Vector2::operator==(const Vector2& v)
+	bool Vector2::operator==(const Vector2& v) const
 	{
 		return (x == v.x && y == v.y);
 	}
 	
-	bool Vector2::operator!=(const Vector2& v)
+	bool Vector2::operator!=(const Vector2& v) const
 	{
 		return !(*this == v);
 	}
