@@ -77,32 +77,32 @@ namespace gtypes
 		return v;
 	}
 	
-	Vector3 Vector3::operator+(const Vector3& v)
+	Vector3 Vector3::operator+(const Vector3& v) const
 	{
 		return Vector3(this->x + v.x, this->y + v.y, this->z + v.z);
 	}
 	
-	Vector3 Vector3::operator-(const Vector3& v)
+	Vector3 Vector3::operator-(const Vector3& v) const
 	{
 		return Vector3(this->x - v.x, this->y - v.y, this->z - v.z);
 	}
 	
-	Vector3 Vector3::operator*(const Vector3& v)
+	Vector3 Vector3::operator*(const Vector3& v) const
 	{
 		return Vector3(this->x * v.x, this->y * v.y, this->z * v.z);
 	}
 	
-	Vector3 Vector3::operator/(const Vector3& v)
+	Vector3 Vector3::operator/(const Vector3& v) const
 	{
 		return Vector3(this->x / v.x, this->y / v.y, this->z / v.z);
 	}
 	
-	Vector3 Vector3::operator*(const float f)
+	Vector3 Vector3::operator*(const float f) const
 	{
 		return Vector3(this->x * f, this->y * f, this->z * f);
 	}
 	
-	Vector3 Vector3::operator/(const float f)
+	Vector3 Vector3::operator/(const float f) const
 	{
 		return Vector3(this->x / f, this->y / f, this->z / f);
 	}
@@ -160,12 +160,12 @@ namespace gtypes
 		return (*this);
 	}
 	
-	bool Vector3::operator==(const Vector3& v)
+	bool Vector3::operator==(const Vector3& v) const
 	{
 		return (this->x == v.x && this->y == v.y && this->z == v.z);
 	}
 	
-	bool Vector3::operator!=(const Vector3& v)
+	bool Vector3::operator!=(const Vector3& v) const
 	{
 		return !(*this == v);
 	}

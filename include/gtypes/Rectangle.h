@@ -48,16 +48,16 @@ namespace gtypes
 		bool isPointInside(Vector2& vector) const;
 		bool isPointInside(float x, float y) const;
 		
-		Rectangle operator+(Vector2 vector);
-		Rectangle operator-(Vector2 vector);
-		Rectangle operator*(float scale);
-		Rectangle operator/(float scale);
+		Rectangle operator+(Vector2 vector) const;
+		Rectangle operator-(Vector2 vector) const;
+		Rectangle operator*(float scale) const;
+		Rectangle operator/(float scale) const;
 		Rectangle operator+=(Vector2& vector);
 		Rectangle operator-=(Vector2& vector);
 		Rectangle operator*=(float scale);
 		Rectangle operator/=(float scale);
-		bool operator==(const Rectangle& other);
-		bool operator!=(const Rectangle& other);
+		bool operator==(const Rectangle& other) const;
+		bool operator!=(const Rectangle& other) const;
 		
 	};
 }

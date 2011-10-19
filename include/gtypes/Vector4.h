@@ -34,6 +34,7 @@ namespace gtypes
 		void set(float x, float y, float z, float w);
 
 	};
+
 }
 
 typedef gtypes::Vector4 gvec4;

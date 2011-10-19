@@ -39,8 +39,8 @@ namespace gtypes
 		Vector2 calcTangent(double t);
 		Vector2 calcNormal(double t);
 		
-		Vector2 getTangent();
-		Vector2 getNormal();
+		Vector2 getTangent() const;
+		Vector2 getNormal() const;
 		
 		void addPoint(Vector2 point);
 		void addPoint(float x, float y);
@@ -52,7 +52,7 @@ namespace gtypes
 		void setLengthSamplingRate(int r);
 		void setCurvature(double c);
 		
-		double getLength();
+		double getLength() const;
 		
 	protected:
 		int _numSamples;

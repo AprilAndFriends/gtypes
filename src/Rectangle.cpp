@@ -135,28 +135,28 @@ namespace gtypes
 		return (x >= this->x && y >= this->y && x <= this->x + this->w - 1 && y <= this->y + this->h - 1);
 	}
 
-	Rectangle Rectangle::operator+(Vector2 vector)
+	Rectangle Rectangle::operator+(Vector2 vector) const
 	{
 		Rectangle result(*this);
 		result += vector;
 		return result;
 	}
 	
-	Rectangle Rectangle::operator-(Vector2 vector)
+	Rectangle Rectangle::operator-(Vector2 vector) const
 	{
 		Rectangle result(*this);
 		result -= vector;
 		return result;
 	}
 	
-	Rectangle Rectangle::operator*(float scale)
+	Rectangle Rectangle::operator*(float scale) const
 	{
 		Rectangle result(*this);
 		result *= scale;
 		return result;
 	}
 	
-	Rectangle Rectangle::operator/(float scale)
+	Rectangle Rectangle::operator/(float scale) const
 	{
 		Rectangle result(*this);
 		result /= scale;
@@ -191,12 +191,12 @@ namespace gtypes
 		return (*this);
 	}
 	
-	bool Rectangle::operator==(const Rectangle& other)
+	bool Rectangle::operator==(const Rectangle& other) const
 	{
 		return (this->x == other.x && this->y == other.y && this->w == other.w && this->h == other.h);
 	}
 	
-	bool Rectangle::operator!=(const Rectangle& other)
+	bool Rectangle::operator!=(const Rectangle& other) const
 	{
 		return !(*this == other);
 	}

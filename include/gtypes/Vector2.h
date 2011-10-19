@@ -42,12 +42,12 @@ namespace gtypes
 		DEPRECATED_ATTRIBUTE void normalise() { this->normalize(); }
 		DEPRECATED_ATTRIBUTE Vector2 normalised() const { return this->normalized(); }
 		
-		Vector2 operator+(const Vector2& v);
-		Vector2 operator-(const Vector2& v);
-		Vector2 operator*(const Vector2& v);
-		Vector2 operator/(const Vector2& v);
-		Vector2 operator*(const float f);
-		Vector2 operator/(const float f);
+		Vector2 operator+(const Vector2& v) const;
+		Vector2 operator-(const Vector2& v) const;
+		Vector2 operator*(const Vector2& v) const;
+		Vector2 operator/(const Vector2& v) const;
+		Vector2 operator*(const float f) const;
+		Vector2 operator/(const float f) const;
 		Vector2 operator-() const;
 		Vector2 operator+=(const Vector2& v);
 		Vector2 operator-=(const Vector2& v);
@@ -55,8 +55,8 @@ namespace gtypes
 		Vector2 operator/=(const Vector2& v);
 		Vector2 operator*=(const float f);
 		Vector2 operator/=(const float f);
-		bool operator==(const Vector2& v);
-		bool operator!=(const Vector2& v);
+		bool operator==(const Vector2& v) const;
+		bool operator!=(const Vector2& v) const;
 		
 		float dot(Vector2 v) const;
 
