@@ -112,6 +112,7 @@ namespace gtypes
 		DEPRECATED_ATTRIBUTE void ortho(float x, float y, float w, float h);
 		void ortho(Rectangle& rect);
 		
+		// so that you can see the Matrix
 		void lookAt(const float *eye, const float *target, const float *up);
 		void lookAt(const Vector3& eye, const Vector3& target, const Vector3& up);
 		
