@@ -39,8 +39,6 @@ namespace gtypes
 		float squaredLength() const;
 		void normalize();
 		Vector2 normalized() const;
-		DEPRECATED_ATTRIBUTE void normalise() { this->normalize(); }
-		DEPRECATED_ATTRIBUTE Vector2 normalised() const { return this->normalized(); }
 		
 		Vector2 operator+(const Vector2& v) const;
 		Vector2 operator-(const Vector2& v) const;
