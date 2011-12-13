@@ -500,7 +500,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = gtypes;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -533,7 +533,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = gtypes;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 			};
 			name = "Debug-LLVM";
 		};
@@ -560,7 +560,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = gtypes;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -588,7 +588,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = gtypes;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = "Release-LLVM";
@@ -616,7 +616,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = gtypes;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = "App Store";
