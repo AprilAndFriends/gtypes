@@ -114,6 +114,11 @@ namespace gtypes
 		this->h = h;
 	}
 	
+	Vector2 Rectangle::getCenter()
+	{
+		return Vector2(this->x + this->w * 0.5f, this->y + this->h * 0.5f);
+	}
+	
 	float Rectangle::getAspect()
 	{
 		return (this->w / this->h);
