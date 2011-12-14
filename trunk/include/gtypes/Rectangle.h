@@ -42,6 +42,7 @@ namespace gtypes
 		Vector2 getSize();
 		void setSize(Vector2 size);
 		void setSize(float w, float h);
+		Vector2 getCenter();
 		float getAspect();
 
 		bool intersects(Rectangle& other) const;
