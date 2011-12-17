@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9,00"
+	Version="9.00"
 	Name="libgtypes"
 	ProjectGUID="{9C043B29-DB40-48D5-97D8-1BC44128E3BA}"
 	RootNamespace="libgtypes"
@@ -18,7 +18,7 @@
 	<Configurations>
 		<Configuration
 			Name="win32_Debug|Win32"
-			OutputDirectory="$(SolutionDir)bin\lib\$(ProjectName)\$(ConfigurationName)"
+			OutputDirectory="$(SolutionDir)bin\"
 			IntermediateDirectory="$(SolutionDir)bin\lib\$(ProjectName)\$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
@@ -62,7 +62,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(SolutionDir)bin\$(ProjectName).dll"
+				OutputFile="$(OutDir)$(ProjectName).dll"
 				GenerateDebugInformation="true"
 				ImportLibrary="$(TargetDir)\$(TargetName).lib"
 			/>
@@ -91,7 +91,7 @@
 		</Configuration>
 		<Configuration
 			Name="win32_Release|Win32"
-			OutputDirectory="$(SolutionDir)bin\lib\$(ProjectName)\$(ConfigurationName)"
+			OutputDirectory="$(SolutionDir)bin\"
 			IntermediateDirectory="$(SolutionDir)bin\lib\$(ProjectName)\$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
@@ -136,7 +136,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(SolutionDir)bin\$(ProjectName).dll"
+				OutputFile="$(OutDir)$(ProjectName).dll"
 				LinkIncremental="0"
 				GenerateDebugInformation="false"
 				SubSystem="1"
