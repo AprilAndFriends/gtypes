@@ -13,7 +13,6 @@
     <File Name="src/Quaternion.cpp"/>
     <File Name="src/Vector2.cpp"/>
     <File Name="src/Vector3.cpp"/>
-    <File Name="src/Vector4.cpp"/>
     <File Name="src/CatmullRomSpline3.cpp"/>
     <File Name="src/CatmullRomSpline2.cpp"/>
     <File Name="src/Rectangle.cpp"/>
@@ -26,7 +25,6 @@
     <File Name="include/gtypes/Quaternion.h"/>
     <File Name="include/gtypes/Vector2.h"/>
     <File Name="include/gtypes/Vector3.h"/>
-    <File Name="include/gtypes/Vector4.h"/>
     <File Name="include/gtypes/gtypesExport.h"/>
     <File Name="include/gtypes/CatmullRomSpline2.h"/>
     <File Name="include/gtypes/CatmullRomSpline3.h"/>
