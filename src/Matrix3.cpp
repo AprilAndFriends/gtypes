@@ -263,7 +263,7 @@ namespace gtypes
 		this->data[6] = c1 * zx + ys;	this->data[7] = c1 * yz - xs;	this->data[8] = c1 * z * z + c;
 	}
 	
-	void Matrix3::setRotation3D(Vector3& v, float angle)
+	void Matrix3::setRotation3D(const Vector3& v, float angle)
 	{
 		return this->setRotation3D(v.x, v.y, v.z, angle);
 	}
@@ -275,7 +275,7 @@ namespace gtypes
 		this->operator*=(mat);
 	}
 	
-	void Matrix3::rotate3D(Vector3& v, float angle)
+	void Matrix3::rotate3D(const Vector3& v, float angle)
 	{
 		Matrix3 mat;
 		mat.setRotation3D(v, angle);
@@ -345,7 +345,7 @@ namespace gtypes
 		this->data[6] = 0.0f;	this->data[7] = 0.0f;	this->data[8] = z;
 	}
 
-	void Matrix3::setScale(Vector3& v)
+	void Matrix3::setScale(const Vector3& v)
 	{
 		this->setScale(v.x, v.y, v.z);
 	}
@@ -364,7 +364,7 @@ namespace gtypes
 		this->operator*=(mat);
 	}
 	
-	void Matrix3::scale(Vector3& v)
+	void Matrix3::scale(const Vector3& v)
 	{
 		Matrix3 mat;
 		mat.setScale(v);
