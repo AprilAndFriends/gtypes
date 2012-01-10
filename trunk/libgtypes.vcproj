@@ -208,10 +208,6 @@
 				RelativePath=".\src\Vector3.cpp"
 				>
 			</File>
-			<File
-				RelativePath=".\src\Vector4.cpp"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -260,10 +256,6 @@
 			</File>
 			<File
 				RelativePath=".\include\gtypes\Vector3.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\gtypes\Vector4.h"
 				>
 			</File>
 		</Filter>

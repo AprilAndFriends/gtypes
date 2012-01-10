@@ -104,7 +104,6 @@
     <ClCompile Include="src\Rectangle.cpp" />
     <ClCompile Include="src\Vector2.cpp" />
     <ClCompile Include="src\Vector3.cpp" />
-    <ClCompile Include="src\Vector4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\gtypes\CatmullRomSpline2.h" />
@@ -118,7 +117,6 @@
     <ClInclude Include="include\gtypes\util.h" />
     <ClInclude Include="include\gtypes\Vector2.h" />
     <ClInclude Include="include\gtypes\Vector3.h" />
-    <ClInclude Include="include\gtypes\Vector4.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="fileproperties.rc" />
