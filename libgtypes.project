@@ -16,7 +16,6 @@
     <File Name="src/CatmullRomSpline3.cpp"/>
     <File Name="src/CatmullRomSpline2.cpp"/>
     <File Name="src/Rectangle.cpp"/>
-    <File Name="src/LinkedLERP3.cpp"/>
     <File Name="fileproperties.rc"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
@@ -31,7 +30,6 @@
     <File Name="include/gtypes/Constants.h"/>
     <File Name="include/gtypes/Rectangle.h"/>
     <File Name="include/gtypes/util.h"/>
-    <File Name="include/gtypes/LinkedLERP3.h"/>
   </VirtualDirectory>
   <Dependencies Name="Release"/>
   <Settings Type="Dynamic Library">
