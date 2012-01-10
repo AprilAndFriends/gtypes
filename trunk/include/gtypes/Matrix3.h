@@ -74,9 +74,9 @@ namespace gtypes
 		void rotate2D(float angle);
 
 		void setRotation3D(float x, float y, float z, float angle);
-		void setRotation3D(Vector3& v, float angle);
+		void setRotation3D(const Vector3& v, float angle);
 		void rotate3D(float x, float y, float z, float angle);
-		void rotate3D(Vector3& v, float angle);
+		void rotate3D(const Vector3& v, float angle);
 		
 		void setRotationX(float angle);
 		void setRotationY(float angle);
@@ -87,10 +87,10 @@ namespace gtypes
 		
 		void setScale(float factor);
 		void setScale(float x, float y, float z);
-		void setScale(Vector3& v);
+		void setScale(const Vector3& v);
 		void scale(float factor);
 		void scale(float x, float y, float z);
-		void scale(Vector3& v);
+		void scale(const Vector3& v);
 		
 		void setTranslation2D(float x, float y);
 		void translate2D(float x, float y);

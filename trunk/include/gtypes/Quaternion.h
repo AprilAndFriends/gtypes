@@ -40,10 +40,10 @@ namespace gtypes
 		void set(const float v[]);
 		void set(const Vector3& v, float w);
 		
-		Quaternion operator+(const Quaternion& q);
-		Quaternion operator-(const Quaternion& q);
-		Quaternion operator*(const Quaternion& q);
-		Quaternion operator*(const float f);
+		Quaternion operator+(const Quaternion& q) const;
+		Quaternion operator-(const Quaternion& q) const;
+		Quaternion operator*(const Quaternion& q) const;
+		Quaternion operator*(const float f) const;
 
 		float length() const;
 		float squaredLength() const;
@@ -60,8 +60,8 @@ namespace gtypes
 		Matrix4 mat4() const;
 		Matrix4 mat4(const Vector3& position) const;
 		
-		static Quaternion slerp(Quaternion& a, Quaternion& b, float t);
-		static Quaternion fromAxisAngle(Vector3 a, float angle);
+		static Quaternion slerp(const Quaternion& a, const Quaternion& b, float t);
+		static Quaternion fromAxisAngle(const Vector3& a, float angle);
 		static Quaternion fromAxisAngle(float ax, float ay, float az, float angle);
 		static Quaternion fromEulerAngles(float yaw, float pitch, float roll);
 

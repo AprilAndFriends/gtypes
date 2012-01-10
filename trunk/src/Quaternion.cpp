@@ -75,17 +75,17 @@ namespace gtypes
 		this->w = w;
 	}
 	
-	Quaternion Quaternion::operator+(const Quaternion& q)
+	Quaternion Quaternion::operator+(const Quaternion& q) const
 	{
 		return Quaternion(x + q.x, y + q.y, z + q.z, w + q.w );
 	}
 
-	Quaternion Quaternion::operator-(const Quaternion& q)
+	Quaternion Quaternion::operator-(const Quaternion& q) const
 	{
 		return Quaternion(x - q.x, y - q.y, z - q.z, w - q.w);
 	}
 	
-	Quaternion Quaternion::operator*(const Quaternion& q)
+	Quaternion Quaternion::operator*(const Quaternion& q) const
 	{
 		return Quaternion(this->w * q.x + this->x * q.w + this->y * q.z - this->z * q.y, 
 						  this->w * q.y - this->x * q.z + this->y * q.w + this->z * q.x, 
@@ -93,7 +93,7 @@ namespace gtypes
 						  this->w * q.w - this->x * q.x - this->y * q.y - this->z * q.z);
 	}
 	
-	Quaternion Quaternion::operator*(float f)
+	Quaternion Quaternion::operator*(float f) const
 	{
 		return Quaternion(this->x * f, this->y * f, this->z * f, this->w * f);
 	}
@@ -200,7 +200,7 @@ namespace gtypes
 					   position.x,				position.y,					position.z,					1.0f);
 	}
 	
-	Quaternion Quaternion::slerp(Quaternion& a, Quaternion& b, float t)
+	Quaternion Quaternion::slerp(const Quaternion& a, const Quaternion& b, float t)
 	{
 		float w1;
 		float w2;
@@ -219,13 +219,13 @@ namespace gtypes
 		return Quaternion(a * w1 + b * w2);
 	}
 	
-	Quaternion Quaternion::fromAxisAngle(Vector3 a, float angle)
+	Quaternion Quaternion::fromAxisAngle(const Vector3& a, float angle)
 	{
-		a.normalize();
+		gvec3 n = a.normalized();
 		float theta = (float)DEG_TO_RAD(angle) * 0.5f;
 		float s = sin(theta);
 		float c = cos(theta);
-		return Quaternion(a.x * s, a.y * s, a.z * s, c);
+		return Quaternion(n.x * s, n.y * s, n.z * s, c);
 	}
 	
 	Quaternion Quaternion::fromAxisAngle(float ax, float ay, float az, float angle)

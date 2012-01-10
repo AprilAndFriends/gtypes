@@ -124,13 +124,13 @@ namespace gtypes
 		return (this->w / this->h);
 	}
 	
-	bool Rectangle::intersects(Rectangle& other) const
+	bool Rectangle::intersects(const Rectangle& other) const
 	{
 		return (this->x + this->w > other.x && this->x < other.x + other.w &&
 				this->y + this->h > other.y && this->y < other.y + other.h);
 	}
 	
-	bool Rectangle::isPointInside(Vector2& vector) const
+	bool Rectangle::isPointInside(const Vector2& vector) const
 	{
 		return (vector.x >= this->x && vector.y >= this->y && vector.x <= this->x + this->w - 1 && vector.y <= this->y + this->h - 1);
 	}
@@ -168,14 +168,14 @@ namespace gtypes
 		return result;
 	}
 	
-	Rectangle Rectangle::operator+=(Vector2& vector)
+	Rectangle Rectangle::operator+=(const Vector2& vector)
 	{
 		this->x += vector.x;
 		this->y += vector.y;
 		return (*this);
 	}
 	
-	Rectangle Rectangle::operator-=(Vector2& vector)
+	Rectangle Rectangle::operator-=(const Vector2& vector)
 	{
 		this->x -= vector.x;
 		this->y -= vector.y;

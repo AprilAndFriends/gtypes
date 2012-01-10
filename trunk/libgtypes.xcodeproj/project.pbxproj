@@ -19,7 +19,6 @@
 		7F42F74111EB135D00B1C1DF /* Quaternion.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F42F73811EB135D00B1C1DF /* Quaternion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F42F74211EB135D00B1C1DF /* Vector2.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F42F73911EB135D00B1C1DF /* Vector2.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F42F74311EB135D00B1C1DF /* Vector3.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F42F73A11EB135D00B1C1DF /* Vector3.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7F42F74411EB135D00B1C1DF /* Vector4.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F42F73B11EB135D00B1C1DF /* Vector4.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F42F74D11EB136E00B1C1DF /* CatmullRomSpline2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74511EB136E00B1C1DF /* CatmullRomSpline2.cpp */; };
 		7F42F74E11EB136E00B1C1DF /* CatmullRomSpline3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74611EB136E00B1C1DF /* CatmullRomSpline3.cpp */; };
 		7F42F74F11EB136E00B1C1DF /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74711EB136E00B1C1DF /* Matrix3.cpp */; };
@@ -27,7 +26,6 @@
 		7F42F75111EB136E00B1C1DF /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74911EB136E00B1C1DF /* Quaternion.cpp */; };
 		7F42F75211EB136E00B1C1DF /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74A11EB136E00B1C1DF /* Vector2.cpp */; };
 		7F42F75311EB136E00B1C1DF /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74B11EB136E00B1C1DF /* Vector3.cpp */; };
-		7F42F75411EB136E00B1C1DF /* Vector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74C11EB136E00B1C1DF /* Vector4.cpp */; };
 		D1522F2D140F79E10012F290 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F3518731251E4810005B659 /* Rectangle.cpp */; };
 		D1522F2E140F79E10012F290 /* CatmullRomSpline2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74511EB136E00B1C1DF /* CatmullRomSpline2.cpp */; };
 		D1522F2F140F79E10012F290 /* CatmullRomSpline3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74611EB136E00B1C1DF /* CatmullRomSpline3.cpp */; };
@@ -36,7 +34,6 @@
 		D1522F32140F79E10012F290 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74911EB136E00B1C1DF /* Quaternion.cpp */; };
 		D1522F33140F79E10012F290 /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74A11EB136E00B1C1DF /* Vector2.cpp */; };
 		D1522F34140F79E10012F290 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74B11EB136E00B1C1DF /* Vector3.cpp */; };
-		D1522F35140F79E10012F290 /* Vector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74C11EB136E00B1C1DF /* Vector4.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +49,6 @@
 		7F42F73811EB135D00B1C1DF /* Quaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Quaternion.h; path = include/gtypes/Quaternion.h; sourceTree = "<group>"; };
 		7F42F73911EB135D00B1C1DF /* Vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector2.h; path = include/gtypes/Vector2.h; sourceTree = "<group>"; };
 		7F42F73A11EB135D00B1C1DF /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector3.h; path = include/gtypes/Vector3.h; sourceTree = "<group>"; };
-		7F42F73B11EB135D00B1C1DF /* Vector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector4.h; path = include/gtypes/Vector4.h; sourceTree = "<group>"; };
 		7F42F74511EB136E00B1C1DF /* CatmullRomSpline2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CatmullRomSpline2.cpp; path = src/CatmullRomSpline2.cpp; sourceTree = "<group>"; };
 		7F42F74611EB136E00B1C1DF /* CatmullRomSpline3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CatmullRomSpline3.cpp; path = src/CatmullRomSpline3.cpp; sourceTree = "<group>"; };
 		7F42F74711EB136E00B1C1DF /* Matrix3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Matrix3.cpp; path = src/Matrix3.cpp; sourceTree = "<group>"; };
@@ -60,7 +56,6 @@
 		7F42F74911EB136E00B1C1DF /* Quaternion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Quaternion.cpp; path = src/Quaternion.cpp; sourceTree = "<group>"; };
 		7F42F74A11EB136E00B1C1DF /* Vector2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector2.cpp; path = src/Vector2.cpp; sourceTree = "<group>"; };
 		7F42F74B11EB136E00B1C1DF /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector3.cpp; path = src/Vector3.cpp; sourceTree = "<group>"; };
-		7F42F74C11EB136E00B1C1DF /* Vector4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector4.cpp; path = src/Vector4.cpp; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* gtypes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = gtypes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1522F1C140F79500012F290 /* libgtypes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtypes.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,7 +110,6 @@
 				7F42F74911EB136E00B1C1DF /* Quaternion.cpp */,
 				7F42F74A11EB136E00B1C1DF /* Vector2.cpp */,
 				7F42F74B11EB136E00B1C1DF /* Vector3.cpp */,
-				7F42F74C11EB136E00B1C1DF /* Vector4.cpp */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -134,7 +128,6 @@
 				7F42F73811EB135D00B1C1DF /* Quaternion.h */,
 				7F42F73911EB135D00B1C1DF /* Vector2.h */,
 				7F42F73A11EB135D00B1C1DF /* Vector3.h */,
-				7F42F73B11EB135D00B1C1DF /* Vector4.h */,
 			);
 			name = include;
 			sourceTree = "<group>";
@@ -154,7 +147,6 @@
 				7F42F74111EB135D00B1C1DF /* Quaternion.h in Headers */,
 				7F42F74211EB135D00B1C1DF /* Vector2.h in Headers */,
 				7F42F74311EB135D00B1C1DF /* Vector3.h in Headers */,
-				7F42F74411EB135D00B1C1DF /* Vector4.h in Headers */,
 				7F3518711251E4740005B659 /* Constants.h in Headers */,
 				7F3518721251E4740005B659 /* Rectangle.h in Headers */,
 				7F3D73DF125C8D1F00058195 /* util.h in Headers */,
@@ -258,7 +250,6 @@
 				7F42F75111EB136E00B1C1DF /* Quaternion.cpp in Sources */,
 				7F42F75211EB136E00B1C1DF /* Vector2.cpp in Sources */,
 				7F42F75311EB136E00B1C1DF /* Vector3.cpp in Sources */,
-				7F42F75411EB136E00B1C1DF /* Vector4.cpp in Sources */,
 				7F3518741251E4810005B659 /* Rectangle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,7 +266,6 @@
 				D1522F32140F79E10012F290 /* Quaternion.cpp in Sources */,
 				D1522F33140F79E10012F290 /* Vector2.cpp in Sources */,
 				D1522F34140F79E10012F290 /* Vector3.cpp in Sources */,
-				D1522F35140F79E10012F290 /* Vector4.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

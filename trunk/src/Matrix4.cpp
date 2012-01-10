@@ -15,7 +15,7 @@
 #include "Matrix4.h"
 #include "Rectangle.h"
 #include "Vector3.h"
-#include "Vector4.h"
+#include "Quaternion.h"
 #include "util.h"
 
 namespace gtypes
@@ -252,12 +252,12 @@ namespace gtypes
 					   this->data[2] * v.x + this->data[6] * v.y + this->data[10] * v.z + this->data[14]);
 	}
 
-	Vector4 Matrix4::operator*(const Vector4& v) const
+	Quaternion Matrix4::operator*(const Quaternion& v) const
 	{
-		return Vector4(this->data[0] * v.x + this->data[4] * v.y + this->data[8]  * v.z + this->data[12] * v.w,
-					   this->data[1] * v.x + this->data[5] * v.y + this->data[9]  * v.z + this->data[13] * v.w,
-					   this->data[2] * v.x + this->data[6] * v.y + this->data[10] * v.z + this->data[14] * v.w,
-					   this->data[3] * v.x + this->data[7] * v.y + this->data[11] * v.z + this->data[15] * v.w);
+		return Quaternion(this->data[0] * v.x + this->data[4] * v.y + this->data[8]  * v.z + this->data[12] * v.w,
+					      this->data[1] * v.x + this->data[5] * v.y + this->data[9]  * v.z + this->data[13] * v.w,
+					      this->data[2] * v.x + this->data[6] * v.y + this->data[10] * v.z + this->data[14] * v.w,
+						  this->data[3] * v.x + this->data[7] * v.y + this->data[11] * v.z + this->data[15] * v.w);
 	}
 	
 	Matrix4 Matrix4::operator*(float f) const
@@ -369,7 +369,7 @@ namespace gtypes
 		this->ortho(rect);
 	}
 
-	void Matrix4::ortho(Rectangle& rect)
+	void Matrix4::ortho(const Rectangle& rect)
 	{
 		this->setIdentity();
 		this->data[0] = 2 / rect.w;
@@ -389,23 +389,11 @@ namespace gtypes
 		this->data[8]  = -z * x2;		this->data[9]  = -z * y2;		this->data[10] = 1.0f - z * z2;	this->data[11] = 0.0f;
 		this->data[12] = -w * x2;		this->data[13] = -w * y2;		this->data[14] = -w * z2;		this->data[15] = 1.0f;
 	}
-	
-	void Matrix4::setReflection(const Vector4& plane)
-	{
-		this->setReflection(plane.x, plane.y, plane.z, plane.w);
-	}
 
 	void Matrix4::reflect(float x, float y, float z, float w)
 	{
 		Matrix4 mat;
 		mat.setReflection(x, y, z, w);
-		this->operator*=(mat);
-	}
-	
-	void Matrix4::reflect(const Vector4& plane)
-	{
-		Matrix4 mat;
-		mat.setReflection(plane);
 		this->operator*=(mat);
 	}
 

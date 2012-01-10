@@ -23,7 +23,7 @@ namespace gtypes
 	class Matrix3;
 	class Rectangle;
 	class Vector3;
-	class Vector4;
+	class Quaternion;
 
 	class gtypesExport Matrix4
 	{
@@ -50,7 +50,7 @@ namespace gtypes
 		void set(const Matrix4& m);
 		
 		Vector3 operator*(const Vector3& v) const;
-		Vector4 operator*(const Vector4& v) const;
+		Quaternion operator*(const Quaternion& v) const;
 		
 		Matrix4 operator*=(float f);
 		Matrix4 operator*=(const Matrix4& m);
@@ -104,13 +104,11 @@ namespace gtypes
 		void translate(const Vector3& v);
 		
 		void setReflection(float x, float y, float z, float w);
-		void setReflection(const Vector4& plane);
 		void reflect(float x, float y, float z, float w);
-		void reflect(const Vector4& plane);
 		
 		void perspective(float fov, float aspect, float near, float far);
 		DEPRECATED_ATTRIBUTE void ortho(float x, float y, float w, float h);
-		void ortho(Rectangle& rect);
+		void ortho(const Rectangle& rect);
 		
 		// so that you can see the Matrix, Neo
 		void lookAt(const float *eye, const float *target, const float *up);
