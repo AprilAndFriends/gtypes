@@ -247,7 +247,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\include\gtypes\util.h"
+				RelativePath=".\include\gtypes\gtypesUtil.h"
 				>
 			</File>
 			<File
