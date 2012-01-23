@@ -1,7 +1,7 @@
 /// @file
 /// @author  Domagoj Cerjan
 /// @author  Boris Mikic
-/// @version 1.0
+/// @version 1.4
 /// 
 /// @section LICENSE
 /// 
@@ -11,16 +11,14 @@
 #include <math.h>
 
 #include "CatmullRomSpline3.h"
-#include "util.h"
+#include "gtypesUtil.h"
 #include "Vector3.h"
 
 namespace gtypes
 {
-
 	CatmullRomSpline3::CatmullRomSpline3() : _c(0.5), _length(0.0), _closed(0),
 		_numSegments(0), _numSamples(16), _inflexed(false), _prevIndex(-1), _prevlen(0.0), _prevDot(0)
 	{
-		
 	}
 	
 	CatmullRomSpline3::CatmullRomSpline3(std::vector<Vector3>& vectors, int closed, Vector3 t1, Vector3 t2) : _closed(closed),

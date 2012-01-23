@@ -64,13 +64,13 @@
     <ClInclude Include="include\gtypes\Rectangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gtypes\util.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\gtypes\Vector2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\gtypes\Vector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gtypes\gtypesUtil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

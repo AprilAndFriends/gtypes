@@ -2,7 +2,7 @@
 /// @author  Domagoj Cerjan
 /// @author  Kresimir Spes
 /// @author  Boris Mikic
-/// @version 1.0
+/// @version 1.4
 /// 
 /// @section LICENSE
 /// 
@@ -11,8 +11,8 @@
 
 #include <math.h>
 
-#include "Vector3.h"
 #include "Quaternion.h"
+#include "Vector3.h"
 
 namespace gtypes
 {

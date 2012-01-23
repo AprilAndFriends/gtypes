@@ -2,7 +2,7 @@
 /// @author  Domagoj Cerjan
 /// @author  Kresimir Spes
 /// @author  Boris Mikic
-/// @version 1.0
+/// @version 1.4
 /// 
 /// @section LICENSE
 /// 
@@ -11,16 +11,15 @@
 
 #include <math.h>
 
+#include "gtypesUtil.h"
 #include "Matrix3.h"
 #include "Matrix4.h"
+#include "Quaternion.h"
 #include "Rectangle.h"
 #include "Vector3.h"
-#include "Quaternion.h"
-#include "util.h"
 
 namespace gtypes
 {
-
 	Matrix4::Matrix4()
 	{
 		this->setIdentity();
