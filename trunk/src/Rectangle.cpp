@@ -1,6 +1,6 @@
 /// @file
 /// @author  Boris Mikic
-/// @version 1.4
+/// @version 1.41
 /// 
 /// @section LICENSE
 /// 
@@ -154,6 +154,20 @@ namespace gtypes
 		return result;
 	}
 	
+	Rectangle Rectangle::operator*(Vector2 vector) const
+	{
+		Rectangle result(*this);
+		result *= vector;
+		return result;
+	}
+	
+	Rectangle Rectangle::operator/(Vector2 vector) const
+	{
+		Rectangle result(*this);
+		result /= vector;
+		return result;
+	}
+	
 	Rectangle Rectangle::operator*(float scale) const
 	{
 		Rectangle result(*this);
@@ -179,6 +193,20 @@ namespace gtypes
 	{
 		this->x -= vector.x;
 		this->y -= vector.y;
+		return (*this);
+	}
+	
+	Rectangle Rectangle::operator*=(const Vector2& vector)
+	{
+		this->x *= vector.x;
+		this->y *= vector.y;
+		return (*this);
+	}
+	
+	Rectangle Rectangle::operator/=(const Vector2& vector)
+	{
+		this->x /= vector.x;
+		this->y /= vector.y;
 		return (*this);
 	}
 	
