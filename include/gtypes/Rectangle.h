@@ -1,6 +1,6 @@
 /// @file
 /// @author  Boris Mikic
-/// @version 1.4
+/// @version 1.41
 /// 
 /// @section LICENSE
 /// 
@@ -51,10 +51,14 @@ namespace gtypes
 		
 		Rectangle operator+(Vector2 vector) const;
 		Rectangle operator-(Vector2 vector) const;
+		Rectangle operator*(Vector2 vector) const;
+		Rectangle operator/(Vector2 vector) const;
 		Rectangle operator*(float scale) const;
 		Rectangle operator/(float scale) const;
 		Rectangle operator+=(const Vector2& vector);
 		Rectangle operator-=(const Vector2& vector);
+		Rectangle operator*=(const Vector2& vector);
+		Rectangle operator/=(const Vector2& vector);
 		Rectangle operator*=(float scale);
 		Rectangle operator/=(float scale);
 		bool operator==(const Rectangle& other) const;
