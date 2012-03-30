@@ -163,9 +163,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		8DC2EF4F0486A6940098B216 /* libgtypes */ = {
+		8DC2EF4F0486A6940098B216 /* gtypes */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "libgtypes" */;
+			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "gtypes" */;
 			buildPhases = (
 				8DC2EF500486A6940098B216 /* Headers */,
 				8DC2EF520486A6940098B216 /* Resources */,
@@ -176,15 +176,15 @@
 			);
 			dependencies = (
 			);
-			name = libgtypes;
+			name = gtypes;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = libgtypes;
 			productReference = 8DC2EF5B0486A6940098B216 /* gtypes.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D1522F1B140F79500012F290 /* libgtypes-ios */ = {
+		D1522F1B140F79500012F290 /* gtypes (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D1522F2B140F79500012F290 /* Build configuration list for PBXNativeTarget "libgtypes-ios" */;
+			buildConfigurationList = D1522F2B140F79500012F290 /* Build configuration list for PBXNativeTarget "gtypes (iOS)" */;
 			buildPhases = (
 				D1522F18140F79500012F290 /* Sources */,
 				D1522F19140F79500012F290 /* Frameworks */,
@@ -194,7 +194,7 @@
 			);
 			dependencies = (
 			);
-			name = "libgtypes-ios";
+			name = "gtypes (iOS)";
 			productName = "libgtypes-ios";
 			productReference = D1522F1C140F79500012F290 /* libgtypes.a */;
 			productType = "com.apple.product-type.library.static";
@@ -207,7 +207,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "libgtypes" */;
+			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "gtypes" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -222,8 +222,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8DC2EF4F0486A6940098B216 /* libgtypes */,
-				D1522F1B140F79500012F290 /* libgtypes-ios */,
+				8DC2EF4F0486A6940098B216 /* gtypes */,
+				D1522F1B140F79500012F290 /* gtypes (iOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -291,6 +291,7 @@
 				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = gtypes;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "i386 x86_64 ppc";
@@ -315,6 +316,7 @@
 				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = gtypes;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "i386 x86_64 ppc";
@@ -379,6 +381,7 @@
 				INFOPLIST_FILE = Info.plist;
 				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				PRODUCT_NAME = gtypes;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "i386 x86_64 ppc";
@@ -419,6 +422,7 @@
 				INFOPLIST_FILE = Info.plist;
 				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				PRODUCT_NAME = gtypes;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "i386 x86_64 ppc";
@@ -455,6 +459,7 @@
 				INFOPLIST_FILE = Info.plist;
 				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				PRODUCT_NAME = gtypes;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "i386 x86_64 ppc";
@@ -620,7 +625,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "libgtypes" */ = {
+		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "gtypes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB91AE08733DA50010E9CD /* Debug */,
@@ -632,7 +637,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "libgtypes" */ = {
+		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "gtypes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB91B208733DA50010E9CD /* Debug */,
@@ -644,7 +649,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D1522F2B140F79500012F290 /* Build configuration list for PBXNativeTarget "libgtypes-ios" */ = {
+		D1522F2B140F79500012F290 /* Build configuration list for PBXNativeTarget "gtypes (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D1522F26140F79500012F290 /* Debug */,
