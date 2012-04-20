@@ -45,10 +45,15 @@ namespace gtypes
 		Vector2 getCenter();
 		float getAspect();
 
+		float left();
+		float right();
+		float top();
+		float bottom();
+
 		bool intersects(const Rectangle& other) const;
 		bool isPointInside(const Vector2& vector) const;
 		bool isPointInside(float x, float y) const;
-		
+
 		Rectangle operator+(Vector2 vector) const;
 		Rectangle operator-(Vector2 vector) const;
 		Rectangle operator*(Vector2 vector) const;

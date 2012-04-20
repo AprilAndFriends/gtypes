@@ -123,6 +123,26 @@ namespace gtypes
 	{
 		return (this->w / this->h);
 	}
+
+	float Rectangle::left()
+	{
+		return this->x;
+	}
+	
+	float Rectangle::right()
+	{
+		return (this->x + this->w);
+	}
+	
+	float Rectangle::top()
+	{
+		return this->y;
+	}
+	
+	float Rectangle::bottom()
+	{
+		return (this->y + this->h);
+	}
 	
 	bool Rectangle::intersects(const Rectangle& other) const
 	{
