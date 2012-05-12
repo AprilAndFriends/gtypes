@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9,00"
+	Version="9.00"
 	Name="libgtypes"
 	ProjectGUID="{9C043B29-DB40-48D5-97D8-1BC44128E3BA}"
 	RootNamespace="libgtypes"
@@ -138,7 +138,6 @@
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)$(ProjectName).dll"
 				LinkIncremental="0"
-				GenerateDebugInformation="false"
 				SubSystem="1"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
