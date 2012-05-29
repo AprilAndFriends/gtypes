@@ -1,6 +1,6 @@
 /// @file
 /// @author  Boris Mikic
-/// @version 1.41
+/// @version 1.43
 /// 
 /// @section LICENSE
 /// 
@@ -124,6 +124,26 @@ namespace gtypes
 		return (this->w / this->h);
 	}
 
+	Vector2 Rectangle::getTopLeft()
+	{
+		return Vector2(this->x, this->y);
+	}
+	
+	Vector2 Rectangle::getTopRight()
+	{
+		return Vector2(this->x + this->w, this->y);
+	}
+	
+	Vector2 Rectangle::getBottomLeft()
+	{
+		return Vector2(this->x, this->y + this->h);
+	}
+	
+	Vector2 Rectangle::getBottomRight()
+	{
+		return Vector2(this->x + this->w, this->y + this->h);
+	}
+	
 	float Rectangle::left()
 	{
 		return this->x;
