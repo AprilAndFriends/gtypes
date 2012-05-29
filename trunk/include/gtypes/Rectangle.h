@@ -1,6 +1,6 @@
 /// @file
 /// @author  Boris Mikic
-/// @version 1.41
+/// @version 1.43
 /// 
 /// @section LICENSE
 /// 
@@ -44,6 +44,10 @@ namespace gtypes
 		void setSize(float w, float h);
 		Vector2 getCenter();
 		float getAspect();
+		Vector2 getTopLeft();
+		Vector2 getTopRight();
+		Vector2 getBottomLeft();
+		Vector2 getBottomRight();
 
 		float left();
 		float right();
