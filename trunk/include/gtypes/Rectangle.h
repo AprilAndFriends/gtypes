@@ -42,17 +42,17 @@ namespace gtypes
 		Vector2 getSize();
 		void setSize(Vector2 size);
 		void setSize(float w, float h);
-		Vector2 getCenter();
-		float getAspect();
-		Vector2 getTopLeft();
-		Vector2 getTopRight();
-		Vector2 getBottomLeft();
-		Vector2 getBottomRight();
+		Vector2 getCenter() const;
+		float getAspect() const;
+		Vector2 getTopLeft() const;
+		Vector2 getTopRight() const;
+		Vector2 getBottomLeft() const;
+		Vector2 getBottomRight() const;
 
-		float left();
-		float right();
-		float top();
-		float bottom();
+		float left() const;
+		float right() const;
+		float top() const;
+		float bottom() const;
 
 		bool intersects(const Rectangle& other) const;
 		bool isPointInside(const Vector2& vector) const;

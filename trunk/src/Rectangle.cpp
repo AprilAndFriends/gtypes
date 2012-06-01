@@ -114,52 +114,52 @@ namespace gtypes
 		this->h = h;
 	}
 	
-	Vector2 Rectangle::getCenter()
+	Vector2 Rectangle::getCenter() const
 	{
 		return Vector2(this->x + this->w * 0.5f, this->y + this->h * 0.5f);
 	}
 	
-	float Rectangle::getAspect()
+	float Rectangle::getAspect() const
 	{
 		return (this->w / this->h);
 	}
 
-	Vector2 Rectangle::getTopLeft()
+	Vector2 Rectangle::getTopLeft() const
 	{
 		return Vector2(this->x, this->y);
 	}
 	
-	Vector2 Rectangle::getTopRight()
+	Vector2 Rectangle::getTopRight() const
 	{
 		return Vector2(this->x + this->w, this->y);
 	}
 	
-	Vector2 Rectangle::getBottomLeft()
+	Vector2 Rectangle::getBottomLeft() const
 	{
 		return Vector2(this->x, this->y + this->h);
 	}
 	
-	Vector2 Rectangle::getBottomRight()
+	Vector2 Rectangle::getBottomRight() const
 	{
 		return Vector2(this->x + this->w, this->y + this->h);
 	}
 	
-	float Rectangle::left()
+	float Rectangle::left() const
 	{
 		return this->x;
 	}
 	
-	float Rectangle::right()
+	float Rectangle::right() const
 	{
 		return (this->x + this->w);
 	}
 	
-	float Rectangle::top()
+	float Rectangle::top() const
 	{
 		return this->y;
 	}
 	
-	float Rectangle::bottom()
+	float Rectangle::bottom() const
 	{
 		return (this->y + this->h);
 	}
