@@ -254,8 +254,8 @@ namespace gtypes
 	Quaternion Matrix4::operator*(const Quaternion& v) const
 	{
 		return Quaternion(this->data[0] * v.x + this->data[4] * v.y + this->data[8]  * v.z + this->data[12] * v.w,
-					      this->data[1] * v.x + this->data[5] * v.y + this->data[9]  * v.z + this->data[13] * v.w,
-					      this->data[2] * v.x + this->data[6] * v.y + this->data[10] * v.z + this->data[14] * v.w,
+						  this->data[1] * v.x + this->data[5] * v.y + this->data[9]  * v.z + this->data[13] * v.w,
+						  this->data[2] * v.x + this->data[6] * v.y + this->data[10] * v.z + this->data[14] * v.w,
 						  this->data[3] * v.x + this->data[7] * v.y + this->data[11] * v.z + this->data[15] * v.w);
 	}
 	
@@ -315,9 +315,9 @@ namespace gtypes
 	
 	void Matrix4::setScale(float x, float y, float z)
 	{
-		this->data[0]  =    x; this->data[1]  = 0.0f; this->data[2]  = 0.0f; this->data[3]  = 0.0f;
-		this->data[4]  = 0.0f; this->data[5]  =    y; this->data[6]  = 0.0f; this->data[7]  = 0.0f;
-		this->data[8]  = 0.0f; this->data[9]  = 0.0f; this->data[10] =    z; this->data[11] = 0.0f;
+		this->data[0]  =	x; this->data[1]  = 0.0f; this->data[2]  = 0.0f; this->data[3]  = 0.0f;
+		this->data[4]  = 0.0f; this->data[5]  =	y; this->data[6]  = 0.0f; this->data[7]  = 0.0f;
+		this->data[8]  = 0.0f; this->data[9]  = 0.0f; this->data[10] =	z; this->data[11] = 0.0f;
 		this->data[12] = 0.0f; this->data[13] = 0.0f; this->data[14] = 0.0f; this->data[15] = 1.0f;
 	}
 	
@@ -429,8 +429,8 @@ namespace gtypes
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		this->data[0]  = 1.0f; this->data[1]  = 0.0f; this->data[2]  = 0.0f; this->data[3]  = 0.0f;
-		this->data[4]  = 0.0f; this->data[5]  =    c; this->data[6]  =    s; this->data[7]  = 0.0f;
-		this->data[8]  = 0.0f; this->data[9]  =   -s; this->data[10] =    c; this->data[11] = 0.0f;
+		this->data[4]  = 0.0f; this->data[5]  =	c; this->data[6]  =	s; this->data[7]  = 0.0f;
+		this->data[8]  = 0.0f; this->data[9]  =   -s; this->data[10] =	c; this->data[11] = 0.0f;
 		this->data[12] = 0.0f; this->data[13] = 0.0f; this->data[14] = 0.0f; this->data[15] = 1.0f;
 	}
 
@@ -439,9 +439,9 @@ namespace gtypes
 		double rad = DEG_TO_RAD(angle);
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
-		this->data[0]  =    c; this->data[1]  = 0.0f; this->data[2]  =   -s; this->data[3]  = 0.0f;
+		this->data[0]  =	c; this->data[1]  = 0.0f; this->data[2]  =   -s; this->data[3]  = 0.0f;
 		this->data[4]  = 0.0f; this->data[5]  = 1.0f; this->data[6]  = 0.0f; this->data[7]  = 0.0f;
-		this->data[8]  =    s; this->data[9]  = 0.0f; this->data[10] =    c; this->data[11] = 0.0f;
+		this->data[8]  =	s; this->data[9]  = 0.0f; this->data[10] =	c; this->data[11] = 0.0f;
 		this->data[12] = 0.0f; this->data[13] = 0.0f; this->data[14] = 0.0f; this->data[15] = 1.0f;
 	}
 
@@ -450,8 +450,8 @@ namespace gtypes
 		double rad = DEG_TO_RAD(angle);
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
-		this->data[0]  =    c; this->data[1]  =    s; this->data[2]  = 0.0f; this->data[3]  = 0.0f;
-		this->data[4]  =   -s; this->data[5]  =    c; this->data[6]  = 0.0f; this->data[7]  = 0.0f;
+		this->data[0]  =	c; this->data[1]  =	s; this->data[2]  = 0.0f; this->data[3]  = 0.0f;
+		this->data[4]  =   -s; this->data[5]  =	c; this->data[6]  = 0.0f; this->data[7]  = 0.0f;
 		this->data[8]  = 0.0f; this->data[9]  = 0.0f; this->data[10] = 1.0f; this->data[11] = 0.0f;
 		this->data[12] = 0.0f; this->data[13] = 0.0f; this->data[14] = 0.0f; this->data[15] = 1.0f;
 	}
