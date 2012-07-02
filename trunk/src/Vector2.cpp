@@ -41,28 +41,28 @@ namespace gtypes
 	{
 		return (this->x * this->x + this->y * this->y);
 	}
-    
-    void Vector2::rotate(float angle)
-    {
-        float old_x = this->x;
+	
+	void Vector2::rotate(float angle)
+	{
+		float old_x = this->x;
 		float old_y = this->y;
 		double a = DEG_TO_RAD(angle);
 		this->x = (float)(cos(a) * old_x - sin(a) * old_y);
-        this->y = (float)(sin(a) * old_x + cos(a) * old_y);
-    }
-    
-    Vector2 Vector2::rotated(float angle) const
-    {
-        gvec2 v(this->x, this->y);
-        v.rotate(angle);
-        return v;
-    }
+		this->y = (float)(sin(a) * old_x + cos(a) * old_y);
+	}
+	
+	Vector2 Vector2::rotated(float angle) const
+	{
+		gvec2 v(this->x, this->y);
+		v.rotate(angle);
+		return v;
+	}
 
-    float Vector2::angle() const
-    {
+	float Vector2::angle() const
+	{
 		return (float)RAD_TO_DEG(atan2(-this->y, this->x));
-    }
-    
+	}
+	
 	void Vector2::normalize()
 	{
 		float length = this->length();
