@@ -1,7 +1,7 @@
 /// @file
 /// @author  Domagoj Cerjan
 /// @author  Boris Mikic
-/// @version 1.4
+/// @version 1.44
 /// 
 /// @section LICENSE
 /// 
@@ -9,6 +9,7 @@
 /// the terms of the BSD license: http://www.opensource.org/licenses/bsd-license.php
 
 #include <math.h>
+#include <stdio.h>
 
 #include "CatmullRomSpline3.h"
 #include "gtypesUtil.h"
