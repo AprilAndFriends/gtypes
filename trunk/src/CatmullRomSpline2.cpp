@@ -92,10 +92,9 @@ namespace gtypes
 		{
 			t -= (int)t;
 		}
-			
 		int index = 0;
-		double lt, lp;
-		
+		double lt = 0.0;
+		double lp = 0.0;
 		// Using Arc-Length aprametrization
 		_prevlen = 0.0;
 		lp = _arcLengthMap.begin()->first;
