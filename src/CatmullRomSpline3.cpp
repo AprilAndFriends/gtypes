@@ -101,16 +101,14 @@ namespace gtypes
 		{
 			return Vector3();
 		}
-		//std::cerr << t << std::endl;
 		// ensure that t is in [0,1]
 		if (t > 1.0)
 		{
 			t -= (int)t;
 		}
-		
 		int index = 0;
-		double lt, lp;
-		
+		double lt = 0.0;
+		double lp = 0.0;
 		// Using Arc-Length aprametrization
 		_prevlen = 0.0;
 		lp = _arcLengthMap.begin()->first;
@@ -118,38 +116,13 @@ namespace gtypes
 		{
 			if (t >= _prevlen && t < (it->first))
 			{
-				//std::cerr << " t e[" << _prevlen << "," << it->first << "> , t = " << t << std::endl;
 				lt = (t - _prevlen) * (1.0 / (it->first-_prevlen));
 				index = it->second;
-				//std::cerr << "				  lt = " << lt << " Index : " << index << " PrevLen = " 
-				//		  << _prevlen << " [Prvi] = " << (it->first-_prevlen) <<std::endl;
-						  
-				//std::cerr << "(" << t << " - " << _prevlen << ") * ( 1.0 / (" << it->first << " - " << _prevlen << "))" << std::endl;
-				/*if (_prevIndex == it->second)
-					index = it->second+1;
-				else
-				{
-					index = it->second;
-				}*/
-				
 				break;
 			}
 			_prevIndex = it->second;
 			_prevlen = it->first;
-			
-			//std::cerr << " Prevlen " << _prevlen << " Index " << index << " t = " << t << std::endl;
 		}
-		//
-		
-		// If asumming that all data points are equaly spaced we can use this code instead
-		/*float delta_t = 1.0 / (double)(_points.size()-3);
-		
-		// find the index of a segment in which our t lies
-		index = (int)(t / delta_t);
-		
-		// find the localized time		
-		lt = (t - delta_t * (double)index) / delta_t;*/
-		
 		return _calcSegmentPosition(lt, index + 1);
 	}
 	
