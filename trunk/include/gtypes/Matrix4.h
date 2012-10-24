@@ -107,7 +107,6 @@ namespace gtypes
 		void reflect(float x, float y, float z, float w);
 		
 		void perspective(float fov, float aspect, float near, float far);
-		DEPRECATED_ATTRIBUTE void ortho(float x, float y, float w, float h);
 		void ortho(const Rectangle& rect);
 		
 		// so that you can see the Matrix, Neo
