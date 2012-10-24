@@ -362,12 +362,6 @@ namespace gtypes
 		this->data[12] = 0.0f;		this->data[13] = 0.0f;		this->data[14] = -(2.0f * far * near) / (far - near);	this->data[15] = 0.0f;
 	}
 	
-	void Matrix4::ortho(float x, float y, float w, float h)
-	{
-		Rectangle rect(x, y, w, h);
-		this->ortho(rect);
-	}
-
 	void Matrix4::ortho(const Rectangle& rect)
 	{
 		this->setIdentity();
