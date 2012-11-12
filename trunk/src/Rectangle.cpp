@@ -164,6 +164,16 @@ namespace gtypes
 		return (this->y + this->h);
 	}
 	
+	float Rectangle::centerX() const
+	{
+		return (this->x + this->w * 0.5f);
+	}
+	
+	float Rectangle::centerY() const
+	{
+		return (this->y + this->h * 0.5f);
+	}
+	
 	bool Rectangle::intersects(const Rectangle& other) const
 	{
 		return (this->x + this->w > other.x && this->x < other.x + other.w &&
