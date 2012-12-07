@@ -1,7 +1,7 @@
 /// @file
 /// @author  Domagoj Cerjan
 /// @author  Boris Mikic
-/// @version 1.44
+/// @version 1.45
 /// 
 /// @section LICENSE
 /// 
@@ -102,7 +102,7 @@ namespace gtypes
 		{
 			if (t >= _prevlen && t < (it->first))
 			{
-				lt = (t - _prevlen) * (1.0 / (it->first-_prevlen));
+				lt = (t - _prevlen) * (1.0 / (it->first - _prevlen));
 				index = it->second;
 				break;
 			}
@@ -143,7 +143,7 @@ namespace gtypes
 		_lengths.clear();
 		for (unsigned int i = 0; i < _points.size() - 3; i++)
 		{
-			_lengths.push_back(_calcSegmentLength(i+1));
+			_lengths.push_back(_calcSegmentLength(i + 1));
 			_length += _lengths[i];
 		}
 		if (_length > 0)
