@@ -2,7 +2,7 @@
 /// @author  Domagoj Cerjan
 /// @author  Kresimir Spes
 /// @author  Boris Mikic
-/// @version 1.4
+/// @version 1.45
 /// 
 /// @section LICENSE
 /// 
@@ -91,7 +91,8 @@ namespace gtypes
 	
 	void Matrix3::inverse()
 	{
-		float idet = 1.0f / this->det();
+		static float idet;
+		idet = 1.0f / this->det();
 		this->set((this->data[4] * this->data[8] - this->data[7] * this->data[5]) * idet,
 				 -(this->data[1] * this->data[8] - this->data[7] * this->data[2]) * idet,
 				  (this->data[1] * this->data[5] - this->data[4] * this->data[2]) * idet,

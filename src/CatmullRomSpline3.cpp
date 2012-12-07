@@ -1,7 +1,7 @@
 /// @file
 /// @author  Domagoj Cerjan
 /// @author  Boris Mikic
-/// @version 1.44
+/// @version 1.45
 /// 
 /// @section LICENSE
 /// 
@@ -116,7 +116,7 @@ namespace gtypes
 		{
 			if (t >= _prevlen && t < (it->first))
 			{
-				lt = (t - _prevlen) * (1.0 / (it->first-_prevlen));
+				lt = (t - _prevlen) * (1.0 / (it->first - _prevlen));
 				index = it->second;
 				break;
 			}
@@ -136,7 +136,7 @@ namespace gtypes
 		{
 			if ( (t >= _prevlen) && (t < (it->first)) )
 			{
-				lt = (int)((t - _prevlen) * (1.0 / (it->first-_prevlen)));
+				lt = (int)((t - _prevlen) * (1.0 / (it->first - _prevlen)));
 				index = it->second;
 				break;
 			}
