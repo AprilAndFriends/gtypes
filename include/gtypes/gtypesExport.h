@@ -33,7 +33,7 @@
 			#endif
 		#else
 			#define gtypesExport __attribute__ ((visibility("default")))
-			#define gtypesFnExport
+			#define gtypesFnExport __attribute__ ((visibility("default")))
 		#endif
 	#endif
 	#ifndef DEPRECATED_ATTRIBUTE
