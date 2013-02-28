@@ -193,42 +193,48 @@ namespace gtypes
 	Rectangle Rectangle::operator+(Vector2 vector) const
 	{
 		Rectangle result(*this);
-		result += vector;
+		result.x += vector.x;
+		result.y += vector.y;
 		return result;
 	}
 	
 	Rectangle Rectangle::operator-(Vector2 vector) const
 	{
 		Rectangle result(*this);
-		result -= vector;
+		result.x -= vector.x;
+		result.y -= vector.y;
 		return result;
 	}
 	
 	Rectangle Rectangle::operator*(Vector2 vector) const
 	{
 		Rectangle result(*this);
-		result *= vector;
+		result.w *= vector.x;
+		result.h *= vector.y;
 		return result;
 	}
 	
 	Rectangle Rectangle::operator/(Vector2 vector) const
 	{
 		Rectangle result(*this);
-		result /= vector;
+		result.w /= vector.x;
+		result.h /= vector.y;
 		return result;
 	}
 	
 	Rectangle Rectangle::operator*(float scale) const
 	{
 		Rectangle result(*this);
-		result *= scale;
+		result.w *= scale;
+		result.h *= scale;
 		return result;
 	}
 	
 	Rectangle Rectangle::operator/(float scale) const
 	{
 		Rectangle result(*this);
-		result /= scale;
+		result.w /= scale;
+		result.h /= scale;
 		return result;
 	}
 	
@@ -248,15 +254,15 @@ namespace gtypes
 	
 	Rectangle Rectangle::operator*=(const Vector2& vector)
 	{
-		this->x *= vector.x;
-		this->y *= vector.y;
+		this->w *= vector.x;
+		this->h *= vector.y;
 		return (*this);
 	}
 	
 	Rectangle Rectangle::operator/=(const Vector2& vector)
 	{
-		this->x /= vector.x;
-		this->y /= vector.y;
+		this->w /= vector.x;
+		this->h /= vector.y;
 		return (*this);
 	}
 	
