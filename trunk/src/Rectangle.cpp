@@ -180,6 +180,12 @@ namespace gtypes
 				this->y + this->h > other.y && this->y < other.y + other.h);
 	}
 	
+	bool Rectangle::contains(const Rectangle& other) const
+	{
+		return (this->x <= other.x && this->x + this->w >= other.x + other.w &&
+			this->y <= other.y && this->y + this->h >= other.y + other.h);
+	}
+	
 	bool Rectangle::isPointInside(const Vector2& vector) const
 	{
 		return (vector.x >= this->x && vector.y >= this->y && vector.x <= this->x + this->w - 1 && vector.y <= this->y + this->h - 1);
