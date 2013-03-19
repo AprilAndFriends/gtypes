@@ -57,6 +57,7 @@ namespace gtypes
 		float centerY() const;
 
 		bool intersects(const Rectangle& other) const;
+		bool contains(const Rectangle& other) const;
 		bool isPointInside(const Vector2& vector) const;
 		bool isPointInside(float x, float y) const;
 
