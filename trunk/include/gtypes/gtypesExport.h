@@ -19,7 +19,7 @@
 	/// @brief Macro for DLL exports/imports.
 	/// @def gtypesFnExport
 	/// @brief Macro for function DLL exports/imports.
-	#ifdef _STATICLIB
+	#ifdef _LIB
 		#define gtypesExport
 		#define gtypesFnExport
 	#else
