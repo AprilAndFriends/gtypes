@@ -1,1 +1,0 @@
-These *.props files are copied from hltypes so that gtypes does not depend on hltypes.
