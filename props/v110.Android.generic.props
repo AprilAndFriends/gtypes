@@ -4,11 +4,17 @@
     <OutDir>$(SolutionDir)bin\$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Platform)\lib\$(ProjectName)\$(Configuration)\</IntDir>
   </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <AndroidAPILevel>android-8</AndroidAPILevel>
+  </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>src;include/gtypes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <WarningLevel>Level3</WarningLevel>
-      <DisableSpecificWarnings>4251</DisableSpecificWarnings>
+      <PreprocessorDefinitions>_ANDROID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <GccExceptionHandling>true</GccExceptionHandling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
     </ClCompile>
+    <Link>
+      <AndroidSystemLibs>c;m;log;gcc;dl;z</AndroidSystemLibs>
+    </Link>
   </ItemDefinitionGroup>
 </Project>
