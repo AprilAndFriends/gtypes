@@ -3,6 +3,8 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <Optimization>Disabled</Optimization>
+	  <PreprocessorDefinitions Condition="'$(ConfigurationType)'=='DynamicLibrary'">_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+	  <PreprocessorDefinitions Condition="'$(ConfigurationType)'=='StaticLibrary'">_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -16,20 +18,5 @@
     <AntBuild>
       <AntBuildType>Debug</AntBuildType>
     </AntBuild>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(ConfigurationType)'=='DynamicLibrary'">
-    <ClCompile>
-	  <PreprocessorDefinitions>GTYPES_EXPORTS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-    </ClCompile>
-    <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(ConfigurationType)'=='StaticLibrary'">
-    <ClCompile>
-	  <PreprocessorDefinitions>_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-    </ClCompile>
   </ItemDefinitionGroup>
 </Project>
