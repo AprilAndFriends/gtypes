@@ -40,7 +40,8 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="props\v110.default.props" />
-  <Import Project="props\generic\v110.$(Platform).props" />
+  <Import Condition="exists('..\hltypes\props\generic\v110.$(Platform).props')" Project="..\hltypes\props\generic\v110.$(Platform).props" />
+  <Import Condition="!exists('..\hltypes\props\generic\v110.$(Platform).props')" Project="props\v110.$(Platform).props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -70,8 +71,10 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <Import Condition="'$(WholeProgramOptimization)'!='true'" Project="props\generic\v110.Debug.props" />
-  <Import Condition="'$(WholeProgramOptimization)'=='true'" Project="props\generic\v110.Release.props" />
+  <Import Condition="'$(WholeProgramOptimization)'!='true' and exists('..\hltypes\props\generic\v110.Debug.props')" Project="..\hltypes\props\generic\v110.Debug.props" />
+  <Import Condition="'$(WholeProgramOptimization)'=='true' and exists('..\hltypes\props\generic\v110.Release.props')" Project="..\hltypes\props\generic\v110.Release.props" />
+  <Import Condition="'$(WholeProgramOptimization)'!='true' and !exists('..\hltypes\props\generic\v110.Debug.props')" Project="props\v110.Debug.props" />
+  <Import Condition="'$(WholeProgramOptimization)'=='true' and !exists('..\hltypes\props\generic\v110.Release.props')" Project="props\v110.Release.props" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
