@@ -4,8 +4,8 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <OptimizationLevel>O0</OptimizationLevel>
-	  <PreprocessorDefinitions Condition="'$(ConfigurationType)'=='DynamicLibrary'">_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-	  <PreprocessorDefinitions Condition="'$(ConfigurationType)'=='StaticLibrary'">_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+	  <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+	  <PreprocessorDefinitions Condition="'$(ConfigurationType)'=='StaticLibrary'">_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
