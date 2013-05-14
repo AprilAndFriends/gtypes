@@ -9,7 +9,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <PreprocessorDefinitions>_ANDROID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_ANDROID;ANDROID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <GccExceptionHandling>true</GccExceptionHandling>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
     </ClCompile>
