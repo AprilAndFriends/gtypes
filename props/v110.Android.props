@@ -15,7 +15,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>..\lib\android;$(SolutionDir)bin\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AndroidSystemLibs>GLESv1_CM;dl;z;%(AndroidSystemLibs)</AndroidSystemLibs>
+      <AndroidSystemLibs>c;m;log;gcc;dl;z;GLESv1_CM;%(AndroidSystemLibs)</AndroidSystemLibs>
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>..\lib\android;$(SolutionDir)bin\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
