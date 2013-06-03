@@ -2,7 +2,7 @@
 /// @author  Domagoj Cerjan
 /// @author  Kresimir Spes
 /// @author  Boris Mikic
-/// @version 1.4
+/// @version 1.46
 /// 
 /// @section LICENSE
 /// 
@@ -86,6 +86,11 @@ namespace gtypes
 		float dx = this->x - center_x;
 		float dy = this->y - center_y;
 		return (dx * dx + dy * dy <= radius * radius);
+	}
+	
+	bool Vector2::isNull()
+	{
+		return (this->x == 0.0f && this->y == 0.0f);
 	}
 	
 	Vector2 Vector2::operator+(const Vector2& v) const

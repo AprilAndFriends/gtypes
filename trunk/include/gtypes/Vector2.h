@@ -31,7 +31,7 @@ namespace gtypes
 		void set(float x, float y);
 		
 		bool isInCircle(float center_x, float center_y, float radius);
-		
+		bool isNull();
 		void rotate(float angle);
 		Vector2 rotated(float angle) const;
 		float angle() const;

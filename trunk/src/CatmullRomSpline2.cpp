@@ -1,7 +1,8 @@
 /// @file
 /// @author  Domagoj Cerjan
+/// @author  Kresimir Spes
 /// @author  Boris Mikic
-/// @version 1.45
+/// @version 1.46
 /// 
 /// @section LICENSE
 /// 
@@ -27,13 +28,7 @@ namespace gtypes
 	{
 		this->compile(vectors, closed, t1, t2);
 	}
-	
-	CatmullRomSpline2::CatmullRomSpline2(std::list<Vector2>& vectors, int closed, Vector2 t1, Vector2 t2) : _c(0.5), _length(0.0), _closed(closed),
-		_numSegments(0), _numSamples(16), _inflexed(false), _prevIndex(-1), _prevlen(0.0), _prevDot(0)
-	{
-		this->compile(vectors, closed, t1, t2);
-	}
-	
+		
 	CatmullRomSpline2::CatmullRomSpline2(Vector2 vectors[], int n, int closed, Vector2 t1,  Vector2 t2) : _c(0.5), _length(0.0), _closed(closed),
 		_numSegments(0), _numSamples(16), _inflexed(false), _prevIndex(-1), _prevlen(0.0), _prevDot(0)
 	{
@@ -42,6 +37,7 @@ namespace gtypes
 		
 	CatmullRomSpline2::~CatmullRomSpline2()
 	{
+
 	}
 	
 	void CatmullRomSpline2::addPoint(float x, float y)
@@ -81,7 +77,7 @@ namespace gtypes
 
 		return vec;
 	}
-	
+
 	Vector2 CatmullRomSpline2::calcPosition(double t)
 	{
 		if (_points.size() < 1)
@@ -161,7 +157,6 @@ namespace gtypes
 			len += (_calcSegmentPosition(((double)(i - 1)) / _numSamples, index) -
 					_calcSegmentPosition(((double)i) / _numSamples, index)).length();
 		}
-		//std::cerr << len << std::endl;
 		return len;
 	}
 	
@@ -170,6 +165,12 @@ namespace gtypes
 		return _length;
 	}
 	
+	int CatmullRomSpline2::getNumPoints() const
+	{
+		int n = _points.size() - 2;
+		return (n < 0) ? 0 : n;
+	}
+
 	Vector2 CatmullRomSpline2::_calcSegmentTangent(double t, int index)
 	{
 		double t2 = t*t;
@@ -211,7 +212,7 @@ namespace gtypes
 		else 
 		{
 			_closed = 0;
-			if (t1 != Vector2())
+			if (!t1.isNull())
 			{
 				addPoint(vectors[1] - t1 * 2);
 			}
@@ -229,47 +230,7 @@ namespace gtypes
 			addPoint(_points[1]);
 			addPoint(_points[2]);
 		}
-		else if (t2 != Vector2())
-		{
-			addPoint(_points[_points.size() - 2] + t2 * 2);
-		}
-		else
-		{
-			addPoint(_points[_points.size() - 1]);
-		}
-	}
-	
-	void CatmullRomSpline2::compile(std::list<Vector2>& vectors, int closed, Vector2 t1, Vector2 t2)
-	{
-		_points.clear();
-		_lengths.clear();
-		if (closed)
-		{
-			_closed = 1;
-			addPoint(*(vectors.rbegin()));
-		}
-		else 
-		{
-			_closed = 0;
-			if (t1 != Vector2())
-			{
-				addPoint(*(vectors.begin()++) - t1 * 2);
-			}
-			else
-			{
-				addPoint(*vectors.begin());
-			}
-		}
-		foreach_stdlist (Vector2, it, vectors)
-		{
-			addPoint(*it);
-		}
-		if (closed)
-		{
-			addPoint(_points[1]);
-			addPoint(_points[2]);
-		}
-		else if (t2 != Vector2())
+		else if (!t2.isNull())
 		{
 			addPoint(_points[_points.size() - 2] + t2 * 2);
 		}
@@ -291,7 +252,7 @@ namespace gtypes
 		else 
 		{
 			_closed = 0;
-			if (t1 != Vector2())
+			if (!t1.isNull())
 			{
 				addPoint(vectors[1] - t1 * 2);
 			}
@@ -309,7 +270,7 @@ namespace gtypes
 			addPoint(_points[1]);
 			addPoint(_points[2]);
 		}
-		else if (t2 != Vector2())
+		else if (!t2.isNull())
 		{
 			addPoint(_points[_points.size() - 2] + t2 * 2);
 		}
@@ -326,10 +287,8 @@ namespace gtypes
 		for (unsigned int i = 0; i < _lengths.size(); i++)
 		{
 			_arcLengthMap[prevlen + (_lengths[i] / _length)] = i;
-			//std::cerr << "Index : " << i << " Len : " << _lengths[i]/_length << " Prevlen : " << prevlen << std::endl;
 			prevlen += _lengths[i] / _length;
 		}
-		//std::cerr << "x" << std::endl;
 	}
 
 }
