@@ -2,7 +2,7 @@
 /// @author  Domagoj Cerjan
 /// @author  Kresimir Spes
 /// @author  Boris Mikic
-/// @version 1.4
+/// @version 1.46
 /// 
 /// @section LICENSE
 /// 
@@ -48,6 +48,11 @@ namespace gtypes
 		this->z = z;	
 	}
 
+	bool Vector3::isNull()
+	{
+		return (this->x == 0.0f && this->y == 0.0f && this->z == 0.0f);
+	}
+	
 	float Vector3::length() const
 	{
 		return sqrt(this->x * this->x + this->y * this->y + this->z * this->z);

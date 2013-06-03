@@ -34,6 +34,7 @@ namespace gtypes
 		Vector3(const float v[]);
 		Vector3(Quaternion q);
 		void set(float x, float y, float z);
+		bool isNull();
 		
 		float length() const;
 		float squaredLength() const;
