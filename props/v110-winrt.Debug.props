@@ -8,6 +8,7 @@
       <Optimization>Disabled</Optimization>
 	  <PreprocessorDefinitions>_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
 	  <PreprocessorDefinitions Condition="'$(ConfigurationType)'=='StaticLibrary'">_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary Condition="'$(ConfigurationType)'=='Application'">MultiThreadedDebugDLL</RuntimeLibrary>
