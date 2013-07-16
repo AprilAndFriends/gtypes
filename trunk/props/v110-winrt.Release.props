@@ -9,6 +9,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
 	  <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
 	  <PreprocessorDefinitions Condition="'$(ConfigurationType)'=='StaticLibrary'">_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <IntrinsicFunctions>true</IntrinsicFunctions>
 	  <FunctionLevelLinking>true</FunctionLevelLinking>
