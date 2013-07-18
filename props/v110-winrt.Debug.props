@@ -3,6 +3,9 @@
   <PropertyGroup>
 	<OutDir>$(SolutionDir)bin\$(Platform)\</OutDir>
   </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
       <Optimization>Disabled</Optimization>
