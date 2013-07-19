@@ -21,6 +21,9 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>false</GenerateDebugInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <ImageHasSafeExceptionHandlers Condition="'$(Platform)'!='ARM'">true</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
 </Project>
