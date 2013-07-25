@@ -13,7 +13,7 @@
 	  <PreprocessorDefinitions Condition="'$(ConfigurationType)'=='StaticLibrary'">_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary Condition="'$(ConfigurationType)'=='Application'">MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeLibrary Condition="'$(ConfigurationType)'=='DynamicLibrary'">MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeLibrary Condition="'$(ConfigurationType)'=='StaticLibrary'">MultiThreadedDebug</RuntimeLibrary>
