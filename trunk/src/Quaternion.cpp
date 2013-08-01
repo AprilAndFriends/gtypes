@@ -2,7 +2,7 @@
 /// @author  Domagoj Cerjan
 /// @author  Kresimir Spes
 /// @author  Boris Mikic
-/// @version 1.4
+/// @version 1.47
 /// 
 /// @section LICENSE
 /// 
@@ -73,29 +73,6 @@ namespace gtypes
 		this->y = v.y;
 		this->z = v.z;
 		this->w = w;
-	}
-	
-	Quaternion Quaternion::operator+(const Quaternion& q) const
-	{
-		return Quaternion(x + q.x, y + q.y, z + q.z, w + q.w );
-	}
-
-	Quaternion Quaternion::operator-(const Quaternion& q) const
-	{
-		return Quaternion(x - q.x, y - q.y, z - q.z, w - q.w);
-	}
-	
-	Quaternion Quaternion::operator*(const Quaternion& q) const
-	{
-		return Quaternion(this->w * q.x + this->x * q.w + this->y * q.z - this->z * q.y, 
-						  this->w * q.y - this->x * q.z + this->y * q.w + this->z * q.x, 
-						  this->w * q.z + this->x * q.y - this->y * q.x + this->z * q.w,
-						  this->w * q.w - this->x * q.x - this->y * q.y - this->z * q.z);
-	}
-	
-	Quaternion Quaternion::operator*(float f) const
-	{
-		return Quaternion(this->x * f, this->y * f, this->z * f, this->w * f);
 	}
 	
 	float Quaternion::length() const
@@ -200,6 +177,39 @@ namespace gtypes
 					   position.x,				position.y,					position.z,					1.0f);
 	}
 	
+	Quaternion Quaternion::operator+(const Quaternion& q) const
+	{
+		return Quaternion(x + q.x, y + q.y, z + q.z, w + q.w );
+	}
+
+	Quaternion Quaternion::operator-(const Quaternion& q) const
+	{
+		return Quaternion(x - q.x, y - q.y, z - q.z, w - q.w);
+	}
+	
+	Quaternion Quaternion::operator*(const Quaternion& q) const
+	{
+		return Quaternion(this->w * q.x + this->x * q.w + this->y * q.z - this->z * q.y, 
+						  this->w * q.y - this->x * q.z + this->y * q.w + this->z * q.x, 
+						  this->w * q.z + this->x * q.y - this->y * q.x + this->z * q.w,
+						  this->w * q.w - this->x * q.x - this->y * q.y - this->z * q.z);
+	}
+	
+	Quaternion Quaternion::operator*(float f) const
+	{
+		return Quaternion(this->x * f, this->y * f, this->z * f, this->w * f);
+	}
+	
+	bool Quaternion::operator==(const Quaternion& q) const
+	{
+		return (this->x == q.x && this->y == q.y && this->z == q.z && this->w == q.w);
+	}
+	
+	bool Quaternion::operator!=(const Quaternion& q) const
+	{
+		return !(*this == q);
+	}
+
 	Quaternion Quaternion::slerp(const Quaternion& a, const Quaternion& b, float t)
 	{
 		float w1;
