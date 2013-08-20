@@ -19,7 +19,7 @@
       <RuntimeLibrary Condition="'$(ConfigurationType)'=='Application'">MultiThreadedDLL</RuntimeLibrary>
       <RuntimeLibrary Condition="'$(ConfigurationType)'=='DynamicLibrary'">MultiThreadedDLL</RuntimeLibrary>
       <RuntimeLibrary Condition="'$(ConfigurationType)'=='StaticLibrary'">MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>/FU Platform.winmd /FU Windows.winmd /AI "$(VSInstallDir)vcpackages" /AI "$(WindowsSDK_MetadataPath)" %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(PlatformToolset)'=='v110_wp80'">/FU Platform.winmd /FU Windows.winmd /AI "$(VSInstallDir)vcpackages" /AI "$(WindowsSDK_MetadataPath)" %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>false</GenerateDebugInformation>
