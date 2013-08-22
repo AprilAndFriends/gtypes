@@ -14,14 +14,12 @@
       <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <Link>
-      <OutputFile>$(SolutionDir)bin\$(Platform)\$(TargetName)$(TargetExt)</OutputFile>
       <AdditionalLibraryDirectories>..\lib\WinRT\$(Platform);$(SolutionDir)bin\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <TargetMachine>MachineARM</TargetMachine>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
     </Link>
     <Lib>
-      <OutputFile>$(SolutionDir)bin\$(Platform)\$(TargetName)$(TargetExt)</OutputFile>
       <AdditionalLibraryDirectories>..\lib\WinRT\$(Platform);$(SolutionDir)bin\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <TargetMachine>MachineARM</TargetMachine>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
