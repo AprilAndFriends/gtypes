@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <!-- fix for ARM -->
+    <!-- ARM fix START -->
     <OutDirWasSpecified Condition=" '$(OutDir)'!='' AND '$(OutDirWasSpecified)'=='' ">true</OutDirWasSpecified>
     <OutDirWasSpecified Condition=" '$(OutDir)'=='' AND '$(OutDirWasSpecified)'=='' ">false</OutDirWasSpecified>
+    <!-- ARM fix END -->
     <OutDir>$(SolutionDir)bin\$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Platform)\lib\$(ProjectName)\$(Configuration)\</IntDir>
   </PropertyGroup>
@@ -19,13 +20,13 @@
       <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>lib\WinRT\$(Platform);..\lib\WinRT\$(Platform);..\..\lib\WinRT\$(Platform);$(SolutionDir)bin\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>lib\WinRT\$(Platform);..\lib\WinRT\$(Platform);..\..\lib\WinRT\$(Platform);$(SolutionDir)bin\$(Platform);$(VSInstallDir)vcpackages;$(WindowsSDK_MetadataPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <TargetMachine>MachineARM</TargetMachine>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>lib\WinRT\$(Platform);..\lib\WinRT\$(Platform);..\..\lib\WinRT\$(Platform);$(SolutionDir)bin\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>lib\WinRT\$(Platform);..\lib\WinRT\$(Platform);..\..\lib\WinRT\$(Platform);$(SolutionDir)bin\$(Platform);$(VSInstallDir)vcpackages;$(WindowsSDK_MetadataPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <TargetMachine>MachineARM</TargetMachine>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>

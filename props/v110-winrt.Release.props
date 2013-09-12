@@ -19,7 +19,6 @@
       <RuntimeLibrary Condition="'$(ConfigurationType)'=='Application'">MultiThreadedDLL</RuntimeLibrary>
       <RuntimeLibrary Condition="'$(ConfigurationType)'=='DynamicLibrary'">MultiThreadedDLL</RuntimeLibrary>
       <RuntimeLibrary Condition="'$(ConfigurationType)'=='StaticLibrary'">MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='v110_wp80'">/FU Platform.winmd /FU Windows.winmd /AI "$(VSInstallDir)vcpackages" /AI "$(WindowsSDK_MetadataPath)" %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -28,4 +27,14 @@
       <IgnoreSpecificDefaultLibraries Condition="'$(PlatformToolset)'=='v110_wp80'">ole32.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup Condition="'$(PlatformToolset)'=='v110_wp80'">
+    <Reference Include="platform.winmd">
+      <IsWinMDFile>true</IsWinMDFile>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Windows.winmd">
+      <IsWinMDFile>true</IsWinMDFile>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
 </Project>
