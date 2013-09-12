@@ -16,13 +16,13 @@
       <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>lib\WinRT\$(Platform);..\lib\WinRT\$(Platform);..\..\lib\WinRT\$(Platform);$(SolutionDir)bin\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>lib\WinRT\$(Platform);..\lib\WinRT\$(Platform);..\..\lib\WinRT\$(Platform);$(SolutionDir)bin\$(Platform);$(VSInstallDir)vcpackages;$(WindowsSDK_MetadataPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <TargetMachine>MachineX86</TargetMachine>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>lib\WinRT\$(Platform);..\lib\WinRT\$(Platform);..\..\lib\WinRT\$(Platform);$(SolutionDir)bin\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>lib\WinRT\$(Platform);..\lib\WinRT\$(Platform);..\..\lib\WinRT\$(Platform);$(SolutionDir)bin\$(Platform);$(VSInstallDir)vcpackages;$(WindowsSDK_MetadataPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <TargetMachine>MachineX86</TargetMachine>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
