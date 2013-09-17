@@ -27,14 +27,4 @@
       <IgnoreSpecificDefaultLibraries Condition="'$(PlatformToolset)'=='v110_wp80'">ole32.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup Condition="'$(PlatformToolset)'=='v110_wp80'">
-    <Reference Include="platform.winmd">
-      <IsWinMDFile>true</IsWinMDFile>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Windows.winmd">
-      <IsWinMDFile>true</IsWinMDFile>
-      <Private>false</Private>
-    </Reference>
-  </ItemGroup>
 </Project>
