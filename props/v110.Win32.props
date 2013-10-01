@@ -14,12 +14,12 @@
       <AdditionalIncludeDirectories>../include;../../include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>lib\msvc110;..\lib\msvc110;..\..\lib\msvc110;$(SolutionDir)bin\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>lib\lib\msvc110;lib\msvc110;..\lib\msvc110;..\..\lib\msvc110;$(SolutionDir)bin\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <TargetMachine>MachineX86</TargetMachine>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>lib\msvc110;..\lib\msvc110;..\..\lib\msvc110;$(SolutionDir)bin\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>lib\lib\msvc110;lib\msvc110;..\lib\msvc110;..\..\lib\msvc110;$(SolutionDir)bin\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
