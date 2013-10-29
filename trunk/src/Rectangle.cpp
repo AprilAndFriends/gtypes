@@ -1,6 +1,6 @@
 /// @file
 /// @author  Boris Mikic
-/// @version 1.43
+/// @version 1.48
 /// 
 /// @section LICENSE
 /// 
@@ -188,12 +188,12 @@ namespace gtypes
 	
 	bool Rectangle::isPointInside(const Vector2& vector) const
 	{
-		return (vector.x >= this->x && vector.y >= this->y && vector.x <= this->x + this->w - 1 && vector.y <= this->y + this->h - 1);
+		return (vector.x >= this->x && vector.y >= this->y && vector.x < this->x + this->w && vector.y < this->y + this->h);
 	}
 
 	bool Rectangle::isPointInside(float x, float y) const
 	{
-		return (x >= this->x && y >= this->y && x <= this->x + this->w - 1 && y <= this->y + this->h - 1);
+		return (x >= this->x && y >= this->y && x < this->x + this->w && y < this->y + this->h);
 	}
 
 	Rectangle Rectangle::operator+(Vector2 vector) const
