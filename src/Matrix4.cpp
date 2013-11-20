@@ -2,7 +2,7 @@
 /// @author  Domagoj Cerjan
 /// @author  Kresimir Spes
 /// @author  Boris Mikic
-/// @version 1.45
+/// @version 1.49
 /// 
 /// @section LICENSE
 /// 
@@ -125,9 +125,8 @@ namespace gtypes
 
 	void Matrix4::inverse()
 	{
-		static float idet;
-		static float m[16];
-		idet = 1.0f / det();
+		float m[16] = {0};
+		float idet = 1.0f / det();
 		m[0]  =  (this->data[5] * this->data[10] - this->data[9] * this->data[6]) * idet;
 		m[1]  = -(this->data[1] * this->data[10] - this->data[9] * this->data[2]) * idet;
 		m[2]  =  (this->data[1] * this->data[6]  - this->data[5] * this->data[2]) * idet;
@@ -208,18 +207,15 @@ namespace gtypes
 	
 	void Matrix4::lookAt(const Vector3& eye, const Vector3& target, const Vector3& up)
 	{
-		static Vector3 bx;
-		static Vector3 by;
-		static Vector3 bz;
-		static Matrix4 a;
-		static Matrix4 b;
-		bz = (eye - target).normalized();
-		bx = up.cross(bz).normalized();
-		by = bz.cross(bx).normalized();
+		Vector3 bz = (eye - target).normalized();
+		Vector3 bx = up.cross(bz).normalized();
+		Vector3 by = bz.cross(bx).normalized();
+		Matrix4 a;
 		a[0]  = bx.x; a[1]  = by.x; a[2]  = bz.x; a[3]  = 0.0f;
 		a[4]  = bx.y; a[5]  = by.y; a[6]  = bz.y; a[7]  = 0.0f;
 		a[8]  = bx.z; a[9]  = by.z; a[10] = bz.z; a[11] = 0.0f;
 		a[12] = 0.0f; a[13] = 0.0f; a[14] = 0.0f; a[15] = 1.0f;
+		Matrix4 b;
 		b.setTranslation(-eye);
 		*this = a * b;
 	}
@@ -354,10 +350,8 @@ namespace gtypes
 
 	void Matrix4::perspective(float fov, float aspect, float near, float far)
 	{
-		static float iy;
-		static float ix;
-		iy = 1.0f / ((float)tan(DEG_TO_RAD(fov * 0.5f)));
-		ix = iy * aspect;
+		float iy = 1.0f / ((float)tan(DEG_TO_RAD(fov * 0.5f)));
+		float ix = iy * aspect;
 		this->data[0]  = 1.0f * ix;	this->data[1]  = 0.0f;		this->data[2]  = 0.0f;									this->data[3]  = 0.0f;
 		this->data[4]  = 0.0f;		this->data[5]  = 1.0f * iy;	this->data[6]  = 0.0f;									this->data[7]  = 0.0f;
 		this->data[8]  = 0.0f;		this->data[9]  = 0.0f;		this->data[10] = -(far + near) / (far - near);			this->data[11] = -1.0f;
@@ -376,12 +370,9 @@ namespace gtypes
 
 	void Matrix4::setReflection(float x, float y, float z, float w)
 	{
-		static float x2;
-		static float y2;
-		static float z2;
-		x2 = x * 2.0f;
-		y2 = y * 2.0f;
-		z2 = z * 2.0f;
+		float x2 = x * 2.0f;
+		float y2 = y * 2.0f;
+		float z2 = z * 2.0f;
 		this->data[0]  = 1.0f - x * x2;	this->data[1]  = -x * y2;		this->data[2]  = -x * z2;		this->data[3] = 0.0f;
 		this->data[4]  = -y * x2;		this->data[5]  = 1.0f - y * y2;	this->data[6]  = -y * z2;		this->data[7] = 0.0f;
 		this->data[8]  = -z * x2;		this->data[9]  = -z * y2;		this->data[10] = 1.0f - z * z2;	this->data[11] = 0.0f;
@@ -402,76 +393,54 @@ namespace gtypes
 
 	void Matrix4::setRotation(const Vector3& axis, float angle)
 	{
-		static double rad;
-		static float c;
-		static float s;
-		static Vector3 v;
-		static float xx;
-		static float yy;
-		static float zz;
-		static float xy;
-		static float yz;
-		static float zx;
-		static float xs;
-		static float ys;
-		static float zs;
-		rad = DEG_TO_RAD(angle);
-		c = (float)cos(rad);
-		s = (float)sin(rad);
-		v = axis.normalized();
-		xx = v.x * v.x;
-		yy = v.y * v.y;
-		zz = v.z * v.z;
-		xy = v.x * v.y;
-		yz = v.y * v.z;
-		zx = v.z * v.x;
-		xs = v.x * s;
-		ys = v.y * s;
-		zs = v.z * s;
+		double rad = DEG_TO_RAD(angle);
+		float c = (float)cos(rad);
+		float s = (float)sin(rad);
+		Vector3 v = axis.normalized();
+		float xx = v.x * v.x;
+		float yy = v.y * v.y;
+		float zz = v.z * v.z;
+		float xy = v.x * v.y;
+		float yz = v.y * v.z;
+		float zx = v.z * v.x;
+		float xs = v.x * s;
+		float ys = v.y * s;
+		float zs = v.z * s;
 		this->data[0] = (1.0f - c) * xx + c;  this->data[4] = (1.0f - c) * xy - zs; this->data[8] = (1.0f - c) * zx + ys; this->data[12] = 0.0;
 		this->data[1] = (1.0f - c) * xy + zs; this->data[5] = (1.0f - c) * yy + c;  this->data[9] = (1.0f - c) * yz - xs; this->data[13] = 0.0;
 		this->data[2] = (1.0f - c) * zx - ys; this->data[6] = (1.0f - c) * yz + xs; this->data[10] = (1.0f - c) * zz + c; this->data[14] = 0.0;
-		this->data[3] = 0.0;				  this->data[7] = 0.0;				  this->data[11] = 0.0;				 this->data[15] = 1.0;
+		this->data[3] = 0.0;                  this->data[7] = 0.0;                  this->data[11] = 0.0;                 this->data[15] = 1.0;
 	}
 
 	void Matrix4::setRotationX(float angle)
 	{
-		static double rad;
-		static float c;
-		static float s;
-		rad = DEG_TO_RAD(angle);
-		c = (float)cos(rad);
-		s = (float)sin(rad);
+		double rad = DEG_TO_RAD(angle);
+		float c = (float)cos(rad);
+		float s = (float)sin(rad);
 		this->data[0]  = 1.0f; this->data[1]  = 0.0f; this->data[2]  = 0.0f; this->data[3]  = 0.0f;
-		this->data[4]  = 0.0f; this->data[5]  =	c; this->data[6]  =	s; this->data[7]  = 0.0f;
-		this->data[8]  = 0.0f; this->data[9]  =   -s; this->data[10] =	c; this->data[11] = 0.0f;
+		this->data[4]  = 0.0f; this->data[5]  =	   c; this->data[6]  =    s; this->data[7]  = 0.0f;
+		this->data[8]  = 0.0f; this->data[9]  =   -s; this->data[10] =    c; this->data[11] = 0.0f;
 		this->data[12] = 0.0f; this->data[13] = 0.0f; this->data[14] = 0.0f; this->data[15] = 1.0f;
 	}
 
 	void Matrix4::setRotationY(float angle)
 	{
-		static double rad;
-		static float c;
-		static float s;
-		rad = DEG_TO_RAD(angle);
-		c = (float)cos(rad);
-		s = (float)sin(rad);
-		this->data[0]  =	c; this->data[1]  = 0.0f; this->data[2]  =   -s; this->data[3]  = 0.0f;
+		double rad = DEG_TO_RAD(angle);
+		float c = (float)cos(rad);
+		float s = (float)sin(rad);
+		this->data[0]  =    c; this->data[1]  = 0.0f; this->data[2]  =   -s; this->data[3]  = 0.0f;
 		this->data[4]  = 0.0f; this->data[5]  = 1.0f; this->data[6]  = 0.0f; this->data[7]  = 0.0f;
-		this->data[8]  =	s; this->data[9]  = 0.0f; this->data[10] =	c; this->data[11] = 0.0f;
+		this->data[8]  =    s; this->data[9]  = 0.0f; this->data[10] =    c; this->data[11] = 0.0f;
 		this->data[12] = 0.0f; this->data[13] = 0.0f; this->data[14] = 0.0f; this->data[15] = 1.0f;
 	}
 
 	void Matrix4::setRotationZ(float angle)
 	{
-		static double rad;
-		static float c;
-		static float s;
-		rad = DEG_TO_RAD(angle);
-		c = (float)cos(rad);
-		s = (float)sin(rad);
-		this->data[0]  =	c; this->data[1]  =	s; this->data[2]  = 0.0f; this->data[3]  = 0.0f;
-		this->data[4]  =   -s; this->data[5]  =	c; this->data[6]  = 0.0f; this->data[7]  = 0.0f;
+		double rad = DEG_TO_RAD(angle);
+		float c = (float)cos(rad);
+		float s = (float)sin(rad);
+		this->data[0]  =    c; this->data[1]  =    s; this->data[2]  = 0.0f; this->data[3]  = 0.0f;
+		this->data[4]  =   -s; this->data[5]  =    c; this->data[6]  = 0.0f; this->data[7]  = 0.0f;
 		this->data[8]  = 0.0f; this->data[9]  = 0.0f; this->data[10] = 1.0f; this->data[11] = 0.0f;
 		this->data[12] = 0.0f; this->data[13] = 0.0f; this->data[14] = 0.0f; this->data[15] = 1.0f;
 	}
