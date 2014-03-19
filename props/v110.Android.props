@@ -5,7 +5,7 @@
     <IntDir>$(SolutionDir)bin\$(Platform)\lib\$(ProjectName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <AndroidAPILevel>android-8</AndroidAPILevel>
+    <AndroidAPILevel>android-9</AndroidAPILevel>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
