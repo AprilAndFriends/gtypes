@@ -27,10 +27,10 @@
 #define G_E_TOLERANCE 0.000001
 
 /// @brief Provides a simpler syntax to iterate through an std::list.
-#define foreach_stdlist(type, name, container) for (std::list<type>::iterator name = (container).begin(); name != (container).end(); name++)
+#define foreach_stdlist(type, name, container) for (std::list<type>::iterator name = (container).begin(); name != (container).end(); ++name)
 /// @brief Provides a simpler syntax to iterate through an std::vector.
-#define foreach_stdvector(type, name, container) for (std::vector<type>::iterator name = (container).begin(); name != (container).end(); name++)
+#define foreach_stdvector(type, name, container) for (std::vector<type>::iterator name = (container).begin(); name != (container).end(); ++name)
 /// @brief Provides a simpler syntax to iterate through an std::map.
-#define foreach_stdmap(type_key, type_value, name, container) for (std::map<type_key, type_value>::iterator name = container.begin(); name != container.end(); name++)
+#define foreach_stdmap(type_key, type_value, name, container) for (std::map<type_key, type_value>::iterator name = container.begin(); name != container.end(); ++name)
 
 #endif
