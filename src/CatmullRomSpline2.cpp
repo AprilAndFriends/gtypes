@@ -137,7 +137,7 @@ namespace gtypes
 	{
 		_length = 0;
 		_lengths.clear();
-		for (unsigned int i = 0; i < _points.size() - 3; i++)
+		for (unsigned int i = 0; i < _points.size() - 3; ++i)
 		{
 			_lengths.push_back(_calcSegmentLength(i + 1));
 			_length += _lengths[i];
@@ -152,7 +152,7 @@ namespace gtypes
 	double CatmullRomSpline2::_calcSegmentLength(int index)
 	{
 		double len = 0;
-		for (int i = 1; i <= _numSamples; i++)
+		for (int i = 1; i <= _numSamples; ++i)
 		{
 			len += (_calcSegmentPosition(((double)(i - 1)) / _numSamples, index) -
 					_calcSegmentPosition(((double)i) / _numSamples, index)).length();
@@ -261,7 +261,7 @@ namespace gtypes
 				addPoint(vectors[0]);
 			}
 		}
-		for (int i = 0; i < n; i++)
+		for (int i = 0; i < n; ++i)
 		{
 			addPoint(vectors[i]);
 		}
@@ -284,7 +284,7 @@ namespace gtypes
 	{
 		_arcLengthMap.clear();
 		double prevlen = 0;
-		for (unsigned int i = 0; i < _lengths.size(); i++)
+		for (unsigned int i = 0; i < _lengths.size(); ++i)
 		{
 			_arcLengthMap[prevlen + (_lengths[i] / _length)] = i;
 			prevlen += _lengths[i] / _length;

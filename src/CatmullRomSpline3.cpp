@@ -45,7 +45,7 @@ namespace gtypes
 	CatmullRomSpline3::CatmullRomSpline3(Vector3 vectors[], int n, int closed, Vector3 t1, Vector3 t2) : _closed(closed),
 		_c(0.5), _length(0.0), _numSegments(0), _numSamples(16), _inflexed(false), _prevlen(0.0), _prevDot(0), _prevIndex(-1)
 	{
-		for (int i = 0; i < n; i++)
+		for (int i = 0; i < n; ++i)
 		{
 			addPoint(vectors[i]);
 		}
@@ -242,7 +242,7 @@ namespace gtypes
 	{
 		_length = 0;
 		_lengths.clear();
-		for (unsigned int i = 0; i < _points.size() - 3; i++)
+		for (unsigned int i = 0; i < _points.size() - 3; ++i)
 		{
 			_lengths.push_back(_calcSegmentLength(i + 1));
 			_length += _lengths[i];
@@ -259,7 +259,7 @@ namespace gtypes
 	double CatmullRomSpline3::_calcSegmentLength(int index)
 	{
 		double len = 0;
-		for (int i = 1; i <= _numSamples; i++)
+		for (int i = 1; i <= _numSamples; ++i)
 		{
 			len += (_calcSegmentPosition(((double)(i - 1)) / _numSamples, index) -
 					_calcSegmentPosition(((double)i) / _numSamples, index)).length();
@@ -352,7 +352,7 @@ namespace gtypes
 				addPoint(vectors[0]);
 			}
 		}
-		for (int i = 0; i < n; i++)
+		for (int i = 0; i < n; ++i)
 		{
 			addPoint(vectors[i]);
 		}
@@ -461,7 +461,7 @@ namespace gtypes
 	{
 		_arcLengthMap.clear();
 		double prevlen = 0.0;
-		for (unsigned int i = 0; i < _lengths.size(); i++)
+		for (unsigned int i = 0; i < _lengths.size(); ++i)
 		{
 			_arcLengthMap[prevlen + (_lengths[i] / _length)] = i;
 			//std::cerr << "Index : " << i << " Len : " << _lengths[i]/_length << " Prevlen : " << prevlen << std::endl;
