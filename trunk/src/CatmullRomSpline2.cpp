@@ -2,7 +2,7 @@
 /// @author  Domagoj Cerjan
 /// @author  Kresimir Spes
 /// @author  Boris Mikic
-/// @version 1.46
+/// @version 1.5
 /// 
 /// @section LICENSE
 /// 
