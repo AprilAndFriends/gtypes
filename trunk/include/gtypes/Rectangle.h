@@ -23,7 +23,10 @@ namespace gtypes
 	class gtypesExport Rectangle
 	{
 	public:
-		float x, y, w, h;
+		float x;
+		float y;
+		float w;
+		float h;
 	
 		Rectangle();
 		Rectangle(float x, float y, float w, float h);
