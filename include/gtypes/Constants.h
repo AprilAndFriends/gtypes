@@ -10,7 +10,7 @@
 /// 
 /// @section DESCRIPTION
 /// 
-/// DOCUMENT ME
+/// Defines commonly used values as constants.
 
 #ifndef GTYPES_CONSTANTS_H
 #define GTYPES_CONSTANTS_H
@@ -30,4 +30,4 @@
 #define G_SQRT2		1.41421356237309504880
 #define G_SQRT1_2	0.70710678118654752440
 
-#endif // GTYPES_CONSTANTS_H
+#endif

@@ -43,11 +43,11 @@ namespace gtypes
 		Matrix3 operator-(const Matrix3 &m) const;
 		Matrix3 operator*(const Matrix3 &m) const;
 		
-		operator float*() { return this->data; }
-		operator const float*() const { return this->data; }
+		inline operator float*() { return this->data; }
+		inline operator const float*() const { return this->data; }
 
-		float &operator[](int i) { return this->data[i]; }
-		const float operator[](int i) const { return this->data[i]; }
+		inline float &operator[](int i) { return this->data[i]; }
+		inline const float operator[](int i) const { return this->data[i]; }
 		
 		Matrix3 operator*=(float f);
 		Matrix3 operator*=(const Matrix3& m);
@@ -102,4 +102,4 @@ namespace gtypes
 
 typedef gtypes::Matrix3 gmat3;
 
-#endif // GTYPES_MATRIX3
+#endif

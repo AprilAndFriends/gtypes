@@ -73,4 +73,4 @@ namespace gtypes
 
 typedef gtypes::Quaternion gquat;
 
-#endif // GTYPES_QUATERNION_H
+#endif
