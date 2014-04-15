@@ -66,4 +66,4 @@ namespace gtypes
 
 typedef gtypes::Vector3 gvec3;
 
-#endif // GTYPES_VECTOR3_H
+#endif

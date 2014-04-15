@@ -63,4 +63,4 @@ namespace gtypes
 
 typedef gtypes::Vector2 gvec2;
 
-#endif // GTYPES_VECTOR2_H
+#endif

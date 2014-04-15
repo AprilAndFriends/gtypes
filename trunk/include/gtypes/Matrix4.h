@@ -57,11 +57,11 @@ namespace gtypes
 		Matrix4 operator+=(const Matrix4& m);
 		Matrix4 operator-=(const Matrix4& m);
 
-		operator float*() { return this->data; }
-		operator const float*() const { return this->data; }
+		inline operator float*() { return this->data; }
+		inline operator const float*() const { return this->data; }
 
-		float &operator[](int i) { return this->data[i]; }
-		const float operator[](int i) const { return this->data[i]; }
+		inline float &operator[](int i) { return this->data[i]; }
+		inline const float operator[](int i) const { return this->data[i]; }
 		
 		Matrix4 operator*(const Matrix4& m) const;
 		Matrix4 operator*(float f) const;
@@ -118,4 +118,4 @@ namespace gtypes
 
 typedef gtypes::Matrix4 gmat4;
 
-#endif // GTYPES_MATRIX4
+#endif

@@ -83,4 +83,4 @@ namespace gtypes
 
 typedef gtypes::CatmullRomSpline2 gcrs2;
 
-#endif // GTYPES_SPLINE2_H
+#endif

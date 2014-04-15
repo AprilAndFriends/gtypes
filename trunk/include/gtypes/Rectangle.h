@@ -84,4 +84,4 @@ namespace gtypes
 
 typedef gtypes::Rectangle grect;
 
-#endif // GTYPES_RECTANGLE_H
+#endif
