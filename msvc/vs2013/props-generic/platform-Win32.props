@@ -12,7 +12,7 @@
     <Link>
       <AdditionalLibraryDirectories Condition="'$(WholeProgramOptimization)'!='true'">$(SolutionDir)..\..\bin\Debug\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalLibraryDirectories Condition="'$(WholeProgramOptimization)'=='true'">$(SolutionDir)..\..\bin\Release\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalLibraryDirectories>..\..\lib\lib\vs2013;..\..\lib\msvc110;..\..\..\lib\msvc110;..\..\..\..\lib\msvc110;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\lib\lib\msvc120;..\..\lib\msvc120;..\..\..\lib\msvc120;..\..\..\..\lib\msvc120;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <TargetMachine>MachineX86</TargetMachine>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <SubSystem>Windows</SubSystem>
@@ -20,7 +20,7 @@
     <Lib>
       <AdditionalLibraryDirectories Condition="'$(WholeProgramOptimization)'!='true'">$(SolutionDir)..\..\bin\Debug\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalLibraryDirectories Condition="'$(WholeProgramOptimization)'=='true'">$(SolutionDir)..\..\bin\Release\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalLibraryDirectories>..\..\lib\lib\vs2103;..\..\lib\msvc110;..\..\..\lib\msvc110;..\..\..\..\lib\msvc110;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\lib\lib\msvc120;..\..\lib\msvc120;..\..\..\lib\msvc120;..\..\..\..\lib\msvc120;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <TargetMachine>MachineX86</TargetMachine>
       <SubSystem>Windows</SubSystem>
     </Lib>
