@@ -1,6 +1,4 @@
 /// @file
-/// @author  Domagoj Cerjan
-/// @author  Boris Mikic
 /// @version 1.5
 /// 
 /// @section LICENSE
