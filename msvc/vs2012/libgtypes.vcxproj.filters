@@ -14,68 +14,68 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\CatmullRomSpline2.cpp">
+    <ClCompile Include="..\..\src\CatmullRomSpline2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\CatmullRomSpline3.cpp">
+    <ClCompile Include="..\..\src\CatmullRomSpline3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Matrix3.cpp">
+    <ClCompile Include="..\..\src\Matrix3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Matrix4.cpp">
+    <ClCompile Include="..\..\src\Matrix4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Quaternion.cpp">
+    <ClCompile Include="..\..\src\Quaternion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Rectangle.cpp">
+    <ClCompile Include="..\..\src\Rectangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Vector2.cpp">
+    <ClCompile Include="..\..\src\Vector2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Vector3.cpp">
+    <ClCompile Include="..\..\src\Vector3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\gtypes\CatmullRomSpline2.h">
+    <ClInclude Include="..\..\include\gtypes\CatmullRomSpline2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gtypes\CatmullRomSpline3.h">
+    <ClInclude Include="..\..\include\gtypes\CatmullRomSpline3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gtypes\Constants.h">
+    <ClInclude Include="..\..\include\gtypes\Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gtypes\gtypesExport.h">
+    <ClInclude Include="..\..\include\gtypes\gtypesExport.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gtypes\Matrix3.h">
+    <ClInclude Include="..\..\include\gtypes\Matrix3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gtypes\Matrix4.h">
+    <ClInclude Include="..\..\include\gtypes\Matrix4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gtypes\Quaternion.h">
+    <ClInclude Include="..\..\include\gtypes\Quaternion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gtypes\Rectangle.h">
+    <ClInclude Include="..\..\include\gtypes\Rectangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gtypes\Vector2.h">
+    <ClInclude Include="..\..\include\gtypes\Vector2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gtypes\Vector3.h">
+    <ClInclude Include="..\..\include\gtypes\Vector3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gtypes\gtypesUtil.h">
+    <ClInclude Include="..\..\include\gtypes\gtypesUtil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="fileproperties.rc">
+    <ResourceCompile Include="..\..\fileproperties.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
