@@ -27,7 +27,7 @@ namespace gtypes
 		this->data[6] = m6; this->data[7] = m7; this->data[8] = m8;
 	}
 	
-	Matrix3::Matrix3(float m[])
+	Matrix3::Matrix3(const float m[])
 	{
 		this->data[0] = m[0]; this->data[1] = m[1]; this->data[2] = m[2];
 		this->data[3] = m[3]; this->data[4] = m[4]; this->data[5] = m[5];
@@ -55,7 +55,7 @@ namespace gtypes
 		this->data[6] = m6; this->data[7] = m7; this->data[8] = m8;
 	}
 	
-	void Matrix3::set(float m[])
+	void Matrix3::set(const float m[])
 	{
 		this->data[0] = m[0]; this->data[1] = m[1]; this->data[2] = m[2];
 		this->data[3] = m[3]; this->data[4] = m[4]; this->data[5] = m[5];
