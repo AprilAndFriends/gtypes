@@ -1,5 +1,5 @@
 /// @file
-/// @version 1.5
+/// @version 1.51
 /// 
 /// @section LICENSE
 /// 
@@ -57,6 +57,9 @@ namespace gtypes
 		float bottom() const;
 		float centerX() const;
 		float centerY() const;
+
+		void clip(const Rectangle& clipper);
+		Rectangle clipped(const Rectangle& clipper) const;
 
 		bool intersects(const Rectangle& other) const;
 		bool contains(const Rectangle& other) const;
