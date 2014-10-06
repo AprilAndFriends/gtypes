@@ -1,5 +1,5 @@
 /// @file
-/// @version 1.5
+/// @version 1.51
 /// 
 /// @section LICENSE
 /// 
@@ -172,7 +172,40 @@ namespace gtypes
 	{
 		return (this->y + this->h * 0.5f);
 	}
-	
+
+	void Rectangle::clip(const Rectangle& clipper)
+	{
+		float left = this->x - clipper.x;
+		if (left < 0.0f)
+		{
+			this->w += left;
+			this->x = clipper.x;
+		}
+		float top = this->y - clipper.y;
+		if (top < 0.0f)
+		{
+			this->h += top;
+			this->y = clipper.y;
+		}
+		float right = this->right() - clipper.right();
+		if (right > 0.0f)
+		{
+			this->w -= right;
+		}
+		float bottom = this->bottom() - clipper.bottom();
+		if (bottom > 0.0f)
+		{
+			this->h -= bottom;
+		}
+	}
+
+	Rectangle Rectangle::clipped(const Rectangle& clipper) const
+	{
+		Rectangle result(*this);
+		result.clip(clipper);
+		return result;
+	}
+
 	bool Rectangle::intersects(const Rectangle& other) const
 	{
 		return (this->x + this->w > other.x && this->x < other.x + other.w &&
