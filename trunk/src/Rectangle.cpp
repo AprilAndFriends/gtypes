@@ -15,6 +15,10 @@ namespace gtypes
 	{
 	}
 
+	Rectangle::~Rectangle()
+	{
+	}
+
 	Rectangle::Rectangle(float x, float y, float w, float h)
 	{
 		this->x = x;
@@ -218,9 +222,9 @@ namespace gtypes
 			this->y <= other.y && this->y + this->h >= other.y + other.h);
 	}
 	
-	bool Rectangle::isPointInside(const Vector2& vector) const
+	bool Rectangle::isPointInside(const Vector2& position) const
 	{
-		return (vector.x >= this->x && vector.y >= this->y && vector.x < this->x + this->w && vector.y < this->y + this->h);
+		return (position.x >= this->x && position.y >= this->y && position.x < this->x + this->w && position.y < this->y + this->h);
 	}
 
 	bool Rectangle::isPointInside(float x, float y) const

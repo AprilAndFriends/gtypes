@@ -10,8 +10,8 @@
 /// 
 /// DOCUMENT ME
 
-#ifndef GTYPES_SPLINE3_H
-#define GTYPES_SPLINE3_H
+#ifndef GTYPES_CATMULL_ROM_SPLINE_3_H
+#define GTYPES_CATMULL_ROM_SPLINE_3_H
 
 #include <list>
 #include <map>
@@ -27,9 +27,9 @@ namespace gtypes
 	{
 	public:
 		CatmullRomSpline3();
-		CatmullRomSpline3(std::vector<Vector3>& vectors, int closed = 0, Vector3 t1 = Vector3(), Vector3 t2 = Vector3() );
-		CatmullRomSpline3(std::list<Vector3>& vectors, int closed = 0, Vector3 t1 = Vector3(), Vector3 t2 = Vector3());
-		CatmullRomSpline3(Vector3 vectors[], int n, int closed = 0, Vector3 t1 = Vector3(),  Vector3 t2 = Vector3());
+		CatmullRomSpline3(std::vector<Vector3>& vectors, bool closed = false, Vector3 t1 = Vector3(), Vector3 t2 = Vector3() );
+		CatmullRomSpline3(std::list<Vector3>& vectors, bool closed = false, Vector3 t1 = Vector3(), Vector3 t2 = Vector3());
+		CatmullRomSpline3(Vector3 vectors[], int n, bool closed = false, Vector3 t1 = Vector3(),  Vector3 t2 = Vector3());
 		~CatmullRomSpline3();
 		
 		Vector3 calcPosition(double t);
@@ -43,9 +43,9 @@ namespace gtypes
 		void addPoint(Vector3 point);
 		void addPoint(float x, float y, float z);
 		
-		void compile(std::vector<Vector3>& vectors, int closed = 0, Vector3 t1 = Vector3(), Vector3 t2 = Vector3());
-		void compile(std::list<Vector3>& vectors, int closed = 0, Vector3 t1 = Vector3(), Vector3 t2 = Vector3());
-		void compile(Vector3 vectors[], int n, int closed = 0, Vector3 t1 = Vector3(), Vector3 t2 = Vector3());
+		void compile(std::vector<Vector3>& vectors, bool closed = false, Vector3 t1 = Vector3(), Vector3 t2 = Vector3());
+		void compile(std::list<Vector3>& vectors, bool closed = false, Vector3 t1 = Vector3(), Vector3 t2 = Vector3());
+		void compile(Vector3 vectors[], int n, bool closed = false, Vector3 t1 = Vector3(), Vector3 t2 = Vector3());
 		
 		void setLengthSamplingRate(int r);
 		void setCurvature(double c);
@@ -55,7 +55,7 @@ namespace gtypes
 	protected:
 		int _numSamples;
 		int _numSegments;
-		int _closed;
+		bool _closed;
 		double _length;
 		double _c;
 		
