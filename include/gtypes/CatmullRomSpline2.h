@@ -10,8 +10,8 @@
 /// 
 /// DOCUMENT ME
 
-#ifndef GTYPES_SPLINE2_H
-#define GTYPES_SPLINE2_H
+#ifndef GTYPES_CATMULL_ROM_SPLINE_2_H
+#define GTYPES_CATMULL_ROM_SPLINE_2_H
 
 #include <map>
 #include <vector>
@@ -26,8 +26,8 @@ namespace gtypes
 	{
 	public:
 		CatmullRomSpline2();
-		CatmullRomSpline2(std::vector<Vector2>& vectors, int closed = 0, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
-		CatmullRomSpline2(Vector2 vectors[], int n, int closed = 0, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
+		CatmullRomSpline2(std::vector<Vector2>& vectors, bool closed = false, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
+		CatmullRomSpline2(Vector2 vectors[], int n, bool closed = false, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
 		~CatmullRomSpline2();
 		
 		Vector2 calcPosition(double t);
@@ -40,8 +40,8 @@ namespace gtypes
 		void addPoint(Vector2 point);
 		void addPoint(float x, float y);
 		
-		void compile(std::vector<Vector2>& vectors, int closed = 0, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
-		void compile(Vector2 vectors[], int n, int closed = 0, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
+		void compile(std::vector<Vector2>& vectors, bool closed = false, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
+		void compile(Vector2 vectors[], int n, bool closed = false, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
 		
 		void setLengthSamplingRate(int r);
 		void setCurvature(double c);
@@ -52,7 +52,7 @@ namespace gtypes
 	protected:
 		int _numSamples;
 		int _numSegments;
-		int _closed;
+		bool _closed;
 		double _length;
 		double _c;
 		
