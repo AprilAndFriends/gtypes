@@ -1,5 +1,5 @@
 /// @file
-/// @version 1.5
+/// @version 1.6
 /// 
 /// @section LICENSE
 /// 
@@ -145,9 +145,9 @@ namespace gtypes
 	
 	Matrix4 Matrix4::inversed() const
 	{
-		Matrix4 mat(*this);
-		mat.inverse();
-		return mat;
+		Matrix4 result(*this);
+		result.inverse();
+		return result;
 	}
 	
 	void Matrix4::transpose()
@@ -160,9 +160,9 @@ namespace gtypes
 	
 	Matrix4 Matrix4::transposed() const
 	{
-		Matrix4 mat(*this);
-		mat.transpose();
-		return mat;
+		Matrix4 result(*this);
+		result.transpose();
+		return result;
 	}
 	
 	void Matrix4::inverseRotation()
@@ -175,9 +175,9 @@ namespace gtypes
 	
 	Matrix4 Matrix4::inversedRotation() const
 	{
-		Matrix4 mat(*this);
-		mat.inverseRotation();
-		return mat;
+		Matrix4 result(*this);
+		result.inverseRotation();
+		return result;
 	}
 	
 	void Matrix4::setZero()
@@ -199,7 +199,7 @@ namespace gtypes
 	
 	void Matrix4::lookAt(const float* eye, const float* target, const float* up)
 	{
-		this->lookAt(Vector3(eye), Vector3(target), Vector3(up));
+		this->lookAt(Vector3(eye[0], eye[1], eye[2]), Vector3(target[0], target[1], target[2]), Vector3(up[0], up[1], up[2]));
 	}
 	
 	void Matrix4::lookAt(const Vector3& eye, const Vector3& target, const Vector3& up)
@@ -294,16 +294,16 @@ namespace gtypes
 	
 	void Matrix4::translate(const Vector3& v)
 	{
-		Matrix4 mat;
-		mat.setTranslation(v);
-		this->operator*=(mat);
+		Matrix4 result;
+		result.setTranslation(v);
+		this->operator*=(result);
 	}
 
 	void Matrix4::translate(float x, float y, float z)
 	{
-		Matrix4 mat;
-		mat.setTranslation(x, y, z);
-		this->operator*=(mat);
+		Matrix4 result;
+		result.setTranslation(x, y, z);
+		this->operator*=(result);
 	}
 	
 	void Matrix4::setScale(float x, float y, float z)
@@ -326,23 +326,23 @@ namespace gtypes
 
 	void Matrix4::scale(float factor)
 	{
-		Matrix4 mat;
-		mat.setScale(factor);
-		this->operator*=(mat);
+		Matrix4 result;
+		result.setScale(factor);
+		this->operator*=(result);
 	}
 	
 	void Matrix4::scale(float x, float y, float z)
 	{
-		Matrix4 mat;
-		mat.setScale(x, y, z);
-		this->operator*=(mat);
+		Matrix4 result;
+		result.setScale(x, y, z);
+		this->operator*=(result);
 	}
 	
 	void Matrix4::scale(const Vector3& v)
 	{
-		Matrix4 mat;
-		mat.setScale(v);
-		this->operator*=(mat);
+		Matrix4 result;
+		result.setScale(v);
+		this->operator*=(result);
 	}
 
 	void Matrix4::perspective(float fov, float aspect, float near, float far)
@@ -378,9 +378,9 @@ namespace gtypes
 
 	void Matrix4::reflect(float x, float y, float z, float w)
 	{
-		Matrix4 mat;
-		mat.setReflection(x, y, z, w);
-		this->operator*=(mat);
+		Matrix4 result;
+		result.setReflection(x, y, z, w);
+		this->operator*=(result);
 	}
 
 	void Matrix4::setRotation(float x, float y, float z, float angle)
@@ -444,37 +444,37 @@ namespace gtypes
 	
 	void Matrix4::rotate(const Vector3 &axis, float angle)
 	{
-		Matrix4 mat;
-		mat.setRotation(axis,angle);
-		this->operator*=(mat);
+		Matrix4 result;
+		result.setRotation(axis, angle);
+		this->operator*=(result);
 	}
 
 	void Matrix4::rotate(float x, float y, float z, float angle)
 	{
-		Matrix4 mat;
-		mat.setRotation(x, y, z, angle);
-		this->operator*=(mat);
+		Matrix4 result;
+		result.setRotation(x, y, z, angle);
+		this->operator*=(result);
 	}
 
 	void Matrix4::rotateX(float angle)
 	{
-		Matrix4 mat;
-		mat.setRotationX(angle);
-		this->operator*=(mat);
+		Matrix4 result;
+		result.setRotationX(angle);
+		this->operator*=(result);
 	}
 
 	void Matrix4::rotateY(float angle)
 	{
-		Matrix4 mat;
-		mat.setRotationY(angle);
-		this->operator*=(mat);		
+		Matrix4 result;
+		result.setRotationY(angle);
+		this->operator*=(result);
 	}
 
 	void Matrix4::rotateZ(float angle)
 	{
-		Matrix4 mat;
-		mat.setRotationZ(angle);
-		this->operator*=(mat);
+		Matrix4 result;
+		result.setRotationZ(angle);
+		this->operator*=(result);
 	}
 	
 	Matrix4 Matrix4::operator*=(float f)

@@ -1,5 +1,5 @@
 /// @file
-/// @version 1.51
+/// @version 1.6
 /// 
 /// @section LICENSE
 /// 
@@ -55,7 +55,6 @@ namespace gtypes
 		Rectangle(float x, float y, Vector2 size);
 		/// @brief Destructor.
 		~Rectangle();
-
 		/// @brief Sets the values of the Rectangle.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.

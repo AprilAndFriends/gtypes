@@ -1,5 +1,5 @@
 /// @file
-/// @version 1.5
+/// @version 1.6
 /// 
 /// @section LICENSE
 /// 
@@ -10,8 +10,8 @@
 /// 
 /// DOCUMENT ME
 
-#ifndef GTYPES_MATRIX4_H
-#define GTYPES_MATRIX4_H
+#ifndef GTYPES_MATRIX_4_H
+#define GTYPES_MATRIX_4_H
 
 #include "gtypesExport.h"
 
