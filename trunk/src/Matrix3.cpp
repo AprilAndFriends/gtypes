@@ -1,5 +1,5 @@
 /// @file
-/// @version 1.5
+/// @version 1.6
 /// 
 /// @section LICENSE
 /// 
@@ -102,9 +102,9 @@ namespace gtypes
 	
 	Matrix3 Matrix3::inversed() const
 	{
-		Matrix3 mat(*this);
-		mat.inverse();
-		return mat;
+		Matrix3 result(*this);
+		result.inverse();
+		return result;
 	}
 	
 	void Matrix3::transpose()
@@ -116,9 +116,9 @@ namespace gtypes
 	
 	Matrix3 Matrix3::transposed() const
 	{
-		Matrix3 mat(*this);
-		mat.transpose();
-		return mat;
+		Matrix3 result(*this);
+		result.transpose();
+		return result;
 	}
 	
 	Matrix3 Matrix3::rotationInverse2D() const
@@ -211,9 +211,9 @@ namespace gtypes
 	
 	void Matrix3::translate2D(float x, float y)
 	{
-		Matrix3 mat;
-		mat.setTranslation2D(x, y);
-		this->operator*=(mat);
+		Matrix3 result;
+		result.setTranslation2D(x, y);
+		this->operator*=(result);
 	}
 	
 	void Matrix3::setRotation2D(float angle)
@@ -225,9 +225,9 @@ namespace gtypes
 	
 	void Matrix3::rotate2D(float angle)
 	{
-		Matrix3 mat;
-		mat.setRotation2D(angle);
-		this->operator*=(mat);
+		Matrix3 result;
+		result.setRotation2D(angle);
+		this->operator*=(result);
 	}
 	
 	void Matrix3::setRotation3D(float x, float y, float z, float angle)
@@ -266,16 +266,16 @@ namespace gtypes
 	
 	void Matrix3::rotate3D(float x, float y, float z, float angle)
 	{
-		Matrix3 mat;
-		mat.setRotation3D(x, y, z, angle);
-		this->operator*=(mat);
+		Matrix3 result;
+		result.setRotation3D(x, y, z, angle);
+		this->operator*=(result);
 	}
 	
 	void Matrix3::rotate3D(const Vector3& v, float angle)
 	{
-		Matrix3 mat;
-		mat.setRotation3D(v, angle);
-		this->operator*=(mat);
+		Matrix3 result;
+		result.setRotation3D(v, angle);
+		this->operator*=(result);
 	}
 
 	void Matrix3::setRotationX(float angle)
@@ -310,23 +310,23 @@ namespace gtypes
 
 	void Matrix3::rotateX(float angle)
 	{
-		Matrix3 mat;
-		mat.setRotationX(angle);
-		this->operator*=(mat);
+		Matrix3 result;
+		result.setRotationX(angle);
+		this->operator*=(result);
 	}
 	
 	void Matrix3::rotateY(float angle)
 	{
-		Matrix3 mat;
-		mat.setRotationY(angle);
-		this->operator*=(mat);
+		Matrix3 result;
+		result.setRotationY(angle);
+		this->operator*=(result);
 	}
 	
 	void Matrix3::rotateZ(float angle)
 	{
-		Matrix3 mat;
-		mat.setRotationZ(angle);
-		this->operator*=(mat);
+		Matrix3 result;
+		result.setRotationZ(angle);
+		this->operator*=(result);
 	}
 
 	void Matrix3::setScale(float factor)
@@ -348,23 +348,23 @@ namespace gtypes
 	
 	void Matrix3::scale(float factor)
 	{
-		Matrix3 mat;
-		mat.setScale(factor);
-		this->operator*=(mat);
+		Matrix3 result;
+		result.setScale(factor);
+		this->operator*=(result);
 	}
 	
 	void Matrix3::scale(float x, float y, float z)
 	{
-		Matrix3 mat;
-		mat.setScale(x, y, z);
-		this->operator*=(mat);
+		Matrix3 result;
+		result.setScale(x, y, z);
+		this->operator*=(result);
 	}
 	
 	void Matrix3::scale(const Vector3& v)
 	{
-		Matrix3 mat;
-		mat.setScale(v);
-		this->operator*=(mat);
+		Matrix3 result;
+		result.setScale(v);
+		this->operator*=(result);
 	}
 
 	Matrix3 Matrix3::operator*=(float f)
