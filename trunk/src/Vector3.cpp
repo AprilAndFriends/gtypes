@@ -79,6 +79,11 @@ namespace gtypes
 		return Vector3(this->y * other.z - this->z * other.y, this->z * other.x - this->x * other.z, this->x * other.y - this->y * other.x);
 	}
 
+	Vector3 Vector3::operator-() const
+	{
+		return Vector3(-this->x, -this->y, -this->z);
+	}
+
 	Vector3 Vector3::operator+(const Vector3& other) const
 	{
 		return Vector3(this->x + other.x, this->y + other.y, this->z + other.z);
@@ -110,11 +115,6 @@ namespace gtypes
 		return Vector3(this->x * invFactor, this->y * invFactor, this->z * invFactor);
 	}
 	
-	Vector3 Vector3::operator-() const
-	{
-		return Vector3(-this->x, -this->y, -this->z);
-	}
-
 	Vector3 Vector3::operator+=(const Vector3& other)
 	{
 		this->x += other.x;

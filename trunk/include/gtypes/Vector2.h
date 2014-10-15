@@ -57,6 +57,11 @@ namespace gtypes
 		/// @return The dot-product.
 		bool isInCircle(float center_x, float center_y, float radius);
 
+		/// @brief Normalizes the current Vector2.
+		void normalize();
+		/// @brief Creates a normalized Vector2 from this Vector2.
+		/// @return The normalized Vector2.
+		Vector2 normalized() const;
 		/// @brief Rotates the current Vector2 by an angle.
 		/// @param[in] angle The angle.
 		void rotate(float angle);
@@ -64,11 +69,6 @@ namespace gtypes
 		/// @param[in] angle The angle.
 		/// @return The rotated Vector2.
 		Vector2 rotated(float angle) const;
-		/// @brief Normalizes the current Vector2.
-		void normalize();
-		/// @brief Creates a normalized Vector2 from this Vector2.
-		/// @return The normalized Vector2.
-		Vector2 normalized() const;
 		/// @brief Calculates the dot-product between this and another Vector2.
 		/// @param[in] other The other Vector2.
 		/// @return The dot-product.

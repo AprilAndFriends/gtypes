@@ -101,6 +101,11 @@ namespace gtypes
 		return (this->x * other.x + this->y * other.y);
 	}
 
+	Vector2 Vector2::operator-() const
+	{
+		return Vector2(-this->x, -this->y);
+	}
+
 	Vector2 Vector2::operator+(const Vector2& other) const
 	{
 		return Vector2(this->x + other.x, this->y + other.y);
@@ -121,20 +126,15 @@ namespace gtypes
 		return Vector2(this->x / other.x, this->y / other.y);
 	}
 	
-	Vector2 Vector2::operator*(const float scale) const
+	Vector2 Vector2::operator*(const float factor) const
 	{
-		return Vector2(this->x * scale, this->y * scale);
+		return Vector2(this->x * factor, this->y * factor);
 	}
 	
-	Vector2 Vector2::operator/(const float scale) const
+	Vector2 Vector2::operator/(const float factor) const
 	{
-		float invScale = 1.0f / scale;
+		float invScale = 1.0f / factor;
 		return Vector2(this->x * invScale, this->y * invScale);
-	}
-
-	Vector2 Vector2::operator-() const
-	{
-		return Vector2(-this->x, -this->y);
 	}
 
 	Vector2 Vector2::operator+=(const Vector2& other)
@@ -165,16 +165,16 @@ namespace gtypes
 		return (*this);
 	}
 
-	Vector2 Vector2::operator*=(const float scale)
+	Vector2 Vector2::operator*=(const float factor)
 	{
-		this->x *= scale;
-		this->y *= scale;
+		this->x *= factor;
+		this->y *= factor;
 		return (*this);
 	}
 	
-	Vector2 Vector2::operator/=(const float scale)
+	Vector2 Vector2::operator/=(const float factor)
 	{
-		float invScale = 1.0f / scale;
+		float invScale = 1.0f / factor;
 		this->x *= invScale;
 		this->y *= invScale;
 		return (*this);
