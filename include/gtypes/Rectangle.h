@@ -8,7 +8,7 @@
 /// 
 /// @section DESCRIPTION
 /// 
-/// Represents a logical rectangle.
+/// Represents a rectangle.
 
 #ifndef GTYPES_RECTANGLE_H
 #define GTYPES_RECTANGLE_H
@@ -18,7 +18,7 @@
 
 namespace gtypes
 {
-	/// @brief Represents a logical rectangle.
+	/// @brief Represents a rectangle.
 	class gtypesExport Rectangle
 	{
 	public:
