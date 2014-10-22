@@ -22,30 +22,17 @@ namespace gtypes
 	
 	Matrix3::Matrix3(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8)
 	{
-		this->data[0] = m0; this->data[1] = m1; this->data[2] = m2;
-		this->data[3] = m3; this->data[4] = m4; this->data[5] = m5;
-		this->data[6] = m6; this->data[7] = m7; this->data[8] = m8;
+		this->set(m0, m1, m2, m3, m4, m5, m6, m7, m8);
 	}
 	
 	Matrix3::Matrix3(const float m[])
 	{
-		this->data[0] = m[0]; this->data[1] = m[1]; this->data[2] = m[2];
-		this->data[3] = m[3]; this->data[4] = m[4]; this->data[5] = m[5];
-		this->data[6] = m[6]; this->data[7] = m[7]; this->data[8] = m[8];
+		this->set(m);
 	}
 	
-	Matrix3::Matrix3(const Matrix3& m)
+	Matrix3::Matrix3(const Matrix4& mat)
 	{
-		this->data[0] = m.data[0]; this->data[1] = m.data[1]; this->data[2] = m.data[2];
-		this->data[3] = m.data[3]; this->data[4] = m.data[4]; this->data[5] = m.data[5];
-		this->data[6] = m.data[6]; this->data[7] = m.data[7]; this->data[8] = m.data[8];
-	}
-
-	Matrix3::Matrix3(const Matrix4& m)
-	{
-		this->data[0] = m.data[0]; this->data[1] = m.data[1]; this->data[2] = m.data[2];
-		this->data[3] = m.data[4]; this->data[4] = m.data[5]; this->data[5] = m.data[6];
-		this->data[6] = m.data[8]; this->data[7] = m.data[9]; this->data[8] = m.data[10];
+		this->set(mat);
 	}
 	
 	void Matrix3::set(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8)
@@ -62,18 +49,18 @@ namespace gtypes
 		this->data[6] = m[6]; this->data[7] = m[7]; this->data[8] = m[8];
 	}
 	
-	void Matrix3::set(const Matrix3& m)
+	void Matrix3::set(const Matrix3& other)
 	{
-		this->data[0] = m.data[0]; this->data[1] = m.data[1]; this->data[2] = m.data[2];
-		this->data[3] = m.data[3]; this->data[4] = m.data[4]; this->data[5] = m.data[5];
-		this->data[6] = m.data[6]; this->data[7] = m.data[7]; this->data[8] = m.data[8];
+		this->data[0] = other.data[0]; this->data[1] = other.data[1]; this->data[2] = other.data[2];
+		this->data[3] = other.data[3]; this->data[4] = other.data[4]; this->data[5] = other.data[5];
+		this->data[6] = other.data[6]; this->data[7] = other.data[7]; this->data[8] = other.data[8];
 	}
 
-	void Matrix3::set(const Matrix4& m)
+	void Matrix3::set(const Matrix4& mat)
 	{
-		this->data[0] = m.data[0]; this->data[1] = m.data[1]; this->data[2] = m.data[2];
-		this->data[3] = m.data[4]; this->data[4] = m.data[5]; this->data[5] = m.data[6];
-		this->data[6] = m.data[8]; this->data[7] = m.data[9]; this->data[8] = m.data[10];
+		this->data[0] = mat.data[0]; this->data[1] = mat.data[1]; this->data[2] = mat.data[2];
+		this->data[3] = mat.data[4]; this->data[4] = mat.data[5]; this->data[5] = mat.data[6];
+		this->data[6] = mat.data[8]; this->data[7] = mat.data[9]; this->data[8] = mat.data[10];
 	}
 	
 	float Matrix3::det() const
@@ -162,24 +149,24 @@ namespace gtypes
 		this->data[6] = 0.0f; this->data[7] = 0.0f; this->data[8] = 0.0f;
 	}
 	
-	Matrix3 Matrix3::operator*(const Matrix3& m) const
+	Matrix3 Matrix3::operator*(const Matrix3& other) const
 	{
-		return Matrix3(this->data[0] * m[0] + this->data[3] * m[1] + this->data[6] * m[2],
-					   this->data[1] * m[0] + this->data[4] * m[1] + this->data[7] * m[2],
-					   this->data[2] * m[0] + this->data[5] * m[1] + this->data[8] * m[2],
-					   this->data[0] * m[3] + this->data[3] * m[4] + this->data[6] * m[5],
-					   this->data[1] * m[3] + this->data[4] * m[4] + this->data[7] * m[5],
-					   this->data[2] * m[3] + this->data[5] * m[4] + this->data[8] * m[5],
-					   this->data[0] * m[6] + this->data[3] * m[7] + this->data[6] * m[8],
-					   this->data[1] * m[6] + this->data[4] * m[7] + this->data[7] * m[8],
-					   this->data[2] * m[6] + this->data[5] * m[7] + this->data[8] * m[8]);
+		return Matrix3(this->data[0] * other[0] + this->data[3] * other[1] + this->data[6] * other[2],
+					   this->data[1] * other[0] + this->data[4] * other[1] + this->data[7] * other[2],
+					   this->data[2] * other[0] + this->data[5] * other[1] + this->data[8] * other[2],
+					   this->data[0] * other[3] + this->data[3] * other[4] + this->data[6] * other[5],
+					   this->data[1] * other[3] + this->data[4] * other[4] + this->data[7] * other[5],
+					   this->data[2] * other[3] + this->data[5] * other[4] + this->data[8] * other[5],
+					   this->data[0] * other[6] + this->data[3] * other[7] + this->data[6] * other[8],
+					   this->data[1] * other[6] + this->data[4] * other[7] + this->data[7] * other[8],
+					   this->data[2] * other[6] + this->data[5] * other[7] + this->data[8] * other[8]);
 	}
 	
-	Matrix3 Matrix3::operator+(const Matrix3& m) const
+	Matrix3 Matrix3::operator+(const Matrix3& other) const
 	{
-		return Matrix3(this->data[0] + m[0], this->data[1] + m[1], this->data[2] + m[2],
-					   this->data[3] + m[3], this->data[4] + m[4], this->data[5] + m[5],
-					   this->data[6] + m[6], this->data[7] + m[7], this->data[8] + m[8]);
+		return Matrix3(this->data[0] + other[0], this->data[1] + other[1], this->data[2] + other[2],
+					   this->data[3] + other[3], this->data[4] + other[4], this->data[5] + other[5],
+					   this->data[6] + other[6], this->data[7] + other[7], this->data[8] + other[8]);
 	}
 	
 	Vector3 Matrix3::operator*(const Vector3& v) const
@@ -196,11 +183,11 @@ namespace gtypes
 					   this->data[6] * f, this->data[7] * f, this->data[8] * f);
 	}
 	
-	Matrix3 Matrix3::operator-(const Matrix3& m) const
+	Matrix3 Matrix3::operator-(const Matrix3& other) const
 	{
-		return Matrix3(this->data[0] - m[0], this->data[1] - m[1], this->data[2] - m[2],
-					   this->data[3] - m[3], this->data[4] - m[4], this->data[5] - m[5],
-					   this->data[6] - m[6], this->data[7] - m[7], this->data[8] - m[8]);
+		return Matrix3(this->data[0] - other[0], this->data[1] - other[1], this->data[2] - other[2],
+					   this->data[3] - other[3], this->data[4] - other[4], this->data[5] - other[5],
+					   this->data[6] - other[6], this->data[7] - other[7], this->data[8] - other[8]);
 	}
 	
 	void Matrix3::setTranslation2D(float x, float y)
@@ -373,21 +360,21 @@ namespace gtypes
 		return (*this);
 	}
 
-	Matrix3 Matrix3::operator*=(const Matrix3& m)
+	Matrix3 Matrix3::operator*=(const Matrix3& other)
 	{
-		*this = *this * m;
+		*this = *this * other;
 		return (*this);
 	}
 
-	Matrix3 Matrix3::operator+=(const Matrix3& m)
+	Matrix3 Matrix3::operator+=(const Matrix3& other)
 	{
-		*this = *this + m;
+		*this = *this + other;
 		return (*this);
 	}
 
-	Matrix3 Matrix3::operator-=(const Matrix3& m)
+	Matrix3 Matrix3::operator-=(const Matrix3& other)
 	{
-		*this = *this - m;
+		*this = *this - other;
 		return (*this);
 	}
 
