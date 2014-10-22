@@ -22,74 +22,22 @@ namespace gtypes
 		this->setIdentity();
 	}
 
-	Matrix4::Matrix4(float  m0, float  m1, float  m2, float  m3,
-					 float  m4, float  m5, float  m6, float  m7,
-					 float  m8, float  m9, float m10, float m11,
+	Matrix4::Matrix4(float m0, float m1, float m2, float m3,
+					 float m4, float m5, float m6, float m7,
+					 float m8, float m9, float m10, float m11,
 					 float m12, float m13, float m14, float m15)
 	{
-		this->data[0]  =  m0;	this->data[1]  =  m1;	this->data[2]  =  m2;	this->data[3]  = m3;
-		this->data[4]  =  m4;	this->data[5]  =  m5;	this->data[6]  =  m6;	this->data[7]  = m7;
-		this->data[8]  =  m8;	this->data[9]  =  m9;	this->data[10] = m10;	this->data[11] = m11;
-		this->data[12] = m12;	this->data[13] = m13;	this->data[14] = m14;	this->data[15] = m15;
+		this->set(m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15);
 	}
-
+	
 	Matrix4::Matrix4(const float m[])
 	{
-		this->data[0]  = m[0];	this->data[1]  = m[1];	this->data[2]  = m[2];	this->data[3]  = m[3];
-		this->data[4]  = m[4];	this->data[5]  = m[5];	this->data[6]  = m[6];	this->data[7]  = m[7];
-		this->data[8]  = m[8];	this->data[9]  = m[9];	this->data[10] = m[10];	this->data[11] = m[11];
-		this->data[12] = m[12];	this->data[13] = m[13];	this->data[14] = m[14];	this->data[15] = m[15];
-	}
-
-	Matrix4::Matrix4(const Matrix3& m)
-	{
-		this->data[0]  = m[0];	this->data[1]  = m[1];	this->data[2]  = m[2];	this->data[3]  = 0.0f;
-		this->data[4]  = m[4];	this->data[5]  = m[5];	this->data[6]  = m[6];	this->data[7]  = 0.0f;
-		this->data[8]  = m[8];	this->data[9]  = m[9];	this->data[10] = m[10];	this->data[11] = 0.0f;
-		this->data[12] = 0.0f;	this->data[13] = 0.0f;	this->data[14] = 0.0f;	this->data[15] = 1.0f;
-	}
-
-	Matrix4::Matrix4(const Matrix4& m)
-	{
-		this->data[0]  = m[0];	this->data[1]  = m[1];	this->data[2]  = m[2];	this->data[3]  = m[3];
-		this->data[4]  = m[4];	this->data[5]  = m[5];	this->data[6]  = m[6];	this->data[7]  = m[7];
-		this->data[8]  = m[8];	this->data[9]  = m[9];	this->data[10] = m[10];	this->data[11] = m[11];
-		this->data[12] = m[12];	this->data[13] = m[13];	this->data[14] = m[14];	this->data[15] = m[15];
-	}
-
-	void Matrix4::set(float  m0, float  m1, float  m2, float  m3,
-					  float  m4, float  m5, float  m6, float  m7,
-					  float  m8, float  m9, float m10, float m11,
-					  float m12, float m13, float m14, float m15)
-	{
-		this->data[0]  =  m0;	this->data[1]  =  m1;	this->data[2]  =  m2;	this->data[3]  = m3;
-		this->data[4]  =  m4;	this->data[5]  =  m5;	this->data[6]  =  m6;	this->data[7]  = m7;
-		this->data[8]  =  m8;	this->data[9]  =  m9;	this->data[10] = m10;	this->data[11] = m11;
-		this->data[12] = m12;	this->data[13] = m13;	this->data[14] = m14;	this->data[15] = m15;
+		this->set(m);
 	}
 	
-	void Matrix4::set(const float m[])
+	Matrix4::Matrix4(const Matrix3& mat3)
 	{
-		this->data[0]  = m[0];	this->data[1]  = m[1];	this->data[2]  = m[2];	this->data[3]  = m[3];
-		this->data[4]  = m[4];	this->data[5]  = m[5];	this->data[6]  = m[6];	this->data[7]  = m[7];
-		this->data[8]  = m[8];	this->data[9]  = m[9];	this->data[10] = m[10];	this->data[11] = m[11];
-		this->data[12] = m[12];	this->data[13] = m[13];	this->data[14] = m[14];	this->data[15] = m[15];
-	}
-	
-	void Matrix4::set(const Matrix3& m)
-	{
-		this->data[0]  = m[0];	this->data[1]  = m[1];	this->data[2]  = m[2];	this->data[3]  = 0.0f;
-		this->data[4]  = m[4];	this->data[5]  = m[5];	this->data[6]  = m[6];	this->data[7]  = 0.0f;
-		this->data[8]  = m[8];	this->data[9]  = m[9];	this->data[10] = m[10];	this->data[11] = 0.0f;
-		this->data[12] = 0.0f;	this->data[13] = 0.0f;	this->data[14] = 0.0f;	this->data[15] = 1.0f;
-	}
-	
-	void Matrix4::set(const Matrix4& m)
-	{
-		this->data[0]  = m[0];	this->data[1]  = m[1];	this->data[2]  = m[2];	this->data[3]  = m[3];
-		this->data[4]  = m[4];	this->data[5]  = m[5];	this->data[6]  = m[6];	this->data[7]  = m[7];
-		this->data[8]  = m[8];	this->data[9]  = m[9];	this->data[10] = m[10];	this->data[11] = m[11];
-		this->data[12] = m[12];	this->data[13] = m[13];	this->data[14] = m[14];	this->data[15] = m[15];
+		this->set(mat3);
 	}
 
 	Matrix4::Matrix4(const Vector3& axis, float angle)
@@ -102,14 +50,55 @@ namespace gtypes
 		this->setRotation(x, y, z, (float)DEG_TO_RAD(angle));
 	}
 
-	float Matrix4::det() const
+	void Matrix4::set(float m0, float m1, float m2, float m3,
+					  float m4, float m5, float m6, float m7,
+					  float m8, float m9, float m10, float m11,
+					  float m12, float m13, float m14, float m15)
 	{
-		return ((this->data[0] * this->data[5] * this->data[10]) +
-				(this->data[4] * this->data[9] * this->data[2])  +
-				(this->data[8] * this->data[1] * this->data[6])  -
-				(this->data[8] * this->data[5] * this->data[2])  -
-				(this->data[4] * this->data[1] * this->data[10]) -
-				(this->data[0] * this->data[9] * this->data[6]));
+		this->data[0] = m0;		this->data[1] = m1;		this->data[2] = m2;		this->data[3] = m3;
+		this->data[4] = m4;		this->data[5] = m5;		this->data[6] = m6;		this->data[7] = m7;
+		this->data[8] = m8;		this->data[9] = m9;		this->data[10] = m10;	this->data[11] = m11;
+		this->data[12] = m12;	this->data[13] = m13;	this->data[14] = m14;	this->data[15] = m15;
+	}
+	
+	void Matrix4::set(const float m[])
+	{
+		this->data[0] = m[0];	this->data[1]  = m[1];	this->data[2]  = m[2];	this->data[3]  = m[3];
+		this->data[4] = m[4];	this->data[5]  = m[5];	this->data[6]  = m[6];	this->data[7]  = m[7];
+		this->data[8] = m[8];	this->data[9]  = m[9];	this->data[10] = m[10];	this->data[11] = m[11];
+		this->data[12] = m[12];	this->data[13] = m[13];	this->data[14] = m[14];	this->data[15] = m[15];
+	}
+	
+	void Matrix4::set(const Matrix3& mat3)
+	{
+		this->data[0] = mat3[0];	this->data[1] = mat3[1];	this->data[2] = mat3[2];	this->data[3] = 0.0f;
+		this->data[4] = mat3[4];	this->data[5] = mat3[5];	this->data[6] = mat3[6];	this->data[7] = 0.0f;
+		this->data[8] = mat3[8];	this->data[9] = mat3[9];	this->data[10] = mat3[10];	this->data[11] = 0.0f;
+		this->data[12] = 0.0f;		this->data[13] = 0.0f;		this->data[14] = 0.0f;		this->data[15] = 1.0f;
+	}
+	
+	void Matrix4::set(const Matrix4& other)
+	{
+		this->data[0] = other[0];	this->data[1] = other[1];	this->data[2] = other[2];	this->data[3] = other[3];
+		this->data[4] = other[4];	this->data[5] = other[5];	this->data[6] = other[6];	this->data[7] = other[7];
+		this->data[8] = other[8];	this->data[9] = other[9];	this->data[10] = other[10];	this->data[11] = other[11];
+		this->data[12] = other[12];	this->data[13] = other[13];	this->data[14] = other[14];	this->data[15] = other[15];
+	}
+
+	void Matrix4::setZero()
+	{
+		this->data[0] = 0.0f;	this->data[1] = 0.0f;	this->data[2] = 0.0f;	this->data[3] = 0.0f;
+		this->data[4] = 0.0f;	this->data[5] = 0.0f;	this->data[6] = 0.0f;	this->data[7] = 0.0f;
+		this->data[8] = 0.0f;	this->data[9] = 0.0f;	this->data[10] = 0.0f;	this->data[11] = 0.0f;
+		this->data[12] = 0.0f;	this->data[13] = 0.0f;	this->data[14] = 0.0f;	this->data[15] = 0.0f;
+	}
+
+	void Matrix4::setIdentity()
+	{
+		this->data[0] = 1.0f;	this->data[1] = 0.0f;	this->data[2] = 0.0f;	this->data[3] = 0.0f;
+		this->data[4] = 0.0f;	this->data[5] = 1.0f;	this->data[6] = 0.0f;	this->data[7] = 0.0f;
+		this->data[8] = 0.0f;	this->data[9] = 0.0f;	this->data[10] = 1.0f;	this->data[11] = 0.0f;
+		this->data[12] = 0.0f;	this->data[13] = 0.0f;	this->data[14] = 0.0f;	this->data[15] = 1.0f;
 	}
 
 	Matrix4 Matrix4::getRotation() const
@@ -119,6 +108,218 @@ namespace gtypes
 					   this->data[8],	this->data[9],	this->data[10],	0.0f,
 								0.0f,			 0.0f,			  0.0f,	1.0f);
 	}
+
+	void Matrix4::setTranslation(float x, float y, float z)
+	{
+		this->data[0] = 1.0f;	this->data[1] = 0.0f;	this->data[2] = 0.0f;	this->data[3] = 0.0f;
+		this->data[4] = 0.0f;	this->data[5] = 1.0f;	this->data[6] = 0.0f;	this->data[7] = 0.0f;
+		this->data[8] = 0.0f;	this->data[9] = 0.0f;	this->data[10] = 1.0f;	this->data[11] = 0.0f;
+		this->data[12] = x;		this->data[13] = y;		this->data[14] = z;		this->data[15] = 1.0f;
+	}
+
+	void Matrix4::setTranslation(const Vector3& vector)
+	{
+		this->setTranslation(vector.x, vector.y, vector.z);
+	}
+
+	void Matrix4::setScale(float x, float y, float z)
+	{
+		this->data[0] = x;		this->data[1] = 0.0f;	this->data[2] = 0.0f;	this->data[3] = 0.0f;
+		this->data[4] = 0.0f;	this->data[5] = y;		this->data[6] = 0.0f;	this->data[7] = 0.0f;
+		this->data[8] = 0.0f;	this->data[9] = 0.0f;	this->data[10] = z;		this->data[11] = 0.0f;
+		this->data[12] = 0.0f;	this->data[13] = 0.0f;	this->data[14] = 0.0f;	this->data[15] = 1.0f;
+	}
+
+	void Matrix4::setScale(float factor)
+	{
+		this->setScale(factor, factor, factor);
+	}
+
+	void Matrix4::setScale(const Vector3& vector)
+	{
+		this->setScale(vector.x, vector.y, vector.z);
+	}
+
+	void Matrix4::setRotation(float x, float y, float z, float angle)
+	{
+		this->setRotation(Vector3(x, y, z), angle);
+	}
+
+	void Matrix4::setRotation(const Vector3& axis, float angle)
+	{
+		double rad = DEG_TO_RAD(angle);
+		float c = (float)cos(rad);
+		float s = (float)sin(rad);
+		Vector3 v = axis.normalized();
+		float xx = v.x * v.x;
+		float yy = v.y * v.y;
+		float zz = v.z * v.z;
+		float xy = v.x * v.y;
+		float yz = v.y * v.z;
+		float zx = v.z * v.x;
+		float xs = v.x * s;
+		float ys = v.y * s;
+		float zs = v.z * s;
+		this->data[0] = (1.0f - c) * xx + c;	this->data[4] = (1.0f - c) * xy - zs;	this->data[8] = (1.0f - c) * zx + ys;	this->data[12] = 0.0f;
+		this->data[1] = (1.0f - c) * xy + zs;	this->data[5] = (1.0f - c) * yy + c;	this->data[9] = (1.0f - c) * yz - xs;	this->data[13] = 0.0f;
+		this->data[2] = (1.0f - c) * zx - ys;	this->data[6] = (1.0f - c) * yz + xs;	this->data[10] = (1.0f - c) * zz + c;	this->data[14] = 0.0f;
+		this->data[3] = 0.0f;					this->data[7] = 0.0f;					this->data[11] = 0.0f;					this->data[15] = 1.0f;
+	}
+
+	void Matrix4::setRotationX(float angle)
+	{
+		double rad = DEG_TO_RAD(angle);
+		float c = (float)cos(rad);
+		float s = (float)sin(rad);
+		this->data[0] = 1.0f;	this->data[1] = 0.0f;	this->data[2] = 0.0f;	this->data[3] = 0.0f;
+		this->data[4] = 0.0f;	this->data[5] = c;		this->data[6] = s;		this->data[7] = 0.0f;
+		this->data[8] = 0.0f;	this->data[9] = -s;		this->data[10] = c;		this->data[11] = 0.0f;
+		this->data[12] = 0.0f;	this->data[13] = 0.0f;	this->data[14] = 0.0f;	this->data[15] = 1.0f;
+	}
+
+	void Matrix4::setRotationY(float angle)
+	{
+		double rad = DEG_TO_RAD(angle);
+		float c = (float)cos(rad);
+		float s = (float)sin(rad);
+		this->data[0] = c;		this->data[1] = 0.0f;	this->data[2] = -s;		this->data[3] = 0.0f;
+		this->data[4] = 0.0f;	this->data[5] = 1.0f;	this->data[6] = 0.0f;	this->data[7] = 0.0f;
+		this->data[8] = s;		this->data[9] = 0.0f;	this->data[10] = c;		this->data[11] = 0.0f;
+		this->data[12] = 0.0f;	this->data[13] = 0.0f;	this->data[14] = 0.0f;	this->data[15] = 1.0f;
+	}
+
+	void Matrix4::setRotationZ(float angle)
+	{
+		double rad = DEG_TO_RAD(angle);
+		float c = (float)cos(rad);
+		float s = (float)sin(rad);
+		this->data[0] = c;		this->data[1] = s;		this->data[2] = 0.0f;	this->data[3] = 0.0f;
+		this->data[4] = -s;		this->data[5] = c;		this->data[6] = 0.0f;	this->data[7] = 0.0f;
+		this->data[8] = 0.0f;	this->data[9] = 0.0f;	this->data[10] = 1.0f;	this->data[11] = 0.0f;
+		this->data[12] = 0.0f;	this->data[13] = 0.0f;	this->data[14] = 0.0f;	this->data[15] = 1.0f;
+	}
+
+	void Matrix4::setReflection(float x, float y, float z, float w)
+	{
+		float x2 = x * 2.0f;
+		float y2 = y * 2.0f;
+		float z2 = z * 2.0f;
+		this->data[0] = 1.0f - x * x2;	this->data[1] = -x * y2;		this->data[2] = -x * z2;		this->data[3] = 0.0f;
+		this->data[4] = -y * x2;		this->data[5] = 1.0f - y * y2;	this->data[6] = -y * z2;		this->data[7] = 0.0f;
+		this->data[8] = -z * x2;		this->data[9] = -z * y2;		this->data[10] = 1.0f - z * z2;	this->data[11] = 0.0f;
+		this->data[12] = -w * x2;		this->data[13] = -w * y2;		this->data[14] = -w * z2;		this->data[15] = 1.0f;
+	}
+
+	void Matrix4::setReflection(const Quaternion& quaternion)
+	{
+		this->setReflection(quaternion.x, quaternion.y, quaternion.z, quaternion.w);
+	}
+
+	float Matrix4::det() const
+	{
+		return ((this->data[0] * this->data[5] * this->data[10]) +
+			(this->data[4] * this->data[9] * this->data[2]) +
+			(this->data[8] * this->data[1] * this->data[6]) -
+			(this->data[8] * this->data[5] * this->data[2]) -
+			(this->data[4] * this->data[1] * this->data[10]) -
+			(this->data[0] * this->data[9] * this->data[6]));
+	}
+
+	void Matrix4::translate(const Vector3& vector)
+	{
+		Matrix4 mat;
+		mat.setTranslation(vector);
+		this->operator*=(mat);
+	}
+
+	void Matrix4::translate(float x, float y, float z)
+	{
+		Matrix4 mat;
+		mat.setTranslation(x, y, z);
+		this->operator*=(mat);
+	}
+
+	void Matrix4::scale(float x, float y, float z)
+	{
+		Matrix4 mat;
+		mat.setScale(x, y, z);
+		this->operator*=(mat);
+	}
+
+	void Matrix4::scale(float factor)
+	{
+		Matrix4 mat;
+		mat.setScale(factor);
+		this->operator*=(mat);
+	}
+
+	void Matrix4::scale(const Vector3& vector)
+	{
+		Matrix4 mat;
+		mat.setScale(vector);
+		this->operator*=(mat);
+	}
+
+	void Matrix4::rotate(float x, float y, float z, float angle)
+	{
+		Matrix4 mat;
+		mat.setRotation(x, y, z, angle);
+		this->operator*=(mat);
+	}
+
+	void Matrix4::rotate(const Vector3 &axis, float angle)
+	{
+		Matrix4 mat;
+		mat.setRotation(axis, angle);
+		this->operator*=(mat);
+	}
+
+	void Matrix4::rotateX(float angle)
+	{
+		Matrix4 mat;
+		mat.setRotationX(angle);
+		this->operator*=(mat);
+	}
+
+	void Matrix4::rotateY(float angle)
+	{
+		Matrix4 mat;
+		mat.setRotationY(angle);
+		this->operator*=(mat);
+	}
+
+	void Matrix4::rotateZ(float angle)
+	{
+		Matrix4 mat;
+		mat.setRotationZ(angle);
+		this->operator*=(mat);
+	}
+
+	void Matrix4::reflect(float x, float y, float z, float w)
+	{
+		Matrix4 mat;
+		mat.setReflection(x, y, z, w);
+		this->operator*=(mat);
+	}
+
+	void Matrix4::reflect(const Quaternion& quaternion)
+	{
+		Matrix4 mat;
+		mat.setReflection(quaternion);
+		this->operator*=(mat);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 
 	void Matrix4::inverse()
 	{
@@ -180,28 +381,12 @@ namespace gtypes
 		return result;
 	}
 	
-	void Matrix4::setZero()
-	{
-		this->data[0]  = 0.0f; this->data[1]  = 0.0f; this->data[2]  = 0.0f; this->data[3]  = 0.0f;
-		this->data[4]  = 0.0f; this->data[5]  = 0.0f; this->data[6]  = 0.0f; this->data[7]  = 0.0f;
-		this->data[8]  = 0.0f; this->data[9]  = 0.0f; this->data[10] = 0.0f; this->data[11] = 0.0f;
-		this->data[12] = 0.0f; this->data[13] = 0.0f; this->data[14] = 0.0f; this->data[15] = 0.0f;
-	}
-	
-	void Matrix4::setIdentity()
-	{
-		this->data[0]  = 1.0f; this->data[1]  = 0.0f; this->data[2]  = 0.0f; this->data[3]  = 0.0f;
-		this->data[4]  = 0.0f; this->data[5]  = 1.0f; this->data[6]  = 0.0f; this->data[7]  = 0.0f;
-		this->data[8]  = 0.0f; this->data[9]  = 0.0f; this->data[10] = 1.0f; this->data[11] = 0.0f;
-		this->data[12] = 0.0f; this->data[13] = 0.0f; this->data[14] = 0.0f; this->data[15] = 1.0f;
-	}
-
-	
 	void Matrix4::lookAt(const float* eye, const float* target, const float* up)
 	{
 		this->lookAt(Vector3(eye[0], eye[1], eye[2]), Vector3(target[0], target[1], target[2]), Vector3(up[0], up[1], up[2]));
 	}
 	
+	// so that you can see the Matrix, Neo
 	void Matrix4::lookAt(const Vector3& eye, const Vector3& target, const Vector3& up)
 	{
 		Vector3 bz = (eye - target).normalized();
@@ -217,141 +402,72 @@ namespace gtypes
 		*this = a * b;
 	}
 	
-	Matrix4 Matrix4::operator*(const Matrix4& m) const
+	Matrix4 Matrix4::operator*(const Matrix4& other) const
 	{
-		return Matrix4(this->data[0] * m[0]  + this->data[4] * m[1]  + this->data[8]  * m[2]  + this->data[12] * m[3],
-					   this->data[1] * m[0]  + this->data[5] * m[1]  + this->data[9]  * m[2]  + this->data[13] * m[3],
-					   this->data[2] * m[0]  + this->data[6] * m[1]  + this->data[10] * m[2]  + this->data[14] * m[3],
-					   this->data[3] * m[0]  + this->data[7] * m[1]  + this->data[11] * m[2]  + this->data[15] * m[3],
-					   this->data[0] * m[4]  + this->data[4] * m[5]  + this->data[8]  * m[6]  + this->data[12] * m[7],
-					   this->data[1] * m[4]  + this->data[5] * m[5]  + this->data[9]  * m[6]  + this->data[13] * m[7],
-					   this->data[2] * m[4]  + this->data[6] * m[5]  + this->data[10] * m[6]  + this->data[14] * m[7],
-					   this->data[3] * m[4]  + this->data[7] * m[5]  + this->data[11] * m[6]  + this->data[15] * m[7],
-					   this->data[0] * m[8]  + this->data[4] * m[9]  + this->data[8]  * m[10] + this->data[12] * m[11],
-					   this->data[1] * m[8]  + this->data[5] * m[9]  + this->data[9]  * m[10] + this->data[13] * m[11],
-					   this->data[2] * m[8]  + this->data[6] * m[9]  + this->data[10] * m[10] + this->data[14] * m[11],
-					   this->data[3] * m[8]  + this->data[7] * m[9]  + this->data[11] * m[10] + this->data[15] * m[11],
-					   this->data[0] * m[12] + this->data[4] * m[13] + this->data[8]  * m[14] + this->data[12] * m[15],
-					   this->data[1] * m[12] + this->data[5] * m[13] + this->data[9]  * m[14] + this->data[13] * m[15],
-					   this->data[2] * m[12] + this->data[6] * m[13] + this->data[10] * m[14] + this->data[14] * m[15],
-					   this->data[3] * m[12] + this->data[7] * m[13] + this->data[11] * m[14] + this->data[15] * m[15]);
+		return Matrix4(this->data[0] * other[0] + this->data[4] * other[1] + this->data[8] * other[2] + this->data[12] * other[3],
+					   this->data[1] * other[0] + this->data[5] * other[1] + this->data[9] * other[2] + this->data[13] * other[3],
+					   this->data[2] * other[0] + this->data[6] * other[1] + this->data[10] * other[2] + this->data[14] * other[3],
+					   this->data[3] * other[0] + this->data[7] * other[1] + this->data[11] * other[2] + this->data[15] * other[3],
+					   this->data[0] * other[4] + this->data[4] * other[5] + this->data[8] * other[6] + this->data[12] * other[7],
+					   this->data[1] * other[4] + this->data[5] * other[5] + this->data[9] * other[6] + this->data[13] * other[7],
+					   this->data[2] * other[4] + this->data[6] * other[5] + this->data[10] * other[6] + this->data[14] * other[7],
+					   this->data[3] * other[4] + this->data[7] * other[5] + this->data[11] * other[6] + this->data[15] * other[7],
+					   this->data[0] * other[8] + this->data[4] * other[9] + this->data[8] * other[10] + this->data[12] * other[11],
+					   this->data[1] * other[8] + this->data[5] * other[9] + this->data[9] * other[10] + this->data[13] * other[11],
+					   this->data[2] * other[8] + this->data[6] * other[9] + this->data[10] * other[10] + this->data[14] * other[11],
+					   this->data[3] * other[8] + this->data[7] * other[9] + this->data[11] * other[10] + this->data[15] * other[11],
+					   this->data[0] * other[12] + this->data[4] * other[13] + this->data[8] * other[14] + this->data[12] * other[15],
+					   this->data[1] * other[12] + this->data[5] * other[13] + this->data[9] * other[14] + this->data[13] * other[15],
+					   this->data[2] * other[12] + this->data[6] * other[13] + this->data[10] * other[14] + this->data[14] * other[15],
+					   this->data[3] * other[12] + this->data[7] * other[13] + this->data[11] * other[14] + this->data[15] * other[15]);
 	}
 	
-	Vector3 Matrix4::operator*(const Vector3& v) const
+	Vector3 Matrix4::operator*(const Vector3& vector) const
 	{
-		return Vector3(this->data[0] * v.x + this->data[4] * v.y + this->data[8]  * v.z + this->data[12],
-					   this->data[1] * v.x + this->data[5] * v.y + this->data[9]  * v.z + this->data[13],
-					   this->data[2] * v.x + this->data[6] * v.y + this->data[10] * v.z + this->data[14]);
+		return Vector3(this->data[0] * vector.x + this->data[4] * vector.y + this->data[8] * vector.z + this->data[12],
+					   this->data[1] * vector.x + this->data[5] * vector.y + this->data[9] * vector.z + this->data[13],
+					   this->data[2] * vector.x + this->data[6] * vector.y + this->data[10] * vector.z + this->data[14]);
 	}
 
-	Quaternion Matrix4::operator*(const Quaternion& v) const
+	Quaternion Matrix4::operator*(const Quaternion& quaternion) const
 	{
-		return Quaternion(this->data[0] * v.x + this->data[4] * v.y + this->data[8]  * v.z + this->data[12] * v.w,
-						  this->data[1] * v.x + this->data[5] * v.y + this->data[9]  * v.z + this->data[13] * v.w,
-						  this->data[2] * v.x + this->data[6] * v.y + this->data[10] * v.z + this->data[14] * v.w,
-						  this->data[3] * v.x + this->data[7] * v.y + this->data[11] * v.z + this->data[15] * v.w);
+		return Quaternion(this->data[0] * quaternion.x + this->data[4] * quaternion.y + this->data[8] * quaternion.z + this->data[12] * quaternion.w,
+						  this->data[1] * quaternion.x + this->data[5] * quaternion.y + this->data[9] * quaternion.z + this->data[13] * quaternion.w,
+						  this->data[2] * quaternion.x + this->data[6] * quaternion.y + this->data[10] * quaternion.z + this->data[14] * quaternion.w,
+						  this->data[3] * quaternion.x + this->data[7] * quaternion.y + this->data[11] * quaternion.z + this->data[15] * quaternion.w);
 	}
 	
-	Matrix4 Matrix4::operator*(float f) const
+	Matrix4 Matrix4::operator*(float factor) const
 	{
-		return Matrix4(this->data[0]  * f, this->data[1]  * f, this->data[2]  * f, this->data[3]  * f,
-					   this->data[4]  * f, this->data[5]  * f, this->data[6]  * f, this->data[7]  * f,
-					   this->data[8]  * f, this->data[9]  * f, this->data[10] * f, this->data[11] * f,
-					   this->data[12] * f, this->data[13] * f, this->data[14] * f, this->data[15] * f);
+		return Matrix4(this->data[0] * factor, this->data[1] * factor, this->data[2] * factor, this->data[3] * factor,
+					   this->data[4] * factor, this->data[5] * factor, this->data[6] * factor, this->data[7] * factor,
+					   this->data[8] * factor, this->data[9] * factor, this->data[10] * factor, this->data[11] * factor,
+					   this->data[12] * factor, this->data[13] * factor, this->data[14] * factor, this->data[15] * factor);
 	}
 	
-	Matrix4 Matrix4::operator+(const Matrix4& m) const
+	Matrix4 Matrix4::operator+(const Matrix4& other) const
 	{
-		return Matrix4(this->data[0]  + m[0],  this->data[1]  + m[1],  this->data[2]  + m[2],  this->data[3]  + m[3],
-					   this->data[4]  + m[4],  this->data[5]  + m[5],  this->data[6]  + m[6],  this->data[7]  + m[7],
-					   this->data[8]  + m[8],  this->data[9]  + m[9],  this->data[10] + m[10], this->data[11] + m[11],
-					   this->data[12] + m[12], this->data[13] + m[13], this->data[14] + m[14], this->data[15] + m[15]);
+		return Matrix4(this->data[0] + other[0], this->data[1] + other[1], this->data[2] + other[2], this->data[3] + other[3],
+					   this->data[4] + other[4], this->data[5] + other[5], this->data[6] + other[6], this->data[7] + other[7],
+					   this->data[8] + other[8], this->data[9] + other[9], this->data[10] + other[10], this->data[11] + other[11],
+					   this->data[12] + other[12], this->data[13] + other[13], this->data[14] + other[14], this->data[15] + other[15]);
 	}
 
-	Matrix4 Matrix4::operator-(const Matrix4& m) const
+	Matrix4 Matrix4::operator-(const Matrix4& other) const
 	{
-		return Matrix4(this->data[0]  - m[0],  this->data[1]  - m[1],  this->data[2]  - m[2],  this->data[3]  - m[3],
-					   this->data[4]  - m[4],  this->data[5]  - m[5],  this->data[6]  - m[6],  this->data[7]  - m[7],
-					   this->data[8]  - m[8],  this->data[9]  - m[9],  this->data[10] - m[10], this->data[11] - m[11],
-					   this->data[12] - m[12], this->data[13] - m[13], this->data[14] - m[14], this->data[15] - m[15]);
-	}
-
-	void Matrix4::setTranslation(float x, float y, float z)
-	{
-		this->data[0]  = 1.0f;	this->data[1]  = 0.0f;	this->data[2]  = 0.0f;	this->data[3]  = 0.0f;
-		this->data[4]  = 0.0f;	this->data[5]  = 1.0f;	this->data[6]  = 0.0f;	this->data[7]  = 0.0f;
-		this->data[8]  = 0.0f;	this->data[9]  = 0.0f;	this->data[10] = 1.0f;	this->data[11] = 0.0f;
-		this->data[12] = x;		this->data[13] = y;		this->data[14] = z;		this->data[15] = 1.0f;
-	}
-
-	void Matrix4::setTranslation(const Vector3& v)
-	{
-		this->data[0]  = 1.0f;	this->data[1]  = 0.0f;	this->data[2]  = 0.0f;	this->data[3]  = 0.0f;
-		this->data[4]  = 0.0f;	this->data[5]  = 1.0f;	this->data[6]  = 0.0f;	this->data[7]  = 0.0f;
-		this->data[8]  = 0.0f;	this->data[9]  = 0.0f;	this->data[10] = 1.0f;	this->data[11] = 0.0f;
-		this->data[12] = v.x;	this->data[13] = v.y;	this->data[14] = v.z;	this->data[15] = 1.0f;
-	}
-	
-	void Matrix4::translate(const Vector3& v)
-	{
-		Matrix4 result;
-		result.setTranslation(v);
-		this->operator*=(result);
-	}
-
-	void Matrix4::translate(float x, float y, float z)
-	{
-		Matrix4 result;
-		result.setTranslation(x, y, z);
-		this->operator*=(result);
-	}
-	
-	void Matrix4::setScale(float x, float y, float z)
-	{
-		this->data[0]  =	x; this->data[1]  = 0.0f; this->data[2]  = 0.0f; this->data[3]  = 0.0f;
-		this->data[4]  = 0.0f; this->data[5]  =	y; this->data[6]  = 0.0f; this->data[7]  = 0.0f;
-		this->data[8]  = 0.0f; this->data[9]  = 0.0f; this->data[10] =	z; this->data[11] = 0.0f;
-		this->data[12] = 0.0f; this->data[13] = 0.0f; this->data[14] = 0.0f; this->data[15] = 1.0f;
-	}
-	
-	void Matrix4::setScale(float factor)
-	{
-		this->setScale(factor, factor, factor);
-	}
-
-	void Matrix4::setScale(const Vector3& v)
-	{
-		this->setScale(v.x, v.y, v.z);
-	}
-
-	void Matrix4::scale(float factor)
-	{
-		Matrix4 result;
-		result.setScale(factor);
-		this->operator*=(result);
-	}
-	
-	void Matrix4::scale(float x, float y, float z)
-	{
-		Matrix4 result;
-		result.setScale(x, y, z);
-		this->operator*=(result);
-	}
-	
-	void Matrix4::scale(const Vector3& v)
-	{
-		Matrix4 result;
-		result.setScale(v);
-		this->operator*=(result);
+		return Matrix4(this->data[0] - other[0], this->data[1] - other[1], this->data[2] - other[2], this->data[3] - other[3],
+					   this->data[4] - other[4], this->data[5] - other[5], this->data[6] - other[6], this->data[7] - other[7],
+					   this->data[8] - other[8], this->data[9] - other[9], this->data[10] - other[10], this->data[11] - other[11],
+					   this->data[12] - other[12], this->data[13] - other[13], this->data[14] - other[14], this->data[15] - other[15]);
 	}
 
 	void Matrix4::perspective(float fov, float aspect, float near, float far)
 	{
 		float iy = 1.0f / ((float)tan(DEG_TO_RAD(fov * 0.5f)));
 		float ix = iy * aspect;
-		this->data[0]  = 1.0f * ix;	this->data[1]  = 0.0f;		this->data[2]  = 0.0f;									this->data[3]  = 0.0f;
-		this->data[4]  = 0.0f;		this->data[5]  = 1.0f * iy;	this->data[6]  = 0.0f;									this->data[7]  = 0.0f;
-		this->data[8]  = 0.0f;		this->data[9]  = 0.0f;		this->data[10] = -(far + near) / (far - near);			this->data[11] = -1.0f;
+		this->data[0] = 1.0f * ix;	this->data[1] = 0.0f;		this->data[2] = 0.0f;									this->data[3] = 0.0f;
+		this->data[4] = 0.0f;		this->data[5] = 1.0f * iy;	this->data[6] = 0.0f;									this->data[7] = 0.0f;
+		this->data[8] = 0.0f;		this->data[9] = 0.0f;		this->data[10] = -(far + near) / (far - near);			this->data[11] = -1.0f;
 		this->data[12] = 0.0f;		this->data[13] = 0.0f;		this->data[14] = -(2.0f * far * near) / (far - near);	this->data[15] = 0.0f;
 	}
 	
@@ -365,139 +481,27 @@ namespace gtypes
 		this->data[13] = 1 - rect.y * 2 / rect.h;
 	}
 
-	void Matrix4::setReflection(float x, float y, float z, float w)
-	{
-		float x2 = x * 2.0f;
-		float y2 = y * 2.0f;
-		float z2 = z * 2.0f;
-		this->data[0]  = 1.0f - x * x2;	this->data[1]  = -x * y2;		this->data[2]  = -x * z2;		this->data[3] = 0.0f;
-		this->data[4]  = -y * x2;		this->data[5]  = 1.0f - y * y2;	this->data[6]  = -y * z2;		this->data[7] = 0.0f;
-		this->data[8]  = -z * x2;		this->data[9]  = -z * y2;		this->data[10] = 1.0f - z * z2;	this->data[11] = 0.0f;
-		this->data[12] = -w * x2;		this->data[13] = -w * y2;		this->data[14] = -w * z2;		this->data[15] = 1.0f;
-	}
-
-	void Matrix4::reflect(float x, float y, float z, float w)
-	{
-		Matrix4 result;
-		result.setReflection(x, y, z, w);
-		this->operator*=(result);
-	}
-
-	void Matrix4::setRotation(float x, float y, float z, float angle)
-	{
-		this->setRotation(Vector3(x, y, z), angle);
-	}
-
-	void Matrix4::setRotation(const Vector3& axis, float angle)
-	{
-		double rad = DEG_TO_RAD(angle);
-		float c = (float)cos(rad);
-		float s = (float)sin(rad);
-		Vector3 v = axis.normalized();
-		float xx = v.x * v.x;
-		float yy = v.y * v.y;
-		float zz = v.z * v.z;
-		float xy = v.x * v.y;
-		float yz = v.y * v.z;
-		float zx = v.z * v.x;
-		float xs = v.x * s;
-		float ys = v.y * s;
-		float zs = v.z * s;
-		this->data[0] = (1.0f - c) * xx + c;  this->data[4] = (1.0f - c) * xy - zs; this->data[8] = (1.0f - c) * zx + ys; this->data[12] = 0.0;
-		this->data[1] = (1.0f - c) * xy + zs; this->data[5] = (1.0f - c) * yy + c;  this->data[9] = (1.0f - c) * yz - xs; this->data[13] = 0.0;
-		this->data[2] = (1.0f - c) * zx - ys; this->data[6] = (1.0f - c) * yz + xs; this->data[10] = (1.0f - c) * zz + c; this->data[14] = 0.0;
-		this->data[3] = 0.0;                  this->data[7] = 0.0;                  this->data[11] = 0.0;                 this->data[15] = 1.0;
-	}
-
-	void Matrix4::setRotationX(float angle)
-	{
-		double rad = DEG_TO_RAD(angle);
-		float c = (float)cos(rad);
-		float s = (float)sin(rad);
-		this->data[0]  = 1.0f; this->data[1]  = 0.0f; this->data[2]  = 0.0f; this->data[3]  = 0.0f;
-		this->data[4]  = 0.0f; this->data[5]  =	   c; this->data[6]  =    s; this->data[7]  = 0.0f;
-		this->data[8]  = 0.0f; this->data[9]  =   -s; this->data[10] =    c; this->data[11] = 0.0f;
-		this->data[12] = 0.0f; this->data[13] = 0.0f; this->data[14] = 0.0f; this->data[15] = 1.0f;
-	}
-
-	void Matrix4::setRotationY(float angle)
-	{
-		double rad = DEG_TO_RAD(angle);
-		float c = (float)cos(rad);
-		float s = (float)sin(rad);
-		this->data[0]  =    c; this->data[1]  = 0.0f; this->data[2]  =   -s; this->data[3]  = 0.0f;
-		this->data[4]  = 0.0f; this->data[5]  = 1.0f; this->data[6]  = 0.0f; this->data[7]  = 0.0f;
-		this->data[8]  =    s; this->data[9]  = 0.0f; this->data[10] =    c; this->data[11] = 0.0f;
-		this->data[12] = 0.0f; this->data[13] = 0.0f; this->data[14] = 0.0f; this->data[15] = 1.0f;
-	}
-
-	void Matrix4::setRotationZ(float angle)
-	{
-		double rad = DEG_TO_RAD(angle);
-		float c = (float)cos(rad);
-		float s = (float)sin(rad);
-		this->data[0]  =    c; this->data[1]  =    s; this->data[2]  = 0.0f; this->data[3]  = 0.0f;
-		this->data[4]  =   -s; this->data[5]  =    c; this->data[6]  = 0.0f; this->data[7]  = 0.0f;
-		this->data[8]  = 0.0f; this->data[9]  = 0.0f; this->data[10] = 1.0f; this->data[11] = 0.0f;
-		this->data[12] = 0.0f; this->data[13] = 0.0f; this->data[14] = 0.0f; this->data[15] = 1.0f;
-	}
-	
-	void Matrix4::rotate(const Vector3 &axis, float angle)
-	{
-		Matrix4 result;
-		result.setRotation(axis, angle);
-		this->operator*=(result);
-	}
-
-	void Matrix4::rotate(float x, float y, float z, float angle)
-	{
-		Matrix4 result;
-		result.setRotation(x, y, z, angle);
-		this->operator*=(result);
-	}
-
-	void Matrix4::rotateX(float angle)
-	{
-		Matrix4 result;
-		result.setRotationX(angle);
-		this->operator*=(result);
-	}
-
-	void Matrix4::rotateY(float angle)
-	{
-		Matrix4 result;
-		result.setRotationY(angle);
-		this->operator*=(result);
-	}
-
-	void Matrix4::rotateZ(float angle)
-	{
-		Matrix4 result;
-		result.setRotationZ(angle);
-		this->operator*=(result);
-	}
-	
 	Matrix4 Matrix4::operator*=(float f)
 	{
 		*this = *this * f;
 		return (*this);
 	}
 
-	Matrix4 Matrix4::operator*=(const Matrix4& m)
+	Matrix4 Matrix4::operator*=(const Matrix4& other)
 	{
-		*this = *this * m;
+		*this = *this * other;
 		return (*this);
 	}
 
-	Matrix4 Matrix4::operator+=(const Matrix4& m)
+	Matrix4 Matrix4::operator+=(const Matrix4& other)
 	{
-		*this = *this + m;
+		*this = *this + other;
 		return (*this);
 	}
 
-	Matrix4 Matrix4::operator-=(const Matrix4& m)
+	Matrix4 Matrix4::operator-=(const Matrix4& other)
 	{
-		*this = *this - m;
+		*this = *this - other;
 		return (*this);
 	}
 

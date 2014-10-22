@@ -20,21 +20,23 @@ namespace gtypes
 	class Vector3;
 	class Matrix4;
 
+	/// @brief Represents a 3x3 matrix.
 	class gtypesExport Matrix3
 	{
 	public:
+		/// @brief The Matrix data.
 		float data[9];
 	
+		/// @brief Basic constructor.
 		Matrix3();
 		Matrix3(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8);
 		Matrix3(const float m[]);
-		Matrix3(const Matrix3& m);
-		Matrix3(const Matrix4& m);
+		Matrix3(const Matrix4& mat);
 		
 		void set(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8);
 		void set(const float m[]);
-		void set(const Matrix3& m);
-		void set(const Matrix4& m);
+		void set(const Matrix3& other);
+		void set(const Matrix4& mat);
 
 		Matrix3 operator+(const Matrix3 &m) const;
 		Matrix3 operator-(const Matrix3 &m) const;
@@ -47,9 +49,9 @@ namespace gtypes
 		inline const float operator[](int i) const { return this->data[i]; }
 		
 		Matrix3 operator*=(float f);
-		Matrix3 operator*=(const Matrix3& m);
-		Matrix3 operator+=(const Matrix3& m);
-		Matrix3 operator-=(const Matrix3& m);
+		Matrix3 operator*=(const Matrix3& other);
+		Matrix3 operator+=(const Matrix3& other);
+		Matrix3 operator-=(const Matrix3& other);
 		
 		Vector3 operator*(const Vector3 &v) const;
 		Matrix3 operator*(float f) const;

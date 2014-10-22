@@ -21,34 +21,22 @@ namespace gtypes
 
 	Rectangle::Rectangle(float x, float y, float w, float h)
 	{
-		this->x = x;
-		this->y = y;
-		this->w = w;
-		this->h = h;
+		this->set(x, y, w, h);
 	}
 	
 	Rectangle::Rectangle(Vector2 position, Vector2 size)
 	{
-		this->x = position.x;
-		this->y = position.y;
-		this->w = size.x;
-		this->h = size.y;
+		this->set(position, size);
 	}
 	
 	Rectangle::Rectangle(Vector2 position, float w, float h)
 	{
-		this->x = position.x;
-		this->y = position.y;
-		this->w = w;
-		this->h = h;
+		this->set(position, w, h);
 	}
 	
 	Rectangle::Rectangle(float x, float y, Vector2 size)
 	{
-		this->x = x;
-		this->y = y;
-		this->w = size.x;
-		this->h = size.y;
+		this->set(x, y, size);
 	}
 	
 	void Rectangle::set(float x, float y, float w, float h)

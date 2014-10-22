@@ -19,9 +19,7 @@ namespace gtypes
 
 	Vector3::Vector3(float x, float y, float z)
 	{
-		this->x = x;
-		this->y = y;
-		this->z = z;
+		this->set(x, y, z);
 	}
 	
 	Vector3::~Vector3()
