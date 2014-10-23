@@ -215,6 +215,26 @@ namespace gtypes
 		this->setReflection(quaternion.x, quaternion.y, quaternion.z, quaternion.w);
 	}
 
+	void Matrix4::setPerspective(float fov, float aspect, float near, float far)
+	{
+		float iy = 1.0f / ((float)tan(DEG_TO_RAD(fov * 0.5f)));
+		float ix = iy * aspect;
+		this->data[0] = 1.0f * ix;	this->data[1] = 0.0f;		this->data[2] = 0.0f;									this->data[3] = 0.0f;
+		this->data[4] = 0.0f;		this->data[5] = 1.0f * iy;	this->data[6] = 0.0f;									this->data[7] = 0.0f;
+		this->data[8] = 0.0f;		this->data[9] = 0.0f;		this->data[10] = -(far + near) / (far - near);			this->data[11] = -1.0f;
+		this->data[12] = 0.0f;		this->data[13] = 0.0f;		this->data[14] = -(2.0f * far * near) / (far - near);	this->data[15] = 0.0f;
+	}
+
+	void Matrix4::setOrthoProjection(const Rectangle& rect)
+	{
+		this->setIdentity();
+		this->data[0] = 2.0f / rect.w;
+		this->data[5] = -2.0f / rect.h;
+		this->data[10] = -2.0f;
+		this->data[12] = -1.0f + rect.x * 2.0f / rect.w;
+		this->data[13] = 1.0f - rect.y * 2.0f / rect.h;
+	}
+
 	float Matrix4::det() const
 	{
 		return ((this->data[0] * this->data[5] * this->data[10]) +
@@ -309,33 +329,52 @@ namespace gtypes
 		this->operator*=(mat);
 	}
 
+	// so that you can see the Matrix, Neo
+	void Matrix4::lookAt(const Vector3& eye, const Vector3& target, const Vector3& up)
+	{
+		Vector3 bz = (eye - target).normalized();
+		Vector3 bx = up.cross(bz).normalized();
+		Vector3 by = bz.cross(bx).normalized();
+		Matrix4 a;
+		a[0] = bx.x;	a[1] = by.x;	a[2] = bz.x;	a[3] = 0.0f;
+		a[4] = bx.y;	a[5] = by.y;	a[6] = bz.y;	a[7] = 0.0f;
+		a[8] = bx.z;	a[9] = by.z;	a[10] = bz.z;	a[11] = 0.0f;
+		a[12] = 0.0f;	a[13] = 0.0f;	a[14] = 0.0f;	a[15] = 1.0f;
+		Matrix4 b;
+		b.setTranslation(-eye);
+		*this = a * b;
+	}
 
+	void Matrix4::transpose()
+	{
+		this->set(this->data[0], this->data[4], this->data[8], this->data[12],
+				  this->data[1], this->data[5], this->data[9], this->data[13],
+				  this->data[2], this->data[6], this->data[10], this->data[14],
+				  this->data[3], this->data[7], this->data[11], this->data[15]);
+	}
 
-
-
-
-
-
-
-
-
-
+	Matrix4 Matrix4::transposed() const
+	{
+		Matrix4 result(*this);
+		result.transpose();
+		return result;
+	}
 
 	void Matrix4::inverse()
 	{
 		float m[16] = {0};
-		float idet = 1.0f / det();
-		m[0]  =  (this->data[5] * this->data[10] - this->data[9] * this->data[6]) * idet;
-		m[1]  = -(this->data[1] * this->data[10] - this->data[9] * this->data[2]) * idet;
-		m[2]  =  (this->data[1] * this->data[6]  - this->data[5] * this->data[2]) * idet;
-		m[3]  = 0.0f;
-		m[4]  = -(this->data[4] * this->data[10] - this->data[8] * this->data[6]) * idet;
-		m[5]  =  (this->data[0] * this->data[10] - this->data[8] * this->data[2]) * idet;
-		m[6]  = -(this->data[0] * this->data[6]  - this->data[4] * this->data[2]) * idet;
-		m[7]  = 0.0f;
-		m[8]  =  (this->data[4] * this->data[9] - this->data[8] * this->data[5]) * idet;
-		m[9]  = -(this->data[0] * this->data[9] - this->data[8] * this->data[1]) * idet;
-		m[10] =  (this->data[0] * this->data[5] - this->data[4] * this->data[1]) * idet;
+		float invDet = 1.0f / this->det();
+		m[0] = (this->data[5] * this->data[10] - this->data[9] * this->data[6]) * invDet;
+		m[1] = -(this->data[1] * this->data[10] - this->data[9] * this->data[2]) * invDet;
+		m[2] = (this->data[1] * this->data[6] - this->data[5] * this->data[2]) * invDet;
+		m[3] = 0.0f;
+		m[4] = -(this->data[4] * this->data[10] - this->data[8] * this->data[6]) * invDet;
+		m[5] = (this->data[0] * this->data[10] - this->data[8] * this->data[2]) * invDet;
+		m[6] = -(this->data[0] * this->data[6] - this->data[4] * this->data[2]) * invDet;
+		m[7] = 0.0f;
+		m[8] = (this->data[4] * this->data[9] - this->data[8] * this->data[5]) * invDet;
+		m[9] = -(this->data[0] * this->data[9] - this->data[8] * this->data[1]) * invDet;
+		m[10] = (this->data[0] * this->data[5] - this->data[4] * this->data[1]) * invDet;
 		m[11] = 0.0f;
 		m[12] = -(this->data[12] * m[0] + this->data[13] * m[4] + this->data[14] * m[8]);
 		m[13] = -(this->data[12] * m[1] + this->data[13] * m[5] + this->data[14] * m[9]);
@@ -348,21 +387,6 @@ namespace gtypes
 	{
 		Matrix4 result(*this);
 		result.inverse();
-		return result;
-	}
-	
-	void Matrix4::transpose()
-	{
-		this->set(this->data[0], this->data[4], this->data[8],  this->data[12],
-				  this->data[1], this->data[5], this->data[9],  this->data[13],
-				  this->data[2], this->data[6], this->data[10], this->data[14],
-				  this->data[3], this->data[7], this->data[11], this->data[15]);
-	}
-	
-	Matrix4 Matrix4::transposed() const
-	{
-		Matrix4 result(*this);
-		result.transpose();
 		return result;
 	}
 	
@@ -379,27 +403,6 @@ namespace gtypes
 		Matrix4 result(*this);
 		result.inverseRotation();
 		return result;
-	}
-	
-	void Matrix4::lookAt(const float* eye, const float* target, const float* up)
-	{
-		this->lookAt(Vector3(eye[0], eye[1], eye[2]), Vector3(target[0], target[1], target[2]), Vector3(up[0], up[1], up[2]));
-	}
-	
-	// so that you can see the Matrix, Neo
-	void Matrix4::lookAt(const Vector3& eye, const Vector3& target, const Vector3& up)
-	{
-		Vector3 bz = (eye - target).normalized();
-		Vector3 bx = up.cross(bz).normalized();
-		Vector3 by = bz.cross(bx).normalized();
-		Matrix4 a;
-		a[0]  = bx.x; a[1]  = by.x; a[2]  = bz.x; a[3]  = 0.0f;
-		a[4]  = bx.y; a[5]  = by.y; a[6]  = bz.y; a[7]  = 0.0f;
-		a[8]  = bx.z; a[9]  = by.z; a[10] = bz.z; a[11] = 0.0f;
-		a[12] = 0.0f; a[13] = 0.0f; a[14] = 0.0f; a[15] = 1.0f;
-		Matrix4 b;
-		b.setTranslation(-eye);
-		*this = a * b;
 	}
 	
 	Matrix4 Matrix4::operator*(const Matrix4& other) const
@@ -422,6 +425,14 @@ namespace gtypes
 					   this->data[3] * other[12] + this->data[7] * other[13] + this->data[11] * other[14] + this->data[15] * other[15]);
 	}
 	
+	Matrix4 Matrix4::operator*(float factor) const
+	{
+		return Matrix4(this->data[0] * factor, this->data[1] * factor, this->data[2] * factor, this->data[3] * factor,
+					   this->data[4] * factor, this->data[5] * factor, this->data[6] * factor, this->data[7] * factor,
+					   this->data[8] * factor, this->data[9] * factor, this->data[10] * factor, this->data[11] * factor,
+					   this->data[12] * factor, this->data[13] * factor, this->data[14] * factor, this->data[15] * factor);
+	}
+
 	Vector3 Matrix4::operator*(const Vector3& vector) const
 	{
 		return Vector3(this->data[0] * vector.x + this->data[4] * vector.y + this->data[8] * vector.z + this->data[12],
@@ -435,14 +446,6 @@ namespace gtypes
 						  this->data[1] * quaternion.x + this->data[5] * quaternion.y + this->data[9] * quaternion.z + this->data[13] * quaternion.w,
 						  this->data[2] * quaternion.x + this->data[6] * quaternion.y + this->data[10] * quaternion.z + this->data[14] * quaternion.w,
 						  this->data[3] * quaternion.x + this->data[7] * quaternion.y + this->data[11] * quaternion.z + this->data[15] * quaternion.w);
-	}
-	
-	Matrix4 Matrix4::operator*(float factor) const
-	{
-		return Matrix4(this->data[0] * factor, this->data[1] * factor, this->data[2] * factor, this->data[3] * factor,
-					   this->data[4] * factor, this->data[5] * factor, this->data[6] * factor, this->data[7] * factor,
-					   this->data[8] * factor, this->data[9] * factor, this->data[10] * factor, this->data[11] * factor,
-					   this->data[12] * factor, this->data[13] * factor, this->data[14] * factor, this->data[15] * factor);
 	}
 	
 	Matrix4 Matrix4::operator+(const Matrix4& other) const
@@ -459,32 +462,6 @@ namespace gtypes
 					   this->data[4] - other[4], this->data[5] - other[5], this->data[6] - other[6], this->data[7] - other[7],
 					   this->data[8] - other[8], this->data[9] - other[9], this->data[10] - other[10], this->data[11] - other[11],
 					   this->data[12] - other[12], this->data[13] - other[13], this->data[14] - other[14], this->data[15] - other[15]);
-	}
-
-	void Matrix4::perspective(float fov, float aspect, float near, float far)
-	{
-		float iy = 1.0f / ((float)tan(DEG_TO_RAD(fov * 0.5f)));
-		float ix = iy * aspect;
-		this->data[0] = 1.0f * ix;	this->data[1] = 0.0f;		this->data[2] = 0.0f;									this->data[3] = 0.0f;
-		this->data[4] = 0.0f;		this->data[5] = 1.0f * iy;	this->data[6] = 0.0f;									this->data[7] = 0.0f;
-		this->data[8] = 0.0f;		this->data[9] = 0.0f;		this->data[10] = -(far + near) / (far - near);			this->data[11] = -1.0f;
-		this->data[12] = 0.0f;		this->data[13] = 0.0f;		this->data[14] = -(2.0f * far * near) / (far - near);	this->data[15] = 0.0f;
-	}
-	
-	void Matrix4::ortho(const Rectangle& rect)
-	{
-		this->setIdentity();
-		this->data[0] = 2 / rect.w;
-		this->data[5] = -2 / rect.h;
-		this->data[10] = -2;
-		this->data[12] = -1 + rect.x * 2 / rect.w;
-		this->data[13] = 1 - rect.y * 2 / rect.h;
-	}
-
-	Matrix4 Matrix4::operator*=(float f)
-	{
-		*this = *this * f;
-		return (*this);
 	}
 
 	Matrix4 Matrix4::operator*=(const Matrix4& other)
