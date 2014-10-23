@@ -8,7 +8,7 @@
 /// 
 /// @section DESCRIPTION
 /// 
-/// DOCUMENT ME
+/// Represents a 3x3 matrix.
 
 #ifndef GTYPES_MATRIX_3_H
 #define GTYPES_MATRIX_3_H
