@@ -151,19 +151,17 @@ namespace gtypes
 		float c = (float)cos(rad);
 		float s = (float)sin(rad);
 		Vector3 v = axis.normalized();
-		float xx = v.x * v.x;
-		float yy = v.y * v.y;
-		float zz = v.z * v.z;
-		float xy = v.x * v.y;
-		float yz = v.y * v.z;
-		float zx = v.z * v.x;
+		float c1 = 1.0f - c;
+		float xyc1 = v.x * v.y * c1;
+		float yzc1 = v.y * v.z * c1;
+		float zxc1 = v.z * v.x * c1;
 		float xs = v.x * s;
 		float ys = v.y * s;
 		float zs = v.z * s;
-		this->data[0] = (1.0f - c) * xx + c;	this->data[4] = (1.0f - c) * xy - zs;	this->data[8] = (1.0f - c) * zx + ys;	this->data[12] = 0.0f;
-		this->data[1] = (1.0f - c) * xy + zs;	this->data[5] = (1.0f - c) * yy + c;	this->data[9] = (1.0f - c) * yz - xs;	this->data[13] = 0.0f;
-		this->data[2] = (1.0f - c) * zx - ys;	this->data[6] = (1.0f - c) * yz + xs;	this->data[10] = (1.0f - c) * zz + c;	this->data[14] = 0.0f;
-		this->data[3] = 0.0f;					this->data[7] = 0.0f;					this->data[11] = 0.0f;					this->data[15] = 1.0f;
+		this->data[0] = v.x * v.x * c1 + c;	this->data[1] = xyc1 + zs;			this->data[2] = zxc1 - ys; 				this->data[3] = 0.0f;
+		this->data[4] = xyc1 - zs;			this->data[5] = v.y * v.y * c1 + c;	this->data[6] = yzc1 + xs; 				this->data[7] = 0.0f;
+		this->data[8] = zxc1 + ys;			this->data[9] = yzc1 - xs;			this->data[10] = v.z * v.z * c1 + c;	this->data[11] = 0.0f;
+		this->data[12] = 0.0f;				this->data[13] = 0.0f;				this->data[14] = 0.0f;					this->data[15] = 1.0f;
 	}
 
 	void Matrix4::setRotationX(float angle)
@@ -245,17 +243,17 @@ namespace gtypes
 			(this->data[0] * this->data[9] * this->data[6]));
 	}
 
-	void Matrix4::translate(const Vector3& vector)
-	{
-		Matrix4 mat;
-		mat.setTranslation(vector);
-		this->operator*=(mat);
-	}
-
 	void Matrix4::translate(float x, float y, float z)
 	{
 		Matrix4 mat;
 		mat.setTranslation(x, y, z);
+		this->operator*=(mat);
+	}
+
+	void Matrix4::translate(const Vector3& vector)
+	{
+		Matrix4 mat;
+		mat.setTranslation(vector);
 		this->operator*=(mat);
 	}
 

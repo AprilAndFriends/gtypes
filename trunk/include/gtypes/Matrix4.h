@@ -132,8 +132,8 @@ namespace gtypes
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
 		/// @param[in] z Z coordinate.
-		/// @brief Sets the scale of the Matrix4.
 		void setScale(float x, float y, float z);
+		/// @brief Sets the scale of the Matrix4.
 		/// @param[in] factor The scale factor.
 		void setScale(float factor);
 		/// @brief Sets the scale of the Matrix4.
@@ -241,11 +241,13 @@ namespace gtypes
 		/// @return The transposed Matrix4 from this one.
 		Matrix4 transposed() const;
 		/// @brief Inverses the Matrix4.
+		/// @note This will NOT inverse the rotation!
 		void inverse();
-		/// @brief Creates a rotation Matrix4 from this one.
-		/// @return The rotated Matrix4 from this one.
+		/// @brief Creates an inversed Matrix4 from this one.
+		/// @return The inversed Matrix4 from this one.
+		/// @note This will NOT inverse the rotation!
 		Matrix4 inversed() const;
-		/// @brief Inverse-rotates the Matrix4.
+		/// @brief Inverses the rotation of the Matrix4.
 		void inverseRotation();
 		/// @brief Creates a rotation-inversed Matrix4 from this one.
 		/// @return The rotation-inversed Matrix4 from this one.
