@@ -349,7 +349,7 @@ namespace gtypes
 	Matrix3 Matrix3::inversedRotation3D() const
 	{
 		Matrix3 result(*this);
-		result.inverseRotation();
+		result.inverseRotation3D();
 		return result;
 	}
 
