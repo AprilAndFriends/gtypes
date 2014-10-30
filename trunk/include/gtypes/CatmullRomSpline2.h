@@ -147,6 +147,6 @@ namespace gtypes
 
 }
 
-typedef gtypes::CatmullRomSpline2 gcrs3;
+typedef gtypes::CatmullRomSpline2 gcrs2;
 
 #endif
