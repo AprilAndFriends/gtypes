@@ -34,7 +34,7 @@ namespace gtypes
 		/// @param[in] samples How many samples to use for calculation.
 		/// @param[in] t1 Custom beginning point.
 		/// @param[in] t2 Custom ending point.
-		CatmullRomSpline2(const std::vector<Vector2>& vectors, bool closed = false, double curvature = 0.0, int samples = 16, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
+		CatmullRomSpline2(const std::vector<Vector2>& vectors, bool closed = false, double curvature = 0.5, int samples = 16, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
 		/// @brief Constructor.
 		/// @param[in] vectors Array of points in 2D space to define the CatmullRomSpline2.
 		/// @param[in] n Number of points in vectors.
@@ -43,7 +43,7 @@ namespace gtypes
 		/// @param[in] samples How many samples to use for calculation.
 		/// @param[in] t1 Custom beginning point.
 		/// @param[in] t2 Custom ending point.
-		CatmullRomSpline2(const Vector2 vectors[], int n, bool closed = false, double curvature = 0.0, int samples = 16, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
+		CatmullRomSpline2(const Vector2 vectors[], int n, bool closed = false, double curvature = 0.5, int samples = 16, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
 		/// @brief Destructor.
 		~CatmullRomSpline2();
 
@@ -54,7 +54,7 @@ namespace gtypes
 		/// @param[in] samples How many samples to use for calculation.
 		/// @param[in] t1 Custom beginning point.
 		/// @param[in] t2 Custom ending point.
-		void set(const std::vector<Vector2>& vectors, bool closed = false, double curvature = 0.0, int samples = 16, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
+		void set(const std::vector<Vector2>& vectors, bool closed = false, double curvature = 0.5, int samples = 16, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
 		/// @brief Sets the CatmullRomSpline2's values.
 		/// @param[in] vectors Array of points in 2D space to define the CatmullRomSpline2.
 		/// @param[in] n Number of points in vectors.
@@ -63,12 +63,14 @@ namespace gtypes
 		/// @param[in] samples How many samples to use for calculation.
 		/// @param[in] t1 Custom beginning point.
 		/// @param[in] t2 Custom ending point.
-		void set(const Vector2 vectors[], int n, bool closed = false, double curvature = 0.0, int samples = 16, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
+		void set(const Vector2 vectors[], int n, bool closed = false, double curvature = 0.5, int samples = 16, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
 
 		/// @return The length of the CatmullRomSpline2.
 		inline double getLength() const { return this->length; }
 		/// @return True if the CatmullRomSpline2 is closed.
 		inline bool isClosed() const { return this->closed; }
+		/// @return The points of the CatmullRomSpline2.
+		inline const std::vector<Vector2>& getPoints() const { return this->points; }
 
 		/// @brief Calculates the position of a point on the CatmullRomSpline2.
 		/// @param[in] t Segment range position.
