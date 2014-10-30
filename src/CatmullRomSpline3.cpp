@@ -20,27 +20,30 @@ namespace gtypes
 	{
 	}
 
-	CatmullRomSpline3::CatmullRomSpline3(const std::vector<Vector3>& vectors, bool closed, int samples, Vector3 t1, Vector3 t2) :
+	CatmullRomSpline3::CatmullRomSpline3(const std::vector<Vector3>& vectors, bool closed, double curvature, int samples, Vector3 t1, Vector3 t2) :
 		closed(false), length(0.0), curvature(0.5), samples(16), _prevLength(0.0), _prevIndex(-1), _prevDot(0), _inflexed(false)
 	{
-		this->set(vectors, closed, samples, t1, t2);
+		this->set(vectors, closed, curvature, samples, t1, t2);
 	}
 
-	CatmullRomSpline3::CatmullRomSpline3(const Vector3 vectors[], int n, bool closed, int samples, Vector3 t1, Vector3 t2) :
+	CatmullRomSpline3::CatmullRomSpline3(const Vector3 vectors[], int n, bool closed, double curvature, int samples, Vector3 t1, Vector3 t2) :
 		closed(false), length(0.0), curvature(0.5), samples(16), _prevLength(0.0), _prevIndex(-1), _prevDot(0), _inflexed(false)
 	{
-		this->set(vectors, n, closed, samples, t1, t2);
+		this->set(vectors, n, closed, curvature, samples, t1, t2);
 	}
 
 	CatmullRomSpline3::~CatmullRomSpline3()
 	{
 	}
 
-	void CatmullRomSpline3::set(const Vector3 vectors[], int n, bool closed, int samples, Vector3 t1, Vector3 t2)
+	void CatmullRomSpline3::set(const Vector3 vectors[], int n, bool closed, double curvature, int samples, Vector3 t1, Vector3 t2)
 	{
 		this->points.clear();
 		this->lengths.clear();
+		this->_arcLengths.clear();
 		this->closed = closed;
+		this->curvature = curvature;
+		this->samples = samples;
 		if (this->closed)
 		{
 			this->points.push_back(vectors[n - 1]);
@@ -71,11 +74,14 @@ namespace gtypes
 		this->_calcLength();
 	}
 
-	void CatmullRomSpline3::set(const std::vector<Vector3>& vectors, bool closed, int samples, Vector3 t1, Vector3 t2)
+	void CatmullRomSpline3::set(const std::vector<Vector3>& vectors, bool closed, double curvature, int samples, Vector3 t1, Vector3 t2)
 	{
 		this->points.clear();
 		this->lengths.clear();
+		this->_arcLengths.clear();
 		this->closed = closed;
+		this->curvature = curvature;
+		this->samples = samples;
 		if (this->closed)
 		{
 			this->points.push_back(vectors.back());
