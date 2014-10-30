@@ -20,27 +20,30 @@ namespace gtypes
 	{
 	}
 
-	CatmullRomSpline2::CatmullRomSpline2(const std::vector<Vector2>& vectors, bool closed, int samples, Vector2 t1, Vector2 t2) :
+	CatmullRomSpline2::CatmullRomSpline2(const std::vector<Vector2>& vectors, bool closed, double curvature, int samples, Vector2 t1, Vector2 t2) :
 		closed(false), length(0.0), curvature(0.5), samples(16), _prevLength(0.0), _prevIndex(-1)
 	{
-		this->set(vectors, closed, samples, t1, t2);
+		this->set(vectors, closed, curvature, samples, t1, t2);
 	}
 
-	CatmullRomSpline2::CatmullRomSpline2(const Vector2 vectors[], int n, bool closed, int samples, Vector2 t1, Vector2 t2) :
+	CatmullRomSpline2::CatmullRomSpline2(const Vector2 vectors[], int n, bool closed, double curvature, int samples, Vector2 t1, Vector2 t2) :
 		closed(false), length(0.0), curvature(0.5), samples(16), _prevLength(0.0), _prevIndex(-1)
 	{
-		this->set(vectors, n, closed, samples, t1, t2);
+		this->set(vectors, n, closed, curvature, samples, t1, t2);
 	}
 
 	CatmullRomSpline2::~CatmullRomSpline2()
 	{
 	}
 
-	void CatmullRomSpline2::set(const Vector2 vectors[], int n, bool closed, int samples, Vector2 t1, Vector2 t2)
+	void CatmullRomSpline2::set(const Vector2 vectors[], int n, bool closed, double curvature, int samples, Vector2 t1, Vector2 t2)
 	{
 		this->points.clear();
 		this->lengths.clear();
+		this->_arcLengths.clear();
 		this->closed = closed;
+		this->curvature = curvature;
+		this->samples = samples;
 		if (this->closed)
 		{
 			this->points.push_back(vectors[n - 1]);
@@ -71,11 +74,14 @@ namespace gtypes
 		this->_calcLength();
 	}
 
-	void CatmullRomSpline2::set(const std::vector<Vector2>& vectors, bool closed, int samples, Vector2 t1, Vector2 t2)
+	void CatmullRomSpline2::set(const std::vector<Vector2>& vectors, bool closed, double curvature, int samples, Vector2 t1, Vector2 t2)
 	{
 		this->points.clear();
 		this->lengths.clear();
+		this->_arcLengths.clear();
 		this->closed = closed;
+		this->curvature = curvature;
+		this->samples = samples;
 		if (this->closed)
 		{
 			this->points.push_back(vectors.back());
