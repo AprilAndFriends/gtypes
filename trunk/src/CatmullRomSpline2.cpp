@@ -126,7 +126,6 @@ namespace gtypes
 		int index = 0;
 		double lt = 0.0;
 		this->_prevLength = 0.0;
-		double lp = this->_arcLengths.begin()->first;
 		foreach_stdmap (double, int, it, this->_arcLengths)
 		{
 			if (t >= this->_prevLength && t < (it->first))
