@@ -225,22 +225,28 @@ namespace gtypes
 
 	void Matrix4::setOrthoProjection(const Rectangle& rect)
 	{
-		this->setIdentity();
-		this->data[0] = 2.0f / rect.w;
-		this->data[5] = -2.0f / rect.h;
-		this->data[10] = -2.0f;
-		this->data[12] = -1.0f + rect.x * 2.0f / rect.w;
-		this->data[13] = 1.0f - rect.y * 2.0f / rect.h;
+		this->data[0] = 2.0f / rect.w;						this->data[1] = 0.0f;							this->data[2] = 0.0f;	this->data[3] = 0.0f;
+		this->data[4] = 0.0f;								this->data[5] = -2.0f / rect.h;					this->data[6] = 0.0f;	this->data[7] = 0.0f;
+		this->data[8] = 0.0f;								this->data[9] = 0.0f;							this->data[10] = -2.0f;	this->data[11] = 0.0f;
+		this->data[12] = -1.0f + rect.x * 2.0f / rect.w;	this->data[13] = 1.0f - rect.y * 2.0f / rect.h;	this->data[14] = 0.0f;	this->data[15] = 1.0f;
+	}
+
+	void Matrix4::setOrthoProjection(const Rectangle& rect, float near, float far)
+	{
+		this->data[0] = 2.0f / rect.w;						this->data[1] = 0.0f;							this->data[2] = 0.0f;							this->data[3] = 0.0f;
+		this->data[4] = 0.0f;								this->data[5] = -2.0f / rect.h;					this->data[6] = 0.0f;							this->data[7] = 0.0f;
+		this->data[8] = 0.0f;								this->data[9] = 0.0f;							this->data[10] = -2.0f / (far - near);			this->data[11] = 0.0f;
+		this->data[12] = -1.0f + rect.x * 2.0f / rect.w;	this->data[13] = 1.0f - rect.y * 2.0f / rect.h;	this->data[14] = (far + near) / (far - near);	this->data[15] = 1.0f;
 	}
 
 	float Matrix4::det() const
 	{
 		return ((this->data[0] * this->data[5] * this->data[10]) +
-			(this->data[4] * this->data[9] * this->data[2]) +
-			(this->data[8] * this->data[1] * this->data[6]) -
-			(this->data[8] * this->data[5] * this->data[2]) -
-			(this->data[4] * this->data[1] * this->data[10]) -
-			(this->data[0] * this->data[9] * this->data[6]));
+				(this->data[4] * this->data[9] * this->data[2]) +
+				(this->data[8] * this->data[1] * this->data[6]) -
+				(this->data[8] * this->data[5] * this->data[2]) -
+				(this->data[4] * this->data[1] * this->data[10]) -
+				(this->data[0] * this->data[9] * this->data[6]));
 	}
 
 	void Matrix4::translate(float x, float y, float z)
