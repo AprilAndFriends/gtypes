@@ -171,6 +171,11 @@ namespace gtypes
 		/// @brief Creates an ortho-projection from a Rectangle.
 		/// @param[in] rect The Rectangle.
 		void setOrthoProjection(const Rectangle& rect);
+		/// @brief Creates an ortho-projection from a Rectangle.
+		/// @param[in] rect The Rectangle.
+		/// @param[in] near The near plane.
+		/// @param[in] near The far plane.
+		void setOrthoProjection(const Rectangle& rect, float near, float far);
 		/// @brief Sets the perspective in a Matrix4.
 		/// @param[in] fov The field-of-view.
 		/// @param[in] aspect The aspect ratio of the view.
