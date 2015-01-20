@@ -230,13 +230,14 @@ namespace gtypes
 		int i1 = index;
 		int i2 = index + 1;
 		int i3 = index + 2;
+		int psize = (int)this->points.size();
 		if (i0 < 0)
 		{
 			i0 = 0;
 		}
-		if (i3 > ((int)this->points.size() - 1))
+		if (i3 > (psize - 1))
 		{
-			i3 = this->points.size() - 1;
+			i3 = psize - 1;
 		}
 		double t2 = t * t;
 		double t3 = t2 * t;
