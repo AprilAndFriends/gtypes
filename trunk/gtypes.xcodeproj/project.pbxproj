@@ -26,6 +26,10 @@
 		7F42F75211EB136E00B1C1DF /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74A11EB136E00B1C1DF /* Vector2.cpp */; };
 		7F42F75311EB136E00B1C1DF /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74B11EB136E00B1C1DF /* Vector3.cpp */; };
 		C9F9313D14DA87F400954F90 /* gtypesUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F9313C14DA87F400954F90 /* gtypesUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D1353E8B1AD311CF00BB5829 /* _utVector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1353E781AD3118E00BB5829 /* _utVector2.cpp */; };
+		D1353E8C1AD311DE00BB5829 /* libgtypes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F27A89177A2CB600E5C131 /* libgtypes.a */; };
+		D1353E8F1AD3139E00BB5829 /* utVector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1353E771AD3118300BB5829 /* utVector2.cpp */; };
+		D1353E921AD3141B00BB5829 /* aprilUT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1353E911AD3141B00BB5829 /* aprilUT.cpp */; };
 		D1522F2D140F79E10012F290 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F3518731251E4810005B659 /* Rectangle.cpp */; };
 		D1522F2E140F79E10012F290 /* CatmullRomSpline2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74511EB136E00B1C1DF /* CatmullRomSpline2.cpp */; };
 		D1522F2F140F79E10012F290 /* CatmullRomSpline3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74611EB136E00B1C1DF /* CatmullRomSpline3.cpp */; };
@@ -43,6 +47,16 @@
 		D1F27A7F177A2CB600E5C131 /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74A11EB136E00B1C1DF /* Vector2.cpp */; };
 		D1F27A80177A2CB600E5C131 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74B11EB136E00B1C1DF /* Vector3.cpp */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D1353E8D1AD311E500BB5829 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1F27A77177A2CB600E5C131;
+			remoteInfo = "gtypes (Mac)";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		7F35186F1251E4740005B659 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = include/gtypes/Constants.h; sourceTree = "<group>"; };
@@ -66,6 +80,11 @@
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* gtypes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = gtypes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F9313C14DA87F400954F90 /* gtypesUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gtypesUtil.h; path = include/gtypes/gtypesUtil.h; sourceTree = "<group>"; };
+		D1353E771AD3118300BB5829 /* utVector2.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = utVector2.cpp; path = unitTests/utVector2.cpp; sourceTree = "<group>"; };
+		D1353E781AD3118E00BB5829 /* _utVector2.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = _utVector2.cpp; path = unitTests/generated/_utVector2.cpp; sourceTree = "<group>"; };
+		D1353E7E1AD311BA00BB5829 /* gtypes.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gtypes.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1353E901AD313E700BB5829 /* aprilUT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = aprilUT.h; path = unitTests/generated/aprilUT.h; sourceTree = "<group>"; };
+		D1353E911AD3141B00BB5829 /* aprilUT.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = aprilUT.cpp; path = unitTests/generated/aprilUT.cpp; sourceTree = "<group>"; };
 		D1522F1C140F79500012F290 /* libgtypes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtypes.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1681B7518D761D80088FC68 /* iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = iOS.xcconfig; path = xcconfig/iOS.xcconfig; sourceTree = "<group>"; };
 		D1681B7618D761D80088FC68 /* Mac.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Mac.xcconfig; path = xcconfig/Mac.xcconfig; sourceTree = "<group>"; };
@@ -77,6 +96,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1353E7B1AD311BA00BB5829 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1353E8C1AD311DE00BB5829 /* libgtypes.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +130,7 @@
 				8DC2EF5B0486A6940098B216 /* gtypes.framework */,
 				D1522F1C140F79500012F290 /* libgtypes.a */,
 				D1F27A89177A2CB600E5C131 /* libgtypes.a */,
+				D1353E7E1AD311BA00BB5829 /* gtypes.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,6 +141,7 @@
 				D1681B7718D7626C0088FC68 /* config */,
 				7F42F6E811EB0E0600B1C1DF /* include */,
 				7F42F6E711EB0E0200B1C1DF /* src */,
+				D1353E761AD3116800BB5829 /* unitTests */,
 				034768DFFF38A50411DB9C8B /* Products */,
 			);
 			name = libgtypes;
@@ -149,6 +178,25 @@
 				C9F9313C14DA87F400954F90 /* gtypesUtil.h */,
 			);
 			name = include;
+			sourceTree = "<group>";
+		};
+		D1353E761AD3116800BB5829 /* unitTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1353E791AD3119400BB5829 /* generated */,
+				D1353E771AD3118300BB5829 /* utVector2.cpp */,
+			);
+			name = unitTests;
+			sourceTree = "<group>";
+		};
+		D1353E791AD3119400BB5829 /* generated */ = {
+			isa = PBXGroup;
+			children = (
+				D1353E901AD313E700BB5829 /* aprilUT.h */,
+				D1353E911AD3141B00BB5829 /* aprilUT.cpp */,
+				D1353E781AD3118E00BB5829 /* _utVector2.cpp */,
+			);
+			name = generated;
 			sourceTree = "<group>";
 		};
 		D1681B7718D7626C0088FC68 /* config */ = {
@@ -218,6 +266,23 @@
 			productReference = 8DC2EF5B0486A6940098B216 /* gtypes.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		D1353E7D1AD311BA00BB5829 /* gtypesTests (Mac) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1353E871AD311BA00BB5829 /* Build configuration list for PBXNativeTarget "gtypesTests (Mac)" */;
+			buildPhases = (
+				D1353E7A1AD311BA00BB5829 /* Sources */,
+				D1353E7B1AD311BA00BB5829 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1353E8E1AD311E500BB5829 /* PBXTargetDependency */,
+			);
+			name = "gtypesTests (Mac)";
+			productName = "gtypesTests (Mac)";
+			productReference = D1353E7E1AD311BA00BB5829 /* gtypes.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D1522F1B140F79500012F290 /* gtypes (iOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1522F2B140F79500012F290 /* Build configuration list for PBXNativeTarget "gtypes (iOS)" */;
@@ -259,6 +324,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0620;
+				TargetAttributes = {
+					D1353E7D1AD311BA00BB5829 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "gtypes" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -278,6 +348,7 @@
 				8DC2EF4F0486A6940098B216 /* gtypes */,
 				D1F27A77177A2CB600E5C131 /* gtypes (Mac) */,
 				D1522F1B140F79500012F290 /* gtypes (iOS) */,
+				D1353E7D1AD311BA00BB5829 /* gtypesTests (Mac) */,
 			);
 		};
 /* End PBXProject section */
@@ -305,6 +376,16 @@
 				7F42F75211EB136E00B1C1DF /* Vector2.cpp in Sources */,
 				7F42F75311EB136E00B1C1DF /* Vector3.cpp in Sources */,
 				7F3518741251E4810005B659 /* Rectangle.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1353E7A1AD311BA00BB5829 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1353E8F1AD3139E00BB5829 /* utVector2.cpp in Sources */,
+				D1353E921AD3141B00BB5829 /* aprilUT.cpp in Sources */,
+				D1353E8B1AD311CF00BB5829 /* _utVector2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +420,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D1353E8E1AD311E500BB5829 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1F27A77177A2CB600E5C131 /* gtypes (Mac) */;
+			targetProxy = D1353E8D1AD311E500BB5829 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		7F7A5614129D436D00E0ED12 /* App Store */ = {
@@ -414,6 +503,30 @@
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
+		};
+		D1353E881AD311BA00BB5829 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1681B7618D761D80088FC68 /* Mac.xcconfig */;
+			buildSettings = {
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D1353E891AD311BA00BB5829 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1681B7618D761D80088FC68 /* Mac.xcconfig */;
+			buildSettings = {
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D1353E8A1AD311BA00BB5829 /* App Store */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1681B7618D761D80088FC68 /* Mac.xcconfig */;
+			buildSettings = {
+				SDKROOT = macosx;
+			};
+			name = "App Store";
 		};
 		D1522F27140F79500012F290 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -529,6 +642,16 @@
 				C9160585132AE60400914FFC /* Debug */,
 				C9160587132AE61000914FFC /* Release */,
 				7F7A5614129D436D00E0ED12 /* App Store */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D1353E871AD311BA00BB5829 /* Build configuration list for PBXNativeTarget "gtypesTests (Mac)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1353E881AD311BA00BB5829 /* Debug */,
+				D1353E891AD311BA00BB5829 /* Release */,
+				D1353E8A1AD311BA00BB5829 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
