@@ -16,18 +16,18 @@
 namespace gtypes
 {
 	CatmullRomSpline3::CatmullRomSpline3() :
-		closed(false), length(0.0), curvature(0.5), samples(16), _prevLength(0.0), _prevIndex(-1), _prevDot(0), _inflexed(false)
+		closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0), _prevDot(0), _inflexed(false)
 	{
 	}
 
 	CatmullRomSpline3::CatmullRomSpline3(const std::vector<Vector3>& vectors, bool closed, double curvature, int samples, Vector3 t1, Vector3 t2) :
-		closed(false), length(0.0), curvature(0.5), samples(16), _prevLength(0.0), _prevIndex(-1), _prevDot(0), _inflexed(false)
+		closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0), _prevDot(0), _inflexed(false)
 	{
 		this->set(vectors, closed, curvature, samples, t1, t2);
 	}
 
 	CatmullRomSpline3::CatmullRomSpline3(const Vector3 vectors[], int n, bool closed, double curvature, int samples, Vector3 t1, Vector3 t2) :
-		closed(false), length(0.0), curvature(0.5), samples(16), _prevLength(0.0), _prevIndex(-1), _prevDot(0), _inflexed(false)
+		closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0), _prevDot(0), _inflexed(false)
 	{
 		this->set(vectors, n, closed, curvature, samples, t1, t2);
 	}
@@ -156,12 +156,10 @@ namespace gtypes
 	Vector3 CatmullRomSpline3::calcStaticTangent(double t)
 	{
 		int index = 0;
-		int lt = (int)this->_arcLengths.begin()->first;
 		foreach_stdmap (double, int, it, this->_arcLengths)
 		{
 			if ((t >= this->_prevLength) && (t < (it->first)))
 			{
-				lt = (int)((t - this->_prevLength) * (1.0 / (it->first - this->_prevLength)));
 				index = it->second;
 				break;
 			}

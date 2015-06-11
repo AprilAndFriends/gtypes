@@ -16,18 +16,18 @@
 namespace gtypes
 {
 	CatmullRomSpline2::CatmullRomSpline2() :
-		closed(false), length(0.0), curvature(0.5), samples(16), _prevLength(0.0), _prevIndex(-1)
+		closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0)
 	{
 	}
 
 	CatmullRomSpline2::CatmullRomSpline2(const std::vector<Vector2>& vectors, bool closed, double curvature, int samples, Vector2 t1, Vector2 t2) :
-		closed(false), length(0.0), curvature(0.5), samples(16), _prevLength(0.0), _prevIndex(-1)
+		closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0)
 	{
 		this->set(vectors, closed, curvature, samples, t1, t2);
 	}
 
 	CatmullRomSpline2::CatmullRomSpline2(const Vector2 vectors[], int n, bool closed, double curvature, int samples, Vector2 t1, Vector2 t2) :
-		closed(false), length(0.0), curvature(0.5), samples(16), _prevLength(0.0), _prevIndex(-1)
+		closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0)
 	{
 		this->set(vectors, n, closed, curvature, samples, t1, t2);
 	}
@@ -156,12 +156,10 @@ namespace gtypes
 	Vector2 CatmullRomSpline2::calcStaticTangent(double t)
 	{
 		int index = 0;
-		int lt = (int)this->_arcLengths.begin()->first;
 		foreach_stdmap (double, int, it, this->_arcLengths)
 		{
 			if ((t >= this->_prevLength) && (t < (it->first)))
 			{
-				lt = (int)((t - this->_prevLength) * (1.0 / (it->first - this->_prevLength)));
 				index = it->second;
 				break;
 			}
