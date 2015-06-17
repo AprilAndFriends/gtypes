@@ -17,7 +17,7 @@
     <ClCompile Condition="'$(CompileAs)'=='CompileAsCpp'">
       <ExceptionHandlingEnum>Enabled</ExceptionHandlingEnum>
       <RuntimeTypeInfoEnum>Enabled</RuntimeTypeInfoEnum>
-      <AdditionalOptions >-Wno-overloaded-virtual %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Wno-overloaded-virtual %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClCompile Condition="'$(CompileAs)'!='CompileAsCpp'">
       <ExceptionHandlingEnum></ExceptionHandlingEnum>
