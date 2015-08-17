@@ -322,7 +322,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				TargetAttributes = {
 					D1353E7D1AD311BA00BB5829 = {
 						CreatedOnToolsVersion = 6.2;
@@ -436,6 +436,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				INFOPLIST_FILE = Info.plist;
 				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.googlecode.${PRODUCT_NAME:rfc1034Identifier}";
 				PRODUCT_NAME = gtypes;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
@@ -464,6 +465,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = Info.plist;
 				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.googlecode.${PRODUCT_NAME:rfc1034Identifier}";
 				PRODUCT_NAME = gtypes;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
@@ -487,6 +489,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				INFOPLIST_FILE = Info.plist;
 				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.googlecode.${PRODUCT_NAME:rfc1034Identifier}";
 				PRODUCT_NAME = gtypes;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
