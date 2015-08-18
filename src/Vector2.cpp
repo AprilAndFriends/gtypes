@@ -39,7 +39,7 @@ namespace gtypes
 
 	float Vector2::length() const
 	{
-		return sqrt(this->x * this->x + this->y * this->y);
+		return (float)sqrt(this->x * this->x + this->y * this->y);
 	}
 
 	float Vector2::squaredLength() const

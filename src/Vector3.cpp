@@ -40,7 +40,7 @@ namespace gtypes
 	
 	float Vector3::length() const
 	{
-		return sqrt(this->x * this->x + this->y * this->y + this->z * this->z);
+		return (float)sqrt(this->x * this->x + this->y * this->y + this->z * this->z);
 	}
 
 	float Vector3::squaredLength() const

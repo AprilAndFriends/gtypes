@@ -62,7 +62,7 @@ namespace gtypes
 	
 	float Quaternion::length() const
 	{
-		return sqrt(this->x * this->x + this->y * this->y + this->z * this->z + this->w * this->w);
+		return (float)sqrt(this->x * this->x + this->y * this->y + this->z * this->z + this->w * this->w);
 	}
 	
 	float Quaternion::squaredLength() const
@@ -240,8 +240,8 @@ namespace gtypes
 
 	Quaternion Quaternion::slerp(const Quaternion& a, const Quaternion& b, float factor)
 	{
-		float theta = acos(a.dot(b));
-		float sinTheta = sin(theta);
+		float theta = (float)acos(a.dot(b));
+		float sinTheta = (float)sin(theta);
 		float w1 = 1.0f - factor;
 		float w2 = factor;
 		if (sinTheta > G_E_TOLERANCE)
@@ -260,7 +260,7 @@ namespace gtypes
 	Quaternion Quaternion::fromAxisAngle(const Vector3& axis, float angle)
 	{
 		float theta = (float)DEG_TO_RAD(angle) * 0.5f;
-		return Quaternion(axis.normalized() * sin(theta), cos(theta));
+		return Quaternion(axis.normalized() * (float)sin(theta), (float)cos(theta));
 	}
 
 	Quaternion Quaternion::fromEulerAngles(float yaw, float pitch, float roll)
