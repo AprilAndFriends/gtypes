@@ -71,7 +71,7 @@ namespace gtypes
 		this->h = size.y;
 	}
 	
-	Vector2 Rectangle::getPosition()
+	Vector2 Rectangle::getPosition() const
 	{
 		return Vector2(this->x, this->y);
 	}
@@ -88,7 +88,7 @@ namespace gtypes
 		this->y = y;
 	}
 	
-	Vector2 Rectangle::getSize()
+	Vector2 Rectangle::getSize() const
 	{
 		return Vector2(this->w, this->h);
 	}

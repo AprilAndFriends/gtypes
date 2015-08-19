@@ -77,7 +77,7 @@ namespace gtypes
 		void set(float x, float y, Vector2 size);
 		
 		/// @brief Gets the position.
-		Vector2 getPosition();
+		Vector2 getPosition() const;
 		/// @brief Sets the position.
 		/// @param[in] position Position.
 		void setPosition(Vector2 position);
@@ -86,7 +86,7 @@ namespace gtypes
 		/// @param[in] y Y coordinate.
 		void setPosition(float x, float y);
 		/// @brief Gets the size.
-		Vector2 getSize();
+		Vector2 getSize() const;
 		/// @brief Sets the size.
 		/// @param[in] size Size.
 		void setSize(Vector2 size);
