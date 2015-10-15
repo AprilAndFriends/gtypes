@@ -13,7 +13,7 @@ namespace testVector2
 		return (habs(a - b) < tolerance);
 	}
 
-	const float tolerance = 0.2f;
+	const float tolerance = 0.1f;
 
 	bool vec2eqf(gvec2 v1, gvec2 v2)
 	{
@@ -209,7 +209,7 @@ namespace testVector2
 		gvec2 v1(4, 6);
 		gvec2 v2(4, 6);
 
-		assertTrue(v1 == v2, "gvec::testEqual - set()");
+		assertTrue(v1 == v2, "gvec2::testEqual - set()");
 	}
 
 	void testNotEqual()
@@ -217,6 +217,6 @@ namespace testVector2
 		gvec2 v1(4, 6);
 		gvec2 v2(2, 3);
 
-		assertTrue(v1 != v2, "gvec::testNotEqual - set()");
+		assertTrue(v1 != v2, "gvec2::testNotEqual - set()");
 	}
 }
