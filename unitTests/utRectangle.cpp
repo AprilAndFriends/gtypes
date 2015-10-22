@@ -112,4 +112,149 @@ namespace testRectangle
 		assertTrue(heqf(r.getCenter().x, 2, tolerance), "grect::testCenter - getCenterX()");
 		assertTrue(heqf(r.getCenter().y, 5, tolerance), "grect::testCenter - getCenterY()");
 	}
+
+	void testClipped()
+	{
+		grect r1(0, 0, 4, 4);
+		grect r2(1, 1, 4, 4);
+		r2 = r2.clipped(r1);
+		assertTrue(r2.x >= r1.x && r2.x + r2.w <= r1.x + r1.w &&
+			r2.y >= r1.y && r2.y + r2.h <= r1.y + r1.h, "grect:testClipped - clipped()");
+	}
+
+	void testClip()
+	{
+		grect r1(0, 0, 4, 4);
+		grect r2(1, 1, 4, 4);
+		r2.clip(r1);
+		assertTrue(r2.x >= r1.x && r2.x + r2.w <= r1.x + r1.w &&
+			r2.y >= r1.y && r2.y + r2.h <= r1.y + r1.h, "grect:testClip - clip()");
+	}
+
+	void testIntersection()
+	{
+		grect r1(0, 0, 4, 4);
+		grect r2(3, 3, 2, 2);
+		
+		assertTrue(r2.intersects(r1) == true, "grect:testIntersection - intersects()");
+	}
+
+	void testContains()
+	{
+		grect r1(0, 0, 4, 4);
+		grect r2(1, 1, 2, 2);
+		
+		assertTrue(r1.contains(r2) == true, "grect:testClip - clip()");
+	}
+
+	void testPointInside()
+	{
+		grect r(0, 0, 4, 4);
+		gvec2 v(1, 2);
+
+		assertTrue(r.isPointInside(v) == true, "grect::testPointInside - isPointInside()");
+		assertTrue(r.isPointInside(v.x, v.y) == true, "grect::testPointInside - isPointInside()");
+	}
+
+	void testAddition()
+	{
+		grect r(0, 0, 4, 4);
+		gvec2 v(1, 2);
+
+		grect r1 = r + v;
+		assertTrue(r1.x == 1 && r1.y == 2, "grect::testAddition - operator+(vector)");
+	}
+
+	void testSubstraction()
+	{
+		grect r(0, 0, 4, 4);
+		gvec2 v(1, 2);
+
+		grect r1 = r - v;
+		assertTrue(r1.x == -1 && r1.y == -2, "grect::testSubstraction - operator-(vector)");
+	}
+
+	void testMultiplication()
+	{
+		grect r(0, 0, 4, 4);
+		gvec2 v(2, 4);
+		
+		grect r1 = r * v;
+		assertTrue(r1.w == 8 && r1.h == 16, "grect::testMultiplication - operator*(vector)");
+
+		r1 = r * 2;
+		assertTrue(r1.w == 8 && r1.h == 8, "grect::testMultiplication - operator*(float)");
+	}
+
+	void testDivision()
+	{
+		grect r(0, 0, 4, 4);
+		gvec2 v(2, 4);
+
+		grect r1 = r / v;
+		assertTrue(r1.w == 2 && r1.h == 1, "grect::testDivision - operator/(vector)");
+
+		r1 = r / 2;
+		assertTrue(r1.w == 2 && r1.h == 2, "grect::testDivision - operator/(float)");
+	}
+
+	void testAdditionAssign()
+	{
+		grect r(0, 0, 4, 4);
+		gvec2 v(1, 2);
+
+		r += v;
+		assertTrue(r.x == 1 && r.y == 2, "grect::testAdditionAssign - operator+=(vector)");
+	}
+
+	void testSubstractionAssign()
+	{
+		grect r(0, 0, 4, 4);
+		gvec2 v(1, 2);
+
+		r -= v;
+		assertTrue(r.x == -1 && r.y == -2, "grect::testSubstractionAssign - operator-=(vector)");
+	}
+
+	void testMultiplicationAssign()
+	{
+		grect r(0, 0, 4, 4);
+		gvec2 v(2, 4);
+
+		r *= v;
+		assertTrue(r.w == 8 && r.h == 16, "grect::testMultiplicationAssign - operator*=(vector)");
+
+		r = grect(0, 0, 4, 4);
+		r *= 2;
+		assertTrue(r.w == 8 && r.h == 8, "grect::testMultiplicationAssign - operator*=(float)");
+	}
+
+	void testDivisionAssign()
+	{
+		grect r(0, 0, 4, 4);
+		gvec2 v(2, 4);
+
+		r /= v;
+		assertTrue(r.w == 2 && r.h == 1, "grect::testDivisionAssign - operator/=(vector)");
+
+		r = grect(0, 0, 4, 4);
+		r /= 2;
+		assertTrue(r.w == 2 && r.h == 2, "grect::testDivisionAssign - operator/=(float)");
+	}
+	
+	void testEqual()
+	{
+		grect r1(0, 0, 4, 4);
+		grect r2(0, 0, 4, 4);
+
+		assertTrue(r1 == r2, "grect::testEqual - operator==()");
+	}
+
+	void testNotEqual()
+	{
+		grect r1(0, 0, 4, 4);
+		grect r2(0, 0, 4, 3);
+
+		assertTrue(r1 != r2, "grect::testNotEqual - operator!=()");
+	}
 }

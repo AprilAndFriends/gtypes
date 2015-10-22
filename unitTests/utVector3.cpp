@@ -91,7 +91,7 @@ namespace testVector3
 	{
 		gvec3 v(3, 4, 5);
 		v = -v;
-		assertTrue(v.x == -3 && v.y == -4 && v.z == -5, "gvec3::testNegation - set()");
+		assertTrue(v.x == -3 && v.y == -4 && v.z == -5, "gvec3::testNegation - operator-()");
 	}
 
 	void testSubstraction()
@@ -101,7 +101,7 @@ namespace testVector3
 
 		gvec3 v = v1 - v2;
 
-		assertTrue(v.x == 2 && v.y == 2 && v.z == 2, "gvec3::testSubstraction - set()");
+		assertTrue(v.x == 2 && v.y == 2 && v.z == 2, "gvec3::testSubstraction - operator-()");
 	}
 
 	void testMultiplicationVector()
@@ -110,7 +110,7 @@ namespace testVector3
 		gvec3 v2(2, 4, 5);
 
 		gvec3 v = v1*v2;
-		assertTrue(v.x == 2 && v.y == 8 && v.z == 15, "gvec3::testMultiplicationVector - set()");
+		assertTrue(v.x == 2 && v.y == 8 && v.z == 15, "gvec3::testMultiplicationVector - operator*()");
 	}
 
 	void testDivisionVector()
@@ -119,7 +119,7 @@ namespace testVector3
 		gvec3 v2(2, 3, 4);
 
 		gvec3 v = v1/v2;
-		assertTrue(v.x == 2 && v.y == 2 && v.z == 2, "gvec3::testDivisionVector - set()");
+		assertTrue(v.x == 2 && v.y == 2 && v.z == 2, "gvec3::testDivisionVector - operator/()");
 	}
 
 	void testMultiplication()
@@ -127,7 +127,7 @@ namespace testVector3
 		gvec3 v(1, 2, 3);		
 
 		v = v * 2;
-		assertTrue(v.x == 2 && v.y == 4 && v.z == 6, "gvec3::testMultiplication - set()");
+		assertTrue(v.x == 2 && v.y == 4 && v.z == 6, "gvec3::testMultiplication - operator*()");
 	}
 
 	void testDivision()
@@ -135,14 +135,14 @@ namespace testVector3
 		gvec3 v(4, 8, 12);
 
 		v = v / 2;
-		assertTrue(v.x == 2 && v.y == 4 && v.z == 6, "gvec3::testDivision - set()");
+		assertTrue(v.x == 2 && v.y == 4 && v.z == 6, "gvec3::testDivision - operator/()");
 	}
 	
 	void testAdditionAssign()
 	{
 		gvec3 v1(1, 2, 3), v2(2, 3, 4);
 		v1 += v2;
-		assertTrue(v1.x == 3 && v1.y == 5 && v1.z == 7, "gvec3::testAdditionAssign - set()");
+		assertTrue(v1.x == 3 && v1.y == 5 && v1.z == 7, "gvec3::testAdditionAssign - operator+=()");
 	}
 
 	void testSubstractionAssign()
@@ -152,7 +152,7 @@ namespace testVector3
 
 		v1 -= v2;
 
-		assertTrue(v1.x == 2 && v1.y == 2 && v1.z == 2, "gvec3::testSubstractionAssign - set()");
+		assertTrue(v1.x == 2 && v1.y == 2 && v1.z == 2, "gvec3::testSubstractionAssign - operator-=()");
 	}
 
 	void testMultiplicationVectorAssign()
@@ -162,7 +162,7 @@ namespace testVector3
 
 		v1 *= v2;
 
-		assertTrue(v1.x == 2 && v1.y == 8 && v1.z == 15, "gvec3::testMultiplicationVectorAssign - set()");
+		assertTrue(v1.x == 2 && v1.y == 8 && v1.z == 15, "gvec3::testMultiplicationVectorAssign - operator*=()");
 	}
 
 	void testDivisionVectorAssign()
@@ -172,7 +172,7 @@ namespace testVector3
 
 		v1 /= v2;
 
-		assertTrue(v1.x == 2 && v1.y == 2 && v1.z == 2, "gvec3::testDivisionVectorAssign - set()");
+		assertTrue(v1.x == 2 && v1.y == 2 && v1.z == 2, "gvec3::testDivisionVectorAssign - operator/=()");
 	}
 
 	void testMultiplicationAssign()
@@ -181,7 +181,7 @@ namespace testVector3
 
 		v *= 2;
 
-		assertTrue(v.x == 2 && v.y == 4 && v.z == 6, "gvec3::testMultiplicationAssign - set()");
+		assertTrue(v.x == 2 && v.y == 4 && v.z == 6, "gvec3::testMultiplicationAssign - operator*=()");
 	}
 
 	void testDivisionAssign()
@@ -190,7 +190,7 @@ namespace testVector3
 
 		v /= 2;
 
-		assertTrue(v.x == 2 && v.y == 4 && v.z == 6, "gvec3::testDivisionAssign - set()");
+		assertTrue(v.x == 2 && v.y == 4 && v.z == 6, "gvec3::testDivisionAssign - operator/=()");
 	}
 
 	void testEqual()
@@ -198,7 +198,7 @@ namespace testVector3
 		gvec3 v1(4, 6, 8);
 		gvec3 v2(4, 6, 8);
 
-		assertTrue(v1 == v2, "gvec3::testEqual - set()");
+		assertTrue(v1 == v2, "gvec3::testEqual - operator==()");
 	}
 
 	void testNotEqual()
@@ -206,6 +206,6 @@ namespace testVector3
 		gvec3 v1(4, 6, 8);
 		gvec3 v2(2, 3, 4);
 
-		assertTrue(v1 != v2, "gvec3::testNotEqual - set()");
+		assertTrue(v1 != v2, "gvec3::testNotEqual - operator!=()");
 	}
 }

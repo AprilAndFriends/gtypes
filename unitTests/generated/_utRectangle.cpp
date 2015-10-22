@@ -13,6 +13,21 @@ namespace testRectangle
 	void testGetBottomRight();
 	void testLeftRightTopBottom();
 	void testCenter();
+	void testClipped();
+	void testClip();
+	void testIntersection();
+	void testContains();
+	void testPointInside();
+	void testAddition();
+	void testSubstraction();
+	void testMultiplication();
+	void testDivision();
+	void testAdditionAssign();
+	void testSubstractionAssign();
+	void testMultiplicationAssign();
+	void testDivisionAssign();
+	void testEqual();
+	void testNotEqual();
 }
 
 #ifdef __APPLE__
@@ -103,6 +118,66 @@ namespace test_libgtypes
 		TEST_METHOD(testCenter)
 		{
 			testRectangle::testCenter();
+		}		
+		TEST_METHOD(testClipped)
+		{
+			testRectangle::testClipped();
+		}
+		TEST_METHOD(testClip)
+		{
+			testRectangle::testClip();
+		}
+		TEST_METHOD(testIntersection)
+		{
+			testRectangle::testIntersection();
+		}
+		TEST_METHOD(testContains)
+		{
+			testRectangle::testContains();
+		}
+		TEST_METHOD(testPointInside)
+		{
+			testRectangle::testPointInside();
+		}
+		TEST_METHOD(testAddition)
+		{
+			testRectangle::testAddition();
+		}
+		TEST_METHOD(testSubstraction)
+		{
+			testRectangle::testSubstraction();
+		}
+		TEST_METHOD(testMultiplication)
+		{
+			testRectangle::testMultiplication();
+		}
+		TEST_METHOD(testDivision)
+		{
+			testRectangle::testDivision();
+		}
+		TEST_METHOD(testAdditionAssign)
+		{
+			testRectangle::testAdditionAssign();
+		}
+		TEST_METHOD(testSubstractionAssign)
+		{
+			testRectangle::testSubstractionAssign();
+		}
+		TEST_METHOD(testMultiplicationAssign)
+		{
+			testRectangle::testMultiplicationAssign();
+		}
+		TEST_METHOD(testDivisionAssign)
+		{
+			testRectangle::testDivisionAssign();
+		}
+		TEST_METHOD(testEqual)
+		{
+			testRectangle::testEqual();
+		}
+		TEST_METHOD(testNotEqual)
+		{
+			testRectangle::testNotEqual();
 		}		
 	};
 }
