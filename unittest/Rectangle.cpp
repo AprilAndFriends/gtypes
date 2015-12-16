@@ -10,7 +10,7 @@
 
 HL_UT_TEST_CLASS(Rectangle)
 {	
-	static const float tolerance = 0.1f;
+	static const float tolerance = 0.0001f;
 
 	static float habs(float value)
 	{

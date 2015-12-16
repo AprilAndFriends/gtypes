@@ -19,5 +19,23 @@
       <Filter>tests</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\hltypes\unittest\hunittest.cpp" />
+    <ClCompile Include="..\..\unittest\generated\_Vector3.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unittest\generated\_Matrix3.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unittest\generated\_Vector2.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unittest\Matrix3.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unittest\Vector2.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unittest\Vector3.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

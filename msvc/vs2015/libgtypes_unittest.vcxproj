@@ -74,8 +74,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\unittest\generated\_Matrix3.cpp" />
     <ClCompile Include="..\..\unittest\generated\_Rectangle.cpp" />
+    <ClCompile Include="..\..\unittest\generated\_Vector2.cpp" />
+    <ClCompile Include="..\..\unittest\generated\_Vector3.cpp" />
+    <ClCompile Include="..\..\unittest\Matrix3.cpp" />
     <ClCompile Include="..\..\unittest\Rectangle.cpp" />
+    <ClCompile Include="..\..\unittest\Vector2.cpp" />
+    <ClCompile Include="..\..\unittest\Vector3.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>
