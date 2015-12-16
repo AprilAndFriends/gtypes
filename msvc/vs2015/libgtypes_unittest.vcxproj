@@ -70,7 +70,7 @@
       <UseFullPaths>true</UseFullPaths>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libgtypes.lib</AdditionalDependencies>
+      <AdditionalDependencies>libgtypes.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -82,6 +82,16 @@
     <ClCompile Include="..\..\unittest\Rectangle.cpp" />
     <ClCompile Include="..\..\unittest\Vector2.cpp" />
     <ClCompile Include="..\..\unittest\Vector3.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="libgtypes.vcxproj">
+      <Project>{9c043b29-db40-48d5-97d8-1bc44128e3ba}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>
