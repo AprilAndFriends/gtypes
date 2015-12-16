@@ -74,7 +74,7 @@ namespace gtypes
 
 	Vector3 Vector3::cross(const Vector3& other) const
 	{
-		return Vector3(this->y * other.z - this->z * other.y, this->z * other.x - this->x * other.z, this->x * other.y - this->y * other.x);
+		return Vector3(this->y * other.z - this->z * other.y, this->x * other.z - this->z * other.x, this->x * other.y - this->y * other.x);
 	}
 
 	Vector3 Vector3::operator-() const

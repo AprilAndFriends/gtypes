@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(VCInstallDir)UnitTest\include;..\..\..\hltypes\unittest;..\..\unittest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PreBuildEvent>
+      <Command>python ../../../hltypes/unittest/generate_tests.py</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup Condition="exists('..\..\..\hltypes\unittest\hunittest.h')">
+    <ClInclude Include="..\..\..\hltypes\unittest\hunittest.h" />
+  </ItemGroup>
+  <ItemGroup Condition="exists('..\..\..\hltypes\unittest\hunittest.cpp')">
+    <ClCompile Include="..\..\..\hltypes\unittest\hunittest.cpp" />
+  </ItemGroup>
+  <ItemGroup Condition="!exists('..\..\..\hltypes\unittest\hunittest.h')">
+    <ClInclude Include="..\..\unittest\hunittest.h" />
+  </ItemGroup>
+  <ItemGroup Condition="!exists('..\..\..\hltypes\unittest\hunittest.cpp')">
+    <ClCompile Include="..\..\unittest\hunittest.cpp" />
+  </ItemGroup>
+</Project>

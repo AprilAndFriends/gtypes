@@ -8,24 +8,23 @@
 #include "Rectangle.h"
 #include "Vector2.h"
 
+#define E_TOLRANCE 0.0001f
+
 HL_UT_TEST_CLASS(Rectangle)
 {	
-	static const float tolerance = 0.0001f;
-
 	static float habs(float value)
 	{
 		return value >= 0.0f ? value : -value;
 	}
 
-	static bool heqf(float a, float b, float tolerance)
+	static bool heqf(float a, float b, float tolerance = E_TOLRANCE)
 	{
 		return (habs(a - b) < tolerance);
 	}
 
 	static bool rectangleEqf(grect r1, grect r2)
 	{
-		return (heqf(r1.x, r2.x, tolerance) && heqf(r1.y, r2.y, tolerance) &&
-			heqf(r1.w, r2.w, tolerance) && heqf(r1.h, r2.h, tolerance));
+		return (heqf(r1.x, r2.x) && heqf(r1.y, r2.y) && heqf(r1.w, r2.w) && heqf(r1.h, r2.h));
 	}
 
 	HL_UT_TEST_FUNCTION(assignment)
