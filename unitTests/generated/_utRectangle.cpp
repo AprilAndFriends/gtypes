@@ -1,37 +1,46 @@
-namespace testRectangle
-{
-	void testAssignment();
-	void testGetPosition();
-	void testSetPosition();
-	void testGetSize();
-	void testSetSize();
-	void testGetCenter();
-	void testGetAspect();
-	void testGetTopLeft();
-	void testGetTopRight();
-	void testGetBottomLeft();
-	void testGetBottomRight();
-	void testLeftRightTopBottom();
-	void testCenter();
-	void testClipped();
-	void testClip();
-	void testIntersection();
-	void testContains();
-	void testPointInside();
-	void testAddition();
-	void testSubstraction();
-	void testMultiplication();
-	void testDivision();
-	void testAdditionAssign();
-	void testSubstractionAssign();
-	void testMultiplicationAssign();
-	void testDivisionAssign();
-	void testEqual();
-	void testNotEqual();
-}
+#define __HL_TEST_LIB_NAME gtypes
 
 #ifdef __APPLE__
-#import "aprilUT.h"
+#import "hunittest.h"
+#else
+#include "hunittest.h"
+#endif
+
+HL_TEST_NAMESPACE(Rectangle)
+{
+	void testRectangleAssignment();
+	void testRectangleGetPosition();
+	void testRectangleSetPosition();
+	void testRectangleGetSize();
+	void testRectangleSetSize();
+	void testRectangleGetCenter();
+	void testRectangleGetAspect();
+	void testRectangleGetTopLeft();
+	void testRectangleGetTopRight();
+	void testRectangleGetBottomLeft();
+	void testRectangleGetBottomRight();
+	void testRectangleLeftRightTopBottom();
+	void testRectangleCenter();
+	void testRectangleClipped();
+	void testRectangleClip();
+	void testRectangleIntersection();
+	void testRectangleContains();
+	void testRectanglePointInside();
+	void testRectangleAddition();
+	void testRectangleSubstraction();
+	void testRectangleMultiplication();
+	void testRectangleDivision();
+	void testRectangleAdditionAssign();
+	void testRectangleSubstractionAssign();
+	void testRectangleMultiplicationAssign();
+	void testRectangleDivisionAssign();
+	void testRectangleEqual();
+	void testRectangleNotEqual();
+}
+
+
+
+#ifdef __APPLE__
 
 @interface _testRectangle : XCTestCase
 
@@ -52,132 +61,132 @@ namespace testRectangle
 
 - (void)testAssignment
 {
-    testRectangle::testAssignment();
+    gtypes_unittest::testRectangleAssignment();
 }
 
 - (void)testAddition
 {
-    testRectangle::testAddition();
+    gtypes_unittest::testRectangleAddition();
 }
 
 @end
 
 #else
-#include "aprilUT.h"
 
+HL_TEST_CLASS_BEGIN(Rectangle)
+HL_TEST_CLASS_END
 namespace test_libgtypes
 {		
-	TEST_CLASS(_testRectangle)
 	{
 	public:
 		
 		TEST_METHOD(testAssignment)
 		{
-			testRectangle::testAssignment();
+			gtypes_unittest_Rectangle::testRectangleAssignment();
 		}
 		TEST_METHOD(testGetPosition)
 		{
-			testRectangle::testGetPosition();
+			gtypes_unittest::testRectangleGetPosition();
 		}
 		TEST_METHOD(testSetPosition)
 		{
-			testRectangle::testSetPosition();
+			gtypes_unittest::testRectangleSetPosition();
 		}
 		TEST_METHOD(testGetSize)
 		{
-			testRectangle::testGetSize();
+			gtypes_unittest::testRectangleGetSize();
 		}
 		TEST_METHOD(testSetSize)
 		{
-			testRectangle::testSetSize();
+			gtypes_unittest::testRectangleSetSize();
 		}
 		TEST_METHOD(testGetCenter)
 		{
-			testRectangle::testGetCenter();
+			gtypes_unittest::testRectangleGetCenter();
 		}
 		TEST_METHOD(testGetTopLeft)
 		{
-			testRectangle::testGetTopLeft();
+			gtypes_unittest::testRectangleGetTopLeft();
 		}
 		TEST_METHOD(testGetTopRight)
 		{
-			testRectangle::testGetTopRight();
+			gtypes_unittest::testRectangleGetTopRight();
 		}
 		TEST_METHOD(testGetBottomLeft)
 		{
-			testRectangle::testGetBottomLeft();
+			gtypes_unittest::testRectangleGetBottomLeft();
 		}
 		TEST_METHOD(testGetBottomRight)
 		{
-			testRectangle::testGetBottomRight();
+			gtypes_unittest::testRectangleGetBottomRight();
 		}
 		TEST_METHOD(testLeftRightTopBottom)
 		{
-			testRectangle::testLeftRightTopBottom();
+			gtypes_unittest::testRectangleLeftRightTopBottom();
 		}
 		TEST_METHOD(testCenter)
 		{
-			testRectangle::testCenter();
+			gtypes_unittest::testRectangleCenter();
 		}		
 		TEST_METHOD(testClipped)
 		{
-			testRectangle::testClipped();
+			gtypes_unittest::testRectangleClipped();
 		}
 		TEST_METHOD(testClip)
 		{
-			testRectangle::testClip();
+			gtypes_unittest::testRectangleClip();
 		}
 		TEST_METHOD(testIntersection)
 		{
-			testRectangle::testIntersection();
+			gtypes_unittest::testRectangleIntersection();
 		}
 		TEST_METHOD(testContains)
 		{
-			testRectangle::testContains();
+			gtypes_unittest::testRectangleContains();
 		}
 		TEST_METHOD(testPointInside)
 		{
-			testRectangle::testPointInside();
+			gtypes_unittest::testRectanglePointInside();
 		}
 		TEST_METHOD(testAddition)
 		{
-			testRectangle::testAddition();
+			gtypes_unittest::testRectangleAddition();
 		}
 		TEST_METHOD(testSubstraction)
 		{
-			testRectangle::testSubstraction();
+			gtypes_unittest::testRectangleSubstraction();
 		}
 		TEST_METHOD(testMultiplication)
 		{
-			testRectangle::testMultiplication();
+			gtypes_unittest::testRectangleMultiplication();
 		}
 		TEST_METHOD(testDivision)
 		{
-			testRectangle::testDivision();
+			gtypes_unittest::testRectangleDivision();
 		}
 		TEST_METHOD(testAdditionAssign)
 		{
-			testRectangle::testAdditionAssign();
+			gtypes_unittest::testRectangleAdditionAssign();
 		}
 		TEST_METHOD(testSubstractionAssign)
 		{
-			testRectangle::testSubstractionAssign();
+			gtypes_unittest::testRectangleSubstractionAssign();
 		}
 		TEST_METHOD(testMultiplicationAssign)
 		{
-			testRectangle::testMultiplicationAssign();
+			gtypes_unittest::testRectangleMultiplicationAssign();
 		}
 		TEST_METHOD(testDivisionAssign)
 		{
-			testRectangle::testDivisionAssign();
+			gtypes_unittest::testRectangleDivisionAssign();
 		}
 		TEST_METHOD(testEqual)
 		{
-			testRectangle::testEqual();
+			gtypes_unittest::testRectangleEqual();
 		}
 		TEST_METHOD(testNotEqual)
 		{
-			testRectangle::testNotEqual();
+			gtypes_unittest::testRectangleNotEqual();
 		}		
 	};
 }

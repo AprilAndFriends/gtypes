@@ -1,4 +1,4 @@
-#include "generated/aprilUT.h"
+#include "generated/hunittest.h"
 #include "Vector2.h"
 
 namespace testVector2

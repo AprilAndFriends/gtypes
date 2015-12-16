@@ -1,7 +1,7 @@
-#include "generated/aprilUT.h"
+#include "hunittest.h"
 #include "Rectangle.h"
 
-namespace testRectangle
+namespace gtypes_unittest
 {	
 	float habs(float value)
 	{
@@ -23,7 +23,7 @@ namespace testRectangle
 		return false;
 	}
 
-    void testAssignment()
+    void testRectangleAssignment()
     {
 		grect r(1, 2, 3, 4);
 		assertTrue(r.x == 1 && r.y == 2 && r.w == 3 && r.h == 4, "grect::testAssignment - constructor assignment");
@@ -31,13 +31,13 @@ namespace testRectangle
 		assertTrue(r.x == 2 && r.y == 3 && r.w == 4 && r.h == 5, "grect::testAssignment - set()");
     }
 
-	void testGetPosition()
+	void testRectangleGetPosition()
 	{
 		grect r(1, 2, 3, 4);
 		assertTrue(r.getPosition().x == 1 && r.getPosition().y == 2, "grect::testGetPosition - getPosition()");
 	}
 
-	void testSetPosition()
+	void testRectangleSetPosition()
 	{
 		grect r(1, 2, 3, 4);
 		r.setPosition(5, 6);
@@ -46,13 +46,13 @@ namespace testRectangle
 		assertTrue(r.getPosition().x == 7 && r.getPosition().y == 8, "grect::testSetPosition - setPosition()");
 	}
 
-	void testGetSize()
+	void testRectangleGetSize()
 	{
 		grect r(1, 2, 3, 4);
 		assertTrue(r.getSize().x == 3 && r.getSize().y == 4, "grect::testGetSize - getSize()");
 	}
 
-	void testSetSize()
+	void testRectangleSetSize()
 	{
 		grect r(1, 2, 3, 4);
 		r.setSize(5, 6);
@@ -61,43 +61,43 @@ namespace testRectangle
 		assertTrue(r.getSize().x == 7 && r.getSize().y == 8, "grect::testSetSize - setSize()");
 	}
 
-	void testGetCenter()
+	void testRectangleGetCenter()
 	{
 		grect r(2, 2, 2, 2);
 		assertTrue(r.getCenter().x == 3 && r.getCenter().y == 3, "grect::testGetCenter - getCenter()");
 	}
 
-	void testGetAspect()
+	void testRectangleGetAspect()
 	{
 		grect r(0, 0, 4, 2);
 		assertTrue(r.getAspect() == 2, "grect::testGetAspect - getAspect()");
 	}
 
-	void testGetTopLeft()
+	void testRectangleGetTopLeft()
 	{
 		grect r(1, 2, 3, 4);
 		assertTrue(r.getTopLeft().x == 1 && r.getTopLeft().y == 2, "grect::testGetTopLeft - getTopLeft()");
 	}
 
-	void testGetTopRight()
+	void testRectangleGetTopRight()
 	{
 		grect r(1, 2, 3, 4);
 		assertTrue(r.getTopRight().x == 4 && r.getTopRight().y == 2, "grect::testGetTopRight - getTopRight()");
 	}
 
-	void testGetBottomLeft()
+	void testRectangleGetBottomLeft()
 	{
 		grect r(1, 2, 3, 4);
 		assertTrue(r.getBottomLeft().x == 1 && r.getBottomLeft().y == 6, "grect::testGetBottomLeft - getBottomLeft()");
 	}
 
-	void testGetBottomRight()
+	void testRectangleGetBottomRight()
 	{
 		grect r(1, 2, 3, 4);
 		assertTrue(r.getBottomRight().x == 4 && r.getBottomRight().y == 6, "grect::testGetBottomRight - getBottomRight()");
 	}
 
-	void testLeftRightTopBottom()
+	void testRectangleLeftRightTopBottom()
 	{
 		grect r(1, 2, 3, 4);
 		assertTrue(r.left() == 1, "grect::testLeftRightTopBottom - left()");
@@ -106,14 +106,14 @@ namespace testRectangle
 		assertTrue(r.bottom() == 6, "grect::testLeftRightTopBottom - bottom()");
 	}
 
-	void testCenter()
+	void testRectangleCenter()
 	{
 		grect r(0, 2, 4, 6);
 		assertTrue(heqf(r.getCenter().x, 2, tolerance), "grect::testCenter - getCenterX()");
 		assertTrue(heqf(r.getCenter().y, 5, tolerance), "grect::testCenter - getCenterY()");
 	}
 
-	void testClipped()
+	void testRectangleClipped()
 	{
 		grect r1(0, 0, 4, 4);
 		grect r2(1, 1, 4, 4);
@@ -122,7 +122,7 @@ namespace testRectangle
 			r2.y >= r1.y && r2.y + r2.h <= r1.y + r1.h, "grect:testClipped - clipped()");
 	}
 
-	void testClip()
+	void testRectangleClip()
 	{
 		grect r1(0, 0, 4, 4);
 		grect r2(1, 1, 4, 4);
@@ -131,7 +131,7 @@ namespace testRectangle
 			r2.y >= r1.y && r2.y + r2.h <= r1.y + r1.h, "grect:testClip - clip()");
 	}
 
-	void testIntersection()
+	void testRectangleIntersection()
 	{
 		grect r1(0, 0, 4, 4);
 		grect r2(3, 3, 2, 2);
@@ -139,7 +139,7 @@ namespace testRectangle
 		assertTrue(r2.intersects(r1) == true, "grect:testIntersection - intersects()");
 	}
 
-	void testContains()
+	void testRectangleContains()
 	{
 		grect r1(0, 0, 4, 4);
 		grect r2(1, 1, 2, 2);
@@ -147,7 +147,7 @@ namespace testRectangle
 		assertTrue(r1.contains(r2) == true, "grect:testClip - clip()");
 	}
 
-	void testPointInside()
+	void testRectanglePointInside()
 	{
 		grect r(0, 0, 4, 4);
 		gvec2 v(1, 2);
@@ -156,7 +156,7 @@ namespace testRectangle
 		assertTrue(r.isPointInside(v.x, v.y) == true, "grect::testPointInside - isPointInside()");
 	}
 
-	void testAddition()
+	void testRectangleAddition()
 	{
 		grect r(0, 0, 4, 4);
 		gvec2 v(1, 2);
@@ -165,7 +165,7 @@ namespace testRectangle
 		assertTrue(r1.x == 1 && r1.y == 2, "grect::testAddition - operator+(vector)");
 	}
 
-	void testSubstraction()
+	void testRectangleSubstraction()
 	{
 		grect r(0, 0, 4, 4);
 		gvec2 v(1, 2);
@@ -174,7 +174,7 @@ namespace testRectangle
 		assertTrue(r1.x == -1 && r1.y == -2, "grect::testSubstraction - operator-(vector)");
 	}
 
-	void testMultiplication()
+	void testRectangleMultiplication()
 	{
 		grect r(0, 0, 4, 4);
 		gvec2 v(2, 4);
@@ -186,7 +186,7 @@ namespace testRectangle
 		assertTrue(r1.w == 8 && r1.h == 8, "grect::testMultiplication - operator*(float)");
 	}
 
-	void testDivision()
+	void testRectangleDivision()
 	{
 		grect r(0, 0, 4, 4);
 		gvec2 v(2, 4);
@@ -198,7 +198,7 @@ namespace testRectangle
 		assertTrue(r1.w == 2 && r1.h == 2, "grect::testDivision - operator/(float)");
 	}
 
-	void testAdditionAssign()
+	void testRectangleAdditionAssign()
 	{
 		grect r(0, 0, 4, 4);
 		gvec2 v(1, 2);
@@ -207,7 +207,7 @@ namespace testRectangle
 		assertTrue(r.x == 1 && r.y == 2, "grect::testAdditionAssign - operator+=(vector)");
 	}
 
-	void testSubstractionAssign()
+	void testRectangleSubstractionAssign()
 	{
 		grect r(0, 0, 4, 4);
 		gvec2 v(1, 2);
@@ -216,7 +216,7 @@ namespace testRectangle
 		assertTrue(r.x == -1 && r.y == -2, "grect::testSubstractionAssign - operator-=(vector)");
 	}
 
-	void testMultiplicationAssign()
+	void testRectangleMultiplicationAssign()
 	{
 		grect r(0, 0, 4, 4);
 		gvec2 v(2, 4);
@@ -229,7 +229,7 @@ namespace testRectangle
 		assertTrue(r.w == 8 && r.h == 8, "grect::testMultiplicationAssign - operator*=(float)");
 	}
 
-	void testDivisionAssign()
+	void testRectangleDivisionAssign()
 	{
 		grect r(0, 0, 4, 4);
 		gvec2 v(2, 4);
@@ -242,7 +242,7 @@ namespace testRectangle
 		assertTrue(r.w == 2 && r.h == 2, "grect::testDivisionAssign - operator/=(float)");
 	}
 	
-	void testEqual()
+	void testRectangleEqual()
 	{
 		grect r1(0, 0, 4, 4);
 		grect r2(0, 0, 4, 4);
@@ -250,7 +250,7 @@ namespace testRectangle
 		assertTrue(r1 == r2, "grect::testEqual - operator==()");
 	}
 
-	void testNotEqual()
+	void testRectangleNotEqual()
 	{
 		grect r1(0, 0, 4, 4);
 		grect r2(0, 0, 4, 3);

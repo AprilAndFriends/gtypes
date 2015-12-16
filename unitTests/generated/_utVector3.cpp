@@ -25,7 +25,7 @@ namespace testVector3
 }
 
 #ifdef __APPLE__
-#import "aprilUT.h"
+#import "hunittest.h"
 
 @interface _testVector3 : XCTestCase
 
@@ -57,7 +57,7 @@ namespace testVector3
 @end
 
 #else
-#include "aprilUT.h"
+#include "hunittest.h"
 
 namespace test_libgtypes
 {		

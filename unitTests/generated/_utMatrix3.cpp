@@ -37,7 +37,7 @@ namespace testMatrix3
 }
 
 #ifdef __APPLE__
-#import "aprilUT.h"
+#import "hunittest.h"
 
 @interface _testMatrix3 : XCTestCase
 
@@ -69,7 +69,7 @@ namespace testMatrix3
 @end
 
 #else
-#include "aprilUT.h"
+#include "hunittest.h"
 
 namespace test_libgtypes
 {		
