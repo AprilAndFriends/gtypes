@@ -19,7 +19,6 @@ HL_UT_TEST_CLASS(Rectangle)
 	HL_UT_TEST_FUNCTION(getBottomLeft);
 	HL_UT_TEST_FUNCTION(getBottomRight);
 	HL_UT_TEST_FUNCTION(leftRightTopBottom);
-	HL_UT_TEST_FUNCTION(center);
 	HL_UT_TEST_FUNCTION(clipped);
 	HL_UT_TEST_FUNCTION(clip);
 	HL_UT_TEST_FUNCTION(intersection);
@@ -50,7 +49,6 @@ HL_UT_RUN_CLASS_BEGIN(Rectangle)
 	HL_UT_RUN_METHOD(Rectangle, getBottomLeft)
 	HL_UT_RUN_METHOD(Rectangle, getBottomRight)
 	HL_UT_RUN_METHOD(Rectangle, leftRightTopBottom)
-	HL_UT_RUN_METHOD(Rectangle, center)
 	HL_UT_RUN_METHOD(Rectangle, clipped)
 	HL_UT_RUN_METHOD(Rectangle, clip)
 	HL_UT_RUN_METHOD(Rectangle, intersection)
