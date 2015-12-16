@@ -22,10 +22,6 @@ namespace gtypes
 		this->set(x, y);
 	}
 
-	Vector2::~Vector2()
-	{
-	}
-
 	void Vector2::set(float x, float y)
 	{
 		this->x = x;

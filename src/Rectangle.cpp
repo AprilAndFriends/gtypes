@@ -15,10 +15,6 @@ namespace gtypes
 	{
 	}
 
-	Rectangle::~Rectangle()
-	{
-	}
-
 	Rectangle::Rectangle(float x, float y, float w, float h)
 	{
 		this->set(x, y, w, h);

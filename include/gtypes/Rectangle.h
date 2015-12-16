@@ -53,8 +53,6 @@ namespace gtypes
 		/// @param[in] y Y coordinate.
 		/// @param[in] size Size.
 		Rectangle(float x, float y, Vector2 size);
-		/// @brief Destructor.
-		~Rectangle();
 		/// @brief Sets the values of the Rectangle.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.

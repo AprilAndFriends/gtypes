@@ -32,8 +32,6 @@ namespace gtypes
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
 		Vector2(float x, float y);
-		/// @brief Destructor.
-		~Vector2();
 		/// @brief Sets the values of the Vector2.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.

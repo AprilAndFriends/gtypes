@@ -32,10 +32,6 @@ namespace gtypes
 		this->set(vectors, n, closed, curvature, samples, t1, t2);
 	}
 
-	CatmullRomSpline3::~CatmullRomSpline3()
-	{
-	}
-
 	void CatmullRomSpline3::set(const Vector3 vectors[], int n, bool closed, double curvature, int samples, Vector3 t1, Vector3 t2)
 	{
 		this->points.clear();

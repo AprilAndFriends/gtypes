@@ -40,10 +40,6 @@ namespace gtypes
 		this->w = w;
 	}
 
-	Quaternion::~Quaternion()
-	{
-	}
-	
 	void Quaternion::set(float x, float y, float z, float w)
 	{
 		this->x = x;

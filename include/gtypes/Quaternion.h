@@ -46,8 +46,6 @@ namespace gtypes
 		/// @param[in] v Vector3.
 		/// @param[in] w W value.
 		Quaternion(const Vector3& v, float w);
-		/// @brief Destructor.
-		~Quaternion();
 		/// @brief Sets the values of the Quaternion.
 		/// @param[in] x X value.
 		/// @param[in] y Y value.

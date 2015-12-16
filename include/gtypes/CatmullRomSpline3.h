@@ -44,8 +44,6 @@ namespace gtypes
 		/// @param[in] t1 Custom beginning point.
 		/// @param[in] t2 Custom ending point.
 		CatmullRomSpline3(const Vector3 vectors[], int n, bool closed = false, double curvature = 0.5, int samples = 16, Vector3 t1 = Vector3(), Vector3 t2 = Vector3());
-		/// @brief Destructor.
-		~CatmullRomSpline3();
 		
 		/// @brief Sets the CatmullRomSpline3's values.
 		/// @param[in] vectors Points in 3D space to define the CatmullRomSpline3.

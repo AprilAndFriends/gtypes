@@ -22,10 +22,6 @@ namespace gtypes
 		this->set(x, y, z);
 	}
 	
-	Vector3::~Vector3()
-	{
-	}
-
 	void Vector3::set(float x, float y, float z)
 	{
 		this->x = x;

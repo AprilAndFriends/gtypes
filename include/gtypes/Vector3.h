@@ -37,8 +37,6 @@ namespace gtypes
 		/// @param[in] y Y coordinate.
 		/// @param[in] z Z coordinate.
 		Vector3(float x, float y, float z);
-		/// @brief Destructor.
-		~Vector3();
 		/// @brief Sets the values of the Vector3.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
