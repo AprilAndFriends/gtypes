@@ -14,6 +14,9 @@
 #define GTYPES_VECTOR_2_H
 
 #include "gtypesExport.h"
+#include <math.h>
+
+#include "gtypesUtil.h"
 
 namespace gtypes
 {
@@ -35,105 +38,215 @@ namespace gtypes
 		/// @brief Sets the values of the Vector2.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
-		void set(float x, float y);
+		inline void set(float x, float y)
+		{
+			this->x = x;
+			this->y = y;
+		}
 
 		/// @brief Checks if this is a zero-length vector.
 		/// @return True if this is a zero-length vector.
-		bool isNull();
+		inline bool isNull()
+		{
+			return (this->x == 0.0f && this->y == 0.0f);
+		}
 
 		/// @return Calculates the length of the Vector2.
-		float length() const;
+		inline float length() const
+		{
+			return (float)sqrt(this->x * this->x + this->y * this->y);
+		}
 		/// @return Calculates the squared length of the Vector2.
 		/// @note Use this if you don't need the actual length as it's faster than length().
 		/// @see length()
-		float squaredLength() const;
+		inline float Vector2::squaredLength()
+		{
+			return (this->x * this->x + this->y * this->y);
+		}
 		/// @return Calculates the angle of the Vector2
 		/// @note An angle of 0° means x = 1 and y = 0. The angle increases in a counterclockwise direction.
-		float angle() const;
+		inline float angle() const
+		{
+			return (float)RAD_TO_DEG(atan2(-this->y, this->x));
+		}
 		/// @brief Calculates the dot-product between this and another Vector2.
 		/// @param[in] other The other Vector2.
 		/// @return The dot-product.
-		bool isInCircle(float center_x, float center_y, float radius);
+		inline bool isInCircle(float center_x, float center_y, float radius)
+		{
+			float dx = this->x - center_x;
+			float dy = this->y - center_y;
+			return (dx * dx + dy * dy <= radius * radius);
+		}
 
 		/// @brief Normalizes the current Vector2.
-		void normalize();
+		inline void normalize()
+		{
+			float length = this->length();
+			if (length != 0.0f)
+			{
+				length = 1.0f / length;
+				this->x *= length;
+				this->y *= length;
+			}
+		}
 		/// @brief Creates a normalized Vector2 from this Vector2.
 		/// @return The normalized Vector2.
-		Vector2 normalized() const;
+		inline Vector2 normalized() const
+		{
+			Vector2 result(this->x, this->y);
+			result.normalize();
+			return result;
+		}
 		/// @brief Rotates the current Vector2 by an angle.
 		/// @param[in] angle The angle.
-		void rotate(float angle);
+		inline void rotate(float angle)
+		{
+			float old_x = this->x;
+			float old_y = this->y;
+			double a = DEG_TO_RAD(angle);
+			double sina = sin(a);
+			double cosa = cos(a);
+			this->x = (float)(cosa * old_x - sina * old_y);
+			this->y = (float)(sina * old_x + cosa * old_y);
+		}
 		/// @brief Creates a rotated Vector2 from this Vector2.
 		/// @param[in] angle The angle.
 		/// @return The rotated Vector2.
-		Vector2 rotated(float angle) const;
+		inline Vector2 rotated(float angle) const
+		{
+			Vector2 result(this->x, this->y);
+			result.rotate(angle);
+			return result;
+		}
 		/// @brief Calculates the dot-product between this and another Vector2.
 		/// @param[in] other The other Vector2.
 		/// @return The dot-product.
-		float dot(const Vector2& other) const;
+		inline float dot(const Vector2& other) const
+		{
+			return (this->x * other.x + this->y * other.y);
+		}
 
 		/// @brief Creates an inverted Vector2.
 		/// @return Inverted Vector2.
-		Vector2 operator-() const;
+		inline Vector2 operator-() const
+		{
+			return Vector2(-this->x, -this->y);
+		}
 		/// @brief Adds two Vector2s.
 		/// @param[in] other The other Vector2.
 		/// @return The resulting Vector2.
-		Vector2 operator+(const Vector2& other) const;
+		inline Vector2 operator+(const Vector2& other) const
+		{
+			return Vector2(this->x + other.x, this->y + other.y);
+		}
 		/// @brief Subtracts two Vector2s.
 		/// @param[in] other The other Vector2.
 		/// @return The resulting Vector2.
-		Vector2 operator-(const Vector2& other) const;
+		inline Vector2 operator-(const Vector2& other) const
+		{
+			return Vector2(this->x - other.x, this->y - other.y);
+		}
 		/// @brief Multiplies two Vector2s.
 		/// @param[in] other The other Vector2.
 		/// @return The resulting Vector2.
-		Vector2 operator*(const Vector2& other) const;
+		inline Vector2 operator*(const Vector2& other) const
+		{
+			return Vector2(this->x * other.x, this->y * other.y);
+		}
 		/// @brief Divides two Vector2s.
 		/// @param[in] other The other Vector2.
 		/// @return The resulting Vector2.
-		Vector2 operator/(const Vector2& other) const;
+		inline Vector2 operator/(const Vector2& other) const
+		{
+			return Vector2(this->x / other.x, this->y / other.y);
+		}
 		/// @brief Multiplies Vector2 with a factor.
 		/// @param[in] factor The factor.
 		/// @return The resulting Vector2.
-		Vector2 operator*(const float factor) const;
+		inline Vector2 operator*(const float factor) const
+		{
+			return Vector2(this->x * factor, this->y * factor);
+		}
 		/// @brief Divides Vector2 with a factor.
 		/// @param[in] factor The factor.
 		/// @return The resulting Vector2.
-		Vector2 operator/(const float factor) const;
+		inline Vector2 operator/(const float factor) const
+		{
+			float invScale = 1.0f / factor;
+			return Vector2(this->x * invScale, this->y * invScale);
+		}
 		/// @brief Adds another Vector2 to this one.
 		/// @param[in] other The other Vector2.
 		/// @return A copy of this Vector2.
-		Vector2 operator+=(const Vector2& other);
+		inline Vector2 operator+=(const Vector2& other)
+		{
+			this->x += other.x;
+			this->y += other.y;
+			return (*this);
+		}
 		/// @brief Subtracts another Vector2 to this one.
 		/// @param[in] other The other Vector2.
 		/// @return A copy of this Vector2.
-		Vector2 operator-=(const Vector2& other);
+		inline Vector2 operator-=(const Vector2& other)
+		{
+			this->x -= other.x;
+			this->y -= other.y;
+			return (*this);
+		}
 		/// @brief Multiplies this Vector2 with another one.
 		/// @param[in] other The other Vector2.
 		/// @return A copy of this Vector2.
-		Vector2 operator*=(const Vector2& other);
+		inline Vector2 operator*=(const Vector2& other)
+		{
+			this->x *= other.x;
+			this->y *= other.y;
+			return (*this);
+		}
 		/// @brief Divides this Vector2 with another one.
 		/// @param[in] other The other Vector2.
 		/// @return A copy of this Vector2.
-		Vector2 operator/=(const Vector2& other);
+		inline Vector2 operator/=(const Vector2& other)
+		{
+			this->x /= other.x;
+			this->y /= other.y;
+			return (*this);
+		}
 		/// @brief Multiplies this Vector2 with a factor.
 		/// @param[in] factor The factor.
 		/// @return A copy of this Vector2.
-		Vector2 operator*=(const float factor);
+		inline Vector2 operator*=(const float factor)
+		{
+			this->x *= factor;
+			this->y *= factor;
+			return (*this);
+		}
 		/// @brief Divides this Vector2 with a factor.
 		/// @param[in] factor The factor.
 		/// @return A copy of this Vector2.
-		Vector2 operator/=(const float factor);
+		inline Vector2 operator/=(const float factor)
+		{
+			float invScale = 1.0f / factor;
+			this->x *= invScale;
+			this->y *= invScale;
+			return (*this);
+		}
 		/// @brief Checks if two Vector2s are equal.
 		/// @param[in] other The other Vector2.
 		/// @return True if the two Vector2s are equal.
 		/// @note Beware of floating point errors.
-		bool operator==(const Vector2& other) const;
+		inline bool operator==(const Vector2& other) const
+		{
+			return (x == other.x && y == other.y);
+		}
 		/// @brief Checks if two Vector2s are not equal.
 		/// @param[in] other The other Vector2.
 		/// @return True if the two Vector2s are not equal.
 		/// @note Beware of floating point errors.
-		bool operator!=(const Vector2& other) const;
-
+		inline bool Vector2::operator!=(const Vector2& other) const
+		{
+			return !(*this == other);
+		}
 	};
 }
 
