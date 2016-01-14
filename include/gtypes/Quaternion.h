@@ -1,5 +1,5 @@
 /// @file
-/// @version 1.6
+/// @version 2.0
 /// 
 /// @section LICENSE
 /// 
@@ -15,12 +15,12 @@
 
 #include "gtypesExport.h"
 #include "gtypesUtil.h"
+#include "Matrix3.h"
+#include "Vector3.h"
 
 namespace gtypes
 {
-	class Matrix3;
 	class Matrix4;
-	class Vector3;
 
 	/// @brief Represents a quaternion.
 	class gtypesExport Quaternion
@@ -36,29 +36,23 @@ namespace gtypes
 		float w;
 		
 		/// @brief Basic constructor.
-		inline Quaternion()
+		inline Quaternion() : x(1.0f), y(1.0f), z(1.0f), w(1.0f)
 		{
-			this->x = 1.0f;
-			this->y = 1.0f;
-			this->z = 1.0f;
-			this->w = 1.0f;
 		}
 		/// @brief Constructor.
 		/// @param[in] x X value.
 		/// @param[in] y Y value.
 		/// @param[in] z Z value.
 		/// @param[in] w W value.
-		inline Quaternion(float x, float y, float z, float w)
+		inline Quaternion(float x, float y, float z, float w) : x(x), y(y), z(z), w(w)
 		{
-			this->x = x;
-			this->y = y;
-			this->z = z;
-			this->w = w;
 		}
 		/// @brief Constructor.
 		/// @param[in] v Vector3.
 		/// @param[in] w W value.
-		Quaternion(const Vector3& v, float w);
+		inline Quaternion(const Vector3& v, float w) : x(v.x), y(v.y), z(v.z), w(w)
+		{
+		}
 		/// @brief Sets the values of the Quaternion.
 		/// @param[in] x X value.
 		/// @param[in] y Y value.
@@ -74,8 +68,14 @@ namespace gtypes
 		/// @brief Sets the values of the Quaternion.
 		/// @param[in] v Vector3.
 		/// @param[in] w W value.
-		void set(const Vector3& v, float w);
-		
+		inline void set(const Vector3& v, float w)
+		{
+			this->x = v.x;
+			this->y = v.y;
+			this->z = v.z;
+			this->w = w;
+		}
+
 		/// @return Calculates the length of the Quaternion.
 		inline float length() const
 		{
@@ -149,7 +149,21 @@ namespace gtypes
 
 		/// @brief Creates a Matrix3 from this Quaternion
 		/// @return The Matrix3.
-		Matrix3 mat3() const;
+		inline Matrix3 mat3() const
+		{
+			float xx = this->x * this->x;
+			float yy = this->y * this->y;
+			float zz = this->z * this->z;
+			float xy = this->x * this->y;
+			float xz = this->x * this->z;
+			float yz = this->y * this->z;
+			float wx = this->w * this->x;
+			float wy = this->w * this->y;
+			float wz = this->w * this->z;
+			return Matrix3(1.0f - 2.0f * (yy + zz),	2.0f * (xy - wz),			2.0f * (xz + wy),
+						   2.0f * (xy + wz),		1.0f - 2.0f * (xx + zz),	2.0f * (yz - wx),
+						   2.0f * (xz - wy),		2.0f * (yz + wx),			1.0f - 2.0f * (xx + yy));
+		}
 		/// @brief Creates a Matrix4 from this Quaternion
 		/// @return The Matrix4.
 		Matrix4 mat4() const;
@@ -234,14 +248,10 @@ namespace gtypes
 			this->w = w * other.w - x * other.x - y * other.y - z * other.z;
 			return (*this);
 		}
-		/// @brief Divides this Quaternion with another one.
-		/// @param[in] other The other Quaternion.
-		/// @return A copy of this Quaternion.
-		Quaternion operator/=(const Quaternion& other);
 		/// @brief Multiplies this Quaternion with a factor.
 		/// @param[in] factor The factor.
 		/// @return A copy of this Quaternion.
-		inline Quaternion operator*=(const float factor)
+		inline Quaternion operator*=(float factor)
 		{
 			this->x *= factor;
 			this->y *= factor;
@@ -252,7 +262,14 @@ namespace gtypes
 		/// @brief Divides this Quaternion with a factor.
 		/// @param[in] factor The factor.
 		/// @return A copy of this Quaternion.
-		Quaternion operator/=(const float factor);
+		inline Quaternion operator/=(float factor)
+		{
+			this->x /= factor;
+			this->y /= factor;
+			this->z /= factor;
+			this->w /= factor;
+			return (*this);
+		}
 		/// @brief Checks if two Quaternions are equal.
 		/// @param[in] other The other Quaternion.
 		/// @return True if the two Quaternions are equal.
@@ -275,7 +292,7 @@ namespace gtypes
 		/// @param[in] b Second Quaternion.
 		/// @param[in] factor The slerp factor.
 		/// @return The slerped Quaternion.
-		static inline Quaternion slerp(const Quaternion& a, const Quaternion& b, float factor)
+		inline static Quaternion slerp(const Quaternion& a, const Quaternion& b, float factor)
 		{
 			float theta = (float)acos(a.dot(b));
 			float sinTheta = (float)sin(theta);
@@ -294,18 +311,25 @@ namespace gtypes
 		/// @param[in] az Z coordinate of the axis.
 		/// @param[in] angle The angle.
 		/// @return The Quaternion.
-		static Quaternion fromAxisAngle(float ax, float ay, float az, float angle);
+		inline static Quaternion fromAxisAngle(float ax, float ay, float az, float angle)
+		{
+			return Quaternion::fromAxisAngle(Vector3(ax, ay, az), angle);
+		}
 		/// @brief Creates a Quaternion from a rotation around an axis.
 		/// @param[in] axis The Vector3 axis.
 		/// @param[in] angle The angle.
 		/// @return The Quaternion.
-		static Quaternion fromAxisAngle(const Vector3& axis, float angle);
+		inline static Quaternion fromAxisAngle(const Vector3& axis, float angle)
+		{
+			float theta = (float)DEG_TO_RAD(angle) * 0.5f;
+			return Quaternion(axis.normalized() * (float)sin(theta), (float)cos(theta));
+		}
 		/// @brief Creates a Quaternion from Euler angles.
 		/// @param[in] yaw The "yaw" angle.
 		/// @param[in] pitch The "pitch" angle.
 		/// @param[in] roll The "roll" angle.
 		/// @return The Quaternion.
-		static inline Quaternion fromEulerAngles(float yaw, float pitch, float roll)
+		inline static Quaternion fromEulerAngles(float yaw, float pitch, float roll)
 		{
 			Quaternion y(0.0f, -(float)sin(yaw * 0.5f), 0.0f, (float)cos(yaw * 0.5f));
 			Quaternion p(-(float)sin(pitch * 0.5f), 0.0f, 0.0f, (float)cos(pitch * 0.5f));

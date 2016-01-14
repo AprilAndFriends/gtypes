@@ -1,5 +1,5 @@
 /// @file
-/// @version 1.6
+/// @version 2.0
 /// 
 /// @section LICENSE
 /// 
@@ -14,11 +14,10 @@
 #define GTYPES_MATRIX_3_H
 
 #include <math.h>
+#include <string.h>
 
 #include "gtypesExport.h"
 #include "gtypesUtil.h"
-#include "Matrix3.h"
-#include "Matrix4.h"
 #include "Vector2.h"
 #include "Vector3.h"
 
@@ -61,10 +60,7 @@ namespace gtypes
 		}
 		/// @brief Constructor.
 		/// @param[in] mat4 The Matrix4 to construct this Matrix3 from.
-		inline Matrix3(const Matrix4& mat)
-		{
-			this->set(mat);
-		}
+		Matrix3(const Matrix4& mat);
 		
 		/// @brief Sets the Matrix3 values.
 		/// @param[in] m0 Matrix value 0.
@@ -84,43 +80,31 @@ namespace gtypes
 		}
 		/// @brief Sets the Matrix3 values.
 		/// @param[in] m Array of values.
-		/// @note m HAS TO be of size 16 or larger.
+		/// @note m HAS TO be of size 9 or larger.
 		inline void set(const float m[])
 		{
-			this->data[0] = m[0];	this->data[1] = m[1];	this->data[2] = m[2];
-			this->data[3] = m[3];	this->data[4] = m[4];	this->data[5] = m[5];
-			this->data[6] = m[6];	this->data[7] = m[7];	this->data[8] = m[8];
+			memcpy(this->data, m, sizeof(this->data));
 		}
 		/// @brief Sets the Matrix3 values.
 		/// @param[in] mat4 The Matrix4 to construct this Matrix3 from.
-		inline void set(const Matrix4& mat)
-		{
-			this->data[0] = mat.data[0];	this->data[1] = mat.data[1];	this->data[2] = mat.data[2];
-			this->data[3] = mat.data[4];	this->data[4] = mat.data[5];	this->data[5] = mat.data[6];
-			this->data[6] = mat.data[8];	this->data[7] = mat.data[9];	this->data[8] = mat.data[10];
-		}
+		void set(const Matrix4& mat4);
 		/// @brief Sets the Matrix3 values.
 		/// @param[in] other The other Matrix3.
 		inline void set(const Matrix3& other)
 		{
-			this->data[0] = other.data[0];	this->data[1] = other.data[1];	this->data[2] = other.data[2];
-			this->data[3] = other.data[3];	this->data[4] = other.data[4];	this->data[5] = other.data[5];
-			this->data[6] = other.data[6];	this->data[7] = other.data[7];	this->data[8] = other.data[8];
+			memcpy(this->data, other.data, sizeof(this->data));
 		}
 
 		/// @brief Sets all values of the Matrix3 to zero.
 		inline void setZero()
 		{
-			this->data[0] = 0.0f;	this->data[1] = 0.0f;	this->data[2] = 0.0f;
-			this->data[3] = 0.0f;	this->data[4] = 0.0f;	this->data[5] = 0.0f;
-			this->data[6] = 0.0f;	this->data[7] = 0.0f;	this->data[8] = 0.0f;
+			memset(this->data, 0, sizeof(this->data));
 		}
 		/// @brief Sets the Matrix3 to identity.
 		inline void setIdentity()
 		{
-			this->data[0] = 1.0f;	this->data[1] = 0.0f;	this->data[2] = 0.0f;
-			this->data[3] = 0.0f;	this->data[4] = 1.0f;	this->data[5] = 0.0f;
-			this->data[6] = 0.0f;	this->data[7] = 0.0f;	this->data[8] = 1.0f;
+			memset(this->data, 0, sizeof(this->data));
+			this->data[0] = this->data[4] = this->data[8] = 1.0f;
 		}
 
 		/// @brief Sets the translation of the Matrix3.
@@ -128,17 +112,19 @@ namespace gtypes
 		/// @param[in] y Y coordinate.
 		inline void setTranslation(float x, float y)
 		{
-			this->data[0] = 1.0f;	this->data[1] = 0.0f;	this->data[2] = 0.0f;
-			this->data[3] = 0.0f;	this->data[4] = 1.0f;	this->data[5] = 0.0f;
-			this->data[6] = x;		this->data[7] = y;		this->data[8] = 1.0f;
+			memset(this->data, 0, sizeof(this->data));
+			this->data[0] = this->data[4] = this->data[8] = 1.0f;
+			this->data[6] = x;
+			this->data[7] = y;
 		}
 		/// @brief Sets the translation of the Matrix3.
 		/// @param[in] vector The Vector2 of the translation.
 		inline void setTranslation(const Vector2& vector)
 		{
-			this->data[0] = 1.0f;		this->data[1] = 0.0f;		this->data[2] = 0.0f;
-			this->data[3] = 0.0f;		this->data[4] = 1.0f;		this->data[5] = 0.0f;
-			this->data[6] = vector.x;	this->data[7] = vector.y;	this->data[8] = 1.0f;
+			memset(this->data, 0, sizeof(this->data));
+			this->data[0] = this->data[4] = this->data[8] = 1.0f;
+			this->data[6] = vector.x;
+			this->data[7] = vector.y;
 		}
 		/// @brief Sets the scale of the Matrix3.
 		/// @param[in] x X coordinate.
@@ -146,21 +132,27 @@ namespace gtypes
 		/// @param[in] z Z coordinate.
 		inline void setScale(float x, float y)
 		{
-			this->data[0] = x;		this->data[1] = 0.0f;	this->data[2] = 0.0f;
-			this->data[3] = 0.0f;	this->data[4] = y;		this->data[5] = 0.0f;
-			this->data[6] = 0.0f;	this->data[7] = 0.0f;	this->data[8] = 1.0f;
+			memset(this->data, 0, sizeof(this->data));
+			this->data[0] = x;
+			this->data[4] = y;
+			this->data[8] = 1.0f;
 		}
 		/// @brief Sets the scale of the Matrix3.
 		/// @param[in] factor The scale factor.
 		inline void setScale(float factor)
 		{
-			this->setScale(factor, factor);
+			memset(this->data, 0, sizeof(this->data));
+			this->data[0] = this->data[4] = factor;
+			this->data[8] = 1.0f;
 		}
 		/// @brief Sets the scale of the Matrix3.
 		/// @param[in] vector The Vector3 of the scale.
 		inline void setScale(const Vector2& vector)
 		{
-			this->setScale(vector.x, vector.y);
+			memset(this->data, 0, sizeof(this->data));
+			this->data[0] = vector.x;
+			this->data[4] = vector.y;
+			this->data[8] = 1.0f;
 		}
 		/// @brief Sets the 3D scale of the Matrix3.
 		/// @param[in] x X coordinate.
@@ -168,32 +160,39 @@ namespace gtypes
 		/// @param[in] z Z coordinate.
 		inline void setScale3D(float x, float y, float z)
 		{
-			this->data[0] = x;		this->data[1] = 0.0f;	this->data[2] = 0.0f;
-			this->data[3] = 0.0f;	this->data[4] = y;		this->data[5] = 0.0f;
-			this->data[6] = 0.0f;	this->data[7] = 0.0f;	this->data[8] = z;
+			memset(this->data, 0, sizeof(this->data));
+			this->data[0] = x;
+			this->data[4] = y;
+			this->data[8] = z;
 		}
 		/// @brief Sets the 3D scale of the Matrix3.
 		/// @param[in] factor The scale factor.
 		inline void setScale3D(float factor)
 		{
-			this->setScale3D(factor, factor, factor);
+			memset(this->data, 0, sizeof(this->data));
+			this->data[0] = this->data[4] = this->data[8] = factor;
 		}
 		/// @brief Sets the 3D scale of the Matrix3.
 		/// @param[in] vector The Vector3 of the scale.
 		inline void setScale3D(const Vector3& vector)
 		{
-			this->setScale3D(vector.x, vector.y, vector.z);
+			memset(this->data, 0, sizeof(this->data));
+			this->data[0] = vector.x;
+			this->data[4] = vector.y;
+			this->data[8] = vector.z;
 		}
 		/// @brief Sets the rotation of the Matrix3.
 		/// @param[in] angle The rotation angle.
 		inline void setRotation(float angle)
 		{
+			memset(this->data, 0, sizeof(this->data));
 			double rad = DEG_TO_RAD(angle);
 			float c = (float)cos(rad);
 			float s = (float)sin(rad);
-			this->data[0] = c;		this->data[1] = -s;		this->data[2] = 0.0f;
-			this->data[3] = s;		this->data[4] = c;		this->data[5] = 0.0f;
-			this->data[6] = 0.0f;	this->data[7] = 0.0f;	this->data[8] = 1.0f;
+			this->data[0] = this->data[4] = c;
+			this->data[1] = -s;
+			this->data[3] = s;
+			this->data[8] = 1.0f;
 		}
 		/// @brief Sets the 3D rotation of the Matrix3.
 		/// @param[in] x X coordinate of the rotation axis.
@@ -228,23 +227,23 @@ namespace gtypes
 		/// @param[in] angle The rotation angle.
 		inline void setRotation3DX(float angle)
 		{
+			memset(this->data, 0, sizeof(this->data));
 			double rad = DEG_TO_RAD(angle);
-			float c = (float)cos(rad);
-			float s = (float)sin(rad);
-			this->data[0] = 1.0f;	this->data[1] = 0.0f;	this->data[2] = 0.0f;
-			this->data[3] = 0.0f;	this->data[4] = c;		this->data[5] = s;
-			this->data[6] = 0.0f;	this->data[7] = -s;		this->data[8] = c;
+			this->data[0] = 1.0f;
+			this->data[4] = this->data[8] = (float)cos(rad);
+			this->data[5] = (float)sin(rad);
+			this->data[7] = -this->data[5];
 		}
 		/// @brief Sets the 3D Y rotation of the Matrix3.
 		/// @param[in] angle The rotation angle.
 		inline void setRotation3DY(float angle)
 		{
+			memset(this->data, 0, sizeof(this->data));
 			double rad = DEG_TO_RAD(angle);
-			float c = (float)cos(rad);
-			float s = (float)sin(rad);
-			this->data[0] = c;		this->data[1] = 0.0f;	this->data[2] = -s;
-			this->data[3] = 0.0f;	this->data[4] = 1.0f;	this->data[5] = 0.0f;
-			this->data[6] = s;		this->data[7] = 0.0f;	this->data[8] = c;
+			this->data[0] = this->data[8] = (float)cos(rad);
+			this->data[6] = (float)sin(rad);
+			this->data[4] = 1.0f;
+			this->data[2] = -this->data[6];
 		}
 		/// @brief Sets the 3D Z rotation of the Matrix3.
 		/// @param[in] angle The rotation angle.

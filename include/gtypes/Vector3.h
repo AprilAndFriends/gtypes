@@ -1,5 +1,5 @@
 /// @file
-/// @version 1.6
+/// @version 2.0
 /// 
 /// @section LICENSE
 /// 
@@ -16,12 +16,10 @@
 #include <math.h>
 
 #include "gtypesExport.h"
-#include "Quaternion.h"
+#include "Vector2.h"
 
 namespace gtypes
 {
-	class Quaternion;
-	
 	/// @brief Represents a 3D vector.
 	class gtypesExport Vector3
 	{
@@ -41,9 +39,14 @@ namespace gtypes
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
 		/// @param[in] z Z coordinate.
-		inline Vector3(float x, float y, float z)
+		inline Vector3(float x, float y, float z) : x(x), y(y), z(z)
 		{
-			this->set(x, y, z);
+		}
+		/// @brief Constructor.
+		/// @param[in] v Vector2.
+		/// @param[in] z Z coordinate.
+		inline Vector3(const Vector2& v, float z) : x(v.x), y(v.y), z(z)
+		{
 		}
 		/// @brief Sets the values of the Vector3.
 		/// @param[in] x X coordinate.
@@ -53,6 +56,15 @@ namespace gtypes
 		{
 			this->x = x;
 			this->y = y;
+			this->z = z;
+		}
+		/// @brief Sets the values of the Vector3.
+		/// @param[in] v Vector2.
+		/// @param[in] z Z coordinate.
+		inline void set(const Vector2& v, float z)
+		{
+			this->x = v.x;
+			this->y = v.y;
 			this->z = z;
 		}
 
@@ -134,7 +146,7 @@ namespace gtypes
 		/// @brief Multiplies two Vector3s.
 		/// @param[in] other The other Vector3.
 		/// @return The resulting Vector3.
-		Vector3 operator*(const Vector3& other) const
+		inline Vector3 operator*(const Vector3& other) const
 		{
 			return Vector3(this->x * other.x, this->y * other.y, this->z * other.z);
 		}
@@ -148,14 +160,14 @@ namespace gtypes
 		/// @brief Multiplies Vector3 with a factor.
 		/// @param[in] factor The factor.
 		/// @return The resulting Vector3.
-		inline Vector3 operator*(const float factor) const
+		inline Vector3 operator*(float factor) const
 		{
 			return Vector3(this->x * factor, this->y * factor, this->z * factor);
 		}
 		/// @brief Divides Vector3 with a factor.
 		/// @param[in] factor The factor.
 		/// @return The resulting Vector3.
-		inline Vector3 operator/(const float factor) const
+		inline Vector3 operator/(float factor) const
 		{
 			float invFactor = 1.0f / factor;
 			return Vector3(this->x * invFactor, this->y * invFactor, this->z * invFactor);
@@ -203,7 +215,7 @@ namespace gtypes
 		/// @brief Multiplies this Vector3 with a factor.
 		/// @param[in] factor The factor.
 		/// @return A copy of this Vector3.
-		inline Vector3 operator*=(const float factor)
+		inline Vector3 operator*=(float factor)
 		{
 			this->x *= factor;
 			this->y *= factor;
@@ -213,7 +225,7 @@ namespace gtypes
 		/// @brief Divides this Vector3 with a factor.
 		/// @param[in] factor The factor.
 		/// @return A copy of this Vector3.
-		inline Vector3 operator/=(const float factor)
+		inline Vector3 operator/=(float factor)
 		{
 			float invFactor = 1.0f / factor;
 			this->x *= invFactor;

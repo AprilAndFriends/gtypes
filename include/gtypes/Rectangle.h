@@ -1,5 +1,5 @@
 /// @file
-/// @version 1.6
+/// @version 2.0
 /// 
 /// @section LICENSE
 /// 
@@ -40,32 +40,28 @@ namespace gtypes
 		/// @param[in] y Y coordinate.
 		/// @param[in] w Width.
 		/// @param[in] h Height.
-		inline Rectangle(float x, float y, float w, float h)
+		inline Rectangle(float x, float y, float w, float h) : x(x), y(y), w(w), h(h)
 		{
-			this->set(x, y, w, h);
 		}
 		/// @brief Constructor.
 		/// @param[in] position Position.
 		/// @param[in] size Size.
-		inline Rectangle(Vector2 position, Vector2 size)
+		inline Rectangle(const Vector2& position, const Vector2& size) : x(position.x), y(position.y), w(size.x), h(size.y)
 		{
-			this->set(position, size);
 		}
 		/// @brief Constructor.
 		/// @param[in] position Position.
 		/// @param[in] w Width.
 		/// @param[in] h Height.
-		inline Rectangle(Vector2 position, float w, float h)
+		inline Rectangle(const Vector2& position, float w, float h) : x(position.x), y(position.y), w(w), h(h)
 		{
-			this->set(position, w, h);
 		}
 		/// @brief Constructor.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
 		/// @param[in] size Size.
-		inline Rectangle(float x, float y, Vector2 size)
+		inline Rectangle(float x, float y, const Vector2& size) : x(x), y(y), w(size.x), h(size.y)
 		{
-			this->set(x, y, size);
 		}
 		/// @brief Sets the values of the Rectangle.
 		/// @param[in] x X coordinate.
@@ -82,7 +78,7 @@ namespace gtypes
 		/// @brief Sets the values of the Rectangle.
 		/// @param[in] position Position.
 		/// @param[in] size Size.
-		inline void set(Vector2 position, Vector2 size)
+		inline void set(const Vector2& position, const Vector2& size)
 		{
 			this->x = position.x;
 			this->y = position.y;
@@ -93,7 +89,7 @@ namespace gtypes
 		/// @param[in] position Position.
 		/// @param[in] w Width.
 		/// @param[in] h Height.
-		inline void set(Vector2 position, float w, float h)
+		inline void set(const Vector2& position, float w, float h)
 		{
 			this->x = position.x;
 			this->y = position.y;
@@ -104,7 +100,7 @@ namespace gtypes
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
 		/// @param[in] size Size.
-		inline void set(float x, float y, Vector2 size)
+		inline void set(float x, float y, const Vector2& size)
 		{
 			this->x = x;
 			this->y = y;
@@ -119,7 +115,7 @@ namespace gtypes
 		}
 		/// @brief Sets the position.
 		/// @param[in] position Position.
-		inline void setPosition(Vector2 position)
+		inline void setPosition(const Vector2& position)
 		{
 			this->x = position.x;
 			this->y = position.y;
@@ -139,7 +135,7 @@ namespace gtypes
 		}
 		/// @brief Sets the size.
 		/// @param[in] size Size.
-		inline void setSize(Vector2 size)
+		inline void setSize(const Vector2& size)
 		{
 			this->w = size.x;
 			this->h = size.y;
@@ -295,7 +291,7 @@ namespace gtypes
 		/// @brief Creates a new Rectangle that was moved along a vector.
 		/// @param[in] vector Vector by which to move the Rectangle.
 		/// @return A new Rectangle that was moved along a vector.
-		inline Rectangle operator+(Vector2 vector) const
+		inline Rectangle operator+(const Vector2& vector) const
 		{
 			Rectangle result(*this);
 			result.x += vector.x;
@@ -305,7 +301,7 @@ namespace gtypes
 		/// @brief Creates a new Rectangle that was moved along a vector.
 		/// @param[in] vector Vector by which to move the Rectangle.
 		/// @return A new Rectangle that was moved along a vector.
-		inline Rectangle operator-(Vector2 vector) const
+		inline Rectangle operator-(const Vector2& vector) const
 		{
 			Rectangle result(*this);
 			result.x -= vector.x;
@@ -315,7 +311,7 @@ namespace gtypes
 		/// @brief Creates a new Rectangle that was scaled with a vector.
 		/// @param[in] vector Vector with which to scale the Rectangle.
 		/// @return A new Rectangle that was scaled with a vector.
-		inline Rectangle operator*(Vector2 vector) const
+		inline Rectangle operator*(const Vector2& vector) const
 		{
 			Rectangle result(*this);
 			result.w *= vector.x;
@@ -325,7 +321,7 @@ namespace gtypes
 		/// @brief Creates a new Rectangle that was scaled with a vector.
 		/// @param[in] vector Vector with which to scale the Rectangle.
 		/// @return A new Rectangle that was scaled with a vector.
-		inline Rectangle operator/(Vector2 vector) const
+		inline Rectangle operator/(const Vector2& vector) const
 		{
 			Rectangle result(*this);
 			result.w /= vector.x;
@@ -421,7 +417,8 @@ namespace gtypes
 		inline bool operator!=(const Rectangle& other) const
 		{
 			return !(*this == other);
-		}		
+		}	
+
 	};
 }
 

@@ -1,5 +1,5 @@
 /// @file
-/// @version 1.6
+/// @version 2.0
 /// 
 /// @section LICENSE
 /// 
@@ -14,9 +14,11 @@
 #define GTYPES_MATRIX_4_H
 
 #include <math.h>
+#include <string.h>
 
 #include "gtypesExport.h"
 #include "gtypesUtil.h"
+#include "Matrix3.h"
 #include "Quaternion.h"
 #include "Rectangle.h"
 #include "Vector3.h"
@@ -123,50 +125,52 @@ namespace gtypes
 		/// @note m HAS TO be of size 16 or larger.
 		inline void set(const float m[])
 		{
-			this->data[0] = m[0];	this->data[1] = m[1];	this->data[2] = m[2];	this->data[3] = m[3];
-			this->data[4] = m[4];	this->data[5] = m[5];	this->data[6] = m[6];	this->data[7] = m[7];
-			this->data[8] = m[8];	this->data[9] = m[9];	this->data[10] = m[10];	this->data[11] = m[11];
-			this->data[12] = m[12];	this->data[13] = m[13];	this->data[14] = m[14];	this->data[15] = m[15];
+			memcpy(this->data, m, sizeof(this->data));
 		}
-		/// @brief Sets the Matrix4 values.
-		/// @param[in] mat3 The Matrix3 to construct this Matrix4 from.
-		void set(const Matrix3& mat3);
 
 		/// @brief Sets the Matrix4 values.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
 		/// @param[in] z Z coordinate.
 		/// @param[in] angle Rotation angle.
-		void set(float x, float y, float z, float angle);
+		inline void set(float x, float y, float z, float angle)
+		{
+			this->setRotation(x, y, z, (float)DEG_TO_RAD(angle));
+		}
 		/// @brief Sets the Matrix4 values.
 		/// @param[in] axis Rotation axis.
 		/// @param[in] angle Rotation angle.
-		void set(const Vector3& axis, float angle);
+		inline void set(const Vector3& axis, float angle)
+		{
+			this->setRotation(axis.x, axis.y, axis.z, (float)DEG_TO_RAD(angle));
+		}
 		/// @brief Sets the Matrix4 values.
 		/// @param[in] other The other Matrix4.
 		inline void set(const Matrix4& other)
 		{
-			this->data[0] = other[0];	this->data[1] = other[1];	this->data[2] = other[2];	this->data[3] = other[3];
-			this->data[4] = other[4];	this->data[5] = other[5];	this->data[6] = other[6];	this->data[7] = other[7];
-			this->data[8] = other[8];	this->data[9] = other[9];	this->data[10] = other[10];	this->data[11] = other[11];
-			this->data[12] = other[12];	this->data[13] = other[13];	this->data[14] = other[14];	this->data[15] = other[15];
+			memcpy(this->data, other.data, sizeof(this->data));
+		}
+		/// @brief Sets the Matrix4 values.
+		/// @param[in] mat3 The Matrix3 to construct this Matrix4 from.
+		inline void set(const Matrix3& mat3)
+		{
+			this->setIdentity();
+			static int rowSize = sizeof(float) * 3;
+			memcpy(this->data, mat3.data, rowSize);
+			memcpy(&this->data[4], &mat3.data[3], rowSize);
+			memcpy(&this->data[8], &mat3.data[6], rowSize);
 		}
 
 		/// @brief Sets all values of the Matrix4 to zero.
 		inline void setZero()
 		{
-			this->data[0] = 0.0f;	this->data[1] = 0.0f;	this->data[2] = 0.0f;	this->data[3] = 0.0f;
-			this->data[4] = 0.0f;	this->data[5] = 0.0f;	this->data[6] = 0.0f;	this->data[7] = 0.0f;
-			this->data[8] = 0.0f;	this->data[9] = 0.0f;	this->data[10] = 0.0f;	this->data[11] = 0.0f;
-			this->data[12] = 0.0f;	this->data[13] = 0.0f;	this->data[14] = 0.0f;	this->data[15] = 0.0f;
+			memset(this->data, 0, sizeof(this->data));
 		}
 		/// @brief Sets the Matrix4 to identity.
 		inline void setIdentity()
 		{
-			this->data[0] = 1.0f;	this->data[1] = 0.0f;	this->data[2] = 0.0f;	this->data[3] = 0.0f;
-			this->data[4] = 0.0f;	this->data[5] = 1.0f;	this->data[6] = 0.0f;	this->data[7] = 0.0f;
-			this->data[8] = 0.0f;	this->data[9] = 0.0f;	this->data[10] = 1.0f;	this->data[11] = 0.0f;
-			this->data[12] = 0.0f;	this->data[13] = 0.0f;	this->data[14] = 0.0f;	this->data[15] = 1.0f;
+			memset(this->data, 0, sizeof(this->data));
+			this->data[0] = this->data[5] = this->data[10] = this->data[15] = 1.0f;
 		}
 		/// @brief Gets rotation as Matrix4.
 		/// @return Rotation as Matrix4.
@@ -184,16 +188,21 @@ namespace gtypes
 		/// @param[in] z Z coordinate.
 		inline void setTranslation(float x, float y, float z)
 		{
-			this->data[0] = 1.0f;	this->data[1] = 0.0f;	this->data[2] = 0.0f;	this->data[3] = 0.0f;
-			this->data[4] = 0.0f;	this->data[5] = 1.0f;	this->data[6] = 0.0f;	this->data[7] = 0.0f;
-			this->data[8] = 0.0f;	this->data[9] = 0.0f;	this->data[10] = 1.0f;	this->data[11] = 0.0f;
-			this->data[12] = x;		this->data[13] = y;		this->data[14] = z;		this->data[15] = 1.0f;
+			memset(this->data, 0, sizeof(this->data));
+			this->data[0] = this->data[5] = this->data[10] = this->data[15] = 1.0f;
+			this->data[12] = x;
+			this->data[13] = y;
+			this->data[14] = z;
 		}
 		/// @brief Sets the translation of the Matrix4.
 		/// @param[in] vector The Vector3 of the translation.
 		inline void setTranslation(const Vector3& vector)
 		{
-			this->setTranslation(vector.x, vector.y, vector.z);
+			memset(this->data, 0, sizeof(this->data));
+			this->data[0] = this->data[5] = this->data[10] = this->data[15] = 1.0f;
+			this->data[12] = vector.x;
+			this->data[13] = vector.y;
+			this->data[14] = vector.z;
 		}
 		/// @brief Sets the scale of the Matrix4.
 		/// @param[in] x X coordinate.
@@ -201,22 +210,29 @@ namespace gtypes
 		/// @param[in] z Z coordinate.
 		inline void setScale(float x, float y, float z)
 		{
-			this->data[0] = x;		this->data[1] = 0.0f;	this->data[2] = 0.0f;	this->data[3] = 0.0f;
-			this->data[4] = 0.0f;	this->data[5] = y;		this->data[6] = 0.0f;	this->data[7] = 0.0f;
-			this->data[8] = 0.0f;	this->data[9] = 0.0f;	this->data[10] = z;		this->data[11] = 0.0f;
-			this->data[12] = 0.0f;	this->data[13] = 0.0f;	this->data[14] = 0.0f;	this->data[15] = 1.0f;
+			memset(this->data, 0, sizeof(this->data));
+			this->data[15] = 1.0f;
+			this->data[0] = x;
+			this->data[5] = y;
+			this->data[10] = z;
 		}
 		/// @brief Sets the scale of the Matrix4.
 		/// @param[in] factor The scale factor.
 		inline void setScale(float factor)
 		{
-			this->setScale(factor, factor, factor);
+			memset(this->data, 0, sizeof(this->data));
+			this->data[15] = 1.0f;
+			this->data[0] = this->data[5] = this->data[10] = factor;
 		}
 		/// @brief Sets the scale of the Matrix4.
 		/// @param[in] vector The Vector3 of the scale.
 		inline void setScale(const Vector3& vector)
 		{
-			this->setScale(vector.x, vector.y, vector.z);
+			memset(this->data, 0, sizeof(this->data));
+			this->data[15] = 1.0f;
+			this->data[0] = vector.x;
+			this->data[5] = vector.y;
+			this->data[10] = vector.z;
 		}
 		/// @brief Sets the rotation of the Matrix4.
 		/// @param[in] x X coordinate of the rotation axis.
@@ -232,6 +248,7 @@ namespace gtypes
 		/// @param[in] angle The rotation angle.
 		inline void setRotation(const Vector3& axis, float angle)
 		{
+			memset(this->data, 0, sizeof(this->data));
 			double rad = DEG_TO_RAD(angle);
 			float c = (float)cos(rad);
 			float s = (float)sin(rad);
@@ -243,46 +260,43 @@ namespace gtypes
 			float xs = v.x * s;
 			float ys = v.y * s;
 			float zs = v.z * s;
-			this->data[0] = v.x * v.x * c1 + c;	this->data[1] = xyc1 + zs;			this->data[2] = zxc1 - ys; 				this->data[3] = 0.0f;
-			this->data[4] = xyc1 - zs;			this->data[5] = v.y * v.y * c1 + c;	this->data[6] = yzc1 + xs; 				this->data[7] = 0.0f;
-			this->data[8] = zxc1 + ys;			this->data[9] = yzc1 - xs;			this->data[10] = v.z * v.z * c1 + c;	this->data[11] = 0.0f;
-			this->data[12] = 0.0f;				this->data[13] = 0.0f;				this->data[14] = 0.0f;					this->data[15] = 1.0f;
+			this->data[0] = v.x * v.x * c1 + c;	this->data[1] = xyc1 + zs;			this->data[2] = zxc1 - ys;
+			this->data[4] = xyc1 - zs;			this->data[5] = v.y * v.y * c1 + c;	this->data[6] = yzc1 + xs;
+			this->data[8] = zxc1 + ys;			this->data[9] = yzc1 - xs;			this->data[10] = v.z * v.z * c1 + c;
+			this->data[15] = 1.0f;
 		}
 		/// @brief Sets the X rotation of the Matrix4.
 		/// @param[in] angle The rotation angle.
 		inline void setRotationX(float angle)
 		{
+			memset(this->data, 0, sizeof(this->data));
 			double rad = DEG_TO_RAD(angle);
-			float c = (float)cos(rad);
-			float s = (float)sin(rad);
-			this->data[0] = 1.0f;	this->data[1] = 0.0f;	this->data[2] = 0.0f;	this->data[3] = 0.0f;
-			this->data[4] = 0.0f;	this->data[5] = c;		this->data[6] = s;		this->data[7] = 0.0f;
-			this->data[8] = 0.0f;	this->data[9] = -s;		this->data[10] = c;		this->data[11] = 0.0f;
-			this->data[12] = 0.0f;	this->data[13] = 0.0f;	this->data[14] = 0.0f;	this->data[15] = 1.0f;
+			this->data[0] = this->data[15] = 1.0f;
+			this->data[5] = this->data[10] = (float)cos(rad);
+			this->data[6] = (float)sin(rad);
+			this->data[9] = -this->data[6];
 		}
 		/// @brief Sets the Y rotation of the Matrix4.
 		/// @param[in] angle The rotation angle.
 		inline void setRotationY(float angle)
 		{
+			memset(this->data, 0, sizeof(this->data));
 			double rad = DEG_TO_RAD(angle);
-			float c = (float)cos(rad);
-			float s = (float)sin(rad);
-			this->data[0] = c;		this->data[1] = 0.0f;	this->data[2] = -s;		this->data[3] = 0.0f;
-			this->data[4] = 0.0f;	this->data[5] = 1.0f;	this->data[6] = 0.0f;	this->data[7] = 0.0f;
-			this->data[8] = s;		this->data[9] = 0.0f;	this->data[10] = c;		this->data[11] = 0.0f;
-			this->data[12] = 0.0f;	this->data[13] = 0.0f;	this->data[14] = 0.0f;	this->data[15] = 1.0f;
+			this->data[5] = this->data[15] = 1.0f;
+			this->data[0] = this->data[10] = (float)cos(rad);
+			this->data[8] = (float)sin(rad);
+			this->data[2] = -this->data[8];
 		}
 		/// @brief Sets the Z rotation of the Matrix4.
 		/// @param[in] angle The rotation angle.
 		inline void setRotationZ(float angle)
 		{
+			memset(this->data, 0, sizeof(this->data));
 			double rad = DEG_TO_RAD(angle);
-			float c = (float)cos(rad);
-			float s = (float)sin(rad);
-			this->data[0] = c;		this->data[1] = s;		this->data[2] = 0.0f;	this->data[3] = 0.0f;
-			this->data[4] = -s;		this->data[5] = c;		this->data[6] = 0.0f;	this->data[7] = 0.0f;
-			this->data[8] = 0.0f;	this->data[9] = 0.0f;	this->data[10] = 1.0f;	this->data[11] = 0.0f;
-			this->data[12] = 0.0f;	this->data[13] = 0.0f;	this->data[14] = 0.0f;	this->data[15] = 1.0f;
+			this->data[10] = this->data[15] = 1.0f;
+			this->data[0] = this->data[5] = (float)cos(rad);
+			this->data[1] = (float)sin(rad);
+			this->data[4] = -this->data[1];
 		}
 		/// @brief Sets the reflection of the Matrix4.
 		/// @param[in] x X coordinate.
@@ -291,12 +305,13 @@ namespace gtypes
 		/// @param[in] w W coordinate.
 		inline void setReflection(float x, float y, float z, float w)
 		{
+			memset(this->data, 0, sizeof(this->data));
 			float x2 = x * 2.0f;
 			float y2 = y * 2.0f;
 			float z2 = z * 2.0f;
-			this->data[0] = 1.0f - x * x2;	this->data[1] = -x * y2;		this->data[2] = -x * z2;		this->data[3] = 0.0f;
-			this->data[4] = -y * x2;		this->data[5] = 1.0f - y * y2;	this->data[6] = -y * z2;		this->data[7] = 0.0f;
-			this->data[8] = -z * x2;		this->data[9] = -z * y2;		this->data[10] = 1.0f - z * z2;	this->data[11] = 0.0f;
+			this->data[0] = 1.0f - x * x2;	this->data[1] = -x * y2;		this->data[2] = -x * z2;
+			this->data[4] = -y * x2;		this->data[5] = 1.0f - y * y2;	this->data[6] = -y * z2;
+			this->data[8] = -z * x2;		this->data[9] = -z * y2;		this->data[10] = 1.0f - z * z2;
 			this->data[12] = -w * x2;		this->data[13] = -w * y2;		this->data[14] = -w * z2;		this->data[15] = 1.0f;
 		}
 		/// @brief Sets the reflection of the Matrix4.
@@ -310,10 +325,13 @@ namespace gtypes
 		/// @param[in] rect The Rectangle.
 		inline void setOrthoProjection(const Rectangle& rect)
 		{
-			this->data[0] = 2.0f / rect.w;						this->data[1] = 0.0f;							this->data[2] = 0.0f;	this->data[3] = 0.0f;
-			this->data[4] = 0.0f;								this->data[5] = -2.0f / rect.h;					this->data[6] = 0.0f;	this->data[7] = 0.0f;
-			this->data[8] = 0.0f;								this->data[9] = 0.0f;							this->data[10] = -2.0f;	this->data[11] = 0.0f;
-			this->data[12] = -1.0f + rect.x * 2.0f / rect.w;	this->data[13] = 1.0f - rect.y * 2.0f / rect.h;	this->data[14] = 0.0f;	this->data[15] = 1.0f;
+			memset(this->data, 0, sizeof(this->data));
+			this->data[0] = 2.0f / rect.w;
+			this->data[5] = -2.0f / rect.h;
+			this->data[10] = -2.0f;
+			this->data[12] = -1.0f + rect.x * 2.0f / rect.w;
+			this->data[13] = 1.0f - rect.y * 2.0f / rect.h;
+			this->data[15] = 1.0f;
 		}
 		/// @brief Creates an ortho-projection from a Rectangle.
 		/// @param[in] rect The Rectangle.
@@ -321,10 +339,14 @@ namespace gtypes
 		/// @param[in] farZ The far plane.
 		inline void setOrthoProjection(const Rectangle& rect, float nearZ, float farZ)
 		{
-			this->data[0] = 2.0f / rect.w;						this->data[1] = 0.0f;							this->data[2] = 0.0f;							this->data[3] = 0.0f;
-			this->data[4] = 0.0f;								this->data[5] = -2.0f / rect.h;					this->data[6] = 0.0f;							this->data[7] = 0.0f;
-			this->data[8] = 0.0f;								this->data[9] = 0.0f;							this->data[10] = -2.0f / (farZ - nearZ);			this->data[11] = 0.0f;
-			this->data[12] = -1.0f + rect.x * 2.0f / rect.w;	this->data[13] = 1.0f - rect.y * 2.0f / rect.h;	this->data[14] = (farZ + nearZ) / (farZ - nearZ);	this->data[15] = 1.0f;
+			memset(this->data, 0, sizeof(this->data));
+			this->data[0] = 2.0f / rect.w;
+			this->data[5] = -2.0f / rect.h;
+			this->data[10] = -2.0f / (farZ - nearZ);
+			this->data[12] = -1.0f + rect.x * 2.0f / rect.w;
+			this->data[13] = 1.0f - rect.y * 2.0f / rect.h;
+			this->data[14] = (farZ + nearZ) / (farZ - nearZ);
+			this->data[15] = 1.0f;
 		}
 		/// @brief Sets the perspective in a Matrix4.
 		/// @param[in] fov The field-of-view.
@@ -333,12 +355,14 @@ namespace gtypes
 		/// @param[in] farZ The far plane.
 		inline void setPerspective(float fov, float aspect, float nearZ, float farZ)
 		{
+			memset(this->data, 0, sizeof(this->data));
 			float iy = 1.0f / ((float)tan(DEG_TO_RAD(fov * 0.5f)));
 			float ix = iy * aspect;
-			this->data[0] = 1.0f * ix;	this->data[1] = 0.0f;		this->data[2] = 0.0f;										this->data[3] = 0.0f;
-			this->data[4] = 0.0f;		this->data[5] = 1.0f * iy;	this->data[6] = 0.0f;										this->data[7] = 0.0f;
-			this->data[8] = 0.0f;		this->data[9] = 0.0f;		this->data[10] = -(farZ + nearZ) / (farZ - nearZ);			this->data[11] = -1.0f;
-			this->data[12] = 0.0f;		this->data[13] = 0.0f;		this->data[14] = -(2.0f * farZ * nearZ) / (farZ - nearZ);	this->data[15] = 0.0f;
+			this->data[0] = 1.0f * ix;
+			this->data[5] = 1.0f * iy;
+			this->data[10] = -(farZ + nearZ) / (farZ - nearZ);
+			this->data[11] = -1.0f;
+			this->data[14] = -(2.0f * farZ * nearZ) / (farZ - nearZ);
 		}
 
 		/// @brief Calculates the determinant of the Matrix4.
@@ -470,11 +494,7 @@ namespace gtypes
 			Vector3 bz = (eye - target).normalized();
 			Vector3 bx = up.cross(bz).normalized();
 			Vector3 by = bz.cross(bx).normalized();
-			Matrix4 a;
-			a[0] = bx.x;	a[1] = by.x;	a[2] = bz.x;	a[3] = 0.0f;
-			a[4] = bx.y;	a[5] = by.y;	a[6] = bz.y;	a[7] = 0.0f;
-			a[8] = bx.z;	a[9] = by.z;	a[10] = bz.z;	a[11] = 0.0f;
-			a[12] = 0.0f;	a[13] = 0.0f;	a[14] = 0.0f;	a[15] = 1.0f;
+			Matrix4 a(bx.x, by.x, bz.x, 0.0f, bx.y, by.y, bz.y, 0.0f, bx.z, by.z, bz.z, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f);
 			Matrix4 b;
 			b.setTranslation(-eye);
 			*this = a * b;
@@ -500,20 +520,17 @@ namespace gtypes
 		/// @note This will NOT inverse the rotation!
 		inline void inverse()
 		{
-			float m[16] = { 0 };
+			float m[16] = { 0.0f }; // required, because m[0-10] are used for m[12-14]
 			float invDet = 1.0f / this->det();
 			m[0] = (this->data[5] * this->data[10] - this->data[9] * this->data[6]) * invDet;
 			m[1] = -(this->data[1] * this->data[10] - this->data[9] * this->data[2]) * invDet;
 			m[2] = (this->data[1] * this->data[6] - this->data[5] * this->data[2]) * invDet;
-			m[3] = 0.0f;
 			m[4] = -(this->data[4] * this->data[10] - this->data[8] * this->data[6]) * invDet;
 			m[5] = (this->data[0] * this->data[10] - this->data[8] * this->data[2]) * invDet;
 			m[6] = -(this->data[0] * this->data[6] - this->data[4] * this->data[2]) * invDet;
-			m[7] = 0.0f;
 			m[8] = (this->data[4] * this->data[9] - this->data[8] * this->data[5]) * invDet;
 			m[9] = -(this->data[0] * this->data[9] - this->data[8] * this->data[1]) * invDet;
 			m[10] = (this->data[0] * this->data[5] - this->data[4] * this->data[1]) * invDet;
-			m[11] = 0.0f;
 			m[12] = -(this->data[12] * m[0] + this->data[13] * m[4] + this->data[14] * m[8]);
 			m[13] = -(this->data[12] * m[1] + this->data[13] * m[5] + this->data[14] * m[9]);
 			m[14] = -(this->data[12] * m[2] + this->data[13] * m[6] + this->data[14] * m[10]);

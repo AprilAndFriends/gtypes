@@ -1,5 +1,5 @@
 /// @file
-/// @version 1.6
+/// @version 2.0
 /// 
 /// @section LICENSE
 /// 
@@ -11,5 +11,18 @@
 
 namespace gtypes
 {
+	Matrix3::Matrix3(const Matrix4& mat)
+	{
+		this->set(mat);
+	}
+
+	void Matrix3::set(const Matrix4& mat4)
+	{
+		static int rowSize = sizeof(float) * 3;
+		memcpy(this->data, mat4.data, rowSize);
+		memcpy(&this->data[3], &mat4.data[4], rowSize);
+		memcpy(&this->data[6], &mat4.data[8], rowSize);
+	}
+
 }
 

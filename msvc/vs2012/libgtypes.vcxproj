@@ -64,14 +64,8 @@
   <Import Condition="exists('..\..\..\hltypes\msvc\vs2012\props-generic\build-defaults.props')" Project="..\..\..\hltypes\msvc\vs2012\props-generic\build-defaults.props" />
   <Import Condition="!exists('..\..\..\hltypes\msvc\vs2012\props-generic\build-defaults.props')" Project="props-generic\build-defaults.props" />
   <ItemGroup>
-    <ClCompile Include="..\..\src\CatmullRomSpline2.cpp" />
-    <ClCompile Include="..\..\src\CatmullRomSpline3.cpp" />
     <ClCompile Include="..\..\src\Matrix3.cpp" />
-    <ClCompile Include="..\..\src\Matrix4.cpp" />
     <ClCompile Include="..\..\src\Quaternion.cpp" />
-    <ClCompile Include="..\..\src\Rectangle.cpp" />
-    <ClCompile Include="..\..\src\Vector2.cpp" />
-    <ClCompile Include="..\..\src\Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\gtypes\CatmullRomSpline2.h" />

@@ -1,5 +1,5 @@
 /// @file
-/// @version 1.6
+/// @version 2.0
 /// 
 /// @section LICENSE
 /// 
@@ -36,9 +36,8 @@ namespace gtypes
 		/// @brief Constructor.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
-		inline Vector2(float x, float y)
+		inline Vector2(float x, float y) : x(x), y(y)
 		{
-			this->set(x, y);
 		}
 		/// @brief Sets the values of the Vector2.
 		/// @param[in] x X coordinate.
@@ -68,19 +67,31 @@ namespace gtypes
 		{
 			return (this->x * this->x + this->y * this->y);
 		}
-		/// @return Calculates the angle of the Vector2
+		/// @return Calculates the angle of the Vector2.
 		/// @note An angle of 0° means x = 1 and y = 0. The angle increases in a counterclockwise direction.
 		inline float angle() const
 		{
 			return (float)RAD_TO_DEG(atan2(-this->y, this->x));
 		}
-		/// @brief Calculates the dot-product between this and another Vector2.
-		/// @param[in] other The other Vector2.
-		/// @return The dot-product.
-		inline bool isInCircle(float center_x, float center_y, float radius)
+		/// @brief Checks if the Vector2 is located within a circle defined by a center and a radius.
+		/// @param[in] centerX Center X coordinate of the circle.
+		/// @param[in] centerY Center Y coordinate of the circle.
+		/// @param[in] radius Radius of the circle.
+		/// @return True if this Vector2 is located within the circle.
+		inline bool isInCircle(float centerX, float centerY, float radius)
 		{
-			float dx = this->x - center_x;
-			float dy = this->y - center_y;
+			float dx = this->x - centerX;
+			float dy = this->y - centerY;
+			return (dx * dx + dy * dy <= radius * radius);
+		}
+		/// @brief Checks if the Vector2 is located within a circle defined by a center and a radius.
+		/// @param[in] centerY Center coordinate of the circle as Vector2.
+		/// @param[in] radius Radius of the circle.
+		/// @return True if this Vector2 is located within the circle.
+		inline bool isInCircle(const Vector2& center, float radius)
+		{
+			float dx = this->x - center.x;
+			float dy = this->y - center.y;
 			return (dx * dx + dy * dy <= radius * radius);
 		}
 
@@ -169,14 +180,14 @@ namespace gtypes
 		/// @brief Multiplies Vector2 with a factor.
 		/// @param[in] factor The factor.
 		/// @return The resulting Vector2.
-		inline Vector2 operator*(const float factor) const
+		inline Vector2 operator*(float factor) const
 		{
 			return Vector2(this->x * factor, this->y * factor);
 		}
 		/// @brief Divides Vector2 with a factor.
 		/// @param[in] factor The factor.
 		/// @return The resulting Vector2.
-		inline Vector2 operator/(const float factor) const
+		inline Vector2 operator/(float factor) const
 		{
 			float invScale = 1.0f / factor;
 			return Vector2(this->x * invScale, this->y * invScale);
@@ -220,7 +231,7 @@ namespace gtypes
 		/// @brief Multiplies this Vector2 with a factor.
 		/// @param[in] factor The factor.
 		/// @return A copy of this Vector2.
-		inline Vector2 operator*=(const float factor)
+		inline Vector2 operator*=(float factor)
 		{
 			this->x *= factor;
 			this->y *= factor;
@@ -229,7 +240,7 @@ namespace gtypes
 		/// @brief Divides this Vector2 with a factor.
 		/// @param[in] factor The factor.
 		/// @return A copy of this Vector2.
-		inline Vector2 operator/=(const float factor)
+		inline Vector2 operator/=(float factor)
 		{
 			float invScale = 1.0f / factor;
 			this->x *= invScale;
