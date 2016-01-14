@@ -13,9 +13,9 @@
 #ifndef GTYPES_MATRIX_4_H
 #define GTYPES_MATRIX_4_H
 
-#include "gtypesExport.h"
 #include <math.h>
 
+#include "gtypesExport.h"
 #include "gtypesUtil.h"
 #include "Quaternion.h"
 #include "Rectangle.h"
@@ -24,9 +24,6 @@
 namespace gtypes
 {
 	class Matrix3;
-	class Rectangle;
-	class Vector3;
-	class Quaternion;
 
 	/// @brief Represents a 4x4 matrix.
 	class gtypesExport Matrix4
@@ -302,28 +299,28 @@ namespace gtypes
 		}
 		/// @brief Creates an ortho-projection from a Rectangle.
 		/// @param[in] rect The Rectangle.
-		/// @param[in] near The near plane.
-		/// @param[in] near The far plane.
-		inline void setOrthoProjection(const Rectangle& rect, float near, float far)
+		/// @param[in] nearZ The near plane.
+		/// @param[in] farZ The far plane.
+		inline void setOrthoProjection(const Rectangle& rect, float nearZ, float farZ)
 		{
 			this->data[0] = 2.0f / rect.w;						this->data[1] = 0.0f;							this->data[2] = 0.0f;							this->data[3] = 0.0f;
 			this->data[4] = 0.0f;								this->data[5] = -2.0f / rect.h;					this->data[6] = 0.0f;							this->data[7] = 0.0f;
-			this->data[8] = 0.0f;								this->data[9] = 0.0f;							this->data[10] = -2.0f / (far - near);			this->data[11] = 0.0f;
-			this->data[12] = -1.0f + rect.x * 2.0f / rect.w;	this->data[13] = 1.0f - rect.y * 2.0f / rect.h;	this->data[14] = (far + near) / (far - near);	this->data[15] = 1.0f;
+			this->data[8] = 0.0f;								this->data[9] = 0.0f;							this->data[10] = -2.0f / (farZ - nearZ);			this->data[11] = 0.0f;
+			this->data[12] = -1.0f + rect.x * 2.0f / rect.w;	this->data[13] = 1.0f - rect.y * 2.0f / rect.h;	this->data[14] = (farZ + nearZ) / (farZ - nearZ);	this->data[15] = 1.0f;
 		}
 		/// @brief Sets the perspective in a Matrix4.
 		/// @param[in] fov The field-of-view.
 		/// @param[in] aspect The aspect ratio of the view.
-		/// @param[in] near The near plane.
-		/// @param[in] near The far plane.
-		inline void setPerspective(float fov, float aspect, float near, float far)
+		/// @param[in] nearZ The near plane.
+		/// @param[in] farZ The far plane.
+		inline void setPerspective(float fov, float aspect, float nearZ, float farZ)
 		{
 			float iy = 1.0f / ((float)tan(DEG_TO_RAD(fov * 0.5f)));
 			float ix = iy * aspect;
-			this->data[0] = 1.0f * ix;	this->data[1] = 0.0f;		this->data[2] = 0.0f;									this->data[3] = 0.0f;
-			this->data[4] = 0.0f;		this->data[5] = 1.0f * iy;	this->data[6] = 0.0f;									this->data[7] = 0.0f;
-			this->data[8] = 0.0f;		this->data[9] = 0.0f;		this->data[10] = -(far + near) / (far - near);			this->data[11] = -1.0f;
-			this->data[12] = 0.0f;		this->data[13] = 0.0f;		this->data[14] = -(2.0f * far * near) / (far - near);	this->data[15] = 0.0f;
+			this->data[0] = 1.0f * ix;	this->data[1] = 0.0f;		this->data[2] = 0.0f;										this->data[3] = 0.0f;
+			this->data[4] = 0.0f;		this->data[5] = 1.0f * iy;	this->data[6] = 0.0f;										this->data[7] = 0.0f;
+			this->data[8] = 0.0f;		this->data[9] = 0.0f;		this->data[10] = -(farZ + nearZ) / (farZ - nearZ);			this->data[11] = -1.0f;
+			this->data[12] = 0.0f;		this->data[13] = 0.0f;		this->data[14] = -(2.0f * farZ * nearZ) / (farZ - nearZ);	this->data[15] = 0.0f;
 		}
 
 		/// @brief Calculates the determinant of the Matrix4.

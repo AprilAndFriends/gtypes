@@ -13,10 +13,9 @@
 #ifndef GTYPES_MATRIX_3_H
 #define GTYPES_MATRIX_3_H
 
-#include "gtypesExport.h"
-
 #include <math.h>
 
+#include "gtypesExport.h"
 #include "gtypesUtil.h"
 #include "Matrix3.h"
 #include "Matrix4.h"
@@ -26,8 +25,6 @@
 namespace gtypes
 {
 	class Matrix4;
-	class Vector2;
-	class Vector3;
 
 	/// @brief Represents a 3x3 matrix.
 	class gtypesExport Matrix3

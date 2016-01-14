@@ -13,9 +13,9 @@
 #ifndef GTYPES_VECTOR_2_H
 #define GTYPES_VECTOR_2_H
 
-#include "gtypesExport.h"
 #include <math.h>
 
+#include "gtypesExport.h"
 #include "gtypesUtil.h"
 
 namespace gtypes

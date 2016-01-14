@@ -14,15 +14,13 @@
 #define GTYPES_CATMULL_ROM_SPLINE_3_H
 
 #include <map>
+#include <math.h>
+#include <stdio.h>
 #include <vector>
 
 #include "gtypesExport.h"
-#include "Vector3.h"
-
-#include <math.h>
-#include <stdio.h>
-
 #include "gtypesUtil.h"
+#include "Vector3.h"
 
 namespace gtypes
 {

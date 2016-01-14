@@ -13,9 +13,9 @@
 #ifndef GTYPES_VECTOR_3_H
 #define GTYPES_VECTOR_3_H
 
-#include "gtypesExport.h"
-
 #include <math.h>
+
+#include "gtypesExport.h"
 #include "Quaternion.h"
 
 namespace gtypes
