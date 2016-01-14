@@ -126,7 +126,7 @@ namespace gtypes
 		void set(const Vector3& axis, float angle);
 		/// @brief Sets the Matrix4 values.
 		/// @param[in] other The other Matrix4.
-		inline void Matrix4::set(const Matrix4& other)
+		inline void set(const Matrix4& other)
 		{
 			this->data[0] = other[0];	this->data[1] = other[1];	this->data[2] = other[2];	this->data[3] = other[3];
 			this->data[4] = other[4];	this->data[5] = other[5];	this->data[6] = other[6];	this->data[7] = other[7];

@@ -59,7 +59,7 @@ namespace gtypes
 		/// @return Calculates the squared length of the Vector2.
 		/// @note Use this if you don't need the actual length as it's faster than length().
 		/// @see length()
-		inline float Vector2::squaredLength()
+		inline float squaredLength()
 		{
 			return (this->x * this->x + this->y * this->y);
 		}
@@ -243,7 +243,7 @@ namespace gtypes
 		/// @param[in] other The other Vector2.
 		/// @return True if the two Vector2s are not equal.
 		/// @note Beware of floating point errors.
-		inline bool Vector2::operator!=(const Vector2& other) const
+		inline bool operator!=(const Vector2& other) const
 		{
 			return !(*this == other);
 		}
