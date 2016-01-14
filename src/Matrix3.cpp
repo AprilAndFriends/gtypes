@@ -11,24 +11,5 @@
 
 namespace gtypes
 {
-	Matrix3::Matrix3()
-	{
-		this->setIdentity();
-	}
-	
-	Matrix3::Matrix3(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8)
-	{
-		this->set(m0, m1, m2, m3, m4, m5, m6, m7, m8);
-	}
-	
-	Matrix3::Matrix3(const float m[])
-	{
-		this->set(m);
-	}
-	
-	Matrix3::Matrix3(const Matrix4& mat)
-	{
-		this->set(mat);
-	}
 }
 

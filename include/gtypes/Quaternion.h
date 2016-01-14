@@ -14,6 +14,7 @@
 #define GTYPES_QUATERNION_H
 
 #include "gtypesExport.h"
+#include "gtypesUtil.h"
 
 namespace gtypes
 {
@@ -35,13 +36,25 @@ namespace gtypes
 		float w;
 		
 		/// @brief Basic constructor.
-		Quaternion();
+		inline Quaternion()
+		{
+			this->x = 1.0f;
+			this->y = 1.0f;
+			this->z = 1.0f;
+			this->w = 1.0f;
+		}
 		/// @brief Constructor.
 		/// @param[in] x X value.
 		/// @param[in] y Y value.
 		/// @param[in] z Z value.
 		/// @param[in] w W value.
-		Quaternion(float x, float y, float z, float w);
+		inline Quaternion(float x, float y, float z, float w)
+		{
+			this->x = x;
+			this->y = y;
+			this->z = z;
+			this->w = w;
+		}
 		/// @brief Constructor.
 		/// @param[in] v Vector3.
 		/// @param[in] w W value.
@@ -51,38 +64,88 @@ namespace gtypes
 		/// @param[in] y Y value.
 		/// @param[in] z Z value.
 		/// @param[in] w W value.
-		void set(float x, float y, float z, float w);
+		inline void set(float x, float y, float z, float w)
+		{
+			this->x = x;
+			this->y = y;
+			this->z = z;
+			this->w = w;
+		}
 		/// @brief Sets the values of the Quaternion.
 		/// @param[in] v Vector3.
 		/// @param[in] w W value.
 		void set(const Vector3& v, float w);
 		
 		/// @return Calculates the length of the Quaternion.
-		float length() const;
+		inline float length() const
+		{
+			return (float)sqrt(this->x * this->x + this->y * this->y + this->z * this->z + this->w * this->w);
+		}
 		/// @return Calculates the squared length of the Quaternion.
 		/// @note Use this if you don't need the actual length as it's faster than length().
 		/// @see length()
-		float squaredLength() const;
+		inline float squaredLength() const
+		{
+			return (this->x * this->x + this->y * this->y + this->z * this->z + this->w * this->w);
+		}
 		
 		/// @brief Normalizes the current Quaternion.
-		void normalize();
+		inline void normalize()
+		{
+			float length = this->length();
+			if (length != 0.0f)
+			{
+				length = 1.0f / length;
+				this->x *= length;
+				this->y *= length;
+				this->z *= length;
+				this->w *= length;
+			}
+		}
 		/// @brief Creates a normalized Quaternion from this Quaternion.
 		/// @return The normalized Quaternion.
-		Quaternion normalized() const;
+		inline Quaternion normalized() const
+		{
+			Quaternion result(*this);
+			result.normalize();
+			return result;
+		}
 		/// @brief Inverses the current Quaternion.
-		void inverse();
+		inline void inverse()
+		{
+			float squaredLength = 1.0f / this->squaredLength();
+			this->set(-this->x * squaredLength, -this->y * squaredLength, -this->z * squaredLength, this->w * squaredLength);
+		}
 		/// @brief Creates an inversed Quaternion from this Quaternion.
 		/// @return The inversed Quaternion.
-		Quaternion inversed() const;
+		inline Quaternion inversed() const
+		{
+			Quaternion result(*this);
+			result.inverse();
+			return result;
+		}
 		/// @brief Conjugates the current Quaternion.
-		void conjugate();
+		inline void conjugate()
+		{
+			this->x = -this->x;
+			this->y = -this->y;
+			this->z = -this->z;
+		}
 		/// @brief Creates a conjugated Quaternion from this Quaternion.
 		/// @return The conjugated Quaternion.
-		Quaternion conjugated() const;
+		inline Quaternion conjugated() const
+		{
+			Quaternion result(*this);
+			result.conjugate();
+			return result;
+		}
 		/// @brief Calculates the dot-product between this and another Quaternion.
 		/// @param[in] other The other Quaternion.
 		/// @return The dot-product.
-		float dot(const Quaternion& other) const;
+		inline float dot(const Quaternion& other) const
+		{
+			return (this->x * other.x + this->y * other.y + this->z * other.z + this->w * other.w);
+		}
 
 		/// @brief Creates a Matrix3 from this Quaternion
 		/// @return The Matrix3.
@@ -99,35 +162,78 @@ namespace gtypes
 		/// @return Negated Quaternion.
 		/// @note Not the same as inversed!
 		/// @see inversed()
-		Quaternion operator-() const;
+		inline Quaternion operator-() const
+		{
+			return Quaternion(-this->x, -this->y, -this->z, -this->w);
+		}
 		/// @brief Adds two Quaternions.
 		/// @param[in] other The other Quaternion.
 		/// @return The resulting Quaternion.
-		Quaternion operator+(const Quaternion& other) const;
+		inline Quaternion operator+(const Quaternion& other) const
+		{
+			return Quaternion(this->x + other.x, this->y + other.y, this->z + other.z, this->w + other.w);
+		}
 		/// @brief Subtracts two Quaternions.
 		/// @param[in] other The other Quaternion.
 		/// @return The resulting Quaternion.
-		Quaternion operator-(const Quaternion& other) const;
+		inline Quaternion operator-(const Quaternion& other) const
+		{
+			return Quaternion(this->x - other.x, this->y - other.y, this->z - other.z, this->w - other.w);
+		}
 		/// @brief Multiplies two Quaternions.
 		/// @param[in] other The other Quaternion.
 		/// @return The resulting Quaternion.
-		Quaternion operator*(const Quaternion& other) const;
+		inline Quaternion operator*(const Quaternion& other) const
+		{
+			return Quaternion(this->w * other.x + this->x * other.w + this->y * other.z - this->z * other.y,
+				this->w * other.y - this->x * other.z + this->y * other.w + this->z * other.x,
+				this->w * other.z + this->x * other.y - this->y * other.x + this->z * other.w,
+				this->w * other.w - this->x * other.x - this->y * other.y - this->z * other.z);
+		}
 		/// @brief Multiplies Quaternion with a factor.
 		/// @param[in] factor The factor.
 		/// @return The resulting Quaternion.
-		Quaternion operator*(const float factor) const;
+		inline Quaternion operator*(float factor) const
+		{
+			return Quaternion(this->x * factor, this->y * factor, this->z * factor, this->w * factor);
+		}
 		/// @brief Adds another Quaternion to this one.
 		/// @param[in] other The other Quaternion.
 		/// @return A copy of this Quaternion.
-		Quaternion operator+=(const Quaternion& other);
+		inline Quaternion operator+=(const Quaternion& other)
+		{
+			this->x += other.x;
+			this->y += other.y;
+			this->z += other.z;
+			this->w += other.w;
+			return (*this);
+		}
 		/// @brief Subtracts another Quaternion to this one.
 		/// @param[in] other The other Quaternion.
 		/// @return A copy of this Quaternion.
-		Quaternion operator-=(const Quaternion& other);
+		inline Quaternion operator-=(const Quaternion& other)
+		{
+			this->x -= other.x;
+			this->y -= other.y;
+			this->z -= other.z;
+			this->w -= other.w;
+			return (*this);
+		}
 		/// @brief Multiplies this Quaternion with another one.
 		/// @param[in] other The other Quaternion.
 		/// @return A copy of this Quaternion.
-		Quaternion operator*=(const Quaternion& other);
+		inline Quaternion operator*=(const Quaternion& other)
+		{
+			float x = this->x;
+			float y = this->y;
+			float z = this->z;
+			float w = this->w;
+			this->x = w * other.x + x * other.w + y * other.z - z * other.y;
+			this->y = w * other.y - x * other.z + y * other.w + z * other.x;
+			this->z = w * other.z + x * other.y - y * other.x + z * other.w;
+			this->w = w * other.w - x * other.x - y * other.y - z * other.z;
+			return (*this);
+		}
 		/// @brief Divides this Quaternion with another one.
 		/// @param[in] other The other Quaternion.
 		/// @return A copy of this Quaternion.
@@ -135,7 +241,14 @@ namespace gtypes
 		/// @brief Multiplies this Quaternion with a factor.
 		/// @param[in] factor The factor.
 		/// @return A copy of this Quaternion.
-		Quaternion operator*=(const float factor);
+		inline Quaternion operator*=(const float factor)
+		{
+			this->x *= factor;
+			this->y *= factor;
+			this->z *= factor;
+			this->w *= factor;
+			return (*this);
+		}
 		/// @brief Divides this Quaternion with a factor.
 		/// @param[in] factor The factor.
 		/// @return A copy of this Quaternion.
@@ -144,19 +257,37 @@ namespace gtypes
 		/// @param[in] other The other Quaternion.
 		/// @return True if the two Quaternions are equal.
 		/// @note Beware of floating point errors.
-		bool operator==(const Quaternion& other) const;
+		inline bool operator==(const Quaternion& other) const
+		{
+			return (this->x == other.x && this->y == other.y && this->z == other.z && this->w == other.w);
+		}
 		/// @brief Checks if two Quaternions are not equal.
 		/// @param[in] other The other Quaternion.
 		/// @return True if the two Quaternions are not equal.
 		/// @note Beware of floating point errors.
-		bool operator!=(const Quaternion& other) const;
+		inline bool operator!=(const Quaternion& other) const
+		{
+			return !(*this == other);
+		}
 
 		/// @brief Creates a Quaternion as s Spherical Linear intERPolation between two other Quaternions.
 		/// @param[in] a First Quaternion.
 		/// @param[in] b Second Quaternion.
 		/// @param[in] factor The slerp factor.
 		/// @return The slerped Quaternion.
-		static Quaternion slerp(const Quaternion& a, const Quaternion& b, float factor);
+		static inline Quaternion slerp(const Quaternion& a, const Quaternion& b, float factor)
+		{
+			float theta = (float)acos(a.dot(b));
+			float sinTheta = (float)sin(theta);
+			float w1 = 1.0f - factor;
+			float w2 = factor;
+			if (sinTheta > G_E_TOLERANCE)
+			{
+				w1 = (float)(sin(1.0f - factor) * theta) / sinTheta;
+				w2 = (float)(sin(factor) * theta) / sinTheta;
+			}
+			return Quaternion(a * w1 + b * w2);
+		}
 		/// @brief Creates a Quaternion from a rotation around an axis.
 		/// @param[in] ax X coordinate of the axis.
 		/// @param[in] ay Y coordinate of the axis.
@@ -174,7 +305,13 @@ namespace gtypes
 		/// @param[in] pitch The "pitch" angle.
 		/// @param[in] roll The "roll" angle.
 		/// @return The Quaternion.
-		static Quaternion fromEulerAngles(float yaw, float pitch, float roll);
+		static inline Quaternion fromEulerAngles(float yaw, float pitch, float roll)
+		{
+			Quaternion y(0.0f, -(float)sin(yaw * 0.5f), 0.0f, (float)cos(yaw * 0.5f));
+			Quaternion p(-(float)sin(pitch * 0.5f), 0.0f, 0.0f, (float)cos(pitch * 0.5f));
+			Quaternion r(0.0f, 0.0f, -(float)sin(roll * 0.5), (float)cos(roll * 0.5f));
+			return (y * p * r);
+		}
 
 	};
 

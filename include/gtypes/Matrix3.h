@@ -34,7 +34,10 @@ namespace gtypes
 		float data[9];
 	
 		/// @brief Basic constructor.
-		Matrix3();
+		inline Matrix3()
+		{
+			this->setIdentity();
+		}
 		/// @brief Constructor.
 		/// @param[in] m0 Matrix value 0.
 		/// @param[in] m1 Matrix value 1.
@@ -45,14 +48,23 @@ namespace gtypes
 		/// @param[in] m6 Matrix value 6.
 		/// @param[in] m7 Matrix value 7.
 		/// @param[in] m8 Matrix value 8.
-		Matrix3(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8);
+		inline Matrix3(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8)
+		{
+			this->set(m0, m1, m2, m3, m4, m5, m6, m7, m8);
+		}
 		/// @brief Constructor.
 		/// @param[in] m Array of values.
 		/// @note m HAS TO be of size 9 or larger.
-		Matrix3(const float m[]);
+		inline Matrix3(const float m[])
+		{
+			this->set(m);
+		}
 		/// @brief Constructor.
 		/// @param[in] mat4 The Matrix4 to construct this Matrix3 from.
-		Matrix3(const Matrix4& mat4);
+		inline Matrix3(const Matrix4& mat)
+		{
+			this->set(mat);
+		}
 		
 		/// @brief Sets the Matrix3 values.
 		/// @param[in] m0 Matrix value 0.

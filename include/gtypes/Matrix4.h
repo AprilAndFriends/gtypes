@@ -33,7 +33,10 @@ namespace gtypes
 		float data[16];
 
 		/// @brief Basic constructor.
-		Matrix4();
+		inline Matrix4()
+		{
+			this->setIdentity();
+		}
 		/// @brief Constructor.
 		/// @param[in] m0 Matrix value 0.
 		/// @param[in] m1 Matrix value 1.
@@ -51,27 +54,42 @@ namespace gtypes
 		/// @param[in] m13 Matrix value 13.
 		/// @param[in] m14 Matrix value 14.
 		/// @param[in] m15 Matrix value 15.
-		Matrix4(float m0, float m1, float m2, float m3,
+		inline Matrix4(float m0, float m1, float m2, float m3,
 			float m4, float m5, float m6, float m7,
 			float m8, float m9, float m10, float m11,
-			float m12, float m13, float m14, float m15);
+			float m12, float m13, float m14, float m15)
+		{
+			this->set(m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15);
+		}
 		/// @brief Constructor.
 		/// @param[in] m Array of values.
 		/// @note m HAS TO be of size 16 or larger.
-		Matrix4(const float m[]);
+		inline Matrix4(const float m[])
+		{
+			this->set(m);
+		}
 		/// @brief Constructor.
 		/// @param[in] mat3 The Matrix3 to construct this Matrix4 from.
-		Matrix4(const Matrix3& mat3);
+		inline Matrix4(const Matrix3& mat3)
+		{
+			this->set(mat3);
+		}
 		/// @brief Constructor from rotation.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
 		/// @param[in] z Z coordinate.
 		/// @param[in] angle Rotation angle.
-		Matrix4(float x, float y, float z, float angle);
+		inline Matrix4(float x, float y, float z, float angle)
+		{
+			this->setRotation(x, y, z, (float)DEG_TO_RAD(angle));
+		}
 		/// @brief Constructor from rotation.
 		/// @param[in] axis Rotation axis.
 		/// @param[in] angle Rotation angle.
-		Matrix4(const Vector3& axis, float angle);
+		inline Matrix4(const Vector3& axis, float angle)
+		{
+			this->setRotation(axis.x, axis.y, axis.z, (float)DEG_TO_RAD(angle));
+		}
 
 		/// @brief Sets the Matrix4 values.
 		/// @param[in] m0 Matrix value 0.

@@ -34,12 +34,17 @@ namespace gtypes
 		float z;
 	
 		/// @brief Basic constructor.
-		Vector3();
+		inline Vector3() : x(0.0f), y(0.0f), z(0.0f)
+		{
+		}
 		/// @brief Constructor.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
 		/// @param[in] z Z coordinate.
-		Vector3(float x, float y, float z);
+		inline Vector3(float x, float y, float z)
+		{
+			this->set(x, y, z);
+		}
 		/// @brief Sets the values of the Vector3.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.

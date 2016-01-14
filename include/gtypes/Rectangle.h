@@ -32,27 +32,41 @@ namespace gtypes
 		float h;
 	
 		/// @brief Basic constructor.
-		Rectangle();
+		inline Rectangle() : x(0.0f), y(0.0f), w(0.0f), h(0.0f)
+		{
+		}
 		/// @brief Constructor.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
 		/// @param[in] w Width.
 		/// @param[in] h Height.
-		Rectangle(float x, float y, float w, float h);
+		inline Rectangle(float x, float y, float w, float h)
+		{
+			this->set(x, y, w, h);
+		}
 		/// @brief Constructor.
 		/// @param[in] position Position.
 		/// @param[in] size Size.
-		Rectangle(Vector2 position, Vector2 size);
+		inline Rectangle(Vector2 position, Vector2 size)
+		{
+			this->set(position, size);
+		}
 		/// @brief Constructor.
 		/// @param[in] position Position.
 		/// @param[in] w Width.
 		/// @param[in] h Height.
-		Rectangle(Vector2 position, float w, float h);
+		inline Rectangle(Vector2 position, float w, float h)
+		{
+			this->set(position, w, h);
+		}
 		/// @brief Constructor.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
 		/// @param[in] size Size.
-		Rectangle(float x, float y, Vector2 size);
+		inline Rectangle(float x, float y, Vector2 size)
+		{
+			this->set(x, y, size);
+		}
 		/// @brief Sets the values of the Rectangle.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.

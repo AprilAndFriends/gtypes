@@ -29,7 +29,10 @@ namespace gtypes
 	{
 	public:
 		/// @brief Basic Constructor.
-		CatmullRomSpline3();
+		inline CatmullRomSpline3() :
+			closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0), _prevDot(0), _inflexed(false)
+		{
+		}
 		/// @brief Constructor.
 		/// @param[in] vectors Points in 3D space to define the CatmullRomSpline3.
 		/// @param[in] closed Whether the CatmullRomSpline3 is closed.
@@ -37,7 +40,11 @@ namespace gtypes
 		/// @param[in] samples How many samples to use for calculation.
 		/// @param[in] t1 Custom beginning point.
 		/// @param[in] t2 Custom ending point.
-		CatmullRomSpline3(const std::vector<Vector3>& vectors, bool closed = false, double curvature = 0.5, int samples = 16, Vector3 t1 = Vector3(), Vector3 t2 = Vector3());
+		inline CatmullRomSpline3(const std::vector<Vector3>& vectors, bool closed, double curvature, int samples, Vector3 t1, Vector3 t2) :
+			closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0), _prevDot(0), _inflexed(false)
+		{
+			this->set(vectors, closed, curvature, samples, t1, t2);
+		}
 		/// @brief Constructor.
 		/// @param[in] vectors Array of points in 3D space to define the CatmullRomSpline3.
 		/// @param[in] n Number of points in vectors.
@@ -46,7 +53,11 @@ namespace gtypes
 		/// @param[in] samples How many samples to use for calculation.
 		/// @param[in] t1 Custom beginning point.
 		/// @param[in] t2 Custom ending point.
-		CatmullRomSpline3(const Vector3 vectors[], int n, bool closed = false, double curvature = 0.5, int samples = 16, Vector3 t1 = Vector3(), Vector3 t2 = Vector3());
+		inline CatmullRomSpline3(const Vector3 vectors[], int n, bool closed, double curvature, int samples, Vector3 t1, Vector3 t2) :
+			closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0), _prevDot(0), _inflexed(false)
+		{
+			this->set(vectors, n, closed, curvature, samples, t1, t2);
+		}
 		
 		/// @brief Sets the CatmullRomSpline3's values.
 		/// @param[in] vectors Points in 3D space to define the CatmullRomSpline3.

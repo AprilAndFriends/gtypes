@@ -29,7 +29,10 @@ namespace gtypes
 	{
 	public:
 		/// @brief Basic Constructor.
-		CatmullRomSpline2();
+		inline CatmullRomSpline2() :
+			closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0)
+		{
+		}
 		/// @brief Constructor.
 		/// @param[in] vectors Points in 2D space to define the CatmullRomSpline2.
 		/// @param[in] closed Whether the CatmullRomSpline2 is closed.
@@ -37,7 +40,11 @@ namespace gtypes
 		/// @param[in] samples How many samples to use for calculation.
 		/// @param[in] t1 Custom beginning point.
 		/// @param[in] t2 Custom ending point.
-		CatmullRomSpline2(const std::vector<Vector2>& vectors, bool closed = false, double curvature = 0.5, int samples = 16, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
+		inline CatmullRomSpline2(const std::vector<Vector2>& vectors, bool closed, double curvature, int samples, Vector2 t1, Vector2 t2) :
+			closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0)
+		{
+			this->set(vectors, closed, curvature, samples, t1, t2);
+		}
 		/// @brief Constructor.
 		/// @param[in] vectors Array of points in 2D space to define the CatmullRomSpline2.
 		/// @param[in] n Number of points in vectors.
@@ -46,7 +53,11 @@ namespace gtypes
 		/// @param[in] samples How many samples to use for calculation.
 		/// @param[in] t1 Custom beginning point.
 		/// @param[in] t2 Custom ending point.
-		CatmullRomSpline2(const Vector2 vectors[], int n, bool closed = false, double curvature = 0.5, int samples = 16, Vector2 t1 = Vector2(), Vector2 t2 = Vector2());
+		inline CatmullRomSpline2(const Vector2 vectors[], int n, bool closed, double curvature, int samples, Vector2 t1, Vector2 t2) :
+			closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0)
+		{
+			this->set(vectors, n, closed, curvature, samples, t1, t2);
+		}
 
 		/// @brief Sets the CatmullRomSpline2's values.
 		/// @param[in] vectors Points in 2D space to define the CatmullRomSpline2.

@@ -30,11 +30,16 @@ namespace gtypes
 		float y;
 
 		/// @brief Basic constructor.
-		Vector2();
+		inline Vector2() : x(0.0f), y(0.0f)
+		{
+		}
 		/// @brief Constructor.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
-		Vector2(float x, float y);
+		inline Vector2(float x, float y)
+		{
+			this->set(x, y);
+		}
 		/// @brief Sets the values of the Vector2.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
