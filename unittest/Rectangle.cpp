@@ -22,7 +22,7 @@ HL_UT_TEST_CLASS(Rectangle)
 		return (habs(a - b) < tolerance);
 	}
 
-	static bool rectangleEqf(grect r1, grect r2)
+	static bool rectangleEqf(const grect& r1, const grect& r2)
 	{
 		return (heqf(r1.x, r2.x) && heqf(r1.y, r2.y) && heqf(r1.w, r2.w) && heqf(r1.h, r2.h));
 	}

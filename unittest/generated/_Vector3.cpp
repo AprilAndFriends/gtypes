@@ -12,7 +12,7 @@ HL_UT_TEST_CLASS(Vector3)
 	HL_UT_TEST_FUNCTION(zeroLength);
 	HL_UT_TEST_FUNCTION(length);
 	HL_UT_TEST_FUNCTION(squaredLength);
-	HL_UT_TEST_FUNCTION(normalization);
+	HL_UT_TEST_FUNCTION(normalize);
 	HL_UT_TEST_FUNCTION(normalized);
 	HL_UT_TEST_FUNCTION(dot);
 	HL_UT_TEST_FUNCTION(cross);
@@ -38,7 +38,7 @@ HL_UT_RUN_CLASS_BEGIN(Vector3)
 	HL_UT_RUN_METHOD(Vector3, zeroLength)
 	HL_UT_RUN_METHOD(Vector3, length)
 	HL_UT_RUN_METHOD(Vector3, squaredLength)
-	HL_UT_RUN_METHOD(Vector3, normalization)
+	HL_UT_RUN_METHOD(Vector3, normalize)
 	HL_UT_RUN_METHOD(Vector3, normalized)
 	HL_UT_RUN_METHOD(Vector3, dot)
 	HL_UT_RUN_METHOD(Vector3, cross)

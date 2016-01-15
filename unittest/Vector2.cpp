@@ -21,7 +21,7 @@ HL_UT_TEST_CLASS(Vector2)
 		return (habs(a - b) < tolerance);
 	}
 
-	static bool vec2eqf(gvec2 v1, gvec2 v2)
+	static bool vec2eqf(const gvec2& v1, const gvec2& v2)
 	{
 		return (heqf(v1.x, v2.x) && heqf(v1.y, v2.y));
 	}
