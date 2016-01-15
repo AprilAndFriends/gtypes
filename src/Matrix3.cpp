@@ -6,6 +6,8 @@
 /// This program is free software; you can redistribute it and/or modify it under
 /// the terms of the BSD license: http://opensource.org/licenses/BSD-3-Clause
 
+#include "CatmullRomSpline2.h" // has to be here, otherwise the optimizer strips away this class
+#include "CatmullRomSpline3.h" // has to be here, otherwise the optimizer strips away this class
 #include "Matrix3.h"
 #include "Matrix4.h"
 
