@@ -253,6 +253,7 @@ namespace gtypes
 	};
 }
 
+/// @brief Alias for simpler code.
 typedef gtypes::Vector3 gvec3;
 
 #endif

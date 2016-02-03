@@ -85,7 +85,7 @@ namespace gtypes
 			return (dx * dx + dy * dy <= radius * radius);
 		}
 		/// @brief Checks if the Vector2 is located within a circle defined by a center and a radius.
-		/// @param[in] centerY Center coordinate of the circle as Vector2.
+		/// @param[in] center Center coordinate of the circle as Vector2.
 		/// @param[in] radius Radius of the circle.
 		/// @return True if this Vector2 is located within the circle.
 		inline bool isInCircle(const Vector2& center, float radius)
@@ -266,6 +266,7 @@ namespace gtypes
 	};
 }
 
+/// @brief Alias for simpler code.
 typedef gtypes::Vector2 gvec2;
 
 #endif

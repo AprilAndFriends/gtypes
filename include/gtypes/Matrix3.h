@@ -60,7 +60,7 @@ namespace gtypes
 		}
 		/// @brief Constructor.
 		/// @param[in] mat4 The Matrix4 to construct this Matrix3 from.
-		Matrix3(const Matrix4& mat);
+		Matrix3(const Matrix4& mat4);
 		
 		/// @brief Sets the Matrix3 values.
 		/// @param[in] m0 Matrix value 0.
@@ -129,7 +129,6 @@ namespace gtypes
 		/// @brief Sets the scale of the Matrix3.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
-		/// @param[in] z Z coordinate.
 		inline void setScale(float x, float y)
 		{
 			memset(this->data, 0, sizeof(this->data));
@@ -450,7 +449,6 @@ namespace gtypes
 			return result;
 		}
 		/// @brief Ortho-normalizes the Matrix.
-		/// @param[in] angle The rotation angle.
 		inline void orthoNormalize()
 		{
 			Vector3 x(data[0], data[1], data[2]);
@@ -579,6 +577,7 @@ namespace gtypes
 	};
 }
 
+/// @brief Alias for simpler code.
 typedef gtypes::Matrix3 gmat3;
 
 #endif

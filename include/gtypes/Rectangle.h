@@ -422,6 +422,7 @@ namespace gtypes
 	};
 }
 
+/// @brief Alias for simpler code.
 typedef gtypes::Rectangle grect;
 
 #endif

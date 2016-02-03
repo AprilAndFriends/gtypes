@@ -13,9 +13,9 @@
 
 namespace gtypes
 {
-	Matrix3::Matrix3(const Matrix4& mat)
+	Matrix3::Matrix3(const Matrix4& mat4)
 	{
-		this->set(mat);
+		this->set(mat4);
 	}
 
 	void Matrix3::set(const Matrix4& mat4)

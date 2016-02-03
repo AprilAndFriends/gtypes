@@ -685,6 +685,7 @@ namespace gtypes
 	};
 }
 
+/// @brief Alias for simpler code.
 typedef gtypes::Matrix4 gmat4;
 
 #endif

@@ -60,52 +60,7 @@ namespace gtypes
 		}
 
 		/// @brief Sets the CatmullRomSpline2's values.
-		/// @param[in] vectors Points in 2D space to define the CatmullRomSpline2.
-		/// @param[in] closed Whether the CatmullRomSpline2 is closed.
-		/// @param[in] curvature Curvature of the CatmullRomSpline2.
-		/// @param[in] samples How many samples to use for calculation.
-		/// @param[in] t1 Custom beginning point.
-		/// @param[in] t2 Custom ending point.
-		inline void set(const Vector2 vectors[], int n, bool closed, double curvature, int samples, Vector2 t1, Vector2 t2)
-		{
-			this->points.clear();
-			this->lengths.clear();
-			this->_arcLengths.clear();
-			this->closed = closed;
-			this->curvature = curvature;
-			this->samples = samples;
-			if (this->closed)
-			{
-				this->points.push_back(vectors[n - 1]);
-			}
-			else if (!t1.isNull())
-			{
-				this->points.push_back(vectors[1] - t1 * 2);
-			}
-			else
-			{
-				this->points.push_back(vectors[0]);
-			}
-			this->points.insert(this->points.end(), vectors, vectors + n);
-			if (this->closed)
-			{
-				this->points.push_back(this->points[1]);
-				this->points.push_back(this->points[2]);
-			}
-			else if (!t1.isNull())
-			{
-				this->points.push_back(this->points[this->points.size() - 2] + t2 * 2);
-			}
-			else
-			{
-				this->points.push_back(this->points[this->points.size() - 1]);
-			}
-			this->_prevTangent = Vector2(this->calcPosition(0.01) - this->calcPosition(0.0)).normalized();
-			this->_calcLength();
-		}
-		/// @brief Sets the CatmullRomSpline2's values.
 		/// @param[in] vectors Array of points in 2D space to define the CatmullRomSpline2.
-		/// @param[in] n Number of points in vectors.
 		/// @param[in] closed Whether the CatmullRomSpline2 is closed.
 		/// @param[in] curvature Curvature of the CatmullRomSpline2.
 		/// @param[in] samples How many samples to use for calculation.
@@ -132,6 +87,51 @@ namespace gtypes
 				this->points.push_back(vectors[0]);
 			}
 			this->points.insert(this->points.end(), vectors.begin(), vectors.end());
+			if (this->closed)
+			{
+				this->points.push_back(this->points[1]);
+				this->points.push_back(this->points[2]);
+			}
+			else if (!t1.isNull())
+			{
+				this->points.push_back(this->points[this->points.size() - 2] + t2 * 2);
+			}
+			else
+			{
+				this->points.push_back(this->points[this->points.size() - 1]);
+			}
+			this->_prevTangent = Vector2(this->calcPosition(0.01) - this->calcPosition(0.0)).normalized();
+			this->_calcLength();
+		}
+		/// @brief Sets the CatmullRomSpline2's values.
+		/// @param[in] vectors Points in 2D space to define the CatmullRomSpline2.
+		/// @param[in] n Number of points in vectors.
+		/// @param[in] closed Whether the CatmullRomSpline2 is closed.
+		/// @param[in] curvature Curvature of the CatmullRomSpline2.
+		/// @param[in] samples How many samples to use for calculation.
+		/// @param[in] t1 Custom beginning point.
+		/// @param[in] t2 Custom ending point.
+		inline void set(const Vector2 vectors[], int n, bool closed, double curvature, int samples, Vector2 t1, Vector2 t2)
+		{
+			this->points.clear();
+			this->lengths.clear();
+			this->_arcLengths.clear();
+			this->closed = closed;
+			this->curvature = curvature;
+			this->samples = samples;
+			if (this->closed)
+			{
+				this->points.push_back(vectors[n - 1]);
+			}
+			else if (!t1.isNull())
+			{
+				this->points.push_back(vectors[1] - t1 * 2);
+			}
+			else
+			{
+				this->points.push_back(vectors[0]);
+			}
+			this->points.insert(this->points.end(), vectors, vectors + n);
 			if (this->closed)
 			{
 				this->points.push_back(this->points[1]);
@@ -363,6 +363,7 @@ namespace gtypes
 
 }
 
+/// @brief Alias for simpler code.
 typedef gtypes::CatmullRomSpline2 gcrs2;
 
 #endif

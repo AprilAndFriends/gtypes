@@ -341,6 +341,7 @@ namespace gtypes
 
 }
 
+/// @brief Alias for simpler code.
 typedef gtypes::Quaternion gquat;
 
 #endif
