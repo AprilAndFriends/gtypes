@@ -86,7 +86,7 @@ HL_UT_TEST_CLASS(Vector3)
 	{
 		gvec3 v1(1.0f, 0.0f, 0.0f);
 		gvec3 v2(0.0f, 0.0f, 1.0f);
-		gvec3 v3(0.0f, 1.0f, 0.0f);
+		gvec3 v3(0.0f, -1.0f, 0.0f);
 		HL_UT_ASSERT(vec3eqf(v1.cross(v2), v3), "");
 	}
 

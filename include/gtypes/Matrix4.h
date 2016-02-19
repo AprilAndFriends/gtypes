@@ -494,10 +494,10 @@ namespace gtypes
 			Vector3 bz = (eye - target).normalized();
 			Vector3 bx = up.cross(bz).normalized();
 			Vector3 by = bz.cross(bx).normalized();
-			Matrix4 a(bx.x, by.x, bz.x, 0.0f, bx.y, by.y, bz.y, 0.0f, bx.z, by.z, bz.z, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f);
+			this->set(bx.x, by.x, bz.x, 0.0f, bx.y, by.y, bz.y, 0.0f, bx.z, by.z, bz.z, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f);
 			Matrix4 b;
 			b.setTranslation(-eye);
-			*this = a * b;
+			this->operator*=(b);
 		}
 
 		/// @brief Transposes the Matrix4.

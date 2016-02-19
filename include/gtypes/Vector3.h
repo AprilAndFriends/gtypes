@@ -120,7 +120,7 @@ namespace gtypes
 		/// @return The cross-product.
 		inline Vector3 cross(const Vector3& other) const
 		{
-			return Vector3(this->y * other.z - this->z * other.y, this->x * other.z - this->z * other.x, this->x * other.y - this->y * other.x);
+			return Vector3(this->y * other.z - this->z * other.y, this->z * other.x - this->x * other.z, this->x * other.y - this->y * other.x);
 		}
 
 		/// @brief Creates an inverted Vector3.
