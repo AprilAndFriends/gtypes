@@ -17,6 +17,10 @@ HL_UT_TEST_CLASS(Matrix4)
 	HL_UT_TEST_FUNCTION(translate);
 	HL_UT_TEST_FUNCTION(scale);
 	HL_UT_TEST_FUNCTION(rotate);
+	HL_UT_TEST_FUNCTION(inverse);
+	HL_UT_TEST_FUNCTION(inversed);
+	HL_UT_TEST_FUNCTION(inverseRotation);
+	HL_UT_TEST_FUNCTION(inversedRotation);
 }
 
 HL_UT_RUN_CLASS_BEGIN(Matrix4)
@@ -30,4 +34,8 @@ HL_UT_RUN_CLASS_BEGIN(Matrix4)
 	HL_UT_RUN_METHOD(Matrix4, translate)
 	HL_UT_RUN_METHOD(Matrix4, scale)
 	HL_UT_RUN_METHOD(Matrix4, rotate)
+	HL_UT_RUN_METHOD(Matrix4, inverse)
+	HL_UT_RUN_METHOD(Matrix4, inversed)
+	HL_UT_RUN_METHOD(Matrix4, inverseRotation)
+	HL_UT_RUN_METHOD(Matrix4, inversedRotation)
 HL_UT_RUN_CLASS_END

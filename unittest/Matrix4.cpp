@@ -172,4 +172,34 @@ HL_UT_TEST_CLASS(Matrix4)
 		m1.rotate(gvec3(0.0f, 1.0f, 0.0f), 90.0f);
 		HL_UT_ASSERT(gmat4eqf(m1, m2), "");
 	}
+
+	HL_UT_TEST_FUNCTION(inverse)
+	{
+		gmat4 m1;
+		gmat4 m2;
+		m1.inverse();
+		HL_UT_ASSERT(gmat4eqf(m1, m2), "");
+	}
+
+	HL_UT_TEST_FUNCTION(inversed)
+	{
+		gmat4 m1;
+		gmat4 m2;
+		HL_UT_ASSERT(gmat4eqf(m1.inversed(), m2), "");
+	}
+
+	HL_UT_TEST_FUNCTION(inverseRotation)
+	{
+		gmat4 m1;
+		gmat4 m2;
+		m1.inverseRotation();
+		HL_UT_ASSERT(gmat4eqf(m1, m2), "");
+	}
+
+	HL_UT_TEST_FUNCTION(inversedRotation)
+	{
+		gmat4 m1;
+		gmat4 m2;
+		HL_UT_ASSERT(gmat4eqf(m1.inversedRotation(), m2), "");
+	}
 }
