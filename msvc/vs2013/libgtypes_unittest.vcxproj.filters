@@ -37,5 +37,11 @@
     <ClCompile Include="..\..\unittest\Vector3.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\unittest\Matrix4.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unittest\generated\_Matrix4.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

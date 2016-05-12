@@ -56,15 +56,15 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="props\default.props" />
-  <Import Condition="exists('..\..\..\hltypes\msvc\vs2015\props-generic\platform-$(Platform).props')" Project="..\..\..\hltypes\msvc\vs2015\props-generic\platform-$(Platform).props" />
-  <Import Condition="!exists('..\..\..\hltypes\msvc\vs2015\props-generic\platform-$(Platform).props')" Project="props-generic\platform-$(Platform).props" />
-  <Import Condition="exists('..\..\..\hltypes\msvc\vs2015\props-generic\unittest.props')" Project="..\..\..\hltypes\msvc\vs2015\props-generic\unittest.props" />
-  <Import Condition="!exists('..\..\..\hltypes\msvc\vs2015\props-generic\unittest.props')" Project="props-generic\unittest.props" />
-  <Import Condition="exists('..\..\..\hltypes\msvc\vs2015\props-generic\configurations.props')" Project="..\..\..\hltypes\msvc\vs2015\props-generic\configurations-unittest.props" />
-  <Import Condition="!exists('..\..\..\hltypes\msvc\vs2015\props-generic\configurations.props')" Project="props-generic\configurations-unittest.props" />
+  <Import Condition="exists('..\..\..\hltypes\msvc\vs2013\props-generic\platform-$(Platform).props')" Project="..\..\..\hltypes\msvc\vs2013\props-generic\platform-$(Platform).props" />
+  <Import Condition="!exists('..\..\..\hltypes\msvc\vs2013\props-generic\platform-$(Platform).props')" Project="props-generic\platform-$(Platform).props" />
+  <Import Condition="exists('..\..\..\hltypes\msvc\vs2013\props-generic\unittest.props')" Project="..\..\..\hltypes\msvc\vs2013\props-generic\unittest.props" />
+  <Import Condition="!exists('..\..\..\hltypes\msvc\vs2013\props-generic\unittest.props')" Project="props-generic\unittest.props" />
+  <Import Condition="exists('..\..\..\hltypes\msvc\vs2013\props-generic\configurations.props')" Project="..\..\..\hltypes\msvc\vs2013\props-generic\configurations-unittest.props" />
+  <Import Condition="!exists('..\..\..\hltypes\msvc\vs2013\props-generic\configurations.props')" Project="props-generic\configurations-unittest.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <Import Condition="exists('..\..\..\hltypes\msvc\vs2015\props-generic\build-defaults.props')" Project="..\..\..\hltypes\msvc\vs2015\props-generic\build-defaults.props" />
-  <Import Condition="!exists('..\..\..\hltypes\msvc\vs2015\props-generic\build-defaults.props')" Project="props-generic\build-defaults.props" />
+  <Import Condition="exists('..\..\..\hltypes\msvc\vs2013\props-generic\build-defaults.props')" Project="..\..\..\hltypes\msvc\vs2013\props-generic\build-defaults.props" />
+  <Import Condition="!exists('..\..\..\hltypes\msvc\vs2013\props-generic\build-defaults.props')" Project="props-generic\build-defaults.props" />
   <ItemDefinitionGroup>
     <ClCompile>
       <UseFullPaths>true</UseFullPaths>
@@ -75,10 +75,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\unittest\generated\_Matrix3.cpp" />
+    <ClCompile Include="..\..\unittest\generated\_Matrix4.cpp" />
     <ClCompile Include="..\..\unittest\generated\_Rectangle.cpp" />
     <ClCompile Include="..\..\unittest\generated\_Vector2.cpp" />
     <ClCompile Include="..\..\unittest\generated\_Vector3.cpp" />
     <ClCompile Include="..\..\unittest\Matrix3.cpp" />
+    <ClCompile Include="..\..\unittest\Matrix4.cpp" />
     <ClCompile Include="..\..\unittest\Rectangle.cpp" />
     <ClCompile Include="..\..\unittest\Vector2.cpp" />
     <ClCompile Include="..\..\unittest\Vector3.cpp" />
