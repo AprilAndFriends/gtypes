@@ -646,7 +646,11 @@ namespace gtypes
 		/// @brief Multiplies each value of this Matrix4 with a factor.
 		/// @param[in] factor The multiplication factor.
 		/// @return This modified Matrix4.
-		Matrix4 operator*=(float factor);
+		Matrix4 operator*=(float factor)
+		{
+			*this = *this * factor;
+			return (*this);
+		}
 		/// @brief Sums up this Matrix4 with another one.
 		/// @param[in] other The other Matrix4.
 		/// @return This modified Matrix4.

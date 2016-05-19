@@ -136,6 +136,14 @@ HL_UT_TEST_CLASS(Matrix4)
 		HL_UT_ASSERT(m1.det() == 1, "");
 	}
 
+	HL_UT_TEST_FUNCTION(transpose)
+	{
+		gmat4 m1(1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f, 15.0f, 16.0f);
+		gmat4 m2(1.0f, 5.0f, 9.0f, 13.0f, 2.0f, 6.0f, 10.0f, 14.0f, 3.0f, 7.0f, 11.0f, 15.0f, 4.0f, 8.0f, 12.0f, 16.0f);
+		m1.transpose();
+		HL_UT_ASSERT(gmat4eqf(m1, m2), "");
+	}
+
 	HL_UT_TEST_FUNCTION(translate)
 	{
 		gmat4 m1;
@@ -201,5 +209,65 @@ HL_UT_TEST_CLASS(Matrix4)
 		gmat4 m1;
 		gmat4 m2;
 		HL_UT_ASSERT(gmat4eqf(m1.inversedRotation(), m2), "");
+	}
+
+	HL_UT_TEST_FUNCTION(multiplication)
+	{
+		gmat4 m1(0.0f, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f, 15.0f);
+		gmat4 m2;
+		HL_UT_ASSERT(gmat4eqf(m1 * m2, m1), "operator*(mat4)");
+		m2 = gmat4(0.0f, 2.0f, 4.0f, 6.0f, 8.0f, 10.0f, 12.0f, 14.0f, 16.0f, 18.0f, 20.0f, 22.0f, 24.0f, 26.0f, 28.0f, 30.0f);
+		HL_UT_ASSERT(gmat4eqf(m1 * 2, m2), "operator*(float)");
+		gvec3 v(1.0f, 2.0f, 3.0f);
+		m2.setIdentity();
+		HL_UT_ASSERT(vec3eqf(v, m2 * v), "operator*(vec3)");
+	}
+
+	HL_UT_TEST_FUNCTION(addition)
+	{
+		gmat4 m1(0.0f, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f, 15.0f);
+		gmat4 m2(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+		gmat4 m3(1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f, 15.0f, 16.0f);
+		HL_UT_ASSERT(gmat4eqf(m1 + m2, m3), "");
+	}
+
+	HL_UT_TEST_FUNCTION(substraction)
+	{
+		gmat4 m1(0.0f, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f, 15.0f);
+		gmat4 m2(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+		gmat4 m3(-1.0f, 0.0f, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f);
+		HL_UT_ASSERT(gmat4eqf(m1 - m2, m3), "");
+	}
+
+	HL_UT_TEST_FUNCTION(multiplicationAssign)
+	{
+		gmat4 m0(0.0f, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f, 15.0f);
+		gmat4 m1;
+		gmat4 m2;
+		m1.set(m0);
+		m1 *= m2;
+		HL_UT_ASSERT(gmat4eqf(m1, m0), "operator*=(mat4)");
+		m1.set(m0);
+		m2 = gmat4(0.0f, 2.0f, 4.0f, 6.0f, 8.0f, 10.0f, 12.0f, 14.0f, 16.0f, 18.0f, 20.0f, 22.0f, 24.0f, 26.0f, 28.0f, 30.0f);
+		m1 *= 2;
+		HL_UT_ASSERT(gmat4eqf(m1, m2), "operator*=(float)");
+	}
+
+	HL_UT_TEST_FUNCTION(additionAssign)
+	{
+		gmat4 m1(0.0f, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f, 15.0f);
+		gmat4 m2(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+		gmat4 m3(1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f, 15.0f, 16.0f);
+		m1 += m2;
+		HL_UT_ASSERT(gmat4eqf(m1, m3), "");
+	}
+
+	HL_UT_TEST_FUNCTION(substractionAssign)
+	{
+		gmat4 m1(0.0f, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f, 15.0f);
+		gmat4 m2(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
+		gmat4 m3(-1.0f, 0.0f, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f);
+		m1 -= m2;
+		HL_UT_ASSERT(gmat4eqf(m1, m3), "");
 	}
 }
