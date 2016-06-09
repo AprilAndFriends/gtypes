@@ -82,7 +82,7 @@ namespace gtypes
 		}
 		/// @return Calculates the squared length of the Vector3.
 		/// @note Use this if you don't need the actual length as it's faster than length().
-		/// @see length()
+		/// @see length
 		inline float squaredLength() const
 		{
 			return (this->x * this->x + this->y * this->y + this->z * this->z);
