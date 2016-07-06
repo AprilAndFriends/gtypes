@@ -253,7 +253,7 @@ namespace gtypes
 
 		/// @brief Calculates the determinant of the Matrix3.
 		/// @return The determinant of the Matrix3.
-		inline float det() const
+		inline float determinant() const
 		{
 			return (this->data[0] * this->data[4] * this->data[8] +
 				this->data[3] * this->data[7] * this->data[2] +
@@ -401,7 +401,7 @@ namespace gtypes
 		/// @brief Inverses the Matrix3.
 		inline void inverse()
 		{
-			float invDet = 1.0f / this->det();
+			float invDet = 1.0f / this->determinant();
 			this->set((this->data[4] * this->data[8] - this->data[7] * this->data[5]) * invDet,
 				-(this->data[1] * this->data[8] - this->data[7] * this->data[2]) * invDet,
 				(this->data[1] * this->data[5] - this->data[4] * this->data[2]) * invDet,

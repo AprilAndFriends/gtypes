@@ -50,7 +50,7 @@ namespace gtypes
 
 		/// @brief Checks if this is a zero-length vector.
 		/// @return True if this is a zero-length vector.
-		inline bool isNull()
+		inline bool isNull() const
 		{
 			return (this->x == 0.0f && this->y == 0.0f);
 		}
@@ -63,7 +63,7 @@ namespace gtypes
 		/// @return Calculates the squared length of the Vector2.
 		/// @note Use this if you don't need the actual length as it's faster than length().
 		/// @see length
-		inline float squaredLength()
+		inline float squaredLength() const
 		{
 			return (this->x * this->x + this->y * this->y);
 		}
@@ -78,7 +78,7 @@ namespace gtypes
 		/// @param[in] centerY Center Y coordinate of the circle.
 		/// @param[in] radius Radius of the circle.
 		/// @return True if this Vector2 is located within the circle.
-		inline bool isInCircle(float centerX, float centerY, float radius)
+		inline bool isInCircle(float centerX, float centerY, float radius) const
 		{
 			float dx = this->x - centerX;
 			float dy = this->y - centerY;
@@ -88,7 +88,7 @@ namespace gtypes
 		/// @param[in] center Center coordinate of the circle as Vector2.
 		/// @param[in] radius Radius of the circle.
 		/// @return True if this Vector2 is located within the circle.
-		inline bool isInCircle(const Vector2& center, float radius)
+		inline bool isInCircle(const Vector2& center, float radius) const
 		{
 			float dx = this->x - center.x;
 			float dy = this->y - center.y;

@@ -367,7 +367,7 @@ namespace gtypes
 
 		/// @brief Calculates the determinant of the Matrix4.
 		/// @return The determinant of the Matrix4.
-		inline float det() const
+		inline float determinant() const
 		{
 			return ((this->data[0] * this->data[5] * this->data[10]) +
 				(this->data[4] * this->data[9] * this->data[2]) +
@@ -521,7 +521,7 @@ namespace gtypes
 		inline void inverse()
 		{
 			float m[16] = { 0.0f }; // required, because m[0-10] are used for m[12-14]
-			float invDet = 1.0f / this->det();
+			float invDet = 1.0f / this->determinant();
 			m[0] = (this->data[5] * this->data[10] - this->data[9] * this->data[6]) * invDet;
 			m[1] = -(this->data[1] * this->data[10] - this->data[9] * this->data[2]) * invDet;
 			m[2] = (this->data[1] * this->data[6] - this->data[5] * this->data[2]) * invDet;

@@ -70,7 +70,7 @@ namespace gtypes
 
 		/// @brief Checks if this is a zero-length vector.
 		/// @return True if this is a zero-length vector.
-		inline bool isNull()
+		inline bool isNull() const
 		{
 			return (this->x == 0.0f && this->y == 0.0f && this->z == 0.0f);
 		}
