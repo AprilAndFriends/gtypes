@@ -418,6 +418,38 @@ namespace gtypes
 		{
 			return !(*this == other);
 		}	
+		/// @brief Checks if one Rectangle is bigger than the other or the same size.
+		/// @param[in] other The other Rectangle.
+		/// @return True if the the first Rectangle is bigger than the other or the same size.
+		/// @note Beware of floating point errors.
+		inline bool operator>=(const Rectangle& other) const
+		{
+			return (this->w * this->h >= other.w * other.h);
+		}
+		/// @brief Checks if one Rectangle is bigger than the other.
+		/// @param[in] other The other Rectangle.
+		/// @return True if the the first Rectangle is bigger than the other.
+		/// @note Beware of floating point errors.
+		inline bool operator>(const Rectangle& other) const
+		{
+			return (this->w * this->h > other.w * other.h);
+		}
+		/// @brief Checks if one Rectangle is smaller than the other or the same size.
+		/// @param[in] other The other Rectangle.
+		/// @return True if the the first Rectangle is smaller than the other or the same size.
+		/// @note Beware of floating point errors.
+		inline bool operator<=(const Rectangle& other) const
+		{
+			return (this->w * this->h <= other.w * other.h);
+		}
+		/// @brief Checks if one Rectangle is smaller than the other.
+		/// @param[in] other The other Rectangle.
+		/// @return True if the the first Rectangle is smaller than the other.
+		/// @note Beware of floating point errors.
+		inline bool operator<(const Rectangle& other) const
+		{
+			return (this->w * this->h < other.w * other.h);
+		}
 
 	};
 }
