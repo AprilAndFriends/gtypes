@@ -67,6 +67,7 @@
   <Import Condition="!exists('..\..\..\hltypes\msvc\vs2013\props-generic\build-defaults.props')" Project="props-generic\build-defaults.props" />
   <ItemDefinitionGroup>
     <ClCompile>
+      <UndefinePreprocessorDefinitions>GTYPES_EXPORTS;%(UndefinePreprocessorDefinitions)</UndefinePreprocessorDefinitions>
       <UseFullPaths>true</UseFullPaths>
     </ClCompile>
     <Link>
