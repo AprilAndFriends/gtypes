@@ -73,6 +73,9 @@
     <Link>
       <AdditionalDependencies>libgtypes.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy $(OutDir)..\..\..\*.dll $(OutDir) /d /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\unittest\generated\_Matrix3.cpp" />
