@@ -579,5 +579,7 @@ namespace gtypes
 
 /// @brief Alias for simpler code.
 typedef gtypes::Matrix3 gmat3;
+/// @brief Alias for simpler code.
+typedef const gtypes::Matrix3& cgmat3;
 
 #endif

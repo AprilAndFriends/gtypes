@@ -365,5 +365,7 @@ namespace gtypes
 
 /// @brief Alias for simpler code.
 typedef gtypes::CatmullRomSpline2 gcrs2;
+/// @brief Alias for simpler code.
+typedef const gtypes::CatmullRomSpline2& cgcrs2;
 
 #endif

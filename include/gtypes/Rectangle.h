@@ -456,5 +456,7 @@ namespace gtypes
 
 /// @brief Alias for simpler code.
 typedef gtypes::Rectangle grect;
+/// @brief Alias for simpler code.
+typedef const gtypes::Rectangle& cgrect;
 
 #endif

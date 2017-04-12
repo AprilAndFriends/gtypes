@@ -255,5 +255,7 @@ namespace gtypes
 
 /// @brief Alias for simpler code.
 typedef gtypes::Vector3 gvec3;
+/// @brief Alias for simpler code.
+typedef const gtypes::Vector3& cgvec3;
 
 #endif
