@@ -172,6 +172,16 @@ namespace gtypes
 			float invFactor = 1.0f / factor;
 			return Vector3(this->x * invFactor, this->y * invFactor, this->z * invFactor);
 		}
+		/// @brief Sets this Vector3 to another one.
+		/// @param[in] other The other Vector3.
+		/// @return This Vector3.
+		inline Vector3 operator=(const Vector3& other)
+		{
+			this->x = other.x;
+			this->y = other.y;
+			this->z = other.z;
+			return (*this);
+		}
 		/// @brief Adds another Vector3 to this one.
 		/// @param[in] other The other Vector3.
 		/// @return A copy of this Vector3.

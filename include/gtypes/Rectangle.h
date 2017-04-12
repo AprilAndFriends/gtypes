@@ -348,6 +348,17 @@ namespace gtypes
 			result.h /= scale;
 			return result;
 		}
+		/// @brief Sets this Rectangle to another one.
+		/// @param[in] other The other Rectangle.
+		/// @return This Rectangle.
+		inline Rectangle operator=(const Rectangle& other)
+		{
+			this->x = other.x;
+			this->y = other.y;
+			this->w = other.w;
+			this->h = other.h;
+			return (*this);
+		}
 		/// @brief Moves this Rectangle along a vector.
 		/// @param[in] vector Vector by which to move the Rectangle.
 		/// @return This Rectangle.
@@ -366,7 +377,7 @@ namespace gtypes
 			this->y -= vector.y;
 			return (*this);
 		}
-		/// @brief Creates a new Rectangle that was scaled with a vector.
+		/// @brief Scales this Rectangle with a vector.
 		/// @param[in] vector Vector with which to scale the Rectangle.
 		/// @return This Rectangle.
 		inline Rectangle operator*=(const Vector2& vector)
@@ -375,7 +386,7 @@ namespace gtypes
 			this->h *= vector.y;
 			return (*this);
 		}
-		/// @brief Creates a new Rectangle that was scaled with a vector.
+		/// @brief Scales this Rectangle with a vector.
 		/// @param[in] vector Vector with which to scale the Rectangle.
 		/// @return This Rectangle.
 		inline Rectangle operator/=(const Vector2& vector)
@@ -384,7 +395,7 @@ namespace gtypes
 			this->h /= vector.y;
 			return (*this);
 		}
-		/// @brief Creates a new Rectangle that was scaled with a factor.
+		/// @brief Scales this Rectangle with a factor.
 		/// @param[in] scale Factor with which to scale the Rectangle.
 		/// @return This Rectangle.
 		inline Rectangle operator*=(float scale)
@@ -393,7 +404,7 @@ namespace gtypes
 			this->h *= scale;
 			return (*this);
 		}
-		/// @brief Creates a new Rectangle that was scaled with a factor.
+		/// @brief Scales this Rectangle with a factor.
 		/// @param[in] scale Factor with which to scale the Rectangle.
 		/// @return This Rectangle.
 		inline Rectangle operator/=(float scale)

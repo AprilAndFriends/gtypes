@@ -524,20 +524,12 @@ namespace gtypes
 				this->data[6] - other[6], this->data[7] - other[7], this->data[8] - other[8]);
 		}
 
-		/// @brief Multiplies this Matrix3 with another one.
+		/// @brief Sets this Matrix3 to another one.
 		/// @param[in] other The other Matrix3.
-		/// @return This modified Matrix3.
-		inline Matrix3 operator*=(const Matrix3& other)
+		/// @return This Matrix3.
+		inline Matrix3 operator=(const Matrix3& other)
 		{
-			*this = *this * other;
-			return (*this);
-		}
-		/// @brief Multiplies each value of this Matrix3 with a factor.
-		/// @param[in] factor The multiplication factor.
-		/// @return This modified Matrix3.
-		inline Matrix3 operator*=(float factor)
-		{
-			*this = *this * factor;
+			memcpy(this->data, other.data, 9 * sizeof(float));
 			return (*this);
 		}
 		/// @brief Sums up this Matrix3 with another one.
@@ -554,6 +546,22 @@ namespace gtypes
 		inline Matrix3 operator-=(const Matrix3& other)
 		{
 			*this = *this - other;
+			return (*this);
+		}
+		/// @brief Multiplies this Matrix3 with another one.
+		/// @param[in] other The other Matrix3.
+		/// @return This modified Matrix3.
+		inline Matrix3 operator*=(const Matrix3& other)
+		{
+			*this = *this * other;
+			return (*this);
+		}
+		/// @brief Multiplies each value of this Matrix3 with a factor.
+		/// @param[in] factor The multiplication factor.
+		/// @return This modified Matrix3.
+		inline Matrix3 operator*=(float factor)
+		{
+			*this = *this * factor;
 			return (*this);
 		}
 

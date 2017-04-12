@@ -211,6 +211,17 @@ namespace gtypes
 		{
 			return Quaternion(this->x * factor, this->y * factor, this->z * factor, this->w * factor);
 		}
+		/// @brief Sets this Quaternion to another one.
+		/// @param[in] other The other Quaternion.
+		/// @return This Quaternion.
+		inline Quaternion operator=(const Quaternion& other)
+		{
+			this->x = other.x;
+			this->y = other.y;
+			this->z = other.z;
+			this->w = other.w;
+			return (*this);
+		}
 		/// @brief Adds another Quaternion to this one.
 		/// @param[in] other The other Quaternion.
 		/// @return A copy of this Quaternion.

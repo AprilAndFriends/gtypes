@@ -192,6 +192,15 @@ namespace gtypes
 			float invScale = 1.0f / factor;
 			return Vector2(this->x * invScale, this->y * invScale);
 		}
+		/// @brief Sets this Vector2 to another one.
+		/// @param[in] other The other Vector2.
+		/// @return This Vector2.
+		inline Vector2 operator=(const Vector2& other)
+		{
+			this->x = other.x;
+			this->y = other.y;
+			return (*this);
+		}
 		/// @brief Adds another Vector2 to this one.
 		/// @param[in] other The other Vector2.
 		/// @return A copy of this Vector2.
