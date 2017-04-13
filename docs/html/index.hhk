@@ -76,7 +76,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_matrix4_8h.html#ac5f297cb406202e3f6c1456f293ecde6"><param name="Name" value="cgmat4"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_quaternion_8h.html#a402c60d06a662eb4206b502a116826cb"><param name="Name" value="cgquat"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_rectangle_8h.html#ad81e0ed05c47ee3ada55d0fd448b1497"><param name="Name" value="cgrect"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector2_8h.html#ae846d763e22da59fd1cd8903ef21b0f8"><param name="Name" value="cgvec2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector2_8h.html#aad51afb2b1d145168d795df1c1548276"><param name="Name" value="cgvec2"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector3_8h.html#a6555bf5e363733cd45411c12dc1e3d0c"><param name="Name" value="cgvec3"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a72c8379e433db2c2aaeabc8b042605ad"><param name="Name" value="clip"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a68ab1458858f316da9ae03009b865959"><param name="Name" value="clipped"></OBJECT>
@@ -761,7 +761,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector2_8h.html"><param name="Name" value="Vector2.h"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector2_8h.html#ae846d763e22da59fd1cd8903ef21b0f8"><param name="Name" value="cgvec2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector2_8h.html#aad51afb2b1d145168d795df1c1548276"><param name="Name" value="cgvec2"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector2_8h.html#add0a71bae23cada70ba3c19738a0d992"><param name="Name" value="gvec2"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#aa993dd7fbd326d6f429834efaf9d86bf"><param name="Name" value="Vector2"></OBJECT>
