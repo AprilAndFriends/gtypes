@@ -42,15 +42,17 @@
     <ApplicationType>Windows Phone</ApplicationType>
     <ApplicationTypeRevision>8.1</ApplicationTypeRevision>
   </PropertyGroup>
+  <Import Condition="exists('..\..\..\hltypes\msvc\vs2013-winp8\props-generic\system.props')" Project="..\..\..\hltypes\msvc\vs2013-winp8\props-generic\system.props" />
+  <Import Condition="!exists('..\..\..\hltypes\msvc\vs2013-winp8\props-generic\system.props')" Project="props-generic\system.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="props\default.props" />
-  <Import Condition="exists('..\..\..\hltypes\msvc\vs2013-winp8\props-generic\platform-$(Platform).props')" Project="..\..\..\hltypes\msvc\vs2013-winp8\props-generic\platform-$(Platform).props" />
-  <Import Condition="!exists('..\..\..\hltypes\msvc\vs2013-winp8\props-generic\platform-$(Platform).props')" Project="props-generic\platform-$(Platform).props" />
-  <Import Condition="exists('..\..\..\hltypes\msvc\vs2013-winp8\props-generic\configurations.props')" Project="..\..\..\hltypes\msvc\vs2013-winp8\props-generic\configurations.props" />
-  <Import Condition="!exists('..\..\..\hltypes\msvc\vs2013-winp8\props-generic\configurations.props')" Project="props-generic\configurations.props" />
+  <Import Condition="exists('..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\platform-$(Platform).props')" Project="..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\platform-$(Platform).props" />
+  <Import Condition="!exists('..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\platform-$(Platform).props')" Project="props-generic\platform-$(Platform).props" />
+  <Import Condition="exists('..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\configurations.props')" Project="..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\configurations.props" />
+  <Import Condition="!exists('..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\configurations.props')" Project="props-generic\configurations.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <Import Condition="exists('..\..\..\hltypes\msvc\vs2013-winp8\props-generic\build-defaults.props')" Project="..\..\..\hltypes\msvc\vs2013-winp8\props-generic\build-defaults.props" />
-  <Import Condition="!exists('..\..\..\hltypes\msvc\vs2013-winp8\props-generic\build-defaults.props')" Project="props-generic\build-defaults.props" />
+  <Import Condition="exists('..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\build-defaults.props')" Project="..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\build-defaults.props" />
+  <Import Condition="!exists('..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\build-defaults.props')" Project="props-generic\build-defaults.props" />
   <ItemGroup>
     <ClCompile Include="..\..\src\Matrix3.cpp" />
     <ClCompile Include="..\..\src\Quaternion.cpp" />
