@@ -34,13 +34,12 @@
 			#define gtypesFnExport __attribute__ ((visibility("default")))
 		#endif
 	#endif
-	#ifndef DEPRECATED_ATTRIBUTE
-		#ifdef _MSC_VER
-			#define DEPRECATED_ATTRIBUTE(message) __declspec(deprecated(message))
-		#elif !defined(__APPLE__) || __has_extension(attribute_deprecated_with_message) || (defined(__GNUC) && ((GNUC >= 5) || ((GNUC == 4) && (GNUC_MINOR__ >= 5))))
-			#define DEPRECATED_ATTRIBUTE(message) __attribute__((deprecated(message)))
+	// taken from hltypes for compatibility
+	#ifndef HL_DEPRECATED
+		#if defined(_MSC_VER) && !defined(_ANDROID)
+			#define HL_DEPRECATED(message) __declspec(deprecated(message))
 		#else
-			#define DEPRECATED_ATTRIBUTE(message) __attribute__((deprecated))
+			#define HL_DEPRECATED(message) __attribute__((deprecated(message)))
 		#endif
 	#endif
 
