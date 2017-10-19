@@ -178,6 +178,16 @@ namespace gtypes
 		{
 			return Vector2(this->x + this->w, this->y + this->h);
 		}
+		/// @brief Gets the area of the Rectangle.
+		inline float getArea() const
+		{
+			return (this->w * this->h);
+		}
+		/// @brief Gets the circumference of the Rectangle.
+		inline float getCircumference() const
+		{
+			return (this->w + this->h) * 2.0f;
+		}
 
 		/// @brief Gets the left-most coordinate.
 		/// @see x
