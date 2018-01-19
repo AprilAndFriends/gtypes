@@ -357,12 +357,12 @@ namespace gtypes
 		{
 			memset(this->data, 0, sizeof(this->data));
 			float iy = 1.0f / ((float)tan(DEG_TO_RAD(fov * 0.5f)));
-			float ix = iy * aspect;
-			this->data[0] = 1.0f * ix;
-			this->data[5] = 1.0f * iy;
-			this->data[10] = -(farZ + nearZ) / (farZ - nearZ);
+			float zDiff = farZ - nearZ;
+			this->data[0] = iy * aspect;
+			this->data[5] = iy;
+			this->data[10] = -(farZ + nearZ) / zDiff;
 			this->data[11] = -1.0f;
-			this->data[14] = -(2.0f * farZ * nearZ) / (farZ - nearZ);
+			this->data[14] = -(2.0f * farZ * nearZ) / zDiff;
 		}
 
 		/// @brief Calculates the determinant of the Matrix4.
