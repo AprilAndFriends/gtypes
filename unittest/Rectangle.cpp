@@ -12,21 +12,6 @@
 
 HL_UT_TEST_CLASS(Rectangle)
 {	
-	static float habs(float value)
-	{
-		return value >= 0.0f ? value : -value;
-	}
-
-	static bool heqf(float a, float b, float tolerance = E_TOLRANCE)
-	{
-		return (habs(a - b) < tolerance);
-	}
-
-	static bool rectangleEqf(const grect& r1, const grect& r2)
-	{
-		return (heqf(r1.x, r2.x) && heqf(r1.y, r2.y) && heqf(r1.w, r2.w) && heqf(r1.h, r2.h));
-	}
-
 	HL_UT_TEST_FUNCTION(assignment)
     {
 		grect r(1, 2, 3, 4);

@@ -20,12 +20,20 @@
 		7F42F74F11EB136E00B1C1DF /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74711EB136E00B1C1DF /* Matrix3.cpp */; };
 		7F42F75111EB136E00B1C1DF /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74911EB136E00B1C1DF /* Quaternion.cpp */; };
 		C9F9313D14DA87F400954F90 /* gtypesUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F9313C14DA87F400954F90 /* gtypesUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D1353E8B1AD311CF00BB5829 /* _utVector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1353E781AD3118E00BB5829 /* _utVector2.cpp */; };
 		D1353E8C1AD311DE00BB5829 /* libgtypes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F27A89177A2CB600E5C131 /* libgtypes.a */; };
-		D1353E8F1AD3139E00BB5829 /* utVector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1353E771AD3118300BB5829 /* utVector2.cpp */; };
-		D1353E921AD3141B00BB5829 /* aprilUT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1353E911AD3141B00BB5829 /* aprilUT.cpp */; };
 		D1522F30140F79E10012F290 /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74711EB136E00B1C1DF /* Matrix3.cpp */; };
 		D1522F32140F79E10012F290 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74911EB136E00B1C1DF /* Quaternion.cpp */; };
+		D1A1DDD8206CD9D800B5C90C /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A1DDD3206CD9D800B5C90C /* Matrix3.cpp */; };
+		D1A1DDD9206CD9D800B5C90C /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A1DDD4206CD9D800B5C90C /* Rectangle.cpp */; };
+		D1A1DDDA206CD9D800B5C90C /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A1DDD5206CD9D800B5C90C /* Vector3.cpp */; };
+		D1A1DDDB206CD9D800B5C90C /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A1DDD6206CD9D800B5C90C /* Vector2.cpp */; };
+		D1A1DDDC206CD9D800B5C90C /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A1DDD7206CD9D800B5C90C /* Matrix4.cpp */; };
+		D1A1DE21206CF0B700B5C90C /* _Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A1DE1C206CF0B700B5C90C /* _Vector2.cpp */; };
+		D1A1DE22206CF0B700B5C90C /* _Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A1DE1D206CF0B700B5C90C /* _Vector3.cpp */; };
+		D1A1DE23206CF0B700B5C90C /* _Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A1DE1E206CF0B700B5C90C /* _Matrix4.cpp */; };
+		D1A1DE24206CF0B700B5C90C /* _Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A1DE1F206CF0B700B5C90C /* _Matrix3.cpp */; };
+		D1A1DE25206CF0B700B5C90C /* _Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A1DE20206CF0B700B5C90C /* _Rectangle.cpp */; };
+		D1A1DE27206CF10C00B5C90C /* hunittest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A1DE26206CF10C00B5C90C /* hunittest.cpp */; };
 		D1F27A7C177A2CB600E5C131 /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74711EB136E00B1C1DF /* Matrix3.cpp */; };
 		D1F27A7E177A2CB600E5C131 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74911EB136E00B1C1DF /* Quaternion.cpp */; };
 /* End PBXBuildFile section */
@@ -56,14 +64,21 @@
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* gtypes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = gtypes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F9313C14DA87F400954F90 /* gtypesUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gtypesUtil.h; path = include/gtypes/gtypesUtil.h; sourceTree = "<group>"; };
-		D1353E771AD3118300BB5829 /* utVector2.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = utVector2.cpp; path = unitTests/utVector2.cpp; sourceTree = "<group>"; };
-		D1353E781AD3118E00BB5829 /* _utVector2.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = _utVector2.cpp; path = unitTests/generated/_utVector2.cpp; sourceTree = "<group>"; };
 		D1353E7E1AD311BA00BB5829 /* gtypes.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gtypes.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1353E901AD313E700BB5829 /* aprilUT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = aprilUT.h; path = unitTests/generated/aprilUT.h; sourceTree = "<group>"; };
-		D1353E911AD3141B00BB5829 /* aprilUT.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = aprilUT.cpp; path = unitTests/generated/aprilUT.cpp; sourceTree = "<group>"; };
 		D1522F1C140F79500012F290 /* libgtypes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtypes.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1681B7518D761D80088FC68 /* iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = iOS.xcconfig; path = xcconfig/iOS.xcconfig; sourceTree = "<group>"; };
 		D1681B7618D761D80088FC68 /* Mac.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Mac.xcconfig; path = xcconfig/Mac.xcconfig; sourceTree = "<group>"; };
+		D1A1DDD3206CD9D800B5C90C /* Matrix3.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Matrix3.cpp; path = unittest/Matrix3.cpp; sourceTree = "<group>"; };
+		D1A1DDD4206CD9D800B5C90C /* Rectangle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Rectangle.cpp; path = unittest/Rectangle.cpp; sourceTree = "<group>"; };
+		D1A1DDD5206CD9D800B5C90C /* Vector3.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Vector3.cpp; path = unittest/Vector3.cpp; sourceTree = "<group>"; };
+		D1A1DDD6206CD9D800B5C90C /* Vector2.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Vector2.cpp; path = unittest/Vector2.cpp; sourceTree = "<group>"; };
+		D1A1DDD7206CD9D800B5C90C /* Matrix4.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Matrix4.cpp; path = unittest/Matrix4.cpp; sourceTree = "<group>"; };
+		D1A1DE1C206CF0B700B5C90C /* _Vector2.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = _Vector2.cpp; path = unittest/generated/_Vector2.cpp; sourceTree = "<group>"; };
+		D1A1DE1D206CF0B700B5C90C /* _Vector3.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = _Vector3.cpp; path = unittest/generated/_Vector3.cpp; sourceTree = "<group>"; };
+		D1A1DE1E206CF0B700B5C90C /* _Matrix4.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = _Matrix4.cpp; path = unittest/generated/_Matrix4.cpp; sourceTree = "<group>"; };
+		D1A1DE1F206CF0B700B5C90C /* _Matrix3.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = _Matrix3.cpp; path = unittest/generated/_Matrix3.cpp; sourceTree = "<group>"; };
+		D1A1DE20206CF0B700B5C90C /* _Rectangle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = _Rectangle.cpp; path = unittest/generated/_Rectangle.cpp; sourceTree = "<group>"; };
+		D1A1DE26206CF10C00B5C90C /* hunittest.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = hunittest.cpp; path = ../hltypes/unittest/hunittest.cpp; sourceTree = "<group>"; };
 		D1F27A89177A2CB600E5C131 /* libgtypes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtypes.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -117,7 +132,7 @@
 				D1681B7718D7626C0088FC68 /* config */,
 				7F42F6E811EB0E0600B1C1DF /* include */,
 				7F42F6E711EB0E0200B1C1DF /* src */,
-				D1353E761AD3116800BB5829 /* unitTests */,
+				D1353E761AD3116800BB5829 /* unittest */,
 				034768DFFF38A50411DB9C8B /* Products */,
 			);
 			name = libgtypes;
@@ -150,21 +165,28 @@
 			name = include;
 			sourceTree = "<group>";
 		};
-		D1353E761AD3116800BB5829 /* unitTests */ = {
+		D1353E761AD3116800BB5829 /* unittest */ = {
 			isa = PBXGroup;
 			children = (
 				D1353E791AD3119400BB5829 /* generated */,
-				D1353E771AD3118300BB5829 /* utVector2.cpp */,
+				D1A1DDD3206CD9D800B5C90C /* Matrix3.cpp */,
+				D1A1DDD7206CD9D800B5C90C /* Matrix4.cpp */,
+				D1A1DDD4206CD9D800B5C90C /* Rectangle.cpp */,
+				D1A1DDD6206CD9D800B5C90C /* Vector2.cpp */,
+				D1A1DDD5206CD9D800B5C90C /* Vector3.cpp */,
 			);
-			name = unitTests;
+			name = unittest;
 			sourceTree = "<group>";
 		};
 		D1353E791AD3119400BB5829 /* generated */ = {
 			isa = PBXGroup;
 			children = (
-				D1353E901AD313E700BB5829 /* aprilUT.h */,
-				D1353E911AD3141B00BB5829 /* aprilUT.cpp */,
-				D1353E781AD3118E00BB5829 /* _utVector2.cpp */,
+				D1A1DE26206CF10C00B5C90C /* hunittest.cpp */,
+				D1A1DE1F206CF0B700B5C90C /* _Matrix3.cpp */,
+				D1A1DE1E206CF0B700B5C90C /* _Matrix4.cpp */,
+				D1A1DE20206CF0B700B5C90C /* _Rectangle.cpp */,
+				D1A1DE1C206CF0B700B5C90C /* _Vector2.cpp */,
+				D1A1DE1D206CF0B700B5C90C /* _Vector3.cpp */,
 			);
 			name = generated;
 			sourceTree = "<group>";
@@ -239,6 +261,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1353E871AD311BA00BB5829 /* Build configuration list for PBXNativeTarget "gtypesTests (Mac)" */;
 			buildPhases = (
+				D1A1DE1B206CEFF500B5C90C /* Generate unit test configuration files */,
 				D1353E7A1AD311BA00BB5829 /* Sources */,
 				D1353E7B1AD311BA00BB5829 /* Frameworks */,
 			);
@@ -322,6 +345,24 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D1A1DE1B206CEFF500B5C90C /* Generate unit test configuration files */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate unit test configuration files";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "python ${SRCROOT}/../hltypes/unittest/generate_tests.py gtypes ${SRCROOT}/unittest";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8DC2EF540486A6940098B216 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -336,9 +377,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1353E8F1AD3139E00BB5829 /* utVector2.cpp in Sources */,
-				D1353E921AD3141B00BB5829 /* aprilUT.cpp in Sources */,
-				D1353E8B1AD311CF00BB5829 /* _utVector2.cpp in Sources */,
+				D1A1DDD8206CD9D800B5C90C /* Matrix3.cpp in Sources */,
+				D1A1DDDB206CD9D800B5C90C /* Vector2.cpp in Sources */,
+				D1A1DE24206CF0B700B5C90C /* _Matrix3.cpp in Sources */,
+				D1A1DE22206CF0B700B5C90C /* _Vector3.cpp in Sources */,
+				D1A1DDDA206CD9D800B5C90C /* Vector3.cpp in Sources */,
+				D1A1DDD9206CD9D800B5C90C /* Rectangle.cpp in Sources */,
+				D1A1DE25206CF0B700B5C90C /* _Rectangle.cpp in Sources */,
+				D1A1DE21206CF0B700B5C90C /* _Vector2.cpp in Sources */,
+				D1A1DDDC206CD9D800B5C90C /* Matrix4.cpp in Sources */,
+				D1A1DE27206CF10C00B5C90C /* hunittest.cpp in Sources */,
+				D1A1DE23206CF0B700B5C90C /* _Matrix4.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +541,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1681B7618D761D80088FC68 /* Mac.xcconfig */;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../hltypes/unittest";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -500,6 +550,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1681B7618D761D80088FC68 /* Mac.xcconfig */;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../hltypes/unittest";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -508,6 +559,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1681B7618D761D80088FC68 /* Mac.xcconfig */;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../hltypes/unittest";
 				SDKROOT = macosx;
 			};
 			name = "App Store";

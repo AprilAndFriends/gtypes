@@ -152,7 +152,6 @@ HL_UT_TEST_CLASS(Matrix3)
 		m1.setRotation3DY(90.0f);
 		HL_UT_ASSERT(gmat3eqf(m1, m2), "");
 	}
-
 	HL_UT_TEST_FUNCTION(setRotation3DZ)
 	{
 		gmat3 m1;
@@ -162,10 +161,10 @@ HL_UT_TEST_CLASS(Matrix3)
 		HL_UT_ASSERT(gmat3eqf(m1, m2), "");
 	}
 
-	HL_UT_TEST_FUNCTION(det)
+	HL_UT_TEST_FUNCTION(determinant)
 	{
 		gmat3 m1;
-		HL_UT_ASSERT(m1.det() == 1, "");
+		HL_UT_ASSERT(m1.determinant() == 1, "");
 	}
 
 	HL_UT_TEST_FUNCTION(translate)
@@ -325,7 +324,7 @@ HL_UT_TEST_CLASS(Matrix3)
 		gmat3 m1(2.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 2.0f, 1.0f, 1.0f);
 		gmat3 m2(1.0f, 0.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f);
 		m1.orthoNormalize();
-		HL_UT_ASSERT(gmat3eqf(m1, m2), "");
+		HL_UT_ASSERT(gmat3eqf(m1, m2), "orthoNormalise");
 	}
 
 	HL_UT_TEST_FUNCTION(orthoNormalized)

@@ -133,7 +133,7 @@ HL_UT_TEST_CLASS(Matrix4)
 	HL_UT_TEST_FUNCTION(det)
 	{
 		gmat4 m1;
-		HL_UT_ASSERT(m1.det() == 1, "");
+		HL_UT_ASSERT(m1.determinant() == 1, "");
 	}
 
 	HL_UT_TEST_FUNCTION(transpose)
