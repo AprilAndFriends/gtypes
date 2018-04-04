@@ -9,5 +9,13 @@ android
 	{
 		versionCode 2000
 		versionName "2.0.0"
+		externalNativeBuild
+		{
+			cmake
+			{
+				//cFlags "-I../../include/gtypes"
+				//cppFlags "-I../../include/gtypes"
+			}
+		}
 	}
 }
