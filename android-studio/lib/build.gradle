@@ -1,42 +1,13 @@
 apply plugin: 'com.android.library'
+apply from: '../../../hltypes/android-studio/generic/default.gradle'
+apply from: '../../../hltypes/android-studio/generic/native.gradle'
+apply from: '../../../hltypes/android-studio/generic/cpp.gradle'
 
 android
 {
-	compileSdkVersion 26
-
 	defaultConfig
-    {
-		minSdkVersion 15
-		targetSdkVersion 26
+	{
 		versionCode 2000
 		versionName "2.0.0"
-		externalNativeBuild
-        {
-			cmake
-            {
-				cppFlags "-std=c++11 -frtti -fexceptions"
-			}
-		}
 	}
-
-	buildTypes
-    {
-		release
-        {
-			minifyEnabled false
-		}
-	}
-
-	externalNativeBuild
-    {
-		cmake
-        {
-			path "CMakeLists.txt"
-		}
-	}
-}
-
-dependencies
-{
-	implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
