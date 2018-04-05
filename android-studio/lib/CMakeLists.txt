@@ -10,13 +10,17 @@ file(
     "../../src/*.cpp"
 )
 
-include_directories(AFTER "../../include/gtypes")
-include_directories(AFTER "../../src")
-
 add_library(
 	gtypes
 	STATIC
 	${CppSrc}
+)
+
+include_directories(AFTER "../../include/gtypes")
+include_directories(AFTER "../../src")
+
+add_definitions(
+	-DGTYPES_EXPORTS
 )
 
 target_link_libraries(
