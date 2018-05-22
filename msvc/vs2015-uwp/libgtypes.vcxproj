@@ -79,7 +79,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\include\gtypes\CatmullRomSpline2.h" />
     <ClInclude Include="..\..\include\gtypes\CatmullRomSpline3.h" />
-    <ClInclude Include="..\..\include\gtypes\Constants.h" />
+    <ClInclude Include="..\..\include\gtypes\constants.h" />
     <ClInclude Include="..\..\include\gtypes\gtypesExport.h" />
     <ClInclude Include="..\..\include\gtypes\gtypesUtil.h" />
     <ClInclude Include="..\..\include\gtypes\Matrix3.h" />

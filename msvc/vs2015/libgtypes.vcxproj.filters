@@ -28,7 +28,7 @@
     <ClInclude Include="..\..\include\gtypes\CatmullRomSpline3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\gtypes\Constants.h">
+    <ClInclude Include="..\..\include\gtypes\constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\gtypes\gtypesExport.h">
