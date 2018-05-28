@@ -14,7 +14,7 @@ main="C++ Geometry Types","index.hhc","index.hhk","index.html","index.html",,,,,
 [FILES]
 _catmull_rom_spline2_8h_source.html
 _catmull_rom_spline3_8h_source.html
-_constants_8h_source.html
+constants_8h_source.html
 gtypes_util_8h_source.html
 _matrix3_8h_source.html
 _matrix4_8h_source.html
@@ -24,7 +24,7 @@ _vector2_8h_source.html
 _vector3_8h_source.html
 _catmull_rom_spline2_8h.html
 _catmull_rom_spline3_8h.html
-_constants_8h.html
+constants_8h.html
 gtypes_util_8h.html
 _matrix3_8h.html
 _matrix4_8h.html
