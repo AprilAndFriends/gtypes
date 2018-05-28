@@ -40,7 +40,7 @@ namespace gtypes
 		/// @param[in] samples How many samples to use for calculation.
 		/// @param[in] t1 Custom beginning point.
 		/// @param[in] t2 Custom ending point.
-		inline CatmullRomSpline2(const std::vector<Vector2>& vectors, bool closed, double curvature, int samples, Vector2 t1, Vector2 t2) :
+		inline CatmullRomSpline2(const std::vector<Vector2<float> >& vectors, bool closed, double curvature, int samples, Vector2<float> t1, Vector2<float> t2) :
 			closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0)
 		{
 			this->set(vectors, closed, curvature, samples, t1, t2);
@@ -53,7 +53,7 @@ namespace gtypes
 		/// @param[in] samples How many samples to use for calculation.
 		/// @param[in] t1 Custom beginning point.
 		/// @param[in] t2 Custom ending point.
-		inline CatmullRomSpline2(const Vector2 vectors[], int n, bool closed, double curvature, int samples, Vector2 t1, Vector2 t2) :
+		inline CatmullRomSpline2(const Vector2<float> vectors[], int n, bool closed, double curvature, int samples, Vector2<float> t1, Vector2<float> t2) :
 			closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0)
 		{
 			this->set(vectors, n, closed, curvature, samples, t1, t2);
@@ -66,7 +66,7 @@ namespace gtypes
 		/// @param[in] samples How many samples to use for calculation.
 		/// @param[in] t1 Custom beginning point.
 		/// @param[in] t2 Custom ending point.
-		inline void set(const std::vector<Vector2>& vectors, bool closed, double curvature, int samples, Vector2 t1, Vector2 t2)
+		inline void set(const std::vector<Vector2<float> >& vectors, bool closed, double curvature, int samples, Vector2<float> t1, Vector2<float> t2)
 		{
 			this->points.clear();
 			this->lengths.clear();
@@ -100,7 +100,8 @@ namespace gtypes
 			{
 				this->points.push_back(this->points[this->points.size() - 1]);
 			}
-			this->_prevTangent = Vector2(this->calcPosition(0.01) - this->calcPosition(0.0)).normalized();
+			this->_prevTangent = this->calcPosition(0.01) - this->calcPosition(0.0);
+			this->_prevTangent.normalize();
 			this->_calcLength();
 		}
 		/// @brief Sets the CatmullRomSpline2's values.
@@ -111,7 +112,7 @@ namespace gtypes
 		/// @param[in] samples How many samples to use for calculation.
 		/// @param[in] t1 Custom beginning point.
 		/// @param[in] t2 Custom ending point.
-		inline void set(const Vector2 vectors[], int n, bool closed, double curvature, int samples, Vector2 t1, Vector2 t2)
+		inline void set(const Vector2<float> vectors[], int n, bool closed, double curvature, int samples, Vector2<float> t1, Vector2<float> t2)
 		{
 			this->points.clear();
 			this->lengths.clear();
@@ -145,7 +146,7 @@ namespace gtypes
 			{
 				this->points.push_back(this->points[this->points.size() - 1]);
 			}
-			this->_prevTangent = Vector2(this->calcPosition(0.01) - this->calcPosition(0.0)).normalized();
+			this->_prevTangent = Vector2<float>(this->calcPosition(0.01) - this->calcPosition(0.0)).normalized();
 			this->_calcLength();
 		}
 
@@ -154,17 +155,17 @@ namespace gtypes
 		/// @return True if the CatmullRomSpline2 is closed.
 		inline bool isClosed() const { return this->closed; }
 		/// @return The points of the CatmullRomSpline2.
-		inline const std::vector<Vector2>& getPoints() const { return this->points; }
+		inline const std::vector<Vector2<float> >& getPoints() const { return this->points; }
 
 		/// @brief Calculates the position of a point on the CatmullRomSpline2.
 		/// @param[in] t Segment range position.
 		/// @return Vector2 position.
 		/// @note t is in range [0,1].
-		inline Vector2 calcPosition(double t)
+		inline Vector2<float> calcPosition(double t)
 		{
 			if (this->points.size() == 0)
 			{
-				return Vector2();
+				return Vector2<float>();
 			}
 			// ensure that t is in [0,1]
 			if (t > 1.0)
@@ -174,7 +175,7 @@ namespace gtypes
 			int index = 0;
 			double lt = 0.0;
 			this->_prevLength = 0.0;
-			foreach_stdmap(double, int, it, this->_arcLengths)
+			foreach_stdmap (double, int, it, this->_arcLengths)
 			{
 				if (t >= this->_prevLength && t < (it->first))
 				{
@@ -191,15 +192,15 @@ namespace gtypes
 		/// @param[in] t Segment range position.
 		/// @return Vector2 tangent.
 		/// @note t is in range [0,1].
-		inline Vector2 calcTangent(double t)
+		inline Vector2<float> calcTangent(double t)
 		{
 			if (this->points.size() == 0)
 			{
-				return Vector2();
+				return Vector2<float>();
 			}
 			if (t <= 0.989 || this->closed)
 			{
-				this->_prevTangent = Vector2(this->calcPosition(t + 0.01) - this->calcPosition(t)).normalized();
+				this->_prevTangent = Vector2<float>(this->calcPosition(t + 0.01) - this->calcPosition(t)).normalized();
 			}
 			return this->_prevTangent;
 		}
@@ -207,10 +208,10 @@ namespace gtypes
 		/// @param[in] t Segment range position.
 		/// @return Vector2 static tangent.
 		/// @note t is in range [0,1].
-		inline Vector2 calcStaticTangent(double t)
+		inline Vector2<float> calcStaticTangent(double t)
 		{
 			int index = 0;
-			foreach_stdmap(double, int, it, this->_arcLengths)
+			foreach_stdmap (double, int, it, this->_arcLengths)
 			{
 				if ((t >= this->_prevLength) && (t < (it->first)))
 				{
@@ -226,13 +227,13 @@ namespace gtypes
 		/// @param[in] t Segment range position.
 		/// @return Vector2 normal.
 		/// @note t is in range [0,1].
-		inline Vector2 calcNormal(double t)
+		inline Vector2<float> calcNormal(double t)
 		{
 			if (this->points.size() == 0)
 			{
-				return Vector2();
+				return Vector2<float>();
 			}
-			Vector2 normal = this->calcTangent(t);
+			Vector2<float> normal = this->calcTangent(t);
 			normal.set(-normal.y, normal.x);
 			return normal;
 		}
@@ -247,7 +248,7 @@ namespace gtypes
 		/// @brief The number of samples used for calculating the CatmullRomSpline2.
 		int samples;
 		/// @brief The points defining the CatmullRomSpline2.
-		std::vector<Vector2> points;
+		std::vector<Vector2<float> > points;
 		/// @brief The lengths of all segments.
 		std::vector<double> lengths;
 
@@ -285,7 +286,7 @@ namespace gtypes
 		/// @param[in] index Index of the segment.
 		/// @return The position of a segment.
 		/// @note t is in range [0,1].
-		inline Vector2 _calcSegmentPosition(double t, int index)
+		inline Vector2<float> _calcSegmentPosition(double t, int index)
 		{
 			int i0 = index - 1;
 			int i1 = index;
@@ -302,7 +303,7 @@ namespace gtypes
 			}
 			double t2 = t * t;
 			double t3 = t2 * t;
-			Vector2 position = this->points[i0] * (float)(-t * this->curvature + t2 * 2.0 * this->curvature - t3 * this->curvature) +
+			Vector2<float> position = this->points[i0] * (float)(-t * this->curvature + t2 * 2.0 * this->curvature - t3 * this->curvature) +
 				this->points[i1] * (float)(1.0 + t2 * (this->curvature - 3.0) + t3 * (2.0 - this->curvature)) +
 				this->points[i2] * (float)(t * this->curvature + t2 * (3.0 - 2.0 * this->curvature) + t3 * (this->curvature - 2.0)) +
 				this->points[i3] * (float)(t3 * this->curvature - t2 * this->curvature);
@@ -313,10 +314,10 @@ namespace gtypes
 		/// @param[in] index Index of the segment.
 		/// @return The tangent of a segment.
 		/// @note t is in range [0,1].
-		inline Vector2 _calcSegmentTangent(double t, int index)
+		inline Vector2<float> _calcSegmentTangent(double t, int index)
 		{
 			double t2 = t * t;
-			Vector2 tangent = this->points[index - 1] * (float)(-this->curvature + 4.0 * this->curvature * t - 3.0 * this->curvature * t2) +
+			Vector2<float> tangent = this->points[index - 1] * (float)(-this->curvature + 4.0 * this->curvature * t - 3.0 * this->curvature * t2) +
 				this->points[index] * (float)(2.0 * (this->curvature - 3.0) * t + 3.0 * (2.0 - this->curvature) * t2) +
 				this->points[index + 1] * (float)(this->curvature + 2.0 * (3.0 - 2.0 * this->curvature) * t + 3.0 * (this->curvature - 2.0) * t2) +
 				this->points[index + 2] * (float)(-2.0 * this->curvature * t + 3.0 * this->curvature * t2);
@@ -327,9 +328,9 @@ namespace gtypes
 		/// @param[in] index Index of the segment.
 		/// @return The normal of a segment.
 		/// @note t is in range [0,1].
-		inline Vector2 _calcSegmentNormal(double t, int index)
+		inline Vector2<float> _calcSegmentNormal(double t, int index)
 		{
-			Vector2 normal = this->_calcSegmentTangent(t, index);
+			Vector2<float> normal = this->_calcSegmentTangent(t, index);
 			normal.set(-normal.y, normal.x);
 			return normal;
 		}
@@ -354,7 +355,7 @@ namespace gtypes
 		double _prevLength;
 		/// @brief Previously calculated tangent
 		/// @note Used internally only.
-		Vector2 _prevTangent;
+		Vector2<float> _prevTangent;
 		/// @brief The length of every arc.
 		/// @note Used internally only.
 		std::map<double, int> _arcLengths;

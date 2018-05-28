@@ -19,7 +19,7 @@ namespace gtypes
 		return Matrix4();
 	}
 
-	Matrix4 Quaternion::mat4(const Vector3& position) const
+	Matrix4 Quaternion::mat4(const Vector3<float>& position) const
 	{
 		float xx = this->x * this->x;
 		float yy = this->y * this->y;

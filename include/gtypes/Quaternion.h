@@ -50,7 +50,7 @@ namespace gtypes
 		/// @brief Constructor.
 		/// @param[in] v Vector3.
 		/// @param[in] w W value.
-		inline Quaternion(const Vector3& v, float w) : x(v.x), y(v.y), z(v.z), w(w)
+		inline Quaternion(const Vector3<float>& v, float w) : x(v.x), y(v.y), z(v.z), w(w)
 		{
 		}
 		/// @brief Sets the values of the Quaternion.
@@ -68,7 +68,7 @@ namespace gtypes
 		/// @brief Sets the values of the Quaternion.
 		/// @param[in] v Vector3.
 		/// @param[in] w W value.
-		inline void set(const Vector3& v, float w)
+		inline void set(const Vector3<float>& v, float w)
 		{
 			this->x = v.x;
 			this->y = v.y;
@@ -170,7 +170,7 @@ namespace gtypes
 		/// @brief Creates a Matrix4 from this Quaternion
 		/// @param[in] position The Vector3 position in the Matrix4.
 		/// @return The Matrix4.
-		Matrix4 mat4(const Vector3& position) const;
+		Matrix4 mat4(const Vector3<float>& position) const;
 		
 		/// @brief Creates an negated Quaternion.
 		/// @return Negated Quaternion.
@@ -324,13 +324,13 @@ namespace gtypes
 		/// @return The Quaternion.
 		inline static Quaternion fromAxisAngle(float ax, float ay, float az, float angle)
 		{
-			return Quaternion::fromAxisAngle(Vector3(ax, ay, az), angle);
+			return Quaternion::fromAxisAngle(Vector3<float>(ax, ay, az), angle);
 		}
 		/// @brief Creates a Quaternion from a rotation around an axis.
 		/// @param[in] axis The Vector3 axis.
 		/// @param[in] angle The angle.
 		/// @return The Quaternion.
-		inline static Quaternion fromAxisAngle(const Vector3& axis, float angle)
+		inline static Quaternion fromAxisAngle(const Vector3<float>& axis, float angle)
 		{
 			float theta = (float)DEG_TO_RAD(angle) * 0.5f;
 			return Quaternion(axis.normalized() * (float)sin(theta), (float)cos(theta));

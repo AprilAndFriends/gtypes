@@ -56,10 +56,7 @@ namespace gtypes
 		/// @param[in] m13 Matrix value 13.
 		/// @param[in] m14 Matrix value 14.
 		/// @param[in] m15 Matrix value 15.
-		inline Matrix4(float m0, float m1, float m2, float m3,
-			float m4, float m5, float m6, float m7,
-			float m8, float m9, float m10, float m11,
-			float m12, float m13, float m14, float m15)
+		inline Matrix4(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8, float m9, float m10, float m11, float m12, float m13, float m14, float m15)
 		{
 			this->set(m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15);
 		}
@@ -88,7 +85,7 @@ namespace gtypes
 		/// @brief Constructor from rotation.
 		/// @param[in] axis Rotation axis.
 		/// @param[in] angle Rotation angle.
-		inline Matrix4(const Vector3& axis, float angle)
+		inline Matrix4(const Vector3<float>& axis, float angle)
 		{
 			this->setRotation(axis.x, axis.y, axis.z, (float)DEG_TO_RAD(angle));
 		}
@@ -110,10 +107,7 @@ namespace gtypes
 		/// @param[in] m13 Matrix value 13.
 		/// @param[in] m14 Matrix value 14.
 		/// @param[in] m15 Matrix value 15.
-		inline void set(float m0, float m1, float m2, float m3,
-			float m4, float m5, float m6, float m7,
-			float m8, float m9, float m10, float m11,
-			float m12, float m13, float m14, float m15)
+		inline void set(float m0, float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8, float m9, float m10, float m11, float m12, float m13, float m14, float m15)
 		{
 			this->data[0] = m0;		this->data[1] = m1;		this->data[2] = m2;		this->data[3] = m3;
 			this->data[4] = m4;		this->data[5] = m5;		this->data[6] = m6;		this->data[7] = m7;
@@ -140,7 +134,7 @@ namespace gtypes
 		/// @brief Sets the Matrix4 values.
 		/// @param[in] axis Rotation axis.
 		/// @param[in] angle Rotation angle.
-		inline void set(const Vector3& axis, float angle)
+		inline void set(const Vector3<float>& axis, float angle)
 		{
 			this->setRotation(axis.x, axis.y, axis.z, (float)DEG_TO_RAD(angle));
 		}
@@ -196,7 +190,7 @@ namespace gtypes
 		}
 		/// @brief Sets the translation of the Matrix4.
 		/// @param[in] vector The Vector3 of the translation.
-		inline void setTranslation(const Vector3& vector)
+		inline void setTranslation(const Vector3<float>& vector)
 		{
 			memset(this->data, 0, sizeof(this->data));
 			this->data[0] = this->data[5] = this->data[10] = this->data[15] = 1.0f;
@@ -226,7 +220,7 @@ namespace gtypes
 		}
 		/// @brief Sets the scale of the Matrix4.
 		/// @param[in] vector The Vector3 of the scale.
-		inline void setScale(const Vector3& vector)
+		inline void setScale(const Vector3<float>& vector)
 		{
 			memset(this->data, 0, sizeof(this->data));
 			this->data[15] = 1.0f;
@@ -241,18 +235,18 @@ namespace gtypes
 		/// @param[in] angle The rotation angle.
 		inline void setRotation(float x, float y, float z, float angle)
 		{
-			this->setRotation(Vector3(x, y, z), angle);
+			this->setRotation(Vector3<float>(x, y, z), angle);
 		}
 		/// @brief Sets the rotation of the Matrix4.
 		/// @param[in] axis The rotation axis.
 		/// @param[in] angle The rotation angle.
-		inline void setRotation(const Vector3& axis, float angle)
+		inline void setRotation(const Vector3<float>& axis, float angle)
 		{
 			memset(this->data, 0, sizeof(this->data));
 			double rad = DEG_TO_RAD(angle);
 			float c = (float)cos(rad);
 			float s = (float)sin(rad);
-			Vector3 v = axis.normalized();
+			Vector3<float> v = axis.normalized();
 			float c1 = 1.0f - c;
 			float xyc1 = v.x * v.y * c1;
 			float yzc1 = v.y * v.z * c1;
@@ -323,7 +317,7 @@ namespace gtypes
 
 		/// @brief Creates an ortho-projection from a Rectangle.
 		/// @param[in] rect The Rectangle.
-		inline void setOrthoProjection(const Rectangle& rect)
+		inline void setOrthoProjection(const Rectangle<float>& rect)
 		{
 			memset(this->data, 0, sizeof(this->data));
 			this->data[0] = 2.0f / rect.w;
@@ -337,7 +331,7 @@ namespace gtypes
 		/// @param[in] rect The Rectangle.
 		/// @param[in] nearZ The near plane.
 		/// @param[in] farZ The far plane.
-		inline void setOrthoProjection(const Rectangle& rect, float nearZ, float farZ)
+		inline void setOrthoProjection(const Rectangle<float>& rect, float nearZ, float farZ)
 		{
 			memset(this->data, 0, sizeof(this->data));
 			this->data[0] = 2.0f / rect.w;
@@ -388,7 +382,7 @@ namespace gtypes
 		}
 		/// @brief Translates the Matrix4.
 		/// @param[in] vector The Vector3 to use for the translation.
-		inline void translate(const Vector3& vector)
+		inline void translate(const Vector3<float>& vector)
 		{
 			Matrix4 mat;
 			mat.setTranslation(vector);
@@ -414,7 +408,7 @@ namespace gtypes
 		}
 		/// @brief Scales the Matrix4.
 		/// @param[in] vector The Vector3 to use for the scaling.
-		inline void scale(const Vector3& vector)
+		inline void scale(const Vector3<float>& vector)
 		{
 			Matrix4 mat;
 			mat.setScale(vector);
@@ -434,7 +428,7 @@ namespace gtypes
 		/// @brief Rotates the Matrix4.
 		/// @param[in] axis The rotation axis.
 		/// @param[in] angle The rotation angle.
-		inline void rotate(const Vector3 &axis, float angle)
+		inline void rotate(const Vector3<float>& axis, float angle)
 		{
 			Matrix4 mat;
 			mat.setRotation(axis, angle);
@@ -489,11 +483,11 @@ namespace gtypes
 		/// @param[in] target The target position.
 		/// @param[in] up The up-vector.
 		// so that you can see the Matrix, Neo
-		inline void lookAt(const Vector3& eye, const Vector3& target, const Vector3& up)
+		inline void lookAt(const Vector3<float>& eye, const Vector3<float>& target, const Vector3<float>& up)
 		{
-			Vector3 bz = (eye - target).normalized();
-			Vector3 bx = up.cross(bz).normalized();
-			Vector3 by = bz.cross(bx).normalized();
+			Vector3<float> bz = (eye - target).normalized();
+			Vector3<float> bx = up.cross(bz).normalized();
+			Vector3<float> by = bz.cross(bx).normalized();
 			this->set(bx.x, by.x, bz.x, 0.0f, bx.y, by.y, bz.y, 0.0f, bx.z, by.z, bz.z, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f);
 			Matrix4 b;
 			b.setTranslation(-eye);
@@ -598,9 +592,9 @@ namespace gtypes
 		/// @brief Multiplies a Matrix4 with a Vector3.
 		/// @param[in] vector The Vector3.
 		/// @return The resulting Vector3.
-		inline Vector3 operator*(const Vector3& vector) const
+		inline Vector3<float> operator*(const Vector3<float>& vector) const
 		{
-			return Vector3(this->data[0] * vector.x + this->data[4] * vector.y + this->data[8] * vector.z + this->data[12],
+			return Vector3<float>(this->data[0] * vector.x + this->data[4] * vector.y + this->data[8] * vector.z + this->data[12],
 				this->data[1] * vector.x + this->data[5] * vector.y + this->data[9] * vector.z + this->data[13],
 				this->data[2] * vector.x + this->data[6] * vector.y + this->data[10] * vector.z + this->data[14]);
 		}

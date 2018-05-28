@@ -119,7 +119,7 @@ namespace gtypes
 		}
 		/// @brief Sets the translation of the Matrix3.
 		/// @param[in] vector The Vector2 of the translation.
-		inline void setTranslation(const Vector2& vector)
+		inline void setTranslation(const Vector2<float>& vector)
 		{
 			memset(this->data, 0, sizeof(this->data));
 			this->data[0] = this->data[4] = this->data[8] = 1.0f;
@@ -146,7 +146,7 @@ namespace gtypes
 		}
 		/// @brief Sets the scale of the Matrix3.
 		/// @param[in] vector The Vector3 of the scale.
-		inline void setScale(const Vector2& vector)
+		inline void setScale(const Vector2<float>& vector)
 		{
 			memset(this->data, 0, sizeof(this->data));
 			this->data[0] = vector.x;
@@ -173,7 +173,7 @@ namespace gtypes
 		}
 		/// @brief Sets the 3D scale of the Matrix3.
 		/// @param[in] vector The Vector3 of the scale.
-		inline void setScale3D(const Vector3& vector)
+		inline void setScale3D(const Vector3<float>& vector)
 		{
 			memset(this->data, 0, sizeof(this->data));
 			this->data[0] = vector.x;
@@ -200,17 +200,17 @@ namespace gtypes
 		/// @param[in] angle The rotation angle.
 		inline void setRotation3D(float x, float y, float z, float angle)
 		{
-			this->setRotation3D(Vector3(x, y, z), angle);
+			this->setRotation3D(Vector3<float>(x, y, z), angle);
 		}
 		/// @brief Sets the 3D rotation of the Matrix3.
 		/// @param[in] axis The rotation axis.
 		/// @param[in] angle The rotation angle.
-		inline void setRotation3D(const Vector3& axis, float angle)
+		inline void setRotation3D(const Vector3<float>& axis, float angle)
 		{
 			double rad = DEG_TO_RAD(angle);
 			float c = (float)cos(rad);
 			float s = (float)sin(rad);
-			Vector3 v = axis.normalized();
+			Vector3<float> v = axis.normalized();
 			float c1 = 1.0f - c;
 			float xyc1 = v.x * v.y * c1;
 			float yzc1 = v.y * v.z * c1;
@@ -273,7 +273,7 @@ namespace gtypes
 		}
 		/// @brief Translates the Matrix3.
 		/// @param[in] vector The Vector2 to use for the translation.
-		inline void translate(const Vector2& vector)
+		inline void translate(const Vector2<float>& vector)
 		{
 			Matrix3 mat;
 			mat.setTranslation(vector);
@@ -298,7 +298,7 @@ namespace gtypes
 		}
 		/// @brief Scales the Matrix3.
 		/// @param[in] vector The Vector2 to use for the scaling.
-		inline void scale(const Vector2& vector)
+		inline void scale(const Vector2<float>& vector)
 		{
 			Matrix3 mat;
 			mat.setScale(vector);
@@ -324,7 +324,7 @@ namespace gtypes
 		}
 		/// @brief 3D-Scales the Matrix3.
 		/// @param[in] vector The Vector3 to use for the scaling.
-		inline void scale3D(const Vector3& vector)
+		inline void scale3D(const Vector3<float>& vector)
 		{
 			Matrix3 mat;
 			mat.setScale3D(vector);
@@ -352,7 +352,7 @@ namespace gtypes
 		/// @brief 3D-rotates the Matrix3.
 		/// @param[in] axis The rotation axis.
 		/// @param[in] angle The rotation angle.
-		inline void rotate3D(const Vector3 &axis, float angle)
+		inline void rotate3D(const Vector3<float>& axis, float angle)
 		{
 			Matrix3 mat;
 			mat.setRotation3D(axis, angle);
@@ -451,9 +451,9 @@ namespace gtypes
 		/// @brief Ortho-normalizes the Matrix.
 		inline void orthoNormalize()
 		{
-			Vector3 x(data[0], data[1], data[2]);
-			Vector3 y(data[3], data[4], data[5]);
-			Vector3 z;
+			Vector3<float> x(data[0], data[1], data[2]);
+			Vector3<float> y(data[3], data[4], data[5]);
+			Vector3<float> z;
 			x.normalize();
 			z = x.cross(y);
 			z.normalize();
@@ -499,9 +499,9 @@ namespace gtypes
 		/// @brief Multiplies a Matrix3 with a Vector3.
 		/// @param[in] vector The Vector3.
 		/// @return The resulting Vector3.
-		inline Vector3 operator*(const Vector3& vector) const
+		inline Vector3<float> operator*(const Vector3<float>& vector) const
 		{
-			return Vector3(this->data[0] * vector.x + this->data[3] * vector.y + this->data[6] * vector.z,
+			return Vector3<float>(this->data[0] * vector.x + this->data[3] * vector.y + this->data[6] * vector.z,
 				this->data[1] * vector.x + this->data[4] * vector.y + this->data[7] * vector.z,
 				this->data[2] * vector.x + this->data[5] * vector.y + this->data[8] * vector.z);
 		}
