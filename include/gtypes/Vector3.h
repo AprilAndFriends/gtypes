@@ -36,6 +36,11 @@ namespace gtypes
 		inline Vector3() : x(0), y(0), z(0)
 		{
 		}
+		/// @brief Advanced copy constructor.
+		template <typename S>
+		inline Vector3(const Vector3<S>& other) : x((T)other.x), y((T)other.y)
+		{
+		}
 		/// @brief Constructor.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
@@ -133,49 +138,40 @@ namespace gtypes
 		/// @brief Adds two Vector3s.
 		/// @param[in] other The other Vector3.
 		/// @return The resulting Vector3.
-		inline Vector3<T> operator+(const Vector3<T>& other) const
+		template <typename S>
+		inline Vector3<T> operator+(const Vector3<S>& other) const
 		{
-			return Vector3<T>(this->x + other.x, this->y + other.y, this->z + other.z);
+			return Vector3<T>((T)(this->x + other.x), (T)(this->y + other.y), (T)(this->z + other.z));
 		}
 		/// @brief Subtracts two Vector3s.
 		/// @param[in] other The other Vector3.
 		/// @return The resulting Vector3.
-		inline Vector3<T> operator-(const Vector3<T>& other) const
+		template <typename S>
+		inline Vector3<T> operator-(const Vector3<S>& other) const
 		{
-			return Vector3<T>(this->x - other.x, this->y - other.y, this->z - other.z);
+			return Vector3<T>((T)(this->x - other.x), (T)(this->y - other.y), (T)(this->z - other.z));
 		}
 		/// @brief Multiplies two Vector3s.
 		/// @param[in] other The other Vector3.
 		/// @return The resulting Vector3.
-		inline Vector3<T> operator*(const Vector3<T>& other) const
+		template <typename S>
+		inline Vector3<T> operator*(const Vector3<S>& other) const
 		{
-			return Vector3<T>(this->x * other.x, this->y * other.y, this->z * other.z);
+			return Vector3<T>((T)(this->x * other.x), (T)(this->y * other.y), (T)(this->z * other.z));
 		}
 		/// @brief Divides two Vector3s.
 		/// @param[in] other The other Vector3.
 		/// @return The resulting Vector3.
-		inline Vector3<T> operator/(const Vector3<T>& other) const
+		template <typename S>
+		inline Vector3<T> operator/(const Vector3<S>& other) const
 		{
-			return Vector3<T>(this->x / other.x, this->y / other.y, this->z / other.z);
+			return Vector3<T>((T)(this->x / other.x), (T)(this->y / other.y), (T)(this->z / other.z));
 		}
 		/// @brief Multiplies Vector3 with a factor.
 		/// @param[in] factor The factor.
 		/// @return The resulting Vector3.
-		inline Vector3<T> operator*(int factor) const
-		{
-			return Vector3<T>(this->x * factor, this->y * factor, this->z * factor);
-		}
-		/// @brief Multiplies Vector3 with a factor.
-		/// @param[in] factor The factor.
-		/// @return The resulting Vector3.
-		inline Vector3<T> operator*(float factor) const
-		{
-			return Vector3<T>((T)(this->x * factor), (T)(this->y * factor), (T)(this->z * factor));
-		}
-		/// @brief Multiplies Vector3 with a factor.
-		/// @param[in] factor The factor.
-		/// @return The resulting Vector3.
-		inline Vector3<T> operator*(double factor) const
+		template <typename S>
+		inline Vector3<T> operator*(S factor) const
 		{
 			return Vector3<T>((T)(this->x * factor), (T)(this->y * factor), (T)(this->z * factor));
 		}
@@ -184,8 +180,7 @@ namespace gtypes
 		/// @return The resulting Vector3.
 		inline Vector3<T> operator/(int factor) const
 		{
-			float invFactor = 1.0f / factor;
-			return Vector3<T>(this->x * invFactor, this->y * invFactor, this->z * invFactor);
+			return Vector3<T>(this->x / factor, this->y / factor, this->z / factor);
 		}
 		/// @brief Divides Vector3 with a factor.
 		/// @param[in] factor The factor.
@@ -206,51 +201,56 @@ namespace gtypes
 		/// @brief Sets this Vector3 to another one.
 		/// @param[in] other The other Vector3.
 		/// @return This Vector3.
-		inline Vector3<T> operator=(const Vector3<T>& other)
+		template <typename S>
+		inline Vector3<T> operator=(const Vector3<S>& other)
 		{
-			this->x = other.x;
-			this->y = other.y;
-			this->z = other.z;
+			this->x = (T)other.x;
+			this->y = (T)other.y;
+			this->z = (T)other.z;
 			return (*this);
 		}
 		/// @brief Adds another Vector3 to this one.
 		/// @param[in] other The other Vector3.
 		/// @return A copy of this Vector3.
-		inline Vector3<T> operator+=(const Vector3<T>& other)
+		template <typename S>
+		inline Vector3<T> operator+=(const Vector3<S>& other)
 		{
-			this->x += other.x;
-			this->y += other.y;
-			this->z += other.z;
+			this->x = (T)(this->x + other.x);
+			this->y = (T)(this->y + other.y);
+			this->z = (T)(this->z + other.z);
 			return (*this);
 		}
 		/// @brief Subtracts another Vector3 to this one.
 		/// @param[in] other The other Vector3.
 		/// @return A copy of this Vector3.
-		inline Vector3<T> operator-=(const Vector3<T>& other)
+		template <typename S>
+		inline Vector3<T> operator-=(const Vector3<S>& other)
 		{
-			this->x -= other.x;
-			this->y -= other.y;
-			this->z -= other.z;
+			this->x = (T)(this->x - other.x);
+			this->y = (T)(this->y - other.y);
+			this->z = (T)(this->z - other.z);
 			return (*this);
 		}
 		/// @brief Multiplies this Vector3 with another one.
 		/// @param[in] other The other Vector3.
 		/// @return A copy of this Vector3.
-		inline Vector3<T> operator*=(const Vector3<T>& other)
+		template <typename S>
+		inline Vector3<T> operator*=(const Vector3<S>& other)
 		{
-			this->x *= other.x;
-			this->y *= other.y;
-			this->z *= other.z;
+			this->x = (T)(this->x * other.x);
+			this->y = (T)(this->y * other.y);
+			this->z = (T)(this->z * other.z);
 			return (*this);
 		}
 		/// @brief Divides this Vector3 with another one.
 		/// @param[in] other The other Vector3.
 		/// @return A copy of this Vector3.
-		inline Vector3<T> operator/=(const Vector3<T>& other)
+		template <typename S>
+		inline Vector3<T> operator/=(const Vector3<S>& other)
 		{
-			this->x /= other.x;
-			this->y /= other.y;
-			this->z /= other.z;
+			this->x = (T)(this->x / other.x);
+			this->y = (T)(this->y / other.y);
+			this->z = (T)(this->z / other.z);
 			return (*this);
 		}
 		/// @brief Multiplies this Vector3 with a factor.

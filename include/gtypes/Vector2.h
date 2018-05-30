@@ -34,6 +34,11 @@ namespace gtypes
 		inline Vector2() : x(0), y(0)
 		{
 		}
+		/// @brief Advanced copy constructor.
+		template <typename S>
+		inline Vector2(const Vector2<S>& other) : x((T)other.x), y((T)other.y)
+		{
+		}
 		/// @brief Constructor.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
@@ -153,49 +158,40 @@ namespace gtypes
 		/// @brief Adds two Vector2s.
 		/// @param[in] other The other Vector2.
 		/// @return The resulting Vector2.
-		inline Vector2<T> operator+(const Vector2<T>& other) const
+		template <typename S>
+		inline Vector2<T> operator+(const Vector2<S>& other) const
 		{
-			return Vector2<T>(this->x + other.x, this->y + other.y);
+			return Vector2<T>((T)(this->x + other.x), (T)(this->y + other.y));
 		}
 		/// @brief Subtracts two Vector2s.
 		/// @param[in] other The other Vector2.
 		/// @return The resulting Vector2.
-		inline Vector2<T> operator-(const Vector2<T>& other) const
+		template <typename S>
+		inline Vector2<T> operator-(const Vector2<S>& other) const
 		{
-			return Vector2<T>(this->x - other.x, this->y - other.y);
+			return Vector2<T>((T)(this->x - other.x), (T)(this->y - other.y));
 		}
 		/// @brief Multiplies two Vector2s.
 		/// @param[in] other The other Vector2.
 		/// @return The resulting Vector2.
-		inline Vector2<T> operator*(const Vector2<T>& other) const
+		template <typename S>
+		inline Vector2<T> operator*(const Vector2<S>& other) const
 		{
-			return Vector2<T>(this->x * other.x, this->y * other.y);
+			return Vector2<T>((T)(this->x * other.x), (T)(this->y * other.y));
 		}
 		/// @brief Divides two Vector2s.
 		/// @param[in] other The other Vector2.
 		/// @return The resulting Vector2.
-		inline Vector2<T> operator/(const Vector2<T>& other) const
+		template <typename S>
+		inline Vector2<T> operator/(const Vector2<S>& other) const
 		{
-			return Vector2<T>(this->x / other.x, this->y / other.y);
+			return Vector2<T>((T)(this->x / other.x), (T)(this->y / other.y));
 		}
 		/// @brief Multiplies Vector2 with a factor.
 		/// @param[in] factor The factor.
 		/// @return The resulting Vector2.
-		inline Vector2<T> operator*(int factor) const
-		{
-			return Vector2<T>(this->x * factor, this->y * factor);
-		}
-		/// @brief Multiplies Vector2 with a factor.
-		/// @param[in] factor The factor.
-		/// @return The resulting Vector2.
-		inline Vector2<T> operator*(float factor) const
-		{
-			return Vector2<T>((T)(this->x * factor), (T)(this->y * factor));
-		}
-		/// @brief Multiplies Vector2 with a factor.
-		/// @param[in] factor The factor.
-		/// @return The resulting Vector2.
-		inline Vector2<T> operator*(double factor) const
+		template <typename S>
+		inline Vector2<T> operator*(S factor) const
 		{
 			return Vector2<T>((T)(this->x * factor), (T)(this->y * factor));
 		}
@@ -204,7 +200,7 @@ namespace gtypes
 		/// @return The resulting Vector2.
 		inline Vector2<T> operator/(int factor) const
 		{
-			return Vector2<T>(this->x / factor, this->y / factor);
+			return Vector2<T>((T)(this->x / factor), (T)(this->y / factor));
 		}
 		/// @brief Divides Vector2 with a factor.
 		/// @param[in] factor The factor.
@@ -225,70 +221,58 @@ namespace gtypes
 		/// @brief Sets this Vector2 to another one.
 		/// @param[in] other The other Vector2.
 		/// @return This Vector2.
-		inline Vector2<T> operator=(const Vector2<T>& other)
+		template <typename S>
+		inline Vector2<T> operator=(const Vector2<S>& other)
 		{
-			this->x = other.x;
-			this->y = other.y;
+			this->x = (T)other.x;
+			this->y = (T)other.y;
 			return (*this);
 		}
 		/// @brief Adds another Vector2 to this one.
 		/// @param[in] other The other Vector2.
 		/// @return A copy of this Vector2.
-		inline Vector2<T> operator+=(const Vector2<T>& other)
+		template <typename S>
+		inline Vector2<T> operator+=(const Vector2<S>& other)
 		{
-			this->x += other.x;
-			this->y += other.y;
+			this->x = (T)(this->x + other.x);
+			this->y = (T)(this->y + other.y);
 			return (*this);
 		}
 		/// @brief Subtracts another Vector2 to this one.
 		/// @param[in] other The other Vector2.
 		/// @return A copy of this Vector2.
-		inline Vector2<T> operator-=(const Vector2<T>& other)
+		template <typename S>
+		inline Vector2<T> operator-=(const Vector2<S>& other)
 		{
-			this->x -= other.x;
-			this->y -= other.y;
+			this->x = (T)(this->x - other.x);
+			this->y = (T)(this->y - other.y);
 			return (*this);
 		}
 		/// @brief Multiplies this Vector2 with another one.
 		/// @param[in] other The other Vector2.
 		/// @return A copy of this Vector2.
-		inline Vector2<T> operator*=(const Vector2<T>& other)
+		template <typename S>
+		inline Vector2<T> operator*=(const Vector2<S>& other)
 		{
-			this->x *= other.x;
-			this->y *= other.y;
+			this->x = (T)(this->x * other.x);
+			this->y = (T)(this->y * other.y);
 			return (*this);
 		}
 		/// @brief Divides this Vector2 with another one.
 		/// @param[in] other The other Vector2.
 		/// @return A copy of this Vector2.
-		inline Vector2<T> operator/=(const Vector2<T>& other)
+		template <typename S>
+		inline Vector2<T> operator/=(const Vector2<S>& other)
 		{
-			this->x /= other.x;
-			this->y /= other.y;
+			this->x = (T)(this->x / other.x);
+			this->y = (T)(this->y / other.y);
 			return (*this);
 		}
 		/// @brief Multiplies this Vector2 with a factor.
 		/// @param[in] factor The factor.
 		/// @return A copy of this Vector2.
-		inline Vector2<T> operator*=(int factor)
-		{
-			this->x *= factor;
-			this->y *= factor;
-			return (*this);
-		}
-		/// @brief Multiplies this Vector2 with a factor.
-		/// @param[in] factor The factor.
-		/// @return A copy of this Vector2.
-		inline Vector2<T> operator*=(float factor)
-		{
-			this->x = (T)(this->x * factor);
-			this->y = (T)(this->y * factor);
-			return (*this);
-		}
-		/// @brief Multiplies this Vector2 with a factor.
-		/// @param[in] factor The factor.
-		/// @return A copy of this Vector2.
-		inline Vector2<T> operator*=(double factor)
+		template <typename S>
+		inline Vector2<T> operator*=(S factor)
 		{
 			this->x = (T)(this->x * factor);
 			this->y = (T)(this->y * factor);
@@ -340,6 +324,7 @@ namespace gtypes
 			return !(*this == other);
 		}
 	};
+
 }
 
 /// @brief Typedef for simpler code.

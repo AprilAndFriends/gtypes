@@ -36,6 +36,11 @@ namespace gtypes
 		inline Rectangle() : x(0), y(0), w(0), h(0)
 		{
 		}
+		/// @brief Advanced copy constructor.
+		template <typename S>
+		inline Rectangle(const Rectangle<S>& other) : x((T)other.x), y((T)other.y), w((T)other.w), h((T)other.h)
+		{
+		}
 		/// @brief Constructor.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
@@ -297,153 +302,116 @@ namespace gtypes
 		/// @param[in] y Y coordinate.
 		/// @return True if the points is inside the Rectangle.
 		/// @note This returns true if the point lies on the left or upper border, but false if it lies on the right or bottom order.
-		inline bool isPointInside(float x, float y) const
+		inline bool isPointInside(T x, T y) const
 		{
-			return (x >= (float)this->x && y >= (float)this->y && x < (float)this->x + (float)this->w && y < (float)this->y + (float)this->h);
+			return (x >= this->x && y >= this->y && x < this->x + this->w && y < this->y + this->h);
 		}
 
 		/// @brief Creates a new Rectangle that was moved along a vector.
 		/// @param[in] vector Vector by which to move the Rectangle.
 		/// @return A new Rectangle that was moved along a vector.
-		inline Rectangle<T> operator+(const Vector2<T>& vector) const
+		template <typename S>
+		inline Rectangle<T> operator+(const Vector2<S>& vector) const
 		{
-			Rectangle<T> result(*this);
-			result.x += vector.x;
-			result.y += vector.y;
-			return result;
+			return Rectangle<T>((T)(this->x + vector.x), (T)(this->y + vector.y), this->w, this->h);
 		}
 		/// @brief Creates a new Rectangle that was moved along a vector.
 		/// @param[in] vector Vector by which to move the Rectangle.
 		/// @return A new Rectangle that was moved along a vector.
-		inline Rectangle<T> operator-(const Vector2<T>& vector) const
+		template <typename S>
+		inline Rectangle<T> operator-(const Vector2<S>& vector) const
 		{
-			Rectangle<T> result(*this);
-			result.x -= vector.x;
-			result.y -= vector.y;
-			return result;
+			return Rectangle<T>((T)(this->x - vector.x), (T)(this->y - vector.y), this->w, this->h);
 		}
 		/// @brief Creates a new Rectangle that was scaled with a vector.
 		/// @param[in] vector Vector with which to scale the Rectangle.
 		/// @return A new Rectangle that was scaled with a vector.
-		inline Rectangle<T> operator*(const Vector2<T>& vector) const
+		template <typename S>
+		inline Rectangle<T> operator*(const Vector2<S>& vector) const
 		{
-			Rectangle<T> result(*this);
-			result.w *= vector.x;
-			result.h *= vector.y;
-			return result;
+			return Rectangle<T>(this->x, this->y, (T)(this->w * vector.x), (T)(this->h * vector.y));
 		}
 		/// @brief Creates a new Rectangle that was scaled with a vector.
 		/// @param[in] vector Vector with which to scale the Rectangle.
 		/// @return A new Rectangle that was scaled with a vector.
-		inline Rectangle<T> operator/(const Vector2<T>& vector) const
+		template <typename S>
+		inline Rectangle<T> operator/(const Vector2<S>& vector) const
 		{
-			Rectangle<T> result(*this);
-			result.w /= vector.x;
-			result.h /= vector.y;
-			return result;
+			return Rectangle<T>(this->x, this->y, (T)(this->w / vector.x), (T)(this->h / vector.y));
 		}
 		/// @brief Creates a new Rectangle that was scaled with a factor.
 		/// @param[in] scale Factor with which to scale the Rectangle.
 		/// @return A new Rectangle that was scaled with a factor.
-		inline Rectangle<T> operator*(int scale) const
-		{
-			return Rectangle<T>(this->x, this->y, this->w * scale, this->h * scale);
-		}
-		/// @brief Creates a new Rectangle that was scaled with a factor.
-		/// @param[in] scale Factor with which to scale the Rectangle.
-		/// @return A new Rectangle that was scaled with a factor.
-		inline Rectangle<T> operator*(float scale) const
+		template <typename S>
+		inline Rectangle<T> operator*(S scale) const
 		{
 			return Rectangle<T>(this->x, this->y, (T)(this->w * scale), (T)(this->h * scale));
 		}
 		/// @brief Creates a new Rectangle that was scaled with a factor.
 		/// @param[in] scale Factor with which to scale the Rectangle.
 		/// @return A new Rectangle that was scaled with a factor.
-		inline Rectangle<T> operator*(double scale) const
-		{
-			return Rectangle<T>(this->x, this->y, (T)(this->w * scale), (T)(this->h * scale));
-		}
-		/// @brief Creates a new Rectangle that was scaled with a factor.
-		/// @param[in] scale Factor with which to scale the Rectangle.
-		/// @return A new Rectangle that was scaled with a factor.
-		inline Rectangle<T> operator/(int scale) const
-		{
-			return Rectangle<T>(this->x, this->y, this->w / scale, this->h / scale);
-		}
-		/// @brief Creates a new Rectangle that was scaled with a factor.
-		/// @param[in] scale Factor with which to scale the Rectangle.
-		/// @return A new Rectangle that was scaled with a factor.
-		inline Rectangle<T> operator/(float scale) const
-		{
-			return Rectangle<T>(this->x, this->y, (T)(this->w / scale), (T)(this->h / scale));
-		}
-		/// @brief Creates a new Rectangle that was scaled with a factor.
-		/// @param[in] scale Factor with which to scale the Rectangle.
-		/// @return A new Rectangle that was scaled with a factor.
-		inline Rectangle<T> operator/(double scale) const
+		template <typename S>
+		inline Rectangle<T> operator/(S scale) const
 		{
 			return Rectangle<T>(this->x, this->y, (T)(this->w / scale), (T)(this->h / scale));
 		}
 		/// @brief Sets this Rectangle to another one.
 		/// @param[in] other The other Rectangle.
 		/// @return This Rectangle.
-		inline Rectangle<T> operator=(const Rectangle<T>& other)
+		template <typename S>
+		inline Rectangle<T> operator=(const Rectangle<S>& other)
 		{
-			this->x = other.x;
-			this->y = other.y;
-			this->w = other.w;
-			this->h = other.h;
+			this->x = (T)other.x;
+			this->y = (T)other.y;
+			this->w = (T)other.w;
+			this->h = (T)other.h;
 			return (*this);
 		}
 		/// @brief Moves this Rectangle along a vector.
 		/// @param[in] vector Vector by which to move the Rectangle.
 		/// @return This Rectangle.
-		inline Rectangle<T> operator+=(const Vector2<T>& vector)
+		template <typename S>
+		inline Rectangle<T> operator+=(const Vector2<S>& vector)
 		{
-			this->x += vector.x;
-			this->y += vector.y;
+			this->x = (T)(this->x + vector.x);
+			this->y = (T)(this->y + vector.y);
 			return (*this);
 		}
 		/// @brief Moves this Rectangle along a vector.
 		/// @param[in] vector Vector by which to move the Rectangle.
 		/// @return This Rectangle.
-		inline Rectangle<T> operator-=(const Vector2<T>& vector)
+		template <typename S>
+		inline Rectangle<T> operator-=(const Vector2<S>& vector)
 		{
-			this->x -= vector.x;
-			this->y -= vector.y;
+			this->x = (T)(this->x - vector.x);
+			this->y = (T)(this->y - vector.y);
 			return (*this);
 		}
 		/// @brief Scales this Rectangle with a vector.
 		/// @param[in] vector Vector with which to scale the Rectangle.
 		/// @return This Rectangle.
-		inline Rectangle<T> operator*=(const Vector2<T>& vector)
+		template <typename S>
+		inline Rectangle<T> operator*=(const Vector2<S>& vector)
 		{
-			this->w *= vector.x;
-			this->h *= vector.y;
+			this->w = (T)(this->w * vector.x);
+			this->h = (T)(this->h * vector.y);
 			return (*this);
 		}
 		/// @brief Scales this Rectangle with a vector.
 		/// @param[in] vector Vector with which to scale the Rectangle.
 		/// @return This Rectangle.
-		inline Rectangle<T> operator/=(const Vector2<T>& vector)
+		template <typename S>
+		inline Rectangle<T> operator/=(const Vector2<S>& vector)
 		{
-			this->w /= vector.x;
-			this->h /= vector.y;
+			this->w = (T)(this->w / vector.x);
+			this->h = (T)(this->h / vector.y);
 			return (*this);
 		}
 		/// @brief Scales this Rectangle with a factor.
 		/// @param[in] scale Factor with which to scale the Rectangle.
 		/// @return This Rectangle.
-		inline Rectangle<T> operator*=(int scale)
-		{
-			this->w *= scale;
-			this->h *= scale;
-			return (*this);
-		}
-		/// @brief Scales this Rectangle with a factor.
-		/// @param[in] scale Factor with which to scale the Rectangle.
-		/// @return This Rectangle.
-		inline Rectangle<T> operator*=(float scale)
+		template <typename S>
+		inline Rectangle<T> operator*=(S scale)
 		{
 			this->w = (T)(this->w * scale);
 			this->h = (T)(this->h * scale);
@@ -452,34 +420,8 @@ namespace gtypes
 		/// @brief Scales this Rectangle with a factor.
 		/// @param[in] scale Factor with which to scale the Rectangle.
 		/// @return This Rectangle.
-		inline Rectangle<T> operator*=(double scale)
-		{
-			this->w = (T)(this->w * scale);
-			this->h = (T)(this->h * scale);
-			return (*this);
-		}
-		/// @brief Scales this Rectangle with a factor.
-		/// @param[in] scale Factor with which to scale the Rectangle.
-		/// @return This Rectangle.
-		inline Rectangle<T> operator/=(int scale)
-		{
-			this->w /= scale;
-			this->h /= scale;
-			return (*this);
-		}
-		/// @brief Scales this Rectangle with a factor.
-		/// @param[in] scale Factor with which to scale the Rectangle.
-		/// @return This Rectangle.
-		inline Rectangle<T> operator/=(float scale)
-		{
-			this->w = (T)(this->w / scale);
-			this->h = (T)(this->h / scale);
-			return (*this);
-		}
-		/// @brief Scales this Rectangle with a factor.
-		/// @param[in] scale Factor with which to scale the Rectangle.
-		/// @return This Rectangle.
-		inline Rectangle<T> operator/=(double scale)
+		template <typename S>
+		inline Rectangle<T> operator/=(S scale)
 		{
 			this->w = (T)(this->w / scale);
 			this->h = (T)(this->h / scale);
