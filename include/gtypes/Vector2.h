@@ -340,16 +340,7 @@ typedef gtypes::Vector2<double> gvec2d;
 /// @brief Typedef for simpler code.
 typedef const gtypes::Vector2<double>& cgvec2d;
 
-/// @brief Temporary compatibility alias.
-#define gvec2 gvec2f
-/// @brief Temporary compatibility alias.
-#define cgvec2 cgvec2f
-// TODO - enable this later and remove above emporary compatibility alias
-/*
 /// @brief Alias for simpler code.
 #define gvec2 gtypes::Vector2
-/// @brief Alias for simpler code.
-#define cgvec2 const gtypes::Vector2&
-*/
 
 #endif

@@ -492,16 +492,7 @@ typedef gtypes::Rectangle<double> grectd;
 /// @brief Typedef for simpler code.
 typedef const gtypes::Rectangle<double>& cgrectd;
 
-/// @brief Temporary compatibility alias.
-#define grect grectf
-/// @brief Temporary compatibility alias.
-#define cgrect cgrectf
-// TODO - enable this later and remove above emporary compatibility alias
-/*
 /// @brief Alias for simpler code.
 #define grect gtypes::Rectangle
-/// @brief Alias for simpler code.
-#define cgrect const gtypes::Rectangle&
-*/
 
 #endif
