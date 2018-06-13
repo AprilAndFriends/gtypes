@@ -36,7 +36,7 @@ HL_UT_TEST_CLASS(Matrix4)
 		return true;
 	}
 
-	static bool vec3eqf(const gvec3& v1, const gvec3& v2)
+	static bool vec3eqf(const gvec3f& v1, const gvec3f& v2)
 	{
 		return (heqf(v1.x, v2.x) && heqf(v1.y, v2.y) && heqf(v1.z, v2.z));
 	}
@@ -96,7 +96,7 @@ HL_UT_TEST_CLASS(Matrix4)
 			0.0f, 0.0f, 1.0f, 0.0f,
 			3.0f, 4.0f, 1.0f, 1.0f
 			);
-		m1.setTranslation(gvec3(3.0f, 4.0f, 1.0f));
+		m1.setTranslation(gvec3f(3.0f, 4.0f, 1.0f));
 		HL_UT_ASSERT(gmat4eqf(m1, m2), "setTranslation(vec2)");
 		m1.setTranslation(3.0f, 4.0f, 1.0f);
 		HL_UT_ASSERT(gmat4eqf(m1, m2), "setTranslation(float, float)");
@@ -110,7 +110,7 @@ HL_UT_TEST_CLASS(Matrix4)
 			0.0f, 0.0f, 1.0f, 0.0f,
 			0.0f, 0.0f, 0.0f, 1.0f
 			);
-		m1.setScale(gvec3(3.0f, 4.0f, 1.0f));
+		m1.setScale(gvec3f(3.0f, 4.0f, 1.0f));
 		HL_UT_ASSERT(gmat4eqf(m1, m2), "setScale(vec3)");
 
 		m1.setScale(3.0f, 4.0f, 1.0f);
@@ -161,7 +161,7 @@ HL_UT_TEST_CLASS(Matrix4)
 		gmat4 m1;
 		gmat4 m2;
 		m2.setScale(3.0f, 4.0f, 1.0f);
-		m1.scale(gvec3(3.0f, 4.0f, 1.0f));
+		m1.scale(gvec3f(3.0f, 4.0f, 1.0f));
 		HL_UT_ASSERT(gmat4eqf(m1, m2), "scale(vec3)");
 		m1.setIdentity();
 		m1.scale(3.0f, 4.0f, 1.0f);
@@ -176,8 +176,8 @@ HL_UT_TEST_CLASS(Matrix4)
 	{
 		gmat4 m1;
 		gmat4 m2;
-		m2.setRotation(gvec3(0.0f, 1.0f, 0.0f), 90.0f);
-		m1.rotate(gvec3(0.0f, 1.0f, 0.0f), 90.0f);
+		m2.setRotation(gvec3f(0.0f, 1.0f, 0.0f), 90.0f);
+		m1.rotate(gvec3f(0.0f, 1.0f, 0.0f), 90.0f);
 		HL_UT_ASSERT(gmat4eqf(m1, m2), "");
 	}
 
@@ -218,7 +218,7 @@ HL_UT_TEST_CLASS(Matrix4)
 		HL_UT_ASSERT(gmat4eqf(m1 * m2, m1), "operator*(mat4)");
 		m2 = gmat4(0.0f, 2.0f, 4.0f, 6.0f, 8.0f, 10.0f, 12.0f, 14.0f, 16.0f, 18.0f, 20.0f, 22.0f, 24.0f, 26.0f, 28.0f, 30.0f);
 		HL_UT_ASSERT(gmat4eqf(m1 * 2, m2), "operator*(float)");
-		gvec3 v(1.0f, 2.0f, 3.0f);
+		gvec3f v(1.0f, 2.0f, 3.0f);
 		m2.setIdentity();
 		HL_UT_ASSERT(vec3eqf(v, m2 * v), "operator*(vec3)");
 	}
