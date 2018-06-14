@@ -62,6 +62,11 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#aa0ce762fcc0bd26c2b1d9ca3eade948d">Rectangle</a> ()</td></tr>
 <tr class="memdesc:aa0ce762fcc0bd26c2b1d9ca3eade948d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic constructor. <br /></td></tr>
 <tr class="separator:aa0ce762fcc0bd26c2b1d9ca3eade948d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e37d37142a60e23beec55a3d1709246"><td class="memTemplParams" colspan="2"><a id="a6e37d37142a60e23beec55a3d1709246"></a>
+template&lt;typename S &gt; </td></tr>
+<tr class="memitem:a6e37d37142a60e23beec55a3d1709246"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a6e37d37142a60e23beec55a3d1709246">Rectangle</a> (const <a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; S &gt; &amp;other)</td></tr>
+<tr class="memdesc:a6e37d37142a60e23beec55a3d1709246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advanced copy constructor. <br /></td></tr>
+<tr class="separator:a6e37d37142a60e23beec55a3d1709246"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7c4defe0c4a8e0e6172e75b56be0327"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#aa7c4defe0c4a8e0e6172e75b56be0327">Rectangle</a> (T <a class="el" href="classgtypes_1_1_rectangle.html#a409e83b044739f8a3dfe8f56d479a758">x</a>, T <a class="el" href="classgtypes_1_1_rectangle.html#a63a6d194426d00c66511f2255520d43d">y</a>, T <a class="el" href="classgtypes_1_1_rectangle.html#adede700ee703ee7464a19d499b6c93c7">w</a>, T <a class="el" href="classgtypes_1_1_rectangle.html#a498692889ae4086dc2133cf13d310ea7">h</a>)</td></tr>
 <tr class="memdesc:aa7c4defe0c4a8e0e6172e75b56be0327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aa7c4defe0c4a8e0e6172e75b56be0327">More...</a><br /></td></tr>
 <tr class="separator:aa7c4defe0c4a8e0e6172e75b56be0327"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,72 +175,61 @@ T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgt
 <tr class="memitem:a8dcee05f6e39836788a275084faed795"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a8dcee05f6e39836788a275084faed795">isPointInside</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;position) const</td></tr>
 <tr class="memdesc:a8dcee05f6e39836788a275084faed795"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks a point is inside the <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a>.  <a href="#a8dcee05f6e39836788a275084faed795">More...</a><br /></td></tr>
 <tr class="separator:a8dcee05f6e39836788a275084faed795"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a567fde142687b6cc91c903d86c421873"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a567fde142687b6cc91c903d86c421873">isPointInside</a> (float <a class="el" href="classgtypes_1_1_rectangle.html#a409e83b044739f8a3dfe8f56d479a758">x</a>, float <a class="el" href="classgtypes_1_1_rectangle.html#a63a6d194426d00c66511f2255520d43d">y</a>) const</td></tr>
-<tr class="memdesc:a567fde142687b6cc91c903d86c421873"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks a point is inside the <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a>.  <a href="#a567fde142687b6cc91c903d86c421873">More...</a><br /></td></tr>
-<tr class="separator:a567fde142687b6cc91c903d86c421873"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad15cae35cab463252a0df50fc53c9f76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#ad15cae35cab463252a0df50fc53c9f76">operator+</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;vector) const</td></tr>
-<tr class="memdesc:ad15cae35cab463252a0df50fc53c9f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was moved along a vector.  <a href="#ad15cae35cab463252a0df50fc53c9f76">More...</a><br /></td></tr>
-<tr class="separator:ad15cae35cab463252a0df50fc53c9f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84815d58bc3f1adff810291d348d1f74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a84815d58bc3f1adff810291d348d1f74">operator-</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;vector) const</td></tr>
-<tr class="memdesc:a84815d58bc3f1adff810291d348d1f74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was moved along a vector.  <a href="#a84815d58bc3f1adff810291d348d1f74">More...</a><br /></td></tr>
-<tr class="separator:a84815d58bc3f1adff810291d348d1f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a853842bb0016138e54c2db0edb58c9f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a853842bb0016138e54c2db0edb58c9f1">operator*</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;vector) const</td></tr>
-<tr class="memdesc:a853842bb0016138e54c2db0edb58c9f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a vector.  <a href="#a853842bb0016138e54c2db0edb58c9f1">More...</a><br /></td></tr>
-<tr class="separator:a853842bb0016138e54c2db0edb58c9f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69e1f6fb2466debca14f16f53f06fc14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a69e1f6fb2466debca14f16f53f06fc14">operator/</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;vector) const</td></tr>
-<tr class="memdesc:a69e1f6fb2466debca14f16f53f06fc14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a vector.  <a href="#a69e1f6fb2466debca14f16f53f06fc14">More...</a><br /></td></tr>
-<tr class="separator:a69e1f6fb2466debca14f16f53f06fc14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa2b8b7aad2cdfbb03ba550d23186dc4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#afa2b8b7aad2cdfbb03ba550d23186dc4">operator*</a> (int scale) const</td></tr>
-<tr class="memdesc:afa2b8b7aad2cdfbb03ba550d23186dc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a factor.  <a href="#afa2b8b7aad2cdfbb03ba550d23186dc4">More...</a><br /></td></tr>
-<tr class="separator:afa2b8b7aad2cdfbb03ba550d23186dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a139e4083f416899d1e207e9c88b882d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a139e4083f416899d1e207e9c88b882d6">operator*</a> (float scale) const</td></tr>
-<tr class="memdesc:a139e4083f416899d1e207e9c88b882d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a factor.  <a href="#a139e4083f416899d1e207e9c88b882d6">More...</a><br /></td></tr>
-<tr class="separator:a139e4083f416899d1e207e9c88b882d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5615a8e4c654658fa1255c931a87d4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#ac5615a8e4c654658fa1255c931a87d4e">operator*</a> (double scale) const</td></tr>
-<tr class="memdesc:ac5615a8e4c654658fa1255c931a87d4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a factor.  <a href="#ac5615a8e4c654658fa1255c931a87d4e">More...</a><br /></td></tr>
-<tr class="separator:ac5615a8e4c654658fa1255c931a87d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a343af0e1c5b2b53fb96bf92ced90cabe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a343af0e1c5b2b53fb96bf92ced90cabe">operator/</a> (int scale) const</td></tr>
-<tr class="memdesc:a343af0e1c5b2b53fb96bf92ced90cabe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a factor.  <a href="#a343af0e1c5b2b53fb96bf92ced90cabe">More...</a><br /></td></tr>
-<tr class="separator:a343af0e1c5b2b53fb96bf92ced90cabe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab62af5ac1907bfe95ae173dfb2b377e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#ab62af5ac1907bfe95ae173dfb2b377e8">operator/</a> (float scale) const</td></tr>
-<tr class="memdesc:ab62af5ac1907bfe95ae173dfb2b377e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a factor.  <a href="#ab62af5ac1907bfe95ae173dfb2b377e8">More...</a><br /></td></tr>
-<tr class="separator:ab62af5ac1907bfe95ae173dfb2b377e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acace6a91eab87f78ec49bf39b9a1ef9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#acace6a91eab87f78ec49bf39b9a1ef9b">operator/</a> (double scale) const</td></tr>
-<tr class="memdesc:acace6a91eab87f78ec49bf39b9a1ef9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a factor.  <a href="#acace6a91eab87f78ec49bf39b9a1ef9b">More...</a><br /></td></tr>
-<tr class="separator:acace6a91eab87f78ec49bf39b9a1ef9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6718fe4bf9cb8be0c5232eef7440b384"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a6718fe4bf9cb8be0c5232eef7440b384">operator=</a> (const <a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt; &amp;other)</td></tr>
-<tr class="memdesc:a6718fe4bf9cb8be0c5232eef7440b384"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> to another one.  <a href="#a6718fe4bf9cb8be0c5232eef7440b384">More...</a><br /></td></tr>
-<tr class="separator:a6718fe4bf9cb8be0c5232eef7440b384"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af166671558ac4be73e01f92d6bc4c5ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#af166671558ac4be73e01f92d6bc4c5ad">operator+=</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;vector)</td></tr>
-<tr class="memdesc:af166671558ac4be73e01f92d6bc4c5ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> along a vector.  <a href="#af166671558ac4be73e01f92d6bc4c5ad">More...</a><br /></td></tr>
-<tr class="separator:af166671558ac4be73e01f92d6bc4c5ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f0a2d06becbf8ce4a4612103b99a288"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a5f0a2d06becbf8ce4a4612103b99a288">operator-=</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;vector)</td></tr>
-<tr class="memdesc:a5f0a2d06becbf8ce4a4612103b99a288"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> along a vector.  <a href="#a5f0a2d06becbf8ce4a4612103b99a288">More...</a><br /></td></tr>
-<tr class="separator:a5f0a2d06becbf8ce4a4612103b99a288"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f76a8a682018638056ae24824fb4d51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a4f76a8a682018638056ae24824fb4d51">operator*=</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;vector)</td></tr>
-<tr class="memdesc:a4f76a8a682018638056ae24824fb4d51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> with a vector.  <a href="#a4f76a8a682018638056ae24824fb4d51">More...</a><br /></td></tr>
-<tr class="separator:a4f76a8a682018638056ae24824fb4d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60d098e9c7a8d65503e384aba9fd13d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a60d098e9c7a8d65503e384aba9fd13d3">operator/=</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;vector)</td></tr>
-<tr class="memdesc:a60d098e9c7a8d65503e384aba9fd13d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> with a vector.  <a href="#a60d098e9c7a8d65503e384aba9fd13d3">More...</a><br /></td></tr>
-<tr class="separator:a60d098e9c7a8d65503e384aba9fd13d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4ec69952291915d04bb31ea0c2cb283"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#ab4ec69952291915d04bb31ea0c2cb283">operator*=</a> (int scale)</td></tr>
-<tr class="memdesc:ab4ec69952291915d04bb31ea0c2cb283"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> with a factor.  <a href="#ab4ec69952291915d04bb31ea0c2cb283">More...</a><br /></td></tr>
-<tr class="separator:ab4ec69952291915d04bb31ea0c2cb283"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2776d74c456cd60f1aa8cea926447fa1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a2776d74c456cd60f1aa8cea926447fa1">operator*=</a> (float scale)</td></tr>
-<tr class="memdesc:a2776d74c456cd60f1aa8cea926447fa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> with a factor.  <a href="#a2776d74c456cd60f1aa8cea926447fa1">More...</a><br /></td></tr>
-<tr class="separator:a2776d74c456cd60f1aa8cea926447fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac13d48ca0345e0314d97cf607cba4c2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#ac13d48ca0345e0314d97cf607cba4c2f">operator*=</a> (double scale)</td></tr>
-<tr class="memdesc:ac13d48ca0345e0314d97cf607cba4c2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> with a factor.  <a href="#ac13d48ca0345e0314d97cf607cba4c2f">More...</a><br /></td></tr>
-<tr class="separator:ac13d48ca0345e0314d97cf607cba4c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7975b950a1d0eb05bbeb4b49219069f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#af7975b950a1d0eb05bbeb4b49219069f">operator/=</a> (int scale)</td></tr>
-<tr class="memdesc:af7975b950a1d0eb05bbeb4b49219069f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> with a factor.  <a href="#af7975b950a1d0eb05bbeb4b49219069f">More...</a><br /></td></tr>
-<tr class="separator:af7975b950a1d0eb05bbeb4b49219069f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d996a2e86ace5eaa5db11e96059db13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a4d996a2e86ace5eaa5db11e96059db13">operator/=</a> (float scale)</td></tr>
-<tr class="memdesc:a4d996a2e86ace5eaa5db11e96059db13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> with a factor.  <a href="#a4d996a2e86ace5eaa5db11e96059db13">More...</a><br /></td></tr>
-<tr class="separator:a4d996a2e86ace5eaa5db11e96059db13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4d7835fc69fc27801fe28e02bb60125"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#ac4d7835fc69fc27801fe28e02bb60125">operator/=</a> (double scale)</td></tr>
-<tr class="memdesc:ac4d7835fc69fc27801fe28e02bb60125"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> with a factor.  <a href="#ac4d7835fc69fc27801fe28e02bb60125">More...</a><br /></td></tr>
-<tr class="separator:ac4d7835fc69fc27801fe28e02bb60125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a635971d96328bb48174a272666d6741c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a635971d96328bb48174a272666d6741c">isPointInside</a> (T <a class="el" href="classgtypes_1_1_rectangle.html#a409e83b044739f8a3dfe8f56d479a758">x</a>, T <a class="el" href="classgtypes_1_1_rectangle.html#a63a6d194426d00c66511f2255520d43d">y</a>) const</td></tr>
+<tr class="memdesc:a635971d96328bb48174a272666d6741c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks a point is inside the <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a>.  <a href="#a635971d96328bb48174a272666d6741c">More...</a><br /></td></tr>
+<tr class="separator:a635971d96328bb48174a272666d6741c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb4577672946236a680c61e8047794c7"><td class="memTemplParams" colspan="2">template&lt;typename S &gt; </td></tr>
+<tr class="memitem:abb4577672946236a680c61e8047794c7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#abb4577672946236a680c61e8047794c7">operator+</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; S &gt; &amp;vector) const</td></tr>
+<tr class="memdesc:abb4577672946236a680c61e8047794c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was moved along a vector.  <a href="#abb4577672946236a680c61e8047794c7">More...</a><br /></td></tr>
+<tr class="separator:abb4577672946236a680c61e8047794c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed155cf6a0b7452ac68da88072d374a7"><td class="memTemplParams" colspan="2">template&lt;typename S &gt; </td></tr>
+<tr class="memitem:aed155cf6a0b7452ac68da88072d374a7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#aed155cf6a0b7452ac68da88072d374a7">operator-</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; S &gt; &amp;vector) const</td></tr>
+<tr class="memdesc:aed155cf6a0b7452ac68da88072d374a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was moved along a vector.  <a href="#aed155cf6a0b7452ac68da88072d374a7">More...</a><br /></td></tr>
+<tr class="separator:aed155cf6a0b7452ac68da88072d374a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b305f4febfd0193856b8e8e8bf9410b"><td class="memTemplParams" colspan="2">template&lt;typename S &gt; </td></tr>
+<tr class="memitem:a9b305f4febfd0193856b8e8e8bf9410b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a9b305f4febfd0193856b8e8e8bf9410b">operator*</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; S &gt; &amp;vector) const</td></tr>
+<tr class="memdesc:a9b305f4febfd0193856b8e8e8bf9410b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a vector.  <a href="#a9b305f4febfd0193856b8e8e8bf9410b">More...</a><br /></td></tr>
+<tr class="separator:a9b305f4febfd0193856b8e8e8bf9410b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfd83bb05e3999a06468f0dc0d17d2aa"><td class="memTemplParams" colspan="2">template&lt;typename S &gt; </td></tr>
+<tr class="memitem:abfd83bb05e3999a06468f0dc0d17d2aa"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#abfd83bb05e3999a06468f0dc0d17d2aa">operator/</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; S &gt; &amp;vector) const</td></tr>
+<tr class="memdesc:abfd83bb05e3999a06468f0dc0d17d2aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a vector.  <a href="#abfd83bb05e3999a06468f0dc0d17d2aa">More...</a><br /></td></tr>
+<tr class="separator:abfd83bb05e3999a06468f0dc0d17d2aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fa331962f258007d3d2199bc67a278e"><td class="memTemplParams" colspan="2">template&lt;typename S &gt; </td></tr>
+<tr class="memitem:a7fa331962f258007d3d2199bc67a278e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a7fa331962f258007d3d2199bc67a278e">operator*</a> (S scale) const</td></tr>
+<tr class="memdesc:a7fa331962f258007d3d2199bc67a278e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a factor.  <a href="#a7fa331962f258007d3d2199bc67a278e">More...</a><br /></td></tr>
+<tr class="separator:a7fa331962f258007d3d2199bc67a278e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab822278c80f5ae2a1bbdbc89cdb6aab0"><td class="memTemplParams" colspan="2">template&lt;typename S &gt; </td></tr>
+<tr class="memitem:ab822278c80f5ae2a1bbdbc89cdb6aab0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#ab822278c80f5ae2a1bbdbc89cdb6aab0">operator/</a> (S scale) const</td></tr>
+<tr class="memdesc:ab822278c80f5ae2a1bbdbc89cdb6aab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a factor.  <a href="#ab822278c80f5ae2a1bbdbc89cdb6aab0">More...</a><br /></td></tr>
+<tr class="separator:ab822278c80f5ae2a1bbdbc89cdb6aab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eec79dbf7de05d87210c7381c0e1dd9"><td class="memTemplParams" colspan="2">template&lt;typename S &gt; </td></tr>
+<tr class="memitem:a9eec79dbf7de05d87210c7381c0e1dd9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a9eec79dbf7de05d87210c7381c0e1dd9">operator=</a> (const <a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; S &gt; &amp;other)</td></tr>
+<tr class="memdesc:a9eec79dbf7de05d87210c7381c0e1dd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> to another one.  <a href="#a9eec79dbf7de05d87210c7381c0e1dd9">More...</a><br /></td></tr>
+<tr class="separator:a9eec79dbf7de05d87210c7381c0e1dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f137bc35f69f93ba833f1b5f1a29e9d"><td class="memTemplParams" colspan="2">template&lt;typename S &gt; </td></tr>
+<tr class="memitem:a9f137bc35f69f93ba833f1b5f1a29e9d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a9f137bc35f69f93ba833f1b5f1a29e9d">operator+=</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; S &gt; &amp;vector)</td></tr>
+<tr class="memdesc:a9f137bc35f69f93ba833f1b5f1a29e9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> along a vector.  <a href="#a9f137bc35f69f93ba833f1b5f1a29e9d">More...</a><br /></td></tr>
+<tr class="separator:a9f137bc35f69f93ba833f1b5f1a29e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4dd459d7dbf3fac9a2e5b8c78a0ad46"><td class="memTemplParams" colspan="2">template&lt;typename S &gt; </td></tr>
+<tr class="memitem:ab4dd459d7dbf3fac9a2e5b8c78a0ad46"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#ab4dd459d7dbf3fac9a2e5b8c78a0ad46">operator-=</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; S &gt; &amp;vector)</td></tr>
+<tr class="memdesc:ab4dd459d7dbf3fac9a2e5b8c78a0ad46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> along a vector.  <a href="#ab4dd459d7dbf3fac9a2e5b8c78a0ad46">More...</a><br /></td></tr>
+<tr class="separator:ab4dd459d7dbf3fac9a2e5b8c78a0ad46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a108cf1afc1810c5ef6d8a724f9ab9799"><td class="memTemplParams" colspan="2">template&lt;typename S &gt; </td></tr>
+<tr class="memitem:a108cf1afc1810c5ef6d8a724f9ab9799"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a108cf1afc1810c5ef6d8a724f9ab9799">operator*=</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; S &gt; &amp;vector)</td></tr>
+<tr class="memdesc:a108cf1afc1810c5ef6d8a724f9ab9799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> with a vector.  <a href="#a108cf1afc1810c5ef6d8a724f9ab9799">More...</a><br /></td></tr>
+<tr class="separator:a108cf1afc1810c5ef6d8a724f9ab9799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afecbc18090b5eafd87d6cef8ded418b7"><td class="memTemplParams" colspan="2">template&lt;typename S &gt; </td></tr>
+<tr class="memitem:afecbc18090b5eafd87d6cef8ded418b7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#afecbc18090b5eafd87d6cef8ded418b7">operator/=</a> (const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; S &gt; &amp;vector)</td></tr>
+<tr class="memdesc:afecbc18090b5eafd87d6cef8ded418b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> with a vector.  <a href="#afecbc18090b5eafd87d6cef8ded418b7">More...</a><br /></td></tr>
+<tr class="separator:afecbc18090b5eafd87d6cef8ded418b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe81da5f7ab05b15b06f624d4c7a7b75"><td class="memTemplParams" colspan="2">template&lt;typename S &gt; </td></tr>
+<tr class="memitem:afe81da5f7ab05b15b06f624d4c7a7b75"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#afe81da5f7ab05b15b06f624d4c7a7b75">operator*=</a> (S scale)</td></tr>
+<tr class="memdesc:afe81da5f7ab05b15b06f624d4c7a7b75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> with a factor.  <a href="#afe81da5f7ab05b15b06f624d4c7a7b75">More...</a><br /></td></tr>
+<tr class="separator:afe81da5f7ab05b15b06f624d4c7a7b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9563333a811a7a7d8291562d0d4c360f"><td class="memTemplParams" colspan="2">template&lt;typename S &gt; </td></tr>
+<tr class="memitem:a9563333a811a7a7d8291562d0d4c360f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#a9563333a811a7a7d8291562d0d4c360f">operator/=</a> (S scale)</td></tr>
+<tr class="memdesc:a9563333a811a7a7d8291562d0d4c360f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> with a factor.  <a href="#a9563333a811a7a7d8291562d0d4c360f">More...</a><br /></td></tr>
+<tr class="separator:a9563333a811a7a7d8291562d0d4c360f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedbd3745285a603194bbc382efa464fb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgtypes_1_1_rectangle.html#aedbd3745285a603194bbc382efa464fb">operator==</a> (const <a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt; &amp;other) const</td></tr>
 <tr class="memdesc:aedbd3745285a603194bbc382efa464fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if two Rectangles are equal.  <a href="#aedbd3745285a603194bbc382efa464fb">More...</a><br /></td></tr>
 <tr class="separator:aedbd3745285a603194bbc382efa464fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -805,8 +799,8 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="a567fde142687b6cc91c903d86c421873"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a567fde142687b6cc91c903d86c421873">&#9670;&nbsp;</a></span>isPointInside() <span class="overload">[2/2]</span></h2>
+<a id="a635971d96328bb48174a272666d6741c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a635971d96328bb48174a272666d6741c">&#9670;&nbsp;</a></span>isPointInside() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -819,13 +813,13 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::isPointInside </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
@@ -922,13 +916,15 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="a853842bb0016138e54c2db0edb58c9f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a853842bb0016138e54c2db0edb58c9f1">&#9670;&nbsp;</a></span>operator*() <span class="overload">[1/4]</span></h2>
+<a id="a9b305f4febfd0193856b8e8e8bf9410b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b305f4febfd0193856b8e8e8bf9410b">&#9670;&nbsp;</a></span>operator*() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename S &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -936,7 +932,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator* </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; S &gt; &amp;&#160;</td>
           <td class="paramname"><em>vector</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -959,13 +955,15 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="afa2b8b7aad2cdfbb03ba550d23186dc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa2b8b7aad2cdfbb03ba550d23186dc4">&#9670;&nbsp;</a></span>operator*() <span class="overload">[2/4]</span></h2>
+<a id="a7fa331962f258007d3d2199bc67a278e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fa331962f258007d3d2199bc67a278e">&#9670;&nbsp;</a></span>operator*() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename S &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -973,7 +971,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator* </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">S&#160;</td>
           <td class="paramname"><em>scale</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -996,87 +994,15 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="a139e4083f416899d1e207e9c88b882d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a139e4083f416899d1e207e9c88b882d6">&#9670;&nbsp;</a></span>operator*() <span class="overload">[3/4]</span></h2>
+<a id="a108cf1afc1810c5ef6d8a724f9ab9799"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a108cf1afc1810c5ef6d8a724f9ab9799">&#9670;&nbsp;</a></span>operator*=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator* </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>scale</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a factor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>Factor with which to scale the <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a factor. </dd></dl>
-
-</div>
-</div>
-<a id="ac5615a8e4c654658fa1255c931a87d4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5615a8e4c654658fa1255c931a87d4e">&#9670;&nbsp;</a></span>operator*() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator* </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>scale</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a factor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>Factor with which to scale the <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a factor. </dd></dl>
-
-</div>
-</div>
-<a id="a4f76a8a682018638056ae24824fb4d51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f76a8a682018638056ae24824fb4d51">&#9670;&nbsp;</a></span>operator*=() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename S &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1084,7 +1010,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator*= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; S &gt; &amp;&#160;</td>
           <td class="paramname"><em>vector</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1107,13 +1033,15 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="ab4ec69952291915d04bb31ea0c2cb283"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4ec69952291915d04bb31ea0c2cb283">&#9670;&nbsp;</a></span>operator*=() <span class="overload">[2/4]</span></h2>
+<a id="afe81da5f7ab05b15b06f624d4c7a7b75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe81da5f7ab05b15b06f624d4c7a7b75">&#9670;&nbsp;</a></span>operator*=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename S &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1121,7 +1049,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator*= </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">S&#160;</td>
           <td class="paramname"><em>scale</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1144,87 +1072,15 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="a2776d74c456cd60f1aa8cea926447fa1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2776d74c456cd60f1aa8cea926447fa1">&#9670;&nbsp;</a></span>operator*=() <span class="overload">[3/4]</span></h2>
+<a id="abb4577672946236a680c61e8047794c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb4577672946236a680c61e8047794c7">&#9670;&nbsp;</a></span>operator+()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator*= </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>scale</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Scales this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> with a factor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>Factor with which to scale the <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>This <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a>. </dd></dl>
-
-</div>
-</div>
-<a id="ac13d48ca0345e0314d97cf607cba4c2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac13d48ca0345e0314d97cf607cba4c2f">&#9670;&nbsp;</a></span>operator*=() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator*= </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>scale</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Scales this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> with a factor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>Factor with which to scale the <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>This <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a>. </dd></dl>
-
-</div>
-</div>
-<a id="ad15cae35cab463252a0df50fc53c9f76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad15cae35cab463252a0df50fc53c9f76">&#9670;&nbsp;</a></span>operator+()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename S &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1232,7 +1088,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator+ </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; S &gt; &amp;&#160;</td>
           <td class="paramname"><em>vector</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -1255,13 +1111,15 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="af166671558ac4be73e01f92d6bc4c5ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af166671558ac4be73e01f92d6bc4c5ad">&#9670;&nbsp;</a></span>operator+=()</h2>
+<a id="a9f137bc35f69f93ba833f1b5f1a29e9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f137bc35f69f93ba833f1b5f1a29e9d">&#9670;&nbsp;</a></span>operator+=()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename S &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1269,7 +1127,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator+= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; S &gt; &amp;&#160;</td>
           <td class="paramname"><em>vector</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1292,13 +1150,15 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="a84815d58bc3f1adff810291d348d1f74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84815d58bc3f1adff810291d348d1f74">&#9670;&nbsp;</a></span>operator-()</h2>
+<a id="aed155cf6a0b7452ac68da88072d374a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed155cf6a0b7452ac68da88072d374a7">&#9670;&nbsp;</a></span>operator-()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename S &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1306,7 +1166,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator- </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; S &gt; &amp;&#160;</td>
           <td class="paramname"><em>vector</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -1329,13 +1189,15 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="a5f0a2d06becbf8ce4a4612103b99a288"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f0a2d06becbf8ce4a4612103b99a288">&#9670;&nbsp;</a></span>operator-=()</h2>
+<a id="ab4dd459d7dbf3fac9a2e5b8c78a0ad46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4dd459d7dbf3fac9a2e5b8c78a0ad46">&#9670;&nbsp;</a></span>operator-=()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename S &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1343,7 +1205,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator-= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; S &gt; &amp;&#160;</td>
           <td class="paramname"><em>vector</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1366,13 +1228,15 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="a69e1f6fb2466debca14f16f53f06fc14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69e1f6fb2466debca14f16f53f06fc14">&#9670;&nbsp;</a></span>operator/() <span class="overload">[1/4]</span></h2>
+<a id="abfd83bb05e3999a06468f0dc0d17d2aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfd83bb05e3999a06468f0dc0d17d2aa">&#9670;&nbsp;</a></span>operator/() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename S &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1380,7 +1244,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator/ </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; S &gt; &amp;&#160;</td>
           <td class="paramname"><em>vector</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -1403,13 +1267,15 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="a343af0e1c5b2b53fb96bf92ced90cabe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a343af0e1c5b2b53fb96bf92ced90cabe">&#9670;&nbsp;</a></span>operator/() <span class="overload">[2/4]</span></h2>
+<a id="ab822278c80f5ae2a1bbdbc89cdb6aab0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab822278c80f5ae2a1bbdbc89cdb6aab0">&#9670;&nbsp;</a></span>operator/() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename S &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1417,7 +1283,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator/ </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">S&#160;</td>
           <td class="paramname"><em>scale</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -1440,87 +1306,15 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="ab62af5ac1907bfe95ae173dfb2b377e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab62af5ac1907bfe95ae173dfb2b377e8">&#9670;&nbsp;</a></span>operator/() <span class="overload">[3/4]</span></h2>
+<a id="afecbc18090b5eafd87d6cef8ded418b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afecbc18090b5eafd87d6cef8ded418b7">&#9670;&nbsp;</a></span>operator/=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator/ </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>scale</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a factor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>Factor with which to scale the <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a factor. </dd></dl>
-
-</div>
-</div>
-<a id="acace6a91eab87f78ec49bf39b9a1ef9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acace6a91eab87f78ec49bf39b9a1ef9b">&#9670;&nbsp;</a></span>operator/() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator/ </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>scale</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates a new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a factor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>Factor with which to scale the <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A new <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> that was scaled with a factor. </dd></dl>
-
-</div>
-</div>
-<a id="a60d098e9c7a8d65503e384aba9fd13d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60d098e9c7a8d65503e384aba9fd13d3">&#9670;&nbsp;</a></span>operator/=() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename S &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1528,7 +1322,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator/= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classgtypes_1_1_vector2.html">Vector2</a>&lt; S &gt; &amp;&#160;</td>
           <td class="paramname"><em>vector</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1551,13 +1345,15 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="af7975b950a1d0eb05bbeb4b49219069f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7975b950a1d0eb05bbeb4b49219069f">&#9670;&nbsp;</a></span>operator/=() <span class="overload">[2/4]</span></h2>
+<a id="a9563333a811a7a7d8291562d0d4c360f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9563333a811a7a7d8291562d0d4c360f">&#9670;&nbsp;</a></span>operator/=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename S &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1565,81 +1361,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator/= </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>scale</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Scales this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> with a factor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>Factor with which to scale the <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>This <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a>. </dd></dl>
-
-</div>
-</div>
-<a id="a4d996a2e86ace5eaa5db11e96059db13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d996a2e86ace5eaa5db11e96059db13">&#9670;&nbsp;</a></span>operator/=() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator/= </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>scale</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Scales this <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a> with a factor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>Factor with which to scale the <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>This <a class="el" href="classgtypes_1_1_rectangle.html" title="Represents a rectangle. ">Rectangle</a>. </dd></dl>
-
-</div>
-</div>
-<a id="ac4d7835fc69fc27801fe28e02bb60125"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4d7835fc69fc27801fe28e02bb60125">&#9670;&nbsp;</a></span>operator/=() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator/= </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">S&#160;</td>
           <td class="paramname"><em>scale</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1738,13 +1460,15 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="a6718fe4bf9cb8be0c5232eef7440b384"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6718fe4bf9cb8be0c5232eef7440b384">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="a9eec79dbf7de05d87210c7381c0e1dd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eec79dbf7de05d87210c7381c0e1dd9">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<div class="memtemplate">
+template&lt;typename S &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1752,7 +1476,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt;T&gt; <a class="el" href="classgtypes_1_1_rectangle.html">gtypes::Rectangle</a>&lt; T &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classgtypes_1_1_rectangle.html">Rectangle</a>&lt; S &gt; &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>

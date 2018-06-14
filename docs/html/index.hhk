@@ -75,15 +75,12 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_matrix3_8h.html#a6d27e441fea49d00f28e3de223e40492"><param name="Name" value="cgmat3"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_matrix4_8h.html#ac5f297cb406202e3f6c1456f293ecde6"><param name="Name" value="cgmat4"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_quaternion_8h.html#a402c60d06a662eb4206b502a116826cb"><param name="Name" value="cgquat"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="_rectangle_8h.html#ab6f050ab74dfbb81a38d7df35c3b611e"><param name="Name" value="cgrect"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_rectangle_8h.html#aaf79454c9ca464ffcfa5d650af89743e"><param name="Name" value="cgrectd"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_rectangle_8h.html#a04fe017b46904387fe7b8b4aa4406156"><param name="Name" value="cgrectf"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_rectangle_8h.html#a99377d5fdfd7bc4afc44c03ab0bbdd68"><param name="Name" value="cgrecti"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector2_8h.html#a2c8cbd8a00654163d7fa1c9278652eb6"><param name="Name" value="cgvec2"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector2_8h.html#ab8eb6b73b87f39bb72cc20777d7e6f48"><param name="Name" value="cgvec2d"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector2_8h.html#a704acc29b2f0f8da72fcd222aa92c156"><param name="Name" value="cgvec2f"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector2_8h.html#aec5acba4d80b101e19af2f750178956e"><param name="Name" value="cgvec2i"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector3_8h.html#aae802accc09bbeed145acbfa44a7eb64"><param name="Name" value="cgvec3"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector3_8h.html#a7aaea6915ab319d40350026a3c4b6643"><param name="Name" value="cgvec3d"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector3_8h.html#a2596947736841e4c2298fc8a23321df7"><param name="Name" value="cgvec3f"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector3_8h.html#a60358ea2c523af9eb51714273f8816c9"><param name="Name" value="cgvec3i"></OBJECT>
@@ -379,17 +376,17 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a8dcee05f6e39836788a275084faed795"><param name="Name" value="isPointInside"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a5dee1003e12cdc3de054cd42a9db2f73"><param name="Name" value="left"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a4673cb6cd46a0ccddfc99940583db1e2"><param name="Name" value="operator!="></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a853842bb0016138e54c2db0edb58c9f1"><param name="Name" value="operator*"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a4f76a8a682018638056ae24824fb4d51"><param name="Name" value="operator*="></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#ad15cae35cab463252a0df50fc53c9f76"><param name="Name" value="operator+"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#af166671558ac4be73e01f92d6bc4c5ad"><param name="Name" value="operator+="></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a84815d58bc3f1adff810291d348d1f74"><param name="Name" value="operator-"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a5f0a2d06becbf8ce4a4612103b99a288"><param name="Name" value="operator-="></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a69e1f6fb2466debca14f16f53f06fc14"><param name="Name" value="operator/"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a60d098e9c7a8d65503e384aba9fd13d3"><param name="Name" value="operator/="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a9b305f4febfd0193856b8e8e8bf9410b"><param name="Name" value="operator*"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a108cf1afc1810c5ef6d8a724f9ab9799"><param name="Name" value="operator*="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#abb4577672946236a680c61e8047794c7"><param name="Name" value="operator+"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a9f137bc35f69f93ba833f1b5f1a29e9d"><param name="Name" value="operator+="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#aed155cf6a0b7452ac68da88072d374a7"><param name="Name" value="operator-"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#ab4dd459d7dbf3fac9a2e5b8c78a0ad46"><param name="Name" value="operator-="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#abfd83bb05e3999a06468f0dc0d17d2aa"><param name="Name" value="operator/"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#afecbc18090b5eafd87d6cef8ded418b7"><param name="Name" value="operator/="></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a1dbfed89ae5287470cd9fa6291ec38dd"><param name="Name" value="operator<"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a473625dd9a7bfe35121a5a354272b9ed"><param name="Name" value="operator<="></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a6718fe4bf9cb8be0c5232eef7440b384"><param name="Name" value="operator="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a9eec79dbf7de05d87210c7381c0e1dd9"><param name="Name" value="operator="></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#aedbd3745285a603194bbc382efa464fb"><param name="Name" value="operator=="></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a29bc9ca5dd6247b903f62c335273ac89"><param name="Name" value="operator>"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#ad9deddcc66d4fe58661863b00cdbe474"><param name="Name" value="operator>="></OBJECT>
@@ -413,15 +410,15 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a72b18f115ec09e442597bb52df29e3e9"><param name="Name" value="normalize"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#aa39116158b7c34aa68cb035da4069e66"><param name="Name" value="normalized"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a9e96c2e94343245098634d60050a9f4a"><param name="Name" value="operator!="></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#af88ff1af6e28df1572c66c0b58c12746"><param name="Name" value="operator*"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#adbde2e69f0c12fe90464c75154bc3588"><param name="Name" value="operator*="></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a584e67553bb94d3446cc09a617d386e1"><param name="Name" value="operator+"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a081d7796bfc50d86ab58c29c6e3fea61"><param name="Name" value="operator+="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#aa460e69bb3feaab9c29b7298d9110e9c"><param name="Name" value="operator*"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a4085b4c87c7e88e5886dbb868dc87d2e"><param name="Name" value="operator*="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a281953e4935f12b5f5c1489f9b344995"><param name="Name" value="operator+"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#aeafa76eb93053075feb1bc11c540a6b2"><param name="Name" value="operator+="></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#ade7d23e647f9da007d3ddf061466147b"><param name="Name" value="operator-"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a25662a17bdf1f93bdc37c8ee907f7def"><param name="Name" value="operator-="></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#aece0720f0c5f3a984a391057adb5ae90"><param name="Name" value="operator/"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#aa619e948d942cde4cabd9cd315ce901d"><param name="Name" value="operator/="></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#aeb9522715e26e83d63a8c459fbae9e15"><param name="Name" value="operator="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a7939d1b31d1013b887675fb5ec496091"><param name="Name" value="operator-="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a29214d0ecc90bee881911e91c0580d6f"><param name="Name" value="operator/"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a15d4340fe04d5445b08dc989866c1c3a"><param name="Name" value="operator/="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a5b057c699c400cc8fbe33b46a366bbdd"><param name="Name" value="operator="></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a541d47a0eb31c2c746552994c9745e10"><param name="Name" value="operator=="></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a32db592c424d63893971522b1d9f955f"><param name="Name" value="rotate"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#af85ee3df225cad9613cb59fa93a8e0fa"><param name="Name" value="rotated"></OBJECT>
@@ -440,15 +437,15 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#aa3ceb1ebecbac7e134663d2bc1e318d5"><param name="Name" value="normalize"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#aa78475fa07f93ce232a23d5534fbad67"><param name="Name" value="normalized"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#addc31627ce8e1437c49782079c625f8c"><param name="Name" value="operator!="></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#ad5c6ac3bb1833efdec6c76f600733143"><param name="Name" value="operator*"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a5d387c3a83e7154ebcf07c0ca916f0c1"><param name="Name" value="operator*="></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a636ccf13fb7b9ad1de18502923d194f5"><param name="Name" value="operator+"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#ab9f9f1740630f9103c0ece8337fac026"><param name="Name" value="operator+="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a6db2b9ed295c69b74194b076c969136d"><param name="Name" value="operator*"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#afb893a3cc79e3459ff34c5966b006292"><param name="Name" value="operator*="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a3cd240a65f608a04bc9e74a164e607e1"><param name="Name" value="operator+"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a2fae4f2fdc70ffc7b267d08fb6ac6d70"><param name="Name" value="operator+="></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a826093c1fe9c58b2ca460ad0375e1b18"><param name="Name" value="operator-"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#ae6d22c78680e94c87fe9df778984f35a"><param name="Name" value="operator-="></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a0b56e19487f5516b28a77e67465e5695"><param name="Name" value="operator/"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a8dff0531a3d4f620452e2709d1f4b64a"><param name="Name" value="operator/="></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#aacc28cbdc54790022418030a1b9573e6"><param name="Name" value="operator="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a1142e2c3f52a92618bba973500a8fb61"><param name="Name" value="operator-="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#af84375b7ce4cc63e8881544b3a9f29f3"><param name="Name" value="operator/"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#ac2bcec2b5792baace365e44d26d084cb"><param name="Name" value="operator/="></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a7361fd0858c775f4e7e77e15cac064e4"><param name="Name" value="operator="></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a89d74e9eb7d7735078a7422826c54b32"><param name="Name" value="operator=="></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#aca21a35169f10a8befd49573c4f6f265"><param name="Name" value="set"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#ac0dacc0a9fc3cf6892c24ba994076eab"><param name="Name" value="squaredLength"></OBJECT>
@@ -575,67 +572,67 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix3.html#abfe207328891c098e079cb05a458a4f3"><param name="Name" value="gtypes::Matrix3"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix4.html#a1690a8e51d91a401772fcfccad2c46d0"><param name="Name" value="gtypes::Matrix4"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_quaternion.html#a0d48bd1d5fb7e32bf55d09ee5f42fe92"><param name="Name" value="gtypes::Quaternion"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a4f76a8a682018638056ae24824fb4d51"><param name="Name" value="gtypes::Rectangle"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#adbde2e69f0c12fe90464c75154bc3588"><param name="Name" value="gtypes::Vector2"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a5d387c3a83e7154ebcf07c0ca916f0c1"><param name="Name" value="gtypes::Vector3"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a108cf1afc1810c5ef6d8a724f9ab9799"><param name="Name" value="gtypes::Rectangle"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a4085b4c87c7e88e5886dbb868dc87d2e"><param name="Name" value="gtypes::Vector2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#afb893a3cc79e3459ff34c5966b006292"><param name="Name" value="gtypes::Vector3"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix3.html#a05703097badec13808e4bd8bc6428744"><param name="Name" value="operator*"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix3.html#a05703097badec13808e4bd8bc6428744"><param name="Name" value="gtypes::Matrix3"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix4.html#ab48c12f9750ff8c8359ea01583dab693"><param name="Name" value="gtypes::Matrix4"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_quaternion.html#a513c92fd0c9bf1fcaeb85825b6e895aa"><param name="Name" value="gtypes::Quaternion"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a853842bb0016138e54c2db0edb58c9f1"><param name="Name" value="gtypes::Rectangle"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#af88ff1af6e28df1572c66c0b58c12746"><param name="Name" value="gtypes::Vector2"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#ad5c6ac3bb1833efdec6c76f600733143"><param name="Name" value="gtypes::Vector3"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a9b305f4febfd0193856b8e8e8bf9410b"><param name="Name" value="gtypes::Rectangle"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#aa460e69bb3feaab9c29b7298d9110e9c"><param name="Name" value="gtypes::Vector2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a6db2b9ed295c69b74194b076c969136d"><param name="Name" value="gtypes::Vector3"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix3.html#a600825360062e0c86b47e575b48ff009"><param name="Name" value="operator+="></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix3.html#a600825360062e0c86b47e575b48ff009"><param name="Name" value="gtypes::Matrix3"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix4.html#a5eb121e0529f2e872aeec2ad0f33ead7"><param name="Name" value="gtypes::Matrix4"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_quaternion.html#a89ccb310c3e7d6c0614cb7b02074d3dc"><param name="Name" value="gtypes::Quaternion"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#af166671558ac4be73e01f92d6bc4c5ad"><param name="Name" value="gtypes::Rectangle"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a081d7796bfc50d86ab58c29c6e3fea61"><param name="Name" value="gtypes::Vector2"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#ab9f9f1740630f9103c0ece8337fac026"><param name="Name" value="gtypes::Vector3"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a9f137bc35f69f93ba833f1b5f1a29e9d"><param name="Name" value="gtypes::Rectangle"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#aeafa76eb93053075feb1bc11c540a6b2"><param name="Name" value="gtypes::Vector2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a2fae4f2fdc70ffc7b267d08fb6ac6d70"><param name="Name" value="gtypes::Vector3"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix3.html#a930125204d92a69602fa945b301f6a75"><param name="Name" value="operator+"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix3.html#a930125204d92a69602fa945b301f6a75"><param name="Name" value="gtypes::Matrix3"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix4.html#a663d2d5b18b9dea6d9c9ea6ee0e48baa"><param name="Name" value="gtypes::Matrix4"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_quaternion.html#a7b8af3f44d27f77978eea6f865d3e6d4"><param name="Name" value="gtypes::Quaternion"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#ad15cae35cab463252a0df50fc53c9f76"><param name="Name" value="gtypes::Rectangle"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a584e67553bb94d3446cc09a617d386e1"><param name="Name" value="gtypes::Vector2"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a636ccf13fb7b9ad1de18502923d194f5"><param name="Name" value="gtypes::Vector3"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#abb4577672946236a680c61e8047794c7"><param name="Name" value="gtypes::Rectangle"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a281953e4935f12b5f5c1489f9b344995"><param name="Name" value="gtypes::Vector2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a3cd240a65f608a04bc9e74a164e607e1"><param name="Name" value="gtypes::Vector3"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix3.html#a300331083fb3314aa97e84b8c4afd549"><param name="Name" value="operator-="></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix3.html#a300331083fb3314aa97e84b8c4afd549"><param name="Name" value="gtypes::Matrix3"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix4.html#ad005f5447d33889070920ecbd772329d"><param name="Name" value="gtypes::Matrix4"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_quaternion.html#a44521c2ebeb0b18e513ac41c5560fd92"><param name="Name" value="gtypes::Quaternion"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a5f0a2d06becbf8ce4a4612103b99a288"><param name="Name" value="gtypes::Rectangle"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a25662a17bdf1f93bdc37c8ee907f7def"><param name="Name" value="gtypes::Vector2"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#ae6d22c78680e94c87fe9df778984f35a"><param name="Name" value="gtypes::Vector3"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#ab4dd459d7dbf3fac9a2e5b8c78a0ad46"><param name="Name" value="gtypes::Rectangle"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a7939d1b31d1013b887675fb5ec496091"><param name="Name" value="gtypes::Vector2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a1142e2c3f52a92618bba973500a8fb61"><param name="Name" value="gtypes::Vector3"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix3.html#a113f8163cbccff77d26bd957a090bfe1"><param name="Name" value="operator-"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix3.html#a113f8163cbccff77d26bd957a090bfe1"><param name="Name" value="gtypes::Matrix3"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix4.html#a5309ee2a4b39e08ad95752697e247442"><param name="Name" value="gtypes::Matrix4"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_quaternion.html#ad32eebcdab778b7e08224164a42afe85"><param name="Name" value="gtypes::Quaternion"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a84815d58bc3f1adff810291d348d1f74"><param name="Name" value="gtypes::Rectangle"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#aed155cf6a0b7452ac68da88072d374a7"><param name="Name" value="gtypes::Rectangle"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#ade7d23e647f9da007d3ddf061466147b"><param name="Name" value="gtypes::Vector2"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a826093c1fe9c58b2ca460ad0375e1b18"><param name="Name" value="gtypes::Vector3"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_quaternion.html#ac0c4a8725e24be960faf5dde2b8ca3f4"><param name="Name" value="operator/="></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_quaternion.html#ac0c4a8725e24be960faf5dde2b8ca3f4"><param name="Name" value="gtypes::Quaternion"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a60d098e9c7a8d65503e384aba9fd13d3"><param name="Name" value="gtypes::Rectangle"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#aa619e948d942cde4cabd9cd315ce901d"><param name="Name" value="gtypes::Vector2"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a8dff0531a3d4f620452e2709d1f4b64a"><param name="Name" value="gtypes::Vector3"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#afecbc18090b5eafd87d6cef8ded418b7"><param name="Name" value="gtypes::Rectangle"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a15d4340fe04d5445b08dc989866c1c3a"><param name="Name" value="gtypes::Vector2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#ac2bcec2b5792baace365e44d26d084cb"><param name="Name" value="gtypes::Vector3"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a69e1f6fb2466debca14f16f53f06fc14"><param name="Name" value="operator/"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#abfd83bb05e3999a06468f0dc0d17d2aa"><param name="Name" value="operator/"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a69e1f6fb2466debca14f16f53f06fc14"><param name="Name" value="gtypes::Rectangle"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#aece0720f0c5f3a984a391057adb5ae90"><param name="Name" value="gtypes::Vector2"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a0b56e19487f5516b28a77e67465e5695"><param name="Name" value="gtypes::Vector3"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#abfd83bb05e3999a06468f0dc0d17d2aa"><param name="Name" value="gtypes::Rectangle"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a29214d0ecc90bee881911e91c0580d6f"><param name="Name" value="gtypes::Vector2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#af84375b7ce4cc63e8881544b3a9f29f3"><param name="Name" value="gtypes::Vector3"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a473625dd9a7bfe35121a5a354272b9ed"><param name="Name" value="operator<="></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a1dbfed89ae5287470cd9fa6291ec38dd"><param name="Name" value="operator<"></OBJECT>
@@ -651,9 +648,9 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix3.html#aa387753f167cdbc92be2929c0d18a04b"><param name="Name" value="gtypes::Matrix3"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_matrix4.html#ab55544bc3a89f748abb9715d9543c759"><param name="Name" value="gtypes::Matrix4"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_quaternion.html#a505b735a2062164c00a9d3a48ef27edd"><param name="Name" value="gtypes::Quaternion"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a6718fe4bf9cb8be0c5232eef7440b384"><param name="Name" value="gtypes::Rectangle"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#aeb9522715e26e83d63a8c459fbae9e15"><param name="Name" value="gtypes::Vector2"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#aacc28cbdc54790022418030a1b9573e6"><param name="Name" value="gtypes::Vector3"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a9eec79dbf7de05d87210c7381c0e1dd9"><param name="Name" value="gtypes::Rectangle"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#a5b057c699c400cc8fbe33b46a366bbdd"><param name="Name" value="gtypes::Vector2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector3.html#a7361fd0858c775f4e7e77e15cac064e4"><param name="Name" value="gtypes::Vector3"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#ad9deddcc66d4fe58661863b00cdbe474"><param name="Name" value="operator>="></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_rectangle.html#a29bc9ca5dd6247b903f62c335273ac89"><param name="Name" value="operator>"></OBJECT>
@@ -678,7 +675,6 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="gtypes_util_8h.html#ae1a59d1013c865184551aafe5d4fee37"><param name="Name" value="RAD_TO_DEG"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_rectangle_8h.html"><param name="Name" value="Rectangle.h"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="_rectangle_8h.html#ab6f050ab74dfbb81a38d7df35c3b611e"><param name="Name" value="cgrect"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_rectangle_8h.html#aaf79454c9ca464ffcfa5d650af89743e"><param name="Name" value="cgrectd"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_rectangle_8h.html#a04fe017b46904387fe7b8b4aa4406156"><param name="Name" value="cgrectf"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_rectangle_8h.html#a99377d5fdfd7bc4afc44c03ab0bbdd68"><param name="Name" value="cgrecti"></OBJECT>
@@ -789,7 +785,6 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector2_8h.html"><param name="Name" value="Vector2.h"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector2_8h.html#a2c8cbd8a00654163d7fa1c9278652eb6"><param name="Name" value="cgvec2"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector2_8h.html#ab8eb6b73b87f39bb72cc20777d7e6f48"><param name="Name" value="cgvec2d"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector2_8h.html#a704acc29b2f0f8da72fcd222aa92c156"><param name="Name" value="cgvec2f"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector2_8h.html#aec5acba4d80b101e19af2f750178956e"><param name="Name" value="cgvec2i"></OBJECT>
@@ -801,7 +796,6 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classgtypes_1_1_vector2.html#ae64338eda0e783c0d100e37cd344e4fd"><param name="Name" value="Vector2"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector3_8h.html"><param name="Name" value="Vector3.h"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector3_8h.html#aae802accc09bbeed145acbfa44a7eb64"><param name="Name" value="cgvec3"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector3_8h.html#a7aaea6915ab319d40350026a3c4b6643"><param name="Name" value="cgvec3d"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector3_8h.html#a2596947736841e4c2298fc8a23321df7"><param name="Name" value="cgvec3f"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="_vector3_8h.html#a60358ea2c523af9eb51714273f8816c9"><param name="Name" value="cgvec3i"></OBJECT>
