@@ -9,16 +9,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\hltypes\unittest\hunittest.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\..\unittest\generated\_Rectangle.cpp">
       <Filter>generated</Filter>
     </ClCompile>
     <ClCompile Include="..\..\unittest\Rectangle.cpp">
       <Filter>tests</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\hltypes\unittest\hunittest.cpp" />
     <ClCompile Include="..\..\unittest\generated\_Vector3.cpp">
       <Filter>generated</Filter>
     </ClCompile>
@@ -37,5 +33,15 @@
     <ClCompile Include="..\..\unittest\Vector3.cpp">
       <Filter>tests</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\unittest\generated\_Matrix4.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\unittest\Matrix4.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\hltypes\unittest\hunittest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\hltypes\unittest\hunittest.h" />
   </ItemGroup>
 </Project>

@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 14 for Windows Desktop
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libgtypes", "msvc\vs2015\libgtypes.vcxproj", "{9C043B29-DB40-48D5-97D8-1BC44128E3BA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libgtypes_unittest", "msvc\vs2015\libgtypes_unittest.vcxproj", "{25CE8ABC-D032-44EC-A6FB-89E468994BDD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6B353F7D-0805-4D62-A9E5-ED723621E724}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,8 +59,8 @@ Global
 		{25CE8ABC-D032-44EC-A6FB-89E468994BDD}.DebugS|Android.Build.0 = DebugS|Android
 		{25CE8ABC-D032-44EC-A6FB-89E468994BDD}.DebugS|Android-x86.ActiveCfg = DebugS|Android-x86
 		{25CE8ABC-D032-44EC-A6FB-89E468994BDD}.DebugS|Android-x86.Build.0 = DebugS|Android-x86
-		{25CE8ABC-D032-44EC-A6FB-89E468994BDD}.DebugS|Win32.ActiveCfg = DebugS|Win32
-		{25CE8ABC-D032-44EC-A6FB-89E468994BDD}.DebugS|Win32.Build.0 = DebugS|Win32
+		{25CE8ABC-D032-44EC-A6FB-89E468994BDD}.DebugS|Win32.ActiveCfg = Debug|Win32
+		{25CE8ABC-D032-44EC-A6FB-89E468994BDD}.DebugS|Win32.Build.0 = Debug|Win32
 		{25CE8ABC-D032-44EC-A6FB-89E468994BDD}.Release|Android.ActiveCfg = Release|Android
 		{25CE8ABC-D032-44EC-A6FB-89E468994BDD}.Release|Android.Build.0 = Release|Android
 		{25CE8ABC-D032-44EC-A6FB-89E468994BDD}.Release|Android-x86.ActiveCfg = Release|Android-x86
@@ -74,5 +76,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{25CE8ABC-D032-44EC-A6FB-89E468994BDD} = {6B353F7D-0805-4D62-A9E5-ED723621E724}
 	EndGlobalSection
 EndGlobal
