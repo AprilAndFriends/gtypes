@@ -33,12 +33,20 @@ namespace gtypes
 		T h;
 	
 		/// @brief Basic constructor.
-		inline Rectangle() : x(0), y(0), w(0), h(0)
+		inline Rectangle() :
+			x(0),
+			y(0),
+			w(0),
+			h(0)
 		{
 		}
 		/// @brief Advanced copy constructor.
 		template <typename S>
-		inline Rectangle(const Rectangle<S>& other) : x((T)other.x), y((T)other.y), w((T)other.w), h((T)other.h)
+		inline Rectangle(const Rectangle<S>& other) :
+			x((T)other.x),
+			y((T)other.y),
+			w((T)other.w),
+			h((T)other.h)
 		{
 		}
 		/// @brief Constructor.
@@ -46,27 +54,43 @@ namespace gtypes
 		/// @param[in] y Y coordinate.
 		/// @param[in] w Width.
 		/// @param[in] h Height.
-		inline Rectangle(T x, T y, T w, T h) : x(x), y(y), w(w), h(h)
+		inline Rectangle(T x, T y, T w, T h) :
+			x(x),
+			y(y),
+			w(w),
+			h(h)
 		{
 		}
 		/// @brief Constructor.
 		/// @param[in] position Position.
 		/// @param[in] size Size.
-		inline Rectangle(const Vector2<T>& position, const Vector2<T>& size) : x(position.x), y(position.y), w(size.x), h(size.y)
+		inline Rectangle(const Vector2<T>& position, const Vector2<T>& size) :
+			x(position.x),
+			y(position.y),
+			w(size.x),
+			h(size.y)
 		{
 		}
 		/// @brief Constructor.
 		/// @param[in] position Position.
 		/// @param[in] w Width.
 		/// @param[in] h Height.
-		inline Rectangle(const Vector2<T>& position, T w, T h) : x(position.x), y(position.y), w(w), h(h)
+		inline Rectangle(const Vector2<T>& position, T w, T h) :
+			x(position.x),
+			y(position.y),
+			w(w),
+			h(h)
 		{
 		}
 		/// @brief Constructor.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
 		/// @param[in] size Size.
-		inline Rectangle(T x, T y, const Vector2<T>& size) : x(x), y(y), w(size.x), h(size.y)
+		inline Rectangle(T x, T y, const Vector2<T>& size) :
+			x(x),
+			y(y),
+			w(size.x),
+			h(size.y)
 		{
 		}
 		/// @brief Sets the values of the Rectangle.

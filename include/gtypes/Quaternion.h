@@ -36,7 +36,11 @@ namespace gtypes
 		float w;
 		
 		/// @brief Basic constructor.
-		inline Quaternion() : x(1.0f), y(1.0f), z(1.0f), w(1.0f)
+		inline Quaternion() :
+			x(1.0f),
+			y(1.0f),
+			z(1.0f),
+			w(1.0f)
 		{
 		}
 		/// @brief Constructor.
@@ -44,13 +48,21 @@ namespace gtypes
 		/// @param[in] y Y value.
 		/// @param[in] z Z value.
 		/// @param[in] w W value.
-		inline Quaternion(float x, float y, float z, float w) : x(x), y(y), z(z), w(w)
+		inline Quaternion(float x, float y, float z, float w) :
+			x(x),
+			y(y),
+			z(z),
+			w(w)
 		{
 		}
 		/// @brief Constructor.
 		/// @param[in] v Vector3.
 		/// @param[in] w W value.
-		inline Quaternion(const Vector3<float>& v, float w) : x(v.x), y(v.y), z(v.z), w(w)
+		inline Quaternion(const Vector3<float>& v, float w) :
+			x(v.x),
+			y(v.y),
+			z(v.z),
+			w(w)
 		{
 		}
 		/// @brief Sets the values of the Quaternion.

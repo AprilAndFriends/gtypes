@@ -30,7 +30,14 @@ namespace gtypes
 	public:
 		/// @brief Basic Constructor.
 		inline CatmullRomSpline3() :
-			closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0), _prevDot(0), _inflexed(false)
+			closed(false),
+			length(0.0),
+			curvature(0.5),
+			samples(16),
+			_prevIndex(-1),
+			_prevLength(0.0),
+			_prevDot(0),
+			_inflexed(false)
 		{
 		}
 		/// @brief Constructor.
@@ -41,7 +48,14 @@ namespace gtypes
 		/// @param[in] t1 Custom beginning point.
 		/// @param[in] t2 Custom ending point.
 		inline CatmullRomSpline3(const std::vector<Vector3<float> >& vectors, bool closed, double curvature, int samples, Vector3<float> t1, Vector3<float> t2) :
-			closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0), _prevDot(0), _inflexed(false)
+			closed(false),
+			length(0.0),
+			curvature(0.5),
+			samples(16),
+			_prevIndex(-1),
+			_prevLength(0.0),
+			_prevDot(0),
+			_inflexed(false)
 		{
 			this->set(vectors, closed, curvature, samples, t1, t2);
 		}
@@ -54,7 +68,14 @@ namespace gtypes
 		/// @param[in] t1 Custom beginning point.
 		/// @param[in] t2 Custom ending point.
 		inline CatmullRomSpline3(const Vector3<float> vectors[], int n, bool closed, double curvature, int samples, Vector3 <float>t1, Vector3<float> t2) :
-			closed(false), length(0.0), curvature(0.5), samples(16), _prevIndex(-1), _prevLength(0.0), _prevDot(0), _inflexed(false)
+			closed(false),
+			length(0.0),
+			curvature(0.5),
+			samples(16),
+			_prevIndex(-1),
+			_prevLength(0.0),
+			_prevDot(0),
+			_inflexed(false)
 		{
 			this->set(vectors, n, closed, curvature, samples, t1, t2);
 		}

@@ -31,18 +31,24 @@ namespace gtypes
 		T y;
 
 		/// @brief Basic constructor.
-		inline Vector2() : x(0), y(0)
+		inline Vector2() :
+			x(0),
+			y(0)
 		{
 		}
 		/// @brief Advanced copy constructor.
 		template <typename S>
-		inline Vector2(const Vector2<S>& other) : x((T)other.x), y((T)other.y)
+		inline Vector2(const Vector2<S>& other) :
+			x((T)other.x),
+			y((T)other.y)
 		{
 		}
 		/// @brief Constructor.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
-		inline Vector2(T x, T y) : x(x), y(y)
+		inline Vector2(T x, T y) :
+			x(x),
+			y(y)
 		{
 		}
 		/// @brief Sets the values of the Vector2.

@@ -33,25 +33,37 @@ namespace gtypes
 		T z;
 	
 		/// @brief Basic constructor.
-		inline Vector3() : x(0), y(0), z(0)
+		inline Vector3() :
+			x(0),
+			y(0),
+			z(0)
 		{
 		}
 		/// @brief Advanced copy constructor.
 		template <typename S>
-		inline Vector3(const Vector3<S>& other) : x((T)other.x), y((T)other.y)
+		inline Vector3(const Vector3<S>& other) :
+			x((T)other.x),
+			y((T)other.y)
+			z((T)other.z)
 		{
 		}
 		/// @brief Constructor.
 		/// @param[in] x X coordinate.
 		/// @param[in] y Y coordinate.
 		/// @param[in] z Z coordinate.
-		inline Vector3(T x, T y, T z) : x(x), y(y), z(z)
+		inline Vector3(T x, T y, T z) :
+			x(x),
+			y(y),
+			z(z)
 		{
 		}
 		/// @brief Constructor.
 		/// @param[in] v Vector2.
 		/// @param[in] z Z coordinate.
-		inline Vector3(const Vector2<T>& v, T z) : x(v.x), y(v.y), z(z)
+		inline Vector3(const Vector2<T>& v, T z) :
+			x(v.x),
+			y(v.y),
+			z(z)
 		{
 		}
 		/// @brief Sets the values of the Vector3.
