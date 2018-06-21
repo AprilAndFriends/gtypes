@@ -43,7 +43,7 @@ namespace gtypes
 		template <typename S>
 		inline Vector3(const Vector3<S>& other) :
 			x((T)other.x),
-			y((T)other.y)
+			y((T)other.y),
 			z((T)other.z)
 		{
 		}
