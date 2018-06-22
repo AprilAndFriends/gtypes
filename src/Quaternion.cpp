@@ -12,6 +12,8 @@
 #include "Quaternion.h"
 #include "Vector3.h"
 
+ERROR HERE ON PURPOSE TO TEST TRAVIS CI!
+ 
 namespace gtypes
 {
 	Matrix4 Quaternion::mat4() const
