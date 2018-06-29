@@ -19,35 +19,18 @@
 		7F42F74F11EB136E00B1C1DF /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74711EB136E00B1C1DF /* Matrix3.cpp */; };
 		7F42F75111EB136E00B1C1DF /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74911EB136E00B1C1DF /* Quaternion.cpp */; };
 		C9F9313D14DA87F400954F90 /* gtypesUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F9313C14DA87F400954F90 /* gtypesUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D1353E8C1AD311DE00BB5829 /* libgtypes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F27A89177A2CB600E5C131 /* libgtypes.a */; };
 		D1522F30140F79E10012F290 /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74711EB136E00B1C1DF /* Matrix3.cpp */; };
 		D1522F32140F79E10012F290 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74911EB136E00B1C1DF /* Quaternion.cpp */; };
-		D175DE3720DBF34300CC44BB /* libgtypes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1522F1C140F79500012F290 /* libgtypes.a */; };
-		D175DE3E20DBF39E00CC44BB /* htest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC64920DBD53D00F85CE2 /* htest.cpp */; };
-		D175DE3F20DBF39E00CC44BB /* _Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC64020DBD3DC00F85CE2 /* _Matrix3.cpp */; };
-		D175DE4020DBF39E00CC44BB /* _Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC64320DBD3DC00F85CE2 /* _Matrix4.cpp */; };
-		D175DE4120DBF39E00CC44BB /* _Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC64220DBD3DC00F85CE2 /* _Rectangle.cpp */; };
-		D175DE4220DBF39E00CC44BB /* _Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC63F20DBD3DC00F85CE2 /* _Vector2.cpp */; };
-		D175DE4320DBF39E00CC44BB /* _Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC64120DBD3DC00F85CE2 /* _Vector3.cpp */; };
 		D175DE4420DBF39E00CC44BB /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC63720DBD3D500F85CE2 /* Matrix3.cpp */; };
 		D175DE4520DBF39E00CC44BB /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC63520DBD3D500F85CE2 /* Matrix4.cpp */; };
 		D175DE4620DBF39E00CC44BB /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC63620DBD3D500F85CE2 /* Rectangle.cpp */; };
 		D175DE4720DBF39E00CC44BB /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC63920DBD3D500F85CE2 /* Vector2.cpp */; };
 		D175DE4820DBF39E00CC44BB /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC63820DBD3D500F85CE2 /* Vector3.cpp */; };
-		D175DE4C20DBF3DE00CC44BB /* libhltypes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D175DE4B20DBF3DE00CC44BB /* libhltypes.a */; };
-		D18FC60220DBCFEF00F85CE2 /* libhltypes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D18FC60120DBCFEF00F85CE2 /* libhltypes.a */; };
 		D18FC63A20DBD3D500F85CE2 /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC63520DBD3D500F85CE2 /* Matrix4.cpp */; };
 		D18FC63B20DBD3D500F85CE2 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC63620DBD3D500F85CE2 /* Rectangle.cpp */; };
 		D18FC63C20DBD3D500F85CE2 /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC63720DBD3D500F85CE2 /* Matrix3.cpp */; };
 		D18FC63D20DBD3D500F85CE2 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC63820DBD3D500F85CE2 /* Vector3.cpp */; };
 		D18FC63E20DBD3D500F85CE2 /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC63920DBD3D500F85CE2 /* Vector2.cpp */; };
-		D18FC64420DBD3DC00F85CE2 /* _Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC63F20DBD3DC00F85CE2 /* _Vector2.cpp */; };
-		D18FC64520DBD3DC00F85CE2 /* _Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC64020DBD3DC00F85CE2 /* _Matrix3.cpp */; };
-		D18FC64620DBD3DC00F85CE2 /* _Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC64120DBD3DC00F85CE2 /* _Vector3.cpp */; };
-		D18FC64720DBD3DC00F85CE2 /* _Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC64220DBD3DC00F85CE2 /* _Rectangle.cpp */; };
-		D18FC64820DBD3DC00F85CE2 /* _Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC64320DBD3DC00F85CE2 /* _Matrix4.cpp */; };
-		D18FC64A20DBD53D00F85CE2 /* htest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18FC64920DBD53D00F85CE2 /* htest.cpp */; };
-		D18FC65720DBD68D00F85CE2 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D18FC65520DBD68400F85CE2 /* CoreServices.framework */; };
 		D193C09720B4643F0039BDB9 /* constants.h in Headers */ = {isa = PBXBuildFile; fileRef = D193C09620B4643F0039BDB9 /* constants.h */; };
 		D1F27A7C177A2CB600E5C131 /* Matrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74711EB136E00B1C1DF /* Matrix3.cpp */; };
 		D1F27A7E177A2CB600E5C131 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F42F74911EB136E00B1C1DF /* Quaternion.cpp */; };
@@ -90,20 +73,11 @@
 		D1681B7518D761D80088FC68 /* iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = iOS.xcconfig; path = xcconfig/iOS.xcconfig; sourceTree = "<group>"; };
 		D1681B7618D761D80088FC68 /* Mac.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Mac.xcconfig; path = xcconfig/Mac.xcconfig; sourceTree = "<group>"; };
 		D175DE3220DBF34300CC44BB /* gtypesTests_ios.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gtypesTests_ios.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D175DE4B20DBF3DE00CC44BB /* libhltypes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libhltypes.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D18FC60120DBCFEF00F85CE2 /* libhltypes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libhltypes.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18FC63520DBD3D500F85CE2 /* Matrix4.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Matrix4.cpp; path = tests/Matrix4.cpp; sourceTree = "<group>"; };
 		D18FC63620DBD3D500F85CE2 /* Rectangle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Rectangle.cpp; path = tests/Rectangle.cpp; sourceTree = "<group>"; };
 		D18FC63720DBD3D500F85CE2 /* Matrix3.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Matrix3.cpp; path = tests/Matrix3.cpp; sourceTree = "<group>"; };
 		D18FC63820DBD3D500F85CE2 /* Vector3.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Vector3.cpp; path = tests/Vector3.cpp; sourceTree = "<group>"; };
 		D18FC63920DBD3D500F85CE2 /* Vector2.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Vector2.cpp; path = tests/Vector2.cpp; sourceTree = "<group>"; };
-		D18FC63F20DBD3DC00F85CE2 /* _Vector2.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = _Vector2.cpp; path = tests/generated/_Vector2.cpp; sourceTree = "<group>"; };
-		D18FC64020DBD3DC00F85CE2 /* _Matrix3.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = _Matrix3.cpp; path = tests/generated/_Matrix3.cpp; sourceTree = "<group>"; };
-		D18FC64120DBD3DC00F85CE2 /* _Vector3.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = _Vector3.cpp; path = tests/generated/_Vector3.cpp; sourceTree = "<group>"; };
-		D18FC64220DBD3DC00F85CE2 /* _Rectangle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = _Rectangle.cpp; path = tests/generated/_Rectangle.cpp; sourceTree = "<group>"; };
-		D18FC64320DBD3DC00F85CE2 /* _Matrix4.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = _Matrix4.cpp; path = tests/generated/_Matrix4.cpp; sourceTree = "<group>"; };
-		D18FC64920DBD53D00F85CE2 /* htest.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = htest.cpp; path = ../hltypes/htest/htest.cpp; sourceTree = "<group>"; };
-		D18FC65520DBD68400F85CE2 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		D193C09620B4643F0039BDB9 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = constants.h; path = include/gtypes/constants.h; sourceTree = "<group>"; };
 		D1F27A89177A2CB600E5C131 /* libgtypes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtypes.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -116,29 +90,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D1353E7B1AD311BA00BB5829 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D18FC60220DBCFEF00F85CE2 /* libhltypes.a in Frameworks */,
-				D18FC65720DBD68D00F85CE2 /* CoreServices.framework in Frameworks */,
-				D1353E8C1AD311DE00BB5829 /* libgtypes.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D1522F19140F79500012F290 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D175DE2F20DBF34300CC44BB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D175DE4C20DBF3DE00CC44BB /* libhltypes.a in Frameworks */,
-				D175DE3720DBF34300CC44BB /* libgtypes.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,8 +161,6 @@
 		D1353E761AD3116800BB5829 /* tests */ = {
 			isa = PBXGroup;
 			children = (
-				D18FC60020DBCFEF00F85CE2 /* Frameworks */,
-				D1353E791AD3119400BB5829 /* generated */,
 				D18FC63720DBD3D500F85CE2 /* Matrix3.cpp */,
 				D18FC63520DBD3D500F85CE2 /* Matrix4.cpp */,
 				D18FC63620DBD3D500F85CE2 /* Rectangle.cpp */,
@@ -215,19 +168,6 @@
 				D18FC63820DBD3D500F85CE2 /* Vector3.cpp */,
 			);
 			name = tests;
-			sourceTree = "<group>";
-		};
-		D1353E791AD3119400BB5829 /* generated */ = {
-			isa = PBXGroup;
-			children = (
-				D18FC64920DBD53D00F85CE2 /* htest.cpp */,
-				D18FC64020DBD3DC00F85CE2 /* _Matrix3.cpp */,
-				D18FC64320DBD3DC00F85CE2 /* _Matrix4.cpp */,
-				D18FC64220DBD3DC00F85CE2 /* _Rectangle.cpp */,
-				D18FC63F20DBD3DC00F85CE2 /* _Vector2.cpp */,
-				D18FC64120DBD3DC00F85CE2 /* _Vector3.cpp */,
-			);
-			name = generated;
 			sourceTree = "<group>";
 		};
 		D1681B7718D7626C0088FC68 /* config */ = {
@@ -238,16 +178,6 @@
 				D1681B7618D761D80088FC68 /* Mac.xcconfig */,
 			);
 			name = config;
-			sourceTree = "<group>";
-		};
-		D18FC60020DBCFEF00F85CE2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D18FC65520DBD68400F85CE2 /* CoreServices.framework */,
-				D175DE4B20DBF3DE00CC44BB /* libhltypes.a */,
-				D18FC60120DBCFEF00F85CE2 /* libhltypes.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,9 +240,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1353E871AD311BA00BB5829 /* Build configuration list for PBXNativeTarget "gtypesTests (Mac)" */;
 			buildPhases = (
-				D1A1DE1B206CEFF500B5C90C /* Generate unit test configuration files */,
 				D1353E7A1AD311BA00BB5829 /* Sources */,
-				D1353E7B1AD311BA00BB5829 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -345,9 +273,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D175DE3D20DBF34300CC44BB /* Build configuration list for PBXNativeTarget "gtypesTests (iOS)" */;
 			buildPhases = (
-				D175DE4920DBF3C800CC44BB /* Generate unit test configuration files */,
 				D175DE2E20DBF34300CC44BB /* Sources */,
-				D175DE2F20DBF34300CC44BB /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -417,39 +343,6 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		D175DE4920DBF3C800CC44BB /* Generate unit test configuration files */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Generate unit test configuration files";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "python ${SRCROOT}/../hltypes/htest/generate_tests.py gtypes ${SRCROOT}/tests";
-			showEnvVarsInLog = 0;
-		};
-		D1A1DE1B206CEFF500B5C90C /* Generate unit test configuration files */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Generate unit test configuration files";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "python ${SRCROOT}/../hltypes/htest/generate_tests.py gtypes ${SRCROOT}/tests";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		8DC2EF540486A6940098B216 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -466,15 +359,9 @@
 			files = (
 				D18FC63C20DBD3D500F85CE2 /* Matrix3.cpp in Sources */,
 				D18FC63A20DBD3D500F85CE2 /* Matrix4.cpp in Sources */,
-				D18FC64620DBD3DC00F85CE2 /* _Vector3.cpp in Sources */,
 				D18FC63E20DBD3D500F85CE2 /* Vector2.cpp in Sources */,
-				D18FC64A20DBD53D00F85CE2 /* htest.cpp in Sources */,
 				D18FC63D20DBD3D500F85CE2 /* Vector3.cpp in Sources */,
 				D18FC63B20DBD3D500F85CE2 /* Rectangle.cpp in Sources */,
-				D18FC64420DBD3DC00F85CE2 /* _Vector2.cpp in Sources */,
-				D18FC64820DBD3DC00F85CE2 /* _Matrix4.cpp in Sources */,
-				D18FC64520DBD3DC00F85CE2 /* _Matrix3.cpp in Sources */,
-				D18FC64720DBD3DC00F85CE2 /* _Rectangle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,16 +379,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D175DE4820DBF39E00CC44BB /* Vector3.cpp in Sources */,
-				D175DE3F20DBF39E00CC44BB /* _Matrix3.cpp in Sources */,
-				D175DE4220DBF39E00CC44BB /* _Vector2.cpp in Sources */,
 				D175DE4620DBF39E00CC44BB /* Rectangle.cpp in Sources */,
-				D175DE4320DBF39E00CC44BB /* _Vector3.cpp in Sources */,
 				D175DE4420DBF39E00CC44BB /* Matrix3.cpp in Sources */,
-				D175DE3E20DBF39E00CC44BB /* htest.cpp in Sources */,
 				D175DE4520DBF39E00CC44BB /* Matrix4.cpp in Sources */,
 				D175DE4720DBF39E00CC44BB /* Vector2.cpp in Sources */,
-				D175DE4020DBF39E00CC44BB /* _Matrix4.cpp in Sources */,
-				D175DE4120DBF39E00CC44BB /* _Rectangle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,8 +537,13 @@
 					"${SRCROOT}/../hltypes/include",
 					"$(inherited)",
 				);
-				OTHER_LDFLAGS = "-ObjC";
-				SDKROOT = macosx;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lhltypes",
+					"-lgtypes",
+					"-framework",
+					CoreServices,
+				);
 			};
 			name = Debug;
 		};
@@ -670,8 +556,13 @@
 					"${SRCROOT}/../hltypes/include",
 					"$(inherited)",
 				);
-				OTHER_LDFLAGS = "-ObjC";
-				SDKROOT = macosx;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lhltypes",
+					"-lgtypes",
+					"-framework",
+					CoreServices,
+				);
 			};
 			name = Release;
 		};
@@ -684,8 +575,13 @@
 					"${SRCROOT}/../hltypes/include",
 					"$(inherited)",
 				);
-				OTHER_LDFLAGS = "-ObjC";
-				SDKROOT = macosx;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lhltypes",
+					"-lgtypes",
+					"-framework",
+					CoreServices,
+				);
 			};
 			name = "App Store";
 		};
@@ -771,6 +667,11 @@
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lhltypes",
+					"-lgtypes",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cateia.gtypesTests;
 				PRODUCT_NAME = gtypesTests_ios;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -813,6 +714,11 @@
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lhltypes",
+					"-lgtypes",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cateia.gtypesTests;
 				PRODUCT_NAME = gtypesTests_ios;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -856,6 +762,11 @@
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lhltypes",
+					"-lgtypes",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cateia.gtypesTests;
 				PRODUCT_NAME = gtypesTests_ios;
 				TARGETED_DEVICE_FAMILY = "1,2";
