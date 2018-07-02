@@ -1,6 +1,6 @@
 #define _HTEST_LIB gtypes
 #define _HTEST_CLASS Vector2
-#include "htest.h"
+#include <htest/htest.h>
 
 #include "Vector2.h"
 

@@ -1,6 +1,6 @@
 #define _HTEST_LIB gtypes
 #define _HTEST_CLASS Matrix3
-#include "htest.h"
+#include <htest/htest.h>
 
 #include "Matrix3.h"
 #include "Matrix4.h"

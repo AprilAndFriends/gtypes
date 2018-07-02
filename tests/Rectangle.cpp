@@ -1,6 +1,6 @@
 #define _HTEST_LIB gtypes
 #define _HTEST_CLASS Rectangle
-#include "htest.h"
+#include <htest/htest.h>
 
 #include "Rectangle.h"
 #include "Vector2.h"

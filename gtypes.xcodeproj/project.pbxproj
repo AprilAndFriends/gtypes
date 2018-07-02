@@ -533,7 +533,6 @@
 			baseConfigurationReference = D1681B7618D761D80088FC68 /* Mac.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/../hltypes/htest",
 					"${SRCROOT}/../hltypes/include",
 					"$(inherited)",
 				);
@@ -552,7 +551,6 @@
 			baseConfigurationReference = D1681B7618D761D80088FC68 /* Mac.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/../hltypes/htest",
 					"${SRCROOT}/../hltypes/include",
 					"$(inherited)",
 				);
@@ -571,7 +569,6 @@
 			baseConfigurationReference = D1681B7618D761D80088FC68 /* Mac.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/../hltypes/htest",
 					"${SRCROOT}/../hltypes/include",
 					"$(inherited)",
 				);
@@ -661,7 +658,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/../hltypes/htest",
 					"${SRCROOT}/../hltypes/include",
 					"$(inherited)",
 				);
@@ -708,7 +704,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/../hltypes/htest",
 					"${SRCROOT}/../hltypes/include",
 					"$(inherited)",
 				);
@@ -756,7 +751,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/../hltypes/htest",
 					"${SRCROOT}/../hltypes/include",
 					"$(inherited)",
 				);
