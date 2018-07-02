@@ -81,6 +81,14 @@
     <ClCompile Include="..\..\tests\Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\hltypes\msvc\vs2015\libhltypes.vcxproj">
+      <Project>{e4d373bf-e227-48b9-99e6-84987e8674ec}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
     <ProjectReference Include="libgtypes.vcxproj">
       <Project>{9c043b29-db40-48d5-97d8-1bc44128e3ba}</Project>
       <Private>false</Private>
