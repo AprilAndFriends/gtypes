@@ -68,11 +68,11 @@
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* gtypes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = gtypes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F9313C14DA87F400954F90 /* gtypesUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gtypesUtil.h; path = include/gtypes/gtypesUtil.h; sourceTree = "<group>"; };
-		D1353E7E1AD311BA00BB5829 /* gtypes.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gtypes.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1353E7E1AD311BA00BB5829 /* gtypesTests.mac.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gtypesTests.mac.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1522F1C140F79500012F290 /* libgtypes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtypes.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1681B7518D761D80088FC68 /* iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = iOS.xcconfig; path = xcconfig/iOS.xcconfig; sourceTree = "<group>"; };
 		D1681B7618D761D80088FC68 /* Mac.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Mac.xcconfig; path = xcconfig/Mac.xcconfig; sourceTree = "<group>"; };
-		D175DE3220DBF34300CC44BB /* gtypesTests_ios.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gtypesTests_ios.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D175DE3220DBF34300CC44BB /* gtypesTests.ios.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gtypesTests.ios.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18FC63520DBD3D500F85CE2 /* Matrix4.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Matrix4.cpp; path = tests/Matrix4.cpp; sourceTree = "<group>"; };
 		D18FC63620DBD3D500F85CE2 /* Rectangle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Rectangle.cpp; path = tests/Rectangle.cpp; sourceTree = "<group>"; };
 		D18FC63720DBD3D500F85CE2 /* Matrix3.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Matrix3.cpp; path = tests/Matrix3.cpp; sourceTree = "<group>"; };
@@ -113,8 +113,8 @@
 				8DC2EF5B0486A6940098B216 /* gtypes.framework */,
 				D1522F1C140F79500012F290 /* libgtypes.a */,
 				D1F27A89177A2CB600E5C131 /* libgtypes.a */,
-				D1353E7E1AD311BA00BB5829 /* gtypes.xctest */,
-				D175DE3220DBF34300CC44BB /* gtypesTests_ios.xctest */,
+				D1353E7E1AD311BA00BB5829 /* gtypesTests.mac.xctest */,
+				D175DE3220DBF34300CC44BB /* gtypesTests.ios.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -249,7 +249,7 @@
 			);
 			name = "gtypesTests (Mac)";
 			productName = "gtypesTests (Mac)";
-			productReference = D1353E7E1AD311BA00BB5829 /* gtypes.xctest */;
+			productReference = D1353E7E1AD311BA00BB5829 /* gtypesTests.mac.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		D1522F1B140F79500012F290 /* gtypes (iOS) */ = {
@@ -282,7 +282,7 @@
 			);
 			name = "gtypesTests (iOS)";
 			productName = "gtypesTests (iOS)";
-			productReference = D175DE3220DBF34300CC44BB /* gtypesTests_ios.xctest */;
+			productReference = D175DE3220DBF34300CC44BB /* gtypesTests.ios.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		D1F27A77177A2CB600E5C131 /* gtypes (Mac) */ = {
@@ -543,6 +543,8 @@
 					"-framework",
 					CoreServices,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.gtypesTests;
+				PRODUCT_NAME = gtypesTests.mac;
 			};
 			name = Debug;
 		};
@@ -561,6 +563,8 @@
 					"-framework",
 					CoreServices,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.gtypesTests;
+				PRODUCT_NAME = gtypesTests.mac;
 			};
 			name = Release;
 		};
@@ -579,6 +583,8 @@
 					"-framework",
 					CoreServices,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.gtypesTests;
+				PRODUCT_NAME = gtypesTests.mac;
 			};
 			name = "App Store";
 		};
@@ -668,8 +674,8 @@
 					"-lhltypes",
 					"-lgtypes",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cateia.gtypesTests;
-				PRODUCT_NAME = gtypesTests_ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.gtypesTests;
+				PRODUCT_NAME = gtypesTests.ios;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -714,8 +720,8 @@
 					"-lhltypes",
 					"-lgtypes",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cateia.gtypesTests;
-				PRODUCT_NAME = gtypesTests_ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.gtypesTests;
+				PRODUCT_NAME = gtypesTests.ios;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -761,8 +767,8 @@
 					"-lhltypes",
 					"-lgtypes",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cateia.gtypesTests;
-				PRODUCT_NAME = gtypesTests_ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.gtypesTests;
+				PRODUCT_NAME = gtypesTests.ios;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
