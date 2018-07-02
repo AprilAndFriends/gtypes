@@ -54,21 +54,13 @@
     <ProjectGuid>{25CE8ABC-D032-44EC-A6FB-89E468994BDD}</ProjectGuid>
     <RootNamespace>gtypes_tests</RootNamespace>
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='DebugS|Win32'" />
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='ReleaseS|Win32'" />
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
-  <Import Condition="exists('..\..\..\hltypes\msvc\vs2015\props-generic\system.props')" Project="..\..\..\hltypes\msvc\vs2015\props-generic\system.props" />
-  <Import Condition="!exists('..\..\..\hltypes\msvc\vs2015\props-generic\system.props')" Project="props-generic\system.props" />
+  <Import Project="..\..\..\hltypes\msvc\vs2015\props-generic\system.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="props\default.props" />
-  <Import Condition="exists('..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\platform-$(Platform).props')" Project="..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\platform-$(Platform).props" />
-  <Import Condition="!exists('..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\platform-$(Platform).props')" Project="props-generic\platform-$(Platform).props" />
-  <Import Condition="exists('..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\configurations.props')" Project="..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\configurations.props" />
-  <Import Condition="!exists('..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\configurations.props')" Project="props-generic\configurations.props" />
+  <Import Project="..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\platform-$(Platform).props" />
+  <Import Project="..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\configurations.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <Import Condition="exists('..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\build-defaults.props')" Project="..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\build-defaults.props" />
-  <Import Condition="!exists('..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\build-defaults.props')" Project="props-generic\build-defaults.props" />
+  <Import Project="..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\build-defaults.props" />
   <Import Project="..\..\..\hltypes\msvc\$(HLTypesMsvcType)\props-generic\htest.props" />
   <ItemDefinitionGroup>
     <ClCompile>
