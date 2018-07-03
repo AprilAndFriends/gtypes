@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="tests-util\pch.cpp">
+      <Filter>uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="..\..\tests\Matrix3.cpp" />
+    <ClCompile Include="..\..\tests\Matrix4.cpp" />
+    <ClCompile Include="..\..\tests\Rectangle.cpp" />
+    <ClCompile Include="..\..\tests\Vector2.cpp" />
+    <ClCompile Include="..\..\tests\Vector3.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="tests-util\pch.h">
+      <Filter>uwp</Filter>
+    </ClInclude>
+    <ClInclude Include="App.xaml.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="tests-util\Assets\LockScreenLogo.scale-200.png">
+      <Filter>uwp\Assets</Filter>
+    </Image>
+    <Image Include="tests-util\Assets\SplashScreen.scale-200.png">
+      <Filter>uwp\Assets</Filter>
+    </Image>
+    <Image Include="tests-util\Assets\Square44x44Logo.scale-200.png">
+      <Filter>uwp\Assets</Filter>
+    </Image>
+    <Image Include="tests-util\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>uwp\Assets</Filter>
+    </Image>
+    <Image Include="tests-util\Assets\Square150x150Logo.scale-200.png">
+      <Filter>uwp\Assets</Filter>
+    </Image>
+    <Image Include="tests-util\Assets\StoreLogo.png">
+      <Filter>uwp\Assets</Filter>
+    </Image>
+    <Image Include="tests-util\Assets\Wide310x150Logo.scale-200.png">
+      <Filter>uwp\Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="uwp">
+      <UniqueIdentifier>{2c6f8ce0-f67f-4339-93d5-0db2fea5a2d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uwp\Assets">
+      <UniqueIdentifier>{a74ab6c5-d942-48fe-8379-3b9edd4f957a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="tests-util\Package.appxmanifest">
+      <Filter>uwp</Filter>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="tests-util\TemporaryKey.pfx">
+      <Filter>uwp</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Filter>uwp</Filter>
+    </ApplicationDefinition>
+  </ItemGroup>
+</Project>
