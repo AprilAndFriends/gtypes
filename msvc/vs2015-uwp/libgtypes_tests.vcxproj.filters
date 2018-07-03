@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="tests-util\pch.cpp">
-      <Filter>uwp</Filter>
-    </ClCompile>
-    <ClCompile Include="App.xaml.cpp" />
     <ClCompile Include="..\..\tests\Matrix3.cpp" />
     <ClCompile Include="..\..\tests\Matrix4.cpp" />
     <ClCompile Include="..\..\tests\Rectangle.cpp" />
     <ClCompile Include="..\..\tests\Vector2.cpp" />
     <ClCompile Include="..\..\tests\Vector3.cpp" />
+    <ClCompile Include="tests-util\pch.cpp">
+      <Filter>uwp</Filter>
+    </ClCompile>
+    <ClCompile Include="App.xaml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tests-util\pch.h">
@@ -62,5 +62,10 @@
     <ApplicationDefinition Include="App.xaml">
       <Filter>uwp</Filter>
     </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="tests-util\App.rd.xml">
+      <Filter>uwp</Filter>
+    </Xml>
   </ItemGroup>
 </Project>
