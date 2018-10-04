@@ -439,7 +439,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1681B7618D761D80088FC68 /* Mac.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				INFOPLIST_FILE = Info.plist;
 				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.googlecode.${PRODUCT_NAME:rfc1034Identifier}";
@@ -479,7 +478,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1681B7618D761D80088FC68 /* Mac.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = Info.plist;
 				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
@@ -518,7 +516,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1681B7618D761D80088FC68 /* Mac.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				INFOPLIST_FILE = Info.plist;
 				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.googlecode.${PRODUCT_NAME:rfc1034Identifier}";
@@ -637,7 +634,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1681B7518D761D80088FC68 /* iOS.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ENABLE_MODULES = YES;
@@ -684,7 +680,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1681B7518D761D80088FC68 /* iOS.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ENABLE_MODULES = YES;
@@ -731,7 +726,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1681B7518D761D80088FC68 /* iOS.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ENABLE_MODULES = YES;
@@ -778,7 +772,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1681B7618D761D80088FC68 /* Mac.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
@@ -792,7 +785,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1681B7618D761D80088FC68 /* Mac.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
@@ -806,7 +798,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1681B7618D761D80088FC68 /* Mac.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
