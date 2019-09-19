@@ -14,32 +14,4 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='DebugS|Android'">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='ReleaseS|Android'">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Android-x86'">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='DebugS|Android-x86'">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Android-x86'">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='ReleaseS|Android-x86'">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-  </PropertyGroup>
 </Project>
